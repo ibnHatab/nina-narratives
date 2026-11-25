@@ -1,0 +1,297 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch01/chapter.llp",
+  "key": "66bc82fea9e1272c064726a4de9df15265f9b9d5fad17da8593c601b4746b20d",
+  "seed": 7,
+  "case": "authored",
+  "initial": [
+    "reminder_morning(call_elena)",
+    "greeting_available",
+    "discovery_pending"
+  ],
+  "inputs": [
+    {
+      "label": "ambiguous bedroom movement",
+      "inputs": [
+        "bedroom_motion"
+      ],
+      "present": [
+        "greeting_tentative"
+      ],
+      "absent": [
+        "greeted"
+      ]
+    },
+    {
+      "label": "no corroboration",
+      "inputs": [
+        "no_followup"
+      ],
+      "present": [
+        "greeting_withdrawn"
+      ],
+      "absent": [
+        "greeted"
+      ]
+    },
+    {
+      "label": "hallway and kettle",
+      "inputs": [
+        "hallway_motion",
+        "kettle_heard",
+        "day_question"
+      ],
+      "present": [
+        "greeted",
+        "briefed(call_elena)"
+      ],
+      "absent": []
+    },
+    {
+      "label": "event-bound reminder and postponed discovery",
+      "inputs": [
+        "request_after_return(call_elena)",
+        "not_before_coffee"
+      ],
+      "present": [
+        "reminder_return(call_elena)",
+        "discovery_deferred"
+      ],
+      "absent": [
+        "reminded(call_elena)"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +bedroom_motion prepare_greeting do +no_followup withdraw_greeting do +hallway_motion +kettle_heard +day_question greet brief[T=call_elena] do +request_after_return(call_elena) +not_before_coffee defer_discovery reschedule[T=call_elena]\nstage (done) | briefed(call_elena):1 discovery_deferred:1 greeted:1 greeting_withdrawn:1 reminder_return(call_elena):1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +bedroom_motion",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "bedroom_motion": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "prepare_greeting",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "bedroom_motion": 1,
+          "greeting_available": 1
+        },
+        "produce": {
+          "greeting_tentative": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 3,
+        "name": "do +no_followup",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "no_followup": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 4,
+        "name": "withdraw_greeting",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "greeting_tentative": 1,
+          "no_followup": 1
+        },
+        "produce": {
+          "greeting_available": 1,
+          "greeting_withdrawn": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 5,
+        "name": "do +hallway_motion +kettle_heard +day_question",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "day_question": 1,
+          "hallway_motion": 1,
+          "kettle_heard": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 6,
+        "name": "greet",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 4,
+        "episode": 0,
+        "consume": {
+          "greeting_available": 1,
+          "hallway_motion": 1,
+          "kettle_heard": 1
+        },
+        "produce": {
+          "greeted": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 7,
+        "name": "brief[T=call_elena]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 5,
+        "episode": 0,
+        "consume": {
+          "day_question": 1
+        },
+        "produce": {
+          "briefed(call_elena)": 1
+        },
+        "persist": {
+          "greeted": 1,
+          "reminder_morning(call_elena)": 1
+        }
+      },
+      {
+        "i": 8,
+        "name": "do +request_after_return(call_elena) +not_before_coffee",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "request_after_return(call_elena)": 1,
+          "not_before_coffee": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 9,
+        "name": "defer_discovery",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "discovery_pending": 1,
+          "not_before_coffee": 1
+        },
+        "produce": {
+          "discovery_deferred": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 10,
+        "name": "reschedule[T=call_elena]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 6,
+        "episode": 0,
+        "consume": {
+          "reminder_morning(call_elena)": 1,
+          "request_after_return(call_elena)": 1
+        },
+        "produce": {
+          "reminder_return(call_elena)": 1
+        },
+        "persist": {}
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "briefed(call_elena)": 1,
+      "discovery_deferred": 1,
+      "greeted": 1,
+      "greeting_withdrawn": 1,
+      "reminder_return(call_elena)": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "ambiguous bedroom movement",
+      "counts": {
+        "reminder_morning(call_elena)": 1,
+        "discovery_pending": 1,
+        "greeting_tentative": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "no corroboration",
+      "counts": {
+        "reminder_morning(call_elena)": 1,
+        "discovery_pending": 1,
+        "greeting_available": 1,
+        "greeting_withdrawn": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "hallway and kettle",
+      "counts": {
+        "reminder_morning(call_elena)": 1,
+        "discovery_pending": 1,
+        "greeting_withdrawn": 1,
+        "greeted": 1,
+        "briefed(call_elena)": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "event-bound reminder and postponed discovery",
+      "counts": {
+        "greeting_withdrawn": 1,
+        "greeted": 1,
+        "briefed(call_elena)": 1,
+        "discovery_deferred": 1,
+        "reminder_return(call_elena)": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

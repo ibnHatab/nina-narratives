@@ -1,0 +1,5 @@
+program: chapter.llp
+display: "Nina, Book I chapter 6"
+line: "Candidate fictional simulation: The dinner that nearly did not happen"
+voice: third
+clock: {beats: 1}

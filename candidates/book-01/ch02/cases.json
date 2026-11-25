@@ -1,0 +1,127 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "chapter": "B01-C02",
+  "seeds": [
+    1,
+    7,
+    19
+  ],
+  "cases": [
+    {
+      "name": "authored",
+      "initial": [
+        "command_pending"
+      ],
+      "phases": [
+        {
+          "label": "accepted command without expected report",
+          "inputs": [
+            "response_overdue"
+          ],
+          "present": [
+            "explanation_open"
+          ],
+          "absent": [
+            "manual_intervention_reported"
+          ]
+        },
+        {
+          "label": "contradiction and question",
+          "inputs": [
+            "conflicting_report",
+            "human_available"
+          ],
+          "present": [
+            "override_question"
+          ],
+          "absent": []
+        },
+        {
+          "label": "human explanation and contextual preference",
+          "inputs": [
+            "human_reports_remote",
+            "noise_preference_at_work"
+          ],
+          "present": [
+            "manual_intervention_reported",
+            "scene_offered"
+          ],
+          "absent": []
+        },
+        {
+          "label": "bounded consent",
+          "inputs": [
+            "quiet_scene_consent",
+            "keep_ventilation",
+            "explicit_activation_only",
+            "lab_presence",
+            "reflection_opportunity"
+          ],
+          "present": [
+            "scene_authorized",
+            "recognition_proposal_pending"
+          ],
+          "absent": [
+            "quiet_scene_active"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "explicit-start",
+      "initial": [
+        "scene_authorized",
+        "nonzero_ventilation_required",
+        "explicit_activation_required"
+      ],
+      "phases": [
+        {
+          "label": "word",
+          "inputs": [
+            "work_start_word"
+          ],
+          "present": [
+            "quiet_scene_active"
+          ],
+          "absent": []
+        }
+      ]
+    },
+    {
+      "name": "presence-is-not-concentration",
+      "initial": [
+        "scene_authorized",
+        "nonzero_ventilation_required",
+        "explicit_activation_required"
+      ],
+      "phases": [
+        {
+          "label": "presence",
+          "inputs": [
+            "lab_presence"
+          ],
+          "present": [],
+          "absent": [
+            "quiet_scene_active"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "word-without-consent",
+      "initial": [],
+      "phases": [
+        {
+          "label": "word",
+          "inputs": [
+            "work_start_word"
+          ],
+          "present": [],
+          "absent": [
+            "quiet_scene_active"
+          ]
+        }
+      ]
+    }
+  ]
+}

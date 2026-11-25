@@ -1,0 +1,16 @@
+{
+  "member": "mechanisms",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 2,
+  "inputs": 1,
+  "fired": {
+    "1": [
+      "remind[T=call]",
+      "reconcile_notified[T=call]"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

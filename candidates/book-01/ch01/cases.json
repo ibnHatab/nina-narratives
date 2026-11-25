@@ -1,0 +1,112 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "chapter": "B01-C01",
+  "seeds": [
+    1,
+    7,
+    19
+  ],
+  "cases": [
+    {
+      "name": "authored",
+      "initial": [
+        "reminder_morning(call_elena)",
+        "greeting_available",
+        "discovery_pending"
+      ],
+      "phases": [
+        {
+          "label": "ambiguous bedroom movement",
+          "inputs": [
+            "bedroom_motion"
+          ],
+          "present": [
+            "greeting_tentative"
+          ],
+          "absent": [
+            "greeted"
+          ]
+        },
+        {
+          "label": "no corroboration",
+          "inputs": [
+            "no_followup"
+          ],
+          "present": [
+            "greeting_withdrawn"
+          ],
+          "absent": [
+            "greeted"
+          ]
+        },
+        {
+          "label": "hallway and kettle",
+          "inputs": [
+            "hallway_motion",
+            "kettle_heard",
+            "day_question"
+          ],
+          "present": [
+            "greeted",
+            "briefed(call_elena)"
+          ],
+          "absent": []
+        },
+        {
+          "label": "event-bound reminder and postponed discovery",
+          "inputs": [
+            "request_after_return(call_elena)",
+            "not_before_coffee"
+          ],
+          "present": [
+            "reminder_return(call_elena)",
+            "discovery_deferred"
+          ],
+          "absent": [
+            "reminded(call_elena)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "return-releases-reminder",
+      "initial": [
+        "reminder_return(call_elena)"
+      ],
+      "phases": [
+        {
+          "label": "return",
+          "inputs": [
+            "returned_from_appointment"
+          ],
+          "present": [
+            "reminded(call_elena)"
+          ],
+          "absent": [
+            "reminder_return(call_elena)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "kettle-alone",
+      "initial": [
+        "greeting_available"
+      ],
+      "phases": [
+        {
+          "label": "kettle",
+          "inputs": [
+            "kettle_heard"
+          ],
+          "present": [
+            "greeting_available"
+          ],
+          "absent": [
+            "greeted"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -23,4 +23,9 @@ The literature is the source, not the output of the rules. We author plausible a
 
 ## Status
 
-Initial literary research corpus, not an executable deployment. Stories are fiction; their events and characters are not evidence about real people. No empirical probabilities are inferred from authored frequencies. No license has yet been selected.
+Literary research corpus with executable formalization candidates, not an operational deployment. Stories are fiction; their events and characters are not evidence about real people. No empirical probabilities are inferred from authored frequencies. No license has yet been selected.
+
+
+## Book I formalization review
+
+Executable research candidates and reproducible simulations are in [candidates/book-01](candidates/book-01/README.md). Read the [evaluation report](evaluation/book-01/REVIEW.md) for mechanical results, narration failures, preserved counterexamples and questions for the creative team. These proposals are not deployed home rules.

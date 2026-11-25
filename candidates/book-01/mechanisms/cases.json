@@ -1,0 +1,296 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "chapter": "B01-shared",
+  "seeds": [
+    1,
+    7,
+    19
+  ],
+  "cases": [
+    {
+      "name": "fan-explanation",
+      "initial": [
+        "open_issue(ventilation)",
+        "interruption_budget"
+      ],
+      "phases": [
+        {
+          "label": "ambiguous observation",
+          "inputs": [
+            "discrepancy(ventilation,sensor)",
+            "clarification_opportunity(ventilation)"
+          ],
+          "present": [
+            "candidate(ventilation,device_fault)",
+            "candidate(ventilation,manual_override)",
+            "clarification_asked(ventilation)",
+            "observation_kept(ventilation,sensor)"
+          ],
+          "absent": []
+        },
+        {
+          "label": "sourced clarification",
+          "inputs": [
+            "explanation_report(ventilation,manual_override,resident)"
+          ],
+          "present": [
+            "accepted_report(ventilation,manual_override,resident)",
+            "observation_kept(ventilation,sensor)"
+          ],
+          "absent": [
+            "considering(ventilation)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "appointment-explanation",
+      "initial": [
+        "open_issue(appointment)",
+        "interruption_budget"
+      ],
+      "phases": [
+        {
+          "label": "ambiguous observation",
+          "inputs": [
+            "discrepancy(appointment,sensor)",
+            "clarification_opportunity(appointment)"
+          ],
+          "present": [
+            "candidate(appointment,forgotten)",
+            "candidate(appointment,cancelled)",
+            "clarification_asked(appointment)",
+            "observation_kept(appointment,sensor)"
+          ],
+          "absent": []
+        },
+        {
+          "label": "sourced clarification",
+          "inputs": [
+            "explanation_report(appointment,cancelled,resident)"
+          ],
+          "present": [
+            "accepted_report(appointment,cancelled,resident)",
+            "observation_kept(appointment,sensor)"
+          ],
+          "absent": [
+            "considering(appointment)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pantry-transfer",
+      "initial": [
+        "open_issue(pantry)",
+        "interruption_budget"
+      ],
+      "phases": [
+        {
+          "label": "ambiguous observation",
+          "inputs": [
+            "discrepancy(pantry,sensor)",
+            "clarification_opportunity(pantry)"
+          ],
+          "present": [
+            "candidate(pantry,stale_inventory)",
+            "candidate(pantry,consumed)",
+            "clarification_asked(pantry)",
+            "observation_kept(pantry,sensor)"
+          ],
+          "absent": []
+        },
+        {
+          "label": "sourced clarification",
+          "inputs": [
+            "explanation_report(pantry,consumed,resident)"
+          ],
+          "present": [
+            "accepted_report(pantry,consumed,resident)",
+            "observation_kept(pantry,sensor)"
+          ],
+          "absent": [
+            "considering(pantry)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "authored",
+      "initial": [
+        "promise(call,morning)",
+        "interruption_budget"
+      ],
+      "phases": [
+        {
+          "label": "resident reschedules",
+          "inputs": [
+            "rebind(call,morning,return)"
+          ],
+          "present": [
+            "promise(call,return)"
+          ],
+          "absent": [
+            "promise(call,morning)",
+            "notified(call)"
+          ]
+        },
+        {
+          "label": "wrong trigger",
+          "inputs": [
+            "trigger_observed(morning)"
+          ],
+          "present": [
+            "promise(call,return)"
+          ],
+          "absent": [
+            "notified(call)"
+          ]
+        },
+        {
+          "label": "return",
+          "inputs": [
+            "trigger_observed(return)"
+          ],
+          "present": [
+            "notified(call)"
+          ],
+          "absent": [
+            "fulfilled(call)"
+          ]
+        },
+        {
+          "label": "reported completion",
+          "inputs": [
+            "completion_report(call)"
+          ],
+          "present": [
+            "fulfilled(call)"
+          ],
+          "absent": [
+            "notified(call)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dinner-consent-persists",
+      "initial": [
+        "consented_plan(dinner,original)"
+      ],
+      "phases": [
+        {
+          "label": "consent",
+          "inputs": [
+            "change_consent(dinner,simple)"
+          ],
+          "present": [
+            "consented_plan(dinner,simple)"
+          ],
+          "absent": []
+        },
+        {
+          "label": "guest delayed",
+          "inputs": [
+            "changed_circumstances(dinner)"
+          ],
+          "present": [
+            "consented_plan(dinner,simple)",
+            "reconsideration_offered(dinner)"
+          ],
+          "absent": [
+            "consented_plan(dinner,original)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "outage-reconcile",
+      "initial": [
+        "promise(call,return)"
+      ],
+      "phases": [
+        {
+          "label": "completion before reminder",
+          "inputs": [
+            "completion_report(call)"
+          ],
+          "present": [
+            "fulfilled(call)"
+          ],
+          "absent": [
+            "notified(call)",
+            "promise(call,return)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "competing-reminders",
+      "initial": [
+        "promise(call,return)",
+        "promise(secondary_call,return)",
+        "interruption_budget"
+      ],
+      "phases": [
+        {
+          "label": "one opportunity, two promises",
+          "inputs": [
+            "trigger_observed(return)"
+          ],
+          "present": [],
+          "absent": [
+            "fulfilled(call)",
+            "fulfilled(secondary_call)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stale-trigger-counterexample",
+      "known_limitation": "Trigger atoms lack event identity/freshness.",
+      "initial": [
+        "promise(call,morning)",
+        "trigger_observed(return)"
+      ],
+      "phases": [
+        {
+          "label": "rebind after an old return",
+          "inputs": [
+            "rebind(call,morning,return)"
+          ],
+          "present": [
+            "promise(call,return)"
+          ],
+          "absent": [
+            "ready(call)",
+            "notified(call)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "completion-race-counterexample",
+      "known_limitation": "No priority between reminder and completion reconciliation.",
+      "initial": [
+        "ready(call)",
+        "interruption_budget"
+      ],
+      "phases": [
+        {
+          "label": "completion before notification should take priority",
+          "inputs": [
+            "completion_report(call)"
+          ],
+          "present": [
+            "fulfilled(call)",
+            "interruption_budget"
+          ],
+          "absent": [
+            "notified(call)"
+          ]
+        }
+      ]
+    }
+  ]
+}

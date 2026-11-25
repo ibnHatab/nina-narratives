@@ -1,0 +1,45 @@
+warning state-unproduced @ chapter.llp:19:6 (pred/discrepancy)
+  pred discrepancy(issue,source) : cognition.
+  -> produce discrepancy in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:20:6 (pred/observation_kept)
+  pred observation_kept(issue,source) : cognition.
+  -> give observation_kept a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:21:6 (pred/open_issue)
+  pred open_issue(issue) : cognition.
+  -> produce open_issue in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:24:6 (pred/explanation_report)
+  pred explanation_report(issue,reason,source) : cognition.
+  -> produce explanation_report in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:25:6 (pred/accepted_report)
+  pred accepted_report(issue,reason,source) : cognition.
+  -> give accepted_report a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:26:6 (pred/clarification_opportunity)
+  pred clarification_opportunity(issue) : cognition.
+  -> produce clarification_opportunity in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:27:6 (pred/clarification_asked)
+  pred clarification_asked(issue) : cognition.
+  -> give clarification_asked a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:28:6 (pred/interruption_budget)
+  pred interruption_budget : cognition.
+  -> produce interruption_budget in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:30:6 (pred/rebind)
+  pred rebind(task,trigger,trigger) : cognition.
+  -> produce rebind in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:31:6 (pred/trigger_observed)
+  pred trigger_observed(trigger) : cognition.
+  -> produce trigger_observed in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:34:6 (pred/fulfilled)
+  pred fulfilled(task) : cognition.
+  -> give fulfilled a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:35:6 (pred/completion_report)
+  pred completion_report(task) : cognition.
+  -> produce completion_report in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:37:6 (pred/change_consent)
+  pred change_consent(task,plan) : cognition.
+  -> produce change_consent in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:38:6 (pred/changed_circumstances)
+  pred changed_circumstances(task) : cognition.
+  -> produce changed_circumstances in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:39:6 (pred/reconsideration_offered)
+  pred reconsideration_offered(task) : cognition.
+  -> give reconsideration_offered a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on

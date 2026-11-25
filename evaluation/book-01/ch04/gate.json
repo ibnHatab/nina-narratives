@@ -1,0 +1,89 @@
+{
+  "ok": true,
+  "classification": "class-F candidate (statics admit; Z-check applies with bindings)",
+  "findings": [],
+  "warnings": [],
+  "rules": [
+    [
+      "consider_explanations",
+      "[B01-C04-S01] \"There were other explanations.\""
+    ],
+    [
+      "ask_busy",
+      "[B01-C04-S01] \"Busy morning?\""
+    ],
+    [
+      "reduce_interruptions",
+      "[B01-C04-S01] \"I'll keep the interruptions down.\""
+    ],
+    [
+      "apparent_missed_appointment",
+      "[B01-C04-S02] \"This appeared to support her hypothesis\""
+    ],
+    [
+      "correct_explanation",
+      "[B01-C04-S02] \"The cancellation had arrived through a channel she could not read.\""
+    ],
+    [
+      "retain_ambiguity_case",
+      "[B01-C04-S03] \"The original events had not changed.\""
+    ]
+  ],
+  "diagnostics": [],
+  "scenarios": [
+    {
+      "key": "1d2c96f7ccbdf4f391f9aeca83864e17c737e29abfa62649ae152481b3f8dcd9",
+      "support": 1,
+      "diffs": [],
+      "map_events": [
+        "consider_explanations",
+        "ask_busy"
+      ]
+    }
+  ],
+  "revision": true,
+  "diff_preview": [
+    [
+      "ambiguous_observations",
+      0.0,
+      1.0
+    ],
+    [
+      "busy_question",
+      0.0,
+      1.0
+    ],
+    [
+      "conversational_opening",
+      1.0,
+      0.0
+    ],
+    [
+      "dismissed_briefing",
+      1.0,
+      0.0
+    ],
+    [
+      "hypothesis_upset",
+      0.0,
+      1.0
+    ],
+    [
+      "hypothesis_work",
+      0.0,
+      1.0
+    ],
+    [
+      "interpretation_open",
+      1.0,
+      0.0
+    ],
+    [
+      "quiet_response",
+      1.0,
+      0.0
+    ]
+  ],
+  "comments_dropped": 0,
+  "text_changed": true
+}

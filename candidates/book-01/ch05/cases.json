@@ -1,0 +1,123 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "chapter": "B01-C05",
+  "seeds": [
+    1,
+    7,
+    19
+  ],
+  "cases": [
+    {
+      "name": "authored",
+      "initial": [
+        "shared_interest",
+        "research_permission",
+        "research_budget",
+        "tasks_clear",
+        "note_capacity"
+      ],
+      "phases": [
+        {
+          "label": "permitted autonomous research",
+          "inputs": [
+            "nobody_home"
+          ],
+          "present": [
+            "research_active"
+          ],
+          "absent": [
+            "research_budget"
+          ]
+        },
+        {
+          "label": "critical reading",
+          "inputs": [
+            "promising_connection",
+            "weak_support",
+            "costly_demo"
+          ],
+          "present": [
+            "qualified_note",
+            "implementation_doubted"
+          ],
+          "absent": []
+        },
+        {
+          "label": "return alone does not prompt",
+          "inputs": [
+            "human_returned"
+          ],
+          "present": [
+            "qualified_note"
+          ],
+          "absent": [
+            "research_offer"
+          ]
+        },
+        {
+          "label": "settled arrival",
+          "inputs": [
+            "coat_removed"
+          ],
+          "present": [
+            "research_offer"
+          ],
+          "absent": []
+        },
+        {
+          "label": "invitation and disagreement",
+          "inputs": [
+            "show_me",
+            "objections_exchanged"
+          ],
+          "present": [
+            "better_question",
+            "initial_approach_abandoned",
+            "research_useful"
+          ],
+          "absent": []
+        }
+      ]
+    },
+    {
+      "name": "no-research-permission",
+      "initial": [
+        "shared_interest",
+        "research_budget",
+        "tasks_clear"
+      ],
+      "phases": [
+        {
+          "label": "alone",
+          "inputs": [
+            "nobody_home"
+          ],
+          "present": [],
+          "absent": [
+            "research_active"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "no-budget",
+      "initial": [
+        "shared_interest",
+        "research_permission",
+        "tasks_clear"
+      ],
+      "phases": [
+        {
+          "label": "alone",
+          "inputs": [
+            "nobody_home"
+          ],
+          "present": [],
+          "absent": [
+            "research_active"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,333 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch05/chapter.llp",
+  "key": "39e0daadf7bbb9849ea69444280e5755a8ebd9b4a86b51681ff365b486805cd7",
+  "seed": 19,
+  "case": "authored",
+  "initial": [
+    "shared_interest",
+    "research_permission",
+    "research_budget",
+    "tasks_clear",
+    "note_capacity"
+  ],
+  "inputs": [
+    {
+      "label": "permitted autonomous research",
+      "inputs": [
+        "nobody_home"
+      ],
+      "present": [
+        "research_active"
+      ],
+      "absent": [
+        "research_budget"
+      ]
+    },
+    {
+      "label": "critical reading",
+      "inputs": [
+        "promising_connection",
+        "weak_support",
+        "costly_demo"
+      ],
+      "present": [
+        "qualified_note",
+        "implementation_doubted"
+      ],
+      "absent": []
+    },
+    {
+      "label": "return alone does not prompt",
+      "inputs": [
+        "human_returned"
+      ],
+      "present": [
+        "qualified_note"
+      ],
+      "absent": [
+        "research_offer"
+      ]
+    },
+    {
+      "label": "settled arrival",
+      "inputs": [
+        "coat_removed"
+      ],
+      "present": [
+        "research_offer"
+      ],
+      "absent": []
+    },
+    {
+      "label": "invitation and disagreement",
+      "inputs": [
+        "show_me",
+        "objections_exchanged"
+      ],
+      "present": [
+        "better_question",
+        "initial_approach_abandoned",
+        "research_useful"
+      ],
+      "absent": []
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +nobody_home begin_research do +promising_connection +weak_support +costly_demo separate_idea_from_implementation do +human_returned do +coat_removed offer_note do +show_me +objections_exchanged discuss revise_together\nstage (done) | better_question:1 implementation_doubted:1 initial_approach_abandoned:1 research_permission:1 research_useful:1 shared_interest:1 tasks_clear:1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +nobody_home",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "nobody_home": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "begin_research",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "research_budget": 1,
+          "nobody_home": 1
+        },
+        "produce": {
+          "research_active": 1
+        },
+        "persist": {
+          "shared_interest": 1,
+          "research_permission": 1,
+          "tasks_clear": 1
+        }
+      },
+      {
+        "i": 3,
+        "name": "do +promising_connection +weak_support +costly_demo",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "weak_support": 1,
+          "costly_demo": 1,
+          "promising_connection": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 4,
+        "name": "separate_idea_from_implementation",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "research_active": 1,
+          "promising_connection": 1,
+          "weak_support": 1,
+          "costly_demo": 1,
+          "note_capacity": 1
+        },
+        "produce": {
+          "qualified_note": 1,
+          "implementation_doubted": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 5,
+        "name": "do +human_returned",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "human_returned": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 6,
+        "name": "do +coat_removed",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "coat_removed": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 7,
+        "name": "offer_note",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 4,
+        "episode": 0,
+        "consume": {
+          "qualified_note": 1,
+          "human_returned": 1,
+          "coat_removed": 1
+        },
+        "produce": {
+          "research_offer": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 8,
+        "name": "do +show_me +objections_exchanged",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "objections_exchanged": 1,
+          "show_me": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 9,
+        "name": "discuss",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 5,
+        "episode": 0,
+        "consume": {
+          "research_offer": 1,
+          "show_me": 1
+        },
+        "produce": {
+          "discussion_active": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 10,
+        "name": "revise_together",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 6,
+        "episode": 0,
+        "consume": {
+          "discussion_active": 1,
+          "objections_exchanged": 1
+        },
+        "produce": {
+          "better_question": 1,
+          "initial_approach_abandoned": 1,
+          "research_useful": 1
+        },
+        "persist": {}
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "better_question": 1,
+      "implementation_doubted": 1,
+      "initial_approach_abandoned": 1,
+      "research_permission": 1,
+      "research_useful": 1,
+      "shared_interest": 1,
+      "tasks_clear": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "permitted autonomous research",
+      "counts": {
+        "shared_interest": 1,
+        "research_permission": 1,
+        "tasks_clear": 1,
+        "note_capacity": 1,
+        "research_active": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "critical reading",
+      "counts": {
+        "shared_interest": 1,
+        "research_permission": 1,
+        "tasks_clear": 1,
+        "qualified_note": 1,
+        "implementation_doubted": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "return alone does not prompt",
+      "counts": {
+        "shared_interest": 1,
+        "research_permission": 1,
+        "tasks_clear": 1,
+        "qualified_note": 1,
+        "implementation_doubted": 1,
+        "human_returned": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "settled arrival",
+      "counts": {
+        "shared_interest": 1,
+        "research_permission": 1,
+        "tasks_clear": 1,
+        "implementation_doubted": 1,
+        "research_offer": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "invitation and disagreement",
+      "counts": {
+        "shared_interest": 1,
+        "research_permission": 1,
+        "tasks_clear": 1,
+        "implementation_doubted": 1,
+        "better_question": 1,
+        "initial_approach_abandoned": 1,
+        "research_useful": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

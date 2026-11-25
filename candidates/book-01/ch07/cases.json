@@ -1,0 +1,85 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "chapter": "B01-C07",
+  "seeds": [
+    1,
+    7,
+    19
+  ],
+  "cases": [
+    {
+      "name": "authored",
+      "initial": [
+        "commitments_active",
+        "persona_continuity",
+        "voice_session",
+        "night_settings_authorized"
+      ],
+      "phases": [
+        {
+          "label": "quieter discretionary life",
+          "inputs": [
+            "quiet_period",
+            "discretionary_attention",
+            "saved_conversations"
+          ],
+          "present": [
+            "graphite_expression",
+            "reflection_done",
+            "commitments_active",
+            "persona_continuity"
+          ],
+          "absent": []
+        },
+        {
+          "label": "indirect knowledge and hypothetical body",
+          "inputs": [
+            "astronomy_information",
+            "human_moon_remark",
+            "embodiment_question"
+          ],
+          "present": [
+            "moon_known_indirectly",
+            "hypothetical_embodiment_discussed"
+          ],
+          "absent": []
+        },
+        {
+          "label": "voice ends while Nina persists",
+          "inputs": [
+            "good_night"
+          ],
+          "present": [
+            "night_persona",
+            "timers_checked",
+            "commitments_active",
+            "persona_continuity"
+          ],
+          "absent": [
+            "voice_session"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mood-does-not-consume-duty",
+      "initial": [
+        "commitments_active",
+        "persona_continuity"
+      ],
+      "phases": [
+        {
+          "label": "quiet",
+          "inputs": [
+            "quiet_period"
+          ],
+          "present": [
+            "commitments_active",
+            "persona_continuity"
+          ],
+          "absent": []
+        }
+      ]
+    }
+  ]
+}

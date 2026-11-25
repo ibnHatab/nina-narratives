@@ -1,0 +1,52 @@
+% Candidate simulation, not approved for deployment. Source 94e2c5829e6ebefa3bd41e35e513bba943dc8e12.
+% Book I Chapter 6: The dinner that nearly did not happen. Scene IDs are defined in README.md.
+catalog nina_book01_ch06 1.
+provenance text "book-01:94e2c5829e6ebefa3bd41e35e513bba943dc8e12:C06" "2026-11-25".
+layers (story).
+stages (live).
+namespace narrative produce (story).
+pred cooking_started : narrative.
+pred decision_active : narrative.
+pred dinner_commitment : narrative.
+pred dinner_reminded : narrative.
+pred guest_delay_report : narrative.
+pred improvised_dinner : narrative.
+pred ingredient_diverted : narrative.
+pred keep_simple_word : narrative.
+pred notify_guest_option : narrative.
+pred original_plan : narrative.
+pred original_recipe_late : narrative.
+pred preparation_due : narrative.
+pred printer_repair : narrative.
+pred reminder_available : narrative.
+pred reminder_deferred : narrative.
+pred restoration_offered : narrative.
+pred schedule_slack : narrative.
+pred simple_plan : narrative.
+pred simple_reaffirmed : narrative.
+pred simplify_consent : narrative.
+pred simplify_option : narrative.
+pred ten_more_minutes : narrative.
+stage live {
+  %% [B01-C06-S01] "At five forty-five, she mentioned it."
+  remind_dinner [story] : $dinner_commitment * reminder_available * preparation_due -o dinner_reminded.
+  %% [B01-C06-S01] "Another ten minutes."
+  honor_short_delay [story] : dinner_reminded * ten_more_minutes -o reminder_deferred.
+  %% [B01-C06-S02] "We can simplify the recipe, or you can tell Elena."
+  offer_tradeoff [story] : $dinner_commitment * reminder_deferred * printer_repair * original_recipe_late -o simplify_option * notify_guest_option.
+  %% [B01-C06-S02] "Do it."
+  simplify_on_consent [story] : simplify_option * notify_guest_option * original_plan * simplify_consent -o simple_plan * decision_active.
+  %% [B01-C06-S03] "The conflict disappeared."
+  record_later_arrival [story] : guest_delay_report -o schedule_slack.
+  %% [B01-C06-S03] "We can restore the original dinner."
+  offer_restoration [story] : $simple_plan * $decision_active * schedule_slack -o restoration_offered.
+  %% [B01-C06-S03] "No, the simple one is fine."
+  retain_decision [story] : restoration_offered * keep_simple_word -o simple_reaffirmed.
+  %% [B01-C06-S04] "They improvised."
+  coordinate_cooking [story] : $simple_plan * $decision_active * cooking_started * ingredient_diverted -o improvised_dinner.
+}
+#init dinner_commitment 1
+#init original_plan 1
+#init reminder_available 1
+#steps 32
+#seeds 3

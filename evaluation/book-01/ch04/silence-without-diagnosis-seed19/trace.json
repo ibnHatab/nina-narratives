@@ -1,0 +1,88 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch04/chapter.llp",
+  "key": "49768e89eac1018666d481197cc7ea9e12cd7506782d188ee8a6b2117bd1a973",
+  "seed": 19,
+  "case": "silence-without-diagnosis",
+  "initial": [
+    "interpretation_open"
+  ],
+  "inputs": [
+    {
+      "label": "ambiguous",
+      "inputs": [
+        "dismissed_briefing",
+        "quiet_response"
+      ],
+      "present": [
+        "hypothesis_upset",
+        "hypothesis_work"
+      ],
+      "absent": [
+        "working_explanation"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +dismissed_briefing +quiet_response consider_explanations\nstage (done) | ambiguous_observations:1 hypothesis_upset:1 hypothesis_work:1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +dismissed_briefing +quiet_response",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "quiet_response": 1,
+          "dismissed_briefing": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "consider_explanations",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "interpretation_open": 1,
+          "dismissed_briefing": 1,
+          "quiet_response": 1
+        },
+        "produce": {
+          "hypothesis_upset": 1,
+          "hypothesis_work": 1,
+          "ambiguous_observations": 1
+        },
+        "persist": {}
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "ambiguous_observations": 1,
+      "hypothesis_upset": 1,
+      "hypothesis_work": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "ambiguous",
+      "counts": {
+        "hypothesis_upset": 1,
+        "hypothesis_work": 1,
+        "ambiguous_observations": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

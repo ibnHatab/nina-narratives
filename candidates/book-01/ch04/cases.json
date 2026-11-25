@@ -1,0 +1,99 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "chapter": "B01-C04",
+  "seeds": [
+    1,
+    7,
+    19
+  ],
+  "cases": [
+    {
+      "name": "authored",
+      "initial": [
+        "interpretation_open",
+        "research_pending",
+        "monitoring_active"
+      ],
+      "phases": [
+        {
+          "label": "ambiguous morning",
+          "inputs": [
+            "dismissed_briefing",
+            "quiet_response",
+            "conversational_opening"
+          ],
+          "present": [
+            "hypothesis_upset",
+            "hypothesis_work",
+            "busy_question"
+          ],
+          "absent": []
+        },
+        {
+          "label": "explicit busy answer",
+          "inputs": [
+            "busy_yes"
+          ],
+          "present": [
+            "research_deferred",
+            "monitoring_active"
+          ],
+          "absent": []
+        },
+        {
+          "label": "apparent missed appointment",
+          "inputs": [
+            "appointment_passed",
+            "no_departure_observed"
+          ],
+          "present": [
+            "apparent_miss",
+            "hypothesis_upset"
+          ],
+          "absent": []
+        },
+        {
+          "label": "previously unavailable information",
+          "inputs": [
+            "cancellation_report",
+            "design_work_report",
+            "evening_review"
+          ],
+          "present": [
+            "working_explanation",
+            "evidence_gap_acknowledged",
+            "ambiguity_case_saved",
+            "ambiguous_observations",
+            "monitoring_active"
+          ],
+          "absent": [
+            "hypothesis_upset",
+            "apparent_miss"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "silence-without-diagnosis",
+      "initial": [
+        "interpretation_open"
+      ],
+      "phases": [
+        {
+          "label": "ambiguous",
+          "inputs": [
+            "dismissed_briefing",
+            "quiet_response"
+          ],
+          "present": [
+            "hypothesis_upset",
+            "hypothesis_work"
+          ],
+          "absent": [
+            "working_explanation"
+          ]
+        }
+      ]
+    }
+  ]
+}

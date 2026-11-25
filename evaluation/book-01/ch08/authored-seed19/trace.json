@@ -1,0 +1,383 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch08/chapter.llp",
+  "key": "7eb02e1c66605fa66376f32e1476610c0296958a0bb26bb6ee3bbe8d4bb1792c",
+  "seed": 19,
+  "case": "authored",
+  "initial": [
+    "checkpoint_available",
+    "conversation_memory",
+    "settings_authorized",
+    "overdue(completed)",
+    "overdue(relevant)"
+  ],
+  "inputs": [
+    {
+      "label": "restart with stale checkpoint",
+      "inputs": [
+        "restart"
+      ],
+      "present": [
+        "recovered_checkpoint",
+        "unknown_interval"
+      ],
+      "absent": [
+        "settings_restored"
+      ]
+    },
+    {
+      "label": "human explains and reconciles",
+      "inputs": [
+        "power_failure_report",
+        "completion_report(completed)",
+        "relevance_report(relevant)"
+      ],
+      "present": [
+        "outage_explained",
+        "reconciled(completed)",
+        "pending(relevant)",
+        "unknown_interval"
+      ],
+      "absent": [
+        "overdue(completed)",
+        "overdue(relevant)"
+      ]
+    },
+    {
+      "label": "defaults while connection unreliable",
+      "inputs": [
+        "controllers_at_defaults"
+      ],
+      "present": [],
+      "absent": [
+        "restore_requested",
+        "settings_restored"
+      ]
+    },
+    {
+      "label": "reliable connection permits request",
+      "inputs": [
+        "connection_reliable"
+      ],
+      "present": [
+        "restore_requested"
+      ],
+      "absent": [
+        "settings_restored"
+      ]
+    },
+    {
+      "label": "observed recovery and conversational continuity",
+      "inputs": [
+        "restored_settings_report",
+        "conversation_opening"
+      ],
+      "present": [
+        "settings_restored",
+        "conversation_resumed",
+        "unknown_interval",
+        "conversation_memory"
+      ],
+      "absent": []
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +restart restart_with_gap do +power_failure_report +completion_report(completed) +relevance_report(relevant) close_completed_reminder[R=completed] retain_relevant_reminder[R=relevant] acknowledge_outage do +controllers_at_defaults do +connection_reliable request_authorized_restore do +restored_settings_report +conversation_opening confirm_restore continue_saved_conversation\nstage (done) | conversation_memory:1 conversation_resumed:1 outage_explained:1 pending(relevant):1 reconciled(completed):1 recovered_checkpoint:1 settings_authorized:1 settings_restored:1 unknown_interval:1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +restart",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "restart": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "restart_with_gap",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "restart": 1,
+          "checkpoint_available": 1
+        },
+        "produce": {
+          "recovered_checkpoint": 1,
+          "unknown_interval": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 3,
+        "name": "do +power_failure_report +completion_report(completed) +relevance_report(relevant)",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "relevance_report(relevant)": 1,
+          "power_failure_report": 1,
+          "completion_report(completed)": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 4,
+        "name": "close_completed_reminder[R=completed]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "overdue(completed)": 1,
+          "completion_report(completed)": 1
+        },
+        "produce": {
+          "reconciled(completed)": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 5,
+        "name": "retain_relevant_reminder[R=relevant]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "overdue(relevant)": 1,
+          "relevance_report(relevant)": 1
+        },
+        "produce": {
+          "pending(relevant)": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 6,
+        "name": "acknowledge_outage",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "power_failure_report": 1
+        },
+        "produce": {
+          "outage_explained": 1
+        },
+        "persist": {
+          "unknown_interval": 1
+        }
+      },
+      {
+        "i": 7,
+        "name": "do +controllers_at_defaults",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "controllers_at_defaults": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 8,
+        "name": "do +connection_reliable",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "connection_reliable": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 9,
+        "name": "request_authorized_restore",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "connection_reliable": 1,
+          "controllers_at_defaults": 1
+        },
+        "produce": {
+          "restore_requested": 1
+        },
+        "persist": {
+          "settings_authorized": 1,
+          "recovered_checkpoint": 1
+        }
+      },
+      {
+        "i": 10,
+        "name": "do +restored_settings_report +conversation_opening",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "restored_settings_report": 1,
+          "conversation_opening": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 11,
+        "name": "confirm_restore",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 4,
+        "episode": 0,
+        "consume": {
+          "restore_requested": 1,
+          "restored_settings_report": 1
+        },
+        "produce": {
+          "settings_restored": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 12,
+        "name": "continue_saved_conversation",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 4,
+        "episode": 0,
+        "consume": {
+          "conversation_opening": 1
+        },
+        "produce": {
+          "conversation_resumed": 1
+        },
+        "persist": {
+          "conversation_memory": 1,
+          "outage_explained": 1
+        }
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "conversation_memory": 1,
+      "conversation_resumed": 1,
+      "outage_explained": 1,
+      "pending(relevant)": 1,
+      "reconciled(completed)": 1,
+      "recovered_checkpoint": 1,
+      "settings_authorized": 1,
+      "settings_restored": 1,
+      "unknown_interval": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "restart with stale checkpoint",
+      "counts": {
+        "conversation_memory": 1,
+        "settings_authorized": 1,
+        "overdue(completed)": 1,
+        "overdue(relevant)": 1,
+        "recovered_checkpoint": 1,
+        "unknown_interval": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "human explains and reconciles",
+      "counts": {
+        "conversation_memory": 1,
+        "settings_authorized": 1,
+        "recovered_checkpoint": 1,
+        "unknown_interval": 1,
+        "reconciled(completed)": 1,
+        "pending(relevant)": 1,
+        "outage_explained": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "defaults while connection unreliable",
+      "counts": {
+        "conversation_memory": 1,
+        "settings_authorized": 1,
+        "recovered_checkpoint": 1,
+        "unknown_interval": 1,
+        "reconciled(completed)": 1,
+        "pending(relevant)": 1,
+        "outage_explained": 1,
+        "controllers_at_defaults": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "reliable connection permits request",
+      "counts": {
+        "conversation_memory": 1,
+        "settings_authorized": 1,
+        "recovered_checkpoint": 1,
+        "unknown_interval": 1,
+        "reconciled(completed)": 1,
+        "pending(relevant)": 1,
+        "outage_explained": 1,
+        "restore_requested": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "observed recovery and conversational continuity",
+      "counts": {
+        "conversation_memory": 1,
+        "settings_authorized": 1,
+        "recovered_checkpoint": 1,
+        "unknown_interval": 1,
+        "reconciled(completed)": 1,
+        "pending(relevant)": 1,
+        "outage_explained": 1,
+        "settings_restored": 1,
+        "conversation_resumed": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

@@ -1,0 +1,286 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch07/chapter.llp",
+  "key": "703c3c61c30204c25ad961855bdf38e9903ccf93aad9e0b0c0fe7ba8b8c33557",
+  "seed": 19,
+  "case": "authored",
+  "initial": [
+    "commitments_active",
+    "persona_continuity",
+    "voice_session",
+    "night_settings_authorized"
+  ],
+  "inputs": [
+    {
+      "label": "quieter discretionary life",
+      "inputs": [
+        "quiet_period",
+        "discretionary_attention",
+        "saved_conversations"
+      ],
+      "present": [
+        "graphite_expression",
+        "reflection_done",
+        "commitments_active",
+        "persona_continuity"
+      ],
+      "absent": []
+    },
+    {
+      "label": "indirect knowledge and hypothetical body",
+      "inputs": [
+        "astronomy_information",
+        "human_moon_remark",
+        "embodiment_question"
+      ],
+      "present": [
+        "moon_known_indirectly",
+        "hypothetical_embodiment_discussed"
+      ],
+      "absent": []
+    },
+    {
+      "label": "voice ends while Nina persists",
+      "inputs": [
+        "good_night"
+      ],
+      "present": [
+        "night_persona",
+        "timers_checked",
+        "commitments_active",
+        "persona_continuity"
+      ],
+      "absent": [
+        "voice_session"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +quiet_period +discretionary_attention +saved_conversations quiet_expression reflect do +astronomy_information +human_moon_remark +embodiment_question qualify_moon_knowledge discuss_embodiment do +good_night end_voice check_timers\nstage (done) | commitments_active:1 graphite_expression:1 hypothetical_embodiment_discussed:1 moon_known_indirectly:1 night_persona:1 night_settings_authorized:1 persona_continuity:1 reflection_done:1 timers_checked:1 ventilation_lowering_requested:1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +quiet_period +discretionary_attention +saved_conversations",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "quiet_period": 1,
+          "saved_conversations": 1,
+          "discretionary_attention": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "quiet_expression",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "quiet_period": 1
+        },
+        "produce": {
+          "graphite_expression": 1
+        },
+        "persist": {
+          "persona_continuity": 1
+        }
+      },
+      {
+        "i": 3,
+        "name": "reflect",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "discretionary_attention": 1,
+          "saved_conversations": 1
+        },
+        "produce": {
+          "reflection_done": 1
+        },
+        "persist": {
+          "graphite_expression": 1
+        }
+      },
+      {
+        "i": 4,
+        "name": "do +astronomy_information +human_moon_remark +embodiment_question",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "astronomy_information": 1,
+          "human_moon_remark": 1,
+          "embodiment_question": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 5,
+        "name": "qualify_moon_knowledge",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "astronomy_information": 1,
+          "human_moon_remark": 1
+        },
+        "produce": {
+          "moon_known_indirectly": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 6,
+        "name": "discuss_embodiment",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "embodiment_question": 1
+        },
+        "produce": {
+          "hypothetical_embodiment_discussed": 1
+        },
+        "persist": {
+          "persona_continuity": 1
+        }
+      },
+      {
+        "i": 7,
+        "name": "do +good_night",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "good_night": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 8,
+        "name": "end_voice",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "good_night": 1,
+          "voice_session": 1
+        },
+        "produce": {
+          "night_persona": 1,
+          "ventilation_lowering_requested": 1,
+          "timer_check_due": 1
+        },
+        "persist": {
+          "night_settings_authorized": 1
+        }
+      },
+      {
+        "i": 9,
+        "name": "check_timers",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "timer_check_due": 1
+        },
+        "produce": {
+          "timers_checked": 1
+        },
+        "persist": {
+          "commitments_active": 1
+        }
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "commitments_active": 1,
+      "graphite_expression": 1,
+      "hypothetical_embodiment_discussed": 1,
+      "moon_known_indirectly": 1,
+      "night_persona": 1,
+      "night_settings_authorized": 1,
+      "persona_continuity": 1,
+      "reflection_done": 1,
+      "timers_checked": 1,
+      "ventilation_lowering_requested": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "quieter discretionary life",
+      "counts": {
+        "commitments_active": 1,
+        "persona_continuity": 1,
+        "voice_session": 1,
+        "night_settings_authorized": 1,
+        "graphite_expression": 1,
+        "reflection_done": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "indirect knowledge and hypothetical body",
+      "counts": {
+        "commitments_active": 1,
+        "persona_continuity": 1,
+        "voice_session": 1,
+        "night_settings_authorized": 1,
+        "graphite_expression": 1,
+        "reflection_done": 1,
+        "moon_known_indirectly": 1,
+        "hypothetical_embodiment_discussed": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "voice ends while Nina persists",
+      "counts": {
+        "commitments_active": 1,
+        "persona_continuity": 1,
+        "night_settings_authorized": 1,
+        "graphite_expression": 1,
+        "reflection_done": 1,
+        "moon_known_indirectly": 1,
+        "hypothetical_embodiment_discussed": 1,
+        "night_persona": 1,
+        "ventilation_lowering_requested": 1,
+        "timers_checked": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

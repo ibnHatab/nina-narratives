@@ -1,0 +1,22 @@
+{
+  "member": "ch06",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 8,
+  "inputs": 5,
+  "fired": {
+    "1": [
+      "remind_dinner",
+      "honor_short_delay",
+      "offer_tradeoff",
+      "simplify_on_consent",
+      "record_later_arrival",
+      "offer_restoration",
+      "coordinate_cooking",
+      "retain_decision"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

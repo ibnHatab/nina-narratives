@@ -1,0 +1,114 @@
+{
+  "ok": true,
+  "classification": "class-F candidate (statics admit; Z-check applies with bindings)",
+  "findings": [],
+  "warnings": [],
+  "rules": [
+    [
+      "consider",
+      "[B01-C02-S01, B01-C04-S01] \"There were several possible explanations.\"\nNina retains the observed discrepancy and considers two possible explanations; neither is established as true."
+    ],
+    [
+      "clarify",
+      "[B01-C02-S01, B01-C04-S01] \"Busy morning?\"\nGiven an explicit opportunity, Nina spends one available interruption to ask for clarification, before certainty."
+    ],
+    [
+      "accept_report",
+      "[B01-C02-S02, B01-C04-S02] \"What had changed was the explanation connecting them.\"\nNina accepts a sourced report as her current explanation; she retains the observations, not certainty about hidden truth."
+    ],
+    [
+      "rebind_promise",
+      "[B01-C01-S03] \"It belonged to a future event: his return.\"\nAt the resident's instruction, Nina changes a promise's trigger, preserving the promise itself."
+    ],
+    [
+      "make_ready",
+      "[B01-C01-S03] \"It belonged to a future event: his return.\"\nA reported trigger makes its promised reminder ready; a notification has not yet happened."
+    ],
+    [
+      "remind",
+      "[B01-C01-S02, B01-C06-S01] \"At five forty-five, she mentioned it.\"\nNina spends one interruption opportunity to remind the resident about task T. Notification does not fulfill the task."
+    ],
+    [
+      "reconcile_scheduled",
+      "[B01-C08-S02] \"an activity he had already completed.\"\nA human completion report closes a still-scheduled promise without delivering an obsolete reminder."
+    ],
+    [
+      "reconcile_ready",
+      "[B01-C08-S02] \"an activity he had already completed.\"\nA human completion report closes a ready promise before any notification."
+    ],
+    [
+      "reconcile_notified",
+      "[B01-C08-S02] \"an activity he had already completed.\"\nA human completion report closes an already-notified task; the earlier reminder alone did not establish completion."
+    ],
+    [
+      "change_plan",
+      "[B01-C06-S02] \"Do it.\"\nExplicit fresh consent changes the selected plan. Changed circumstances alone grant no such permission."
+    ],
+    [
+      "reconsider",
+      "[B01-C06-S03] \"A changed circumstance did not automatically cancel a decision\"\nChanged circumstances can prompt reconsideration while preserving the consented plan."
+    ]
+  ],
+  "diagnostics": [],
+  "scenarios": [
+    {
+      "key": "4b183ee52aae141e6dac37130e63dee5506f9625ba3ffcd3742e9932544dd56b",
+      "support": 1,
+      "diffs": [],
+      "map_events": [
+        "consider[I=ventilation,S=sensor,A=device_fault,B=manual_override]",
+        "clarify[I=ventilation]"
+      ]
+    }
+  ],
+  "revision": true,
+  "diff_preview": [
+    [
+      "candidate(ventilation,device_fault)",
+      0.0,
+      1.0
+    ],
+    [
+      "candidate(ventilation,manual_override)",
+      0.0,
+      1.0
+    ],
+    [
+      "clarification_asked(ventilation)",
+      0.0,
+      1.0
+    ],
+    [
+      "clarification_opportunity(ventilation)",
+      1.0,
+      0.0
+    ],
+    [
+      "considering(ventilation)",
+      0.0,
+      1.0
+    ],
+    [
+      "discrepancy(ventilation,sensor)",
+      1.0,
+      0.0
+    ],
+    [
+      "interruption_budget",
+      1.0,
+      0.0
+    ],
+    [
+      "observation_kept(ventilation,sensor)",
+      0.0,
+      1.0
+    ],
+    [
+      "open_issue(ventilation)",
+      1.0,
+      0.0
+    ]
+  ],
+  "comments_dropped": 0,
+  "text_changed": true
+}

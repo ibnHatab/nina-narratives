@@ -1,0 +1,47 @@
+% Candidate simulation, not approved for deployment. Source 94e2c5829e6ebefa3bd41e35e513bba943dc8e12.
+% Book I Chapter 2: The unreasonable ventilation machine. Scene IDs are defined in README.md.
+catalog nina_book01_ch02 1.
+provenance text "book-01:94e2c5829e6ebefa3bd41e35e513bba943dc8e12:C02" "2026-11-25".
+layers (story).
+stages (live).
+namespace narrative produce (story).
+pred command_pending : narrative.
+pred conflicting_report : narrative.
+pred explanation_open : narrative.
+pred explicit_activation_only : narrative.
+pred explicit_activation_required : narrative.
+pred human_available : narrative.
+pred human_reports_remote : narrative.
+pred keep_ventilation : narrative.
+pred lab_presence : narrative.
+pred manual_intervention_reported : narrative.
+pred noise_preference_at_work : narrative.
+pred nonzero_ventilation_required : narrative.
+pred override_question : narrative.
+pred quiet_scene_active : narrative.
+pred quiet_scene_consent : narrative.
+pred recognition_proposal_pending : narrative.
+pred reflection_opportunity : narrative.
+pred response_overdue : narrative.
+pred scene_authorized : narrative.
+pred scene_offered : narrative.
+pred work_start_word : narrative.
+stage live {
+  %% [B01-C02-S01] "the expected change in the device's reported state had not arrived."
+  notice_missing_report [story] : command_pending * response_overdue -o explanation_open.
+  %% [B01-C02-S01] "Did you change the ventilation settings in the lab?"
+  ask_about_override [story] : explanation_open * conflicting_report * human_available -o override_question.
+  %% [B01-C02-S02] "Another agent had intervened."
+  revise_explanation [story] : override_question * human_reports_remote -o manual_intervention_reported.
+  %% [B01-C02-S02] "Would you like me to make a quiet working scene?"
+  offer_quiet_scene [story] : $manual_intervention_reported * noise_preference_at_work -o scene_offered.
+  %% [B01-C02-S03] "Yes. But don't switch off the ventilation completely."
+  agree_scene [story] : scene_offered * quiet_scene_consent * keep_ventilation * explicit_activation_only -o scene_authorized * nonzero_ventilation_required * explicit_activation_required.
+  %% [B01-C02-S03] "I'll tell you for now."
+  activate_on_word [story] : $scene_authorized * $nonzero_ventilation_required * $explicit_activation_required * work_start_word -o quiet_scene_active.
+  %% [B01-C02-S04] "She did not install the proposal herself."
+  prepare_proposal [story] : $scene_authorized * reflection_opportunity -o recognition_proposal_pending.
+}
+#init command_pending 1
+#steps 32
+#seeds 3

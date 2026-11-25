@@ -1,0 +1,20 @@
+{
+  "member": "ch04",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 6,
+  "inputs": 4,
+  "fired": {
+    "1": [
+      "consider_explanations",
+      "ask_busy",
+      "reduce_interruptions",
+      "apparent_missed_appointment",
+      "correct_explanation",
+      "retain_ambiguity_case"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

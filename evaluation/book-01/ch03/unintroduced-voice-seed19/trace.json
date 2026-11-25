@@ -1,0 +1,61 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch03/chapter.llp",
+  "key": "002db8b061d82f0bce630504a19918f5d16fae2bf7f1bc6f2eece43ffee9f3be",
+  "seed": 19,
+  "case": "unintroduced-voice",
+  "initial": [
+    "privacy_boundary"
+  ],
+  "inputs": [
+    {
+      "label": "remark",
+      "inputs": [
+        "simone_remark(elena)"
+      ],
+      "present": [],
+      "absent": [
+        "tentative_simone_preference(elena)"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +simone_remark(elena)\nstage (done) | privacy_boundary:1 simone_remark(elena):1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +simone_remark(elena)",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "simone_remark(elena)": 1
+        },
+        "persist": {}
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "privacy_boundary": 1,
+      "simone_remark(elena)": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "remark",
+      "counts": {
+        "privacy_boundary": 1,
+        "simone_remark(elena)": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

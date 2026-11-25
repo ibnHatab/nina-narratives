@@ -1,0 +1,57 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch02/chapter.llp",
+  "key": "977c34796a6858a25e120da5cf22a68b6a3695532a5e124e766e5504ea61fbcd",
+  "seed": 19,
+  "case": "word-without-consent",
+  "initial": [],
+  "inputs": [
+    {
+      "label": "word",
+      "inputs": [
+        "work_start_word"
+      ],
+      "present": [],
+      "absent": [
+        "quiet_scene_active"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +work_start_word\nstage (done) | work_start_word:1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +work_start_word",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "work_start_word": 1
+        },
+        "persist": {}
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "work_start_word": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "word",
+      "counts": {
+        "work_start_word": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

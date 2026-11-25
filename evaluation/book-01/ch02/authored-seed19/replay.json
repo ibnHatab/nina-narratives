@@ -1,0 +1,20 @@
+{
+  "member": "ch02",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 6,
+  "inputs": 4,
+  "fired": {
+    "1": [
+      "notice_missing_report",
+      "ask_about_override",
+      "revise_explanation",
+      "offer_quiet_scene",
+      "agree_scene",
+      "prepare_proposal"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

@@ -1,0 +1,5 @@
+program: chapter.llp
+display: "Nina, Book I chapter 2"
+line: "Candidate fictional simulation: The unreasonable ventilation machine"
+voice: third
+clock: {beats: 1}

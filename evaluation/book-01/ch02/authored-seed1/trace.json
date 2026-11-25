@@ -1,0 +1,296 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch02/chapter.llp",
+  "key": "3f21c8d30638505b850c0caba1674ca92d2d90910815dd972158d5d4e5590c18",
+  "seed": 1,
+  "case": "authored",
+  "initial": [
+    "command_pending"
+  ],
+  "inputs": [
+    {
+      "label": "accepted command without expected report",
+      "inputs": [
+        "response_overdue"
+      ],
+      "present": [
+        "explanation_open"
+      ],
+      "absent": [
+        "manual_intervention_reported"
+      ]
+    },
+    {
+      "label": "contradiction and question",
+      "inputs": [
+        "conflicting_report",
+        "human_available"
+      ],
+      "present": [
+        "override_question"
+      ],
+      "absent": []
+    },
+    {
+      "label": "human explanation and contextual preference",
+      "inputs": [
+        "human_reports_remote",
+        "noise_preference_at_work"
+      ],
+      "present": [
+        "manual_intervention_reported",
+        "scene_offered"
+      ],
+      "absent": []
+    },
+    {
+      "label": "bounded consent",
+      "inputs": [
+        "quiet_scene_consent",
+        "keep_ventilation",
+        "explicit_activation_only",
+        "lab_presence",
+        "reflection_opportunity"
+      ],
+      "present": [
+        "scene_authorized",
+        "recognition_proposal_pending"
+      ],
+      "absent": [
+        "quiet_scene_active"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +response_overdue notice_missing_report do +conflicting_report +human_available ask_about_override do +human_reports_remote +noise_preference_at_work revise_explanation offer_quiet_scene do +quiet_scene_consent +keep_ventilation +explicit_activation_only +lab_presence +reflection_opportunity agree_scene prepare_proposal\nstage (done) | explicit_activation_required:1 lab_presence:1 manual_intervention_reported:1 nonzero_ventilation_required:1 recognition_proposal_pending:1 scene_authorized:1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +response_overdue",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "response_overdue": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "notice_missing_report",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "command_pending": 1,
+          "response_overdue": 1
+        },
+        "produce": {
+          "explanation_open": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 3,
+        "name": "do +conflicting_report +human_available",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "human_available": 1,
+          "conflicting_report": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 4,
+        "name": "ask_about_override",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "explanation_open": 1,
+          "conflicting_report": 1,
+          "human_available": 1
+        },
+        "produce": {
+          "override_question": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 5,
+        "name": "do +human_reports_remote +noise_preference_at_work",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "human_reports_remote": 1,
+          "noise_preference_at_work": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 6,
+        "name": "revise_explanation",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 4,
+        "episode": 0,
+        "consume": {
+          "override_question": 1,
+          "human_reports_remote": 1
+        },
+        "produce": {
+          "manual_intervention_reported": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 7,
+        "name": "offer_quiet_scene",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 5,
+        "episode": 0,
+        "consume": {
+          "noise_preference_at_work": 1
+        },
+        "produce": {
+          "scene_offered": 1
+        },
+        "persist": {
+          "manual_intervention_reported": 1
+        }
+      },
+      {
+        "i": 8,
+        "name": "do +quiet_scene_consent +keep_ventilation +explicit_activation_only +lab_presence +reflection_opportunity",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "reflection_opportunity": 1,
+          "explicit_activation_only": 1,
+          "keep_ventilation": 1,
+          "lab_presence": 1,
+          "quiet_scene_consent": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 9,
+        "name": "agree_scene",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 6,
+        "episode": 0,
+        "consume": {
+          "scene_offered": 1,
+          "quiet_scene_consent": 1,
+          "keep_ventilation": 1,
+          "explicit_activation_only": 1
+        },
+        "produce": {
+          "scene_authorized": 1,
+          "nonzero_ventilation_required": 1,
+          "explicit_activation_required": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 10,
+        "name": "prepare_proposal",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 7,
+        "episode": 0,
+        "consume": {
+          "reflection_opportunity": 1
+        },
+        "produce": {
+          "recognition_proposal_pending": 1
+        },
+        "persist": {
+          "scene_authorized": 1
+        }
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "explicit_activation_required": 1,
+      "lab_presence": 1,
+      "manual_intervention_reported": 1,
+      "nonzero_ventilation_required": 1,
+      "recognition_proposal_pending": 1,
+      "scene_authorized": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "accepted command without expected report",
+      "counts": {
+        "explanation_open": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "contradiction and question",
+      "counts": {
+        "override_question": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "human explanation and contextual preference",
+      "counts": {
+        "manual_intervention_reported": 1,
+        "scene_offered": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "bounded consent",
+      "counts": {
+        "manual_intervention_reported": 1,
+        "lab_presence": 1,
+        "scene_authorized": 1,
+        "nonzero_ventilation_required": 1,
+        "explicit_activation_required": 1,
+        "recognition_proposal_pending": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

@@ -1,0 +1,47 @@
+% Candidate simulation, not approved for deployment. Source 94e2c5829e6ebefa3bd41e35e513bba943dc8e12.
+% Book I Chapter 1: The morning before anyone wakes. Scene IDs are defined in README.md.
+catalog nina_book01_ch01 1.
+provenance text "book-01:94e2c5829e6ebefa3bd41e35e513bba943dc8e12:C01" "2026-11-25".
+layers (story).
+stages (live).
+namespace narrative produce (story).
+type task {call_elena}.
+pred bedroom_motion : narrative.
+pred briefed(task) : narrative.
+pred day_question : narrative.
+pred discovery_deferred : narrative.
+pred discovery_pending : narrative.
+pred greeted : narrative.
+pred greeting_available : narrative.
+pred greeting_tentative : narrative.
+pred greeting_withdrawn : narrative.
+pred hallway_motion : narrative.
+pred kettle_heard : narrative.
+pred no_followup : narrative.
+pred not_before_coffee : narrative.
+pred reminded(task) : narrative.
+pred reminder_morning(task) : narrative.
+pred reminder_return(task) : narrative.
+pred request_after_return(task) : narrative.
+pred returned_from_appointment : narrative.
+stage live {
+  %% [B01-C01-S01] "Nina prepared a greeting."
+  prepare_greeting [story] : bedroom_motion * greeting_available -o greeting_tentative.
+  %% [B01-C01-S01] "She withdrew the greeting."
+  withdraw_greeting [story] : greeting_tentative * no_followup -o greeting_available * greeting_withdrawn.
+  %% [B01-C01-S02] "Now the evidence was considerably better."
+  greet [story] : greeting_available * hallway_motion * kettle_heard -o greeted.
+  %% [B01-C01-S02] "you promised yourself you'd call Elena."
+  brief [story] : $greeted * day_question * $reminder_morning(T) -o briefed(T).
+  %% [B01-C01-S03] "No. When I'm back from the appointment."
+  reschedule [story] : reminder_morning(T) * request_after_return(T) -o reminder_return(T).
+  %% [B01-C01-S03] "It belonged to a future event: his return."
+  remind_on_return [story] : reminder_return(T) * returned_from_appointment -o reminded(T).
+  %% [B01-C01-S04] "Not before coffee."
+  defer_discovery [story] : discovery_pending * not_before_coffee -o discovery_deferred.
+}
+#init reminder_morning(call_elena) 1
+#init greeting_available 1
+#init discovery_pending 1
+#steps 32
+#seeds 3

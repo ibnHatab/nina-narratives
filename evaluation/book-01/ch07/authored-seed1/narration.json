@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "source": "session",
+  "seed": 0,
+  "events": 9,
+  "llm": "openrouter:deepseek/deepseek-v4-pro",
+  "narration": "The Quiet Hour\n\nIn this telling, the world outside the story moved: a quiet period began, along with some discretionary attention and saved conversations. At the same time, astronomy information, a remark about the human moon, and an embodiment question arrived. A good night was also given. Then, in the quiet, she was still Nina, leaving a graphite expression while her persona continued. She discussed embodiment occasionally, in the hypothetical sense, while she qualified her moon knowledge\u2014not because she could see it herself. Then her voice session ended, and she became a night persona, with ventilation lowering requested and a timer check due. She revisited old conversations, finishing her reflection while the graphite expression remained. She checked the outstanding timers, and her commitments stayed active.\n\nIn the end, a graphite expression, a hypothetical embodiment discussion, an indirectly known moon, a night persona, authorized night settings, a continuing persona, a completed reflection, checked timers, and a request to lower the ventilation all remained.\n\nNarrator's note: Beat 1 held three environmental interventions, beat 2 held four events, and beat 3 held two events; the interventions were merged into a single arrival sentence, and the events of beat 2 were joined with \"while\" and \"then\".",
+  "trace_seed": 1,
+  "program_key": "703c3c61c30204c25ad961855bdf38e9903ccf93aad9e0b0c0fe7ba8b8c33557",
+  "assessment": "See evaluation/book-01/REVIEW.md; ok means API success, not semantic acceptance."
+}

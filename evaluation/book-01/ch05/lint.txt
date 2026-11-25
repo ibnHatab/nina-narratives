@@ -1,0 +1,36 @@
+warning state-dead-end @ chapter.llp:8:6 (pred/better_question)
+  pred better_question : narrative.
+  -> give better_question a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:9:6 (pred/coat_removed)
+  pred coat_removed : narrative.
+  -> produce coat_removed in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:10:6 (pred/costly_demo)
+  pred costly_demo : narrative.
+  -> produce costly_demo in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:12:6 (pred/human_returned)
+  pred human_returned : narrative.
+  -> produce human_returned in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:13:6 (pred/implementation_doubted)
+  pred implementation_doubted : narrative.
+  -> give implementation_doubted a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:14:6 (pred/initial_approach_abandoned)
+  pred initial_approach_abandoned : narrative.
+  -> give initial_approach_abandoned a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:15:6 (pred/nobody_home)
+  pred nobody_home : narrative.
+  -> produce nobody_home in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:17:6 (pred/objections_exchanged)
+  pred objections_exchanged : narrative.
+  -> produce objections_exchanged in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:18:6 (pred/promising_connection)
+  pred promising_connection : narrative.
+  -> produce promising_connection in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:24:6 (pred/research_useful)
+  pred research_useful : narrative.
+  -> give research_useful a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:26:6 (pred/show_me)
+  pred show_me : narrative.
+  -> produce show_me in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:28:6 (pred/weak_support)
+  pred weak_support : narrative.
+  -> produce weak_support in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it

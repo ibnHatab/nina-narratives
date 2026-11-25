@@ -1,0 +1,99 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/mechanisms/chapter.llp",
+  "key": "965e88d997b4bed257fcf85618f0abae0e907ddc5d34b49c3edf4f1f29620753",
+  "seed": 1,
+  "case": "completion-race-counterexample",
+  "initial": [
+    "ready(call)",
+    "interruption_budget"
+  ],
+  "inputs": [
+    {
+      "label": "completion before notification should take priority",
+      "inputs": [
+        "completion_report(call)"
+      ],
+      "present": [
+        "fulfilled(call)",
+        "interruption_budget"
+      ],
+      "absent": [
+        "notified(call)"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "remind[T=call] do +completion_report(call) reconcile_notified[T=call]\nstage (done) | fulfilled(call):1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "remind[T=call]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {
+          "ready(call)": 1,
+          "interruption_budget": 1
+        },
+        "produce": {
+          "notified(call)": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "do +completion_report(call)",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "completion_report(call)": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 3,
+        "name": "reconcile_notified[T=call]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "notified(call)": 1,
+          "completion_report(call)": 1
+        },
+        "produce": {
+          "fulfilled(call)": 1
+        },
+        "persist": {}
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "fulfilled(call)": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "completion before notification should take priority",
+      "counts": {
+        "fulfilled(call)": 1
+      },
+      "missing": [
+        "interruption_budget"
+      ],
+      "forbidden": [],
+      "ok": false
+    }
+  ],
+  "complete": true,
+  "passed": false
+}

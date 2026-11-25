@@ -1,0 +1,132 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "chapter": "B01-C08",
+  "seeds": [
+    1,
+    7,
+    19
+  ],
+  "cases": [
+    {
+      "name": "authored",
+      "initial": [
+        "checkpoint_available",
+        "conversation_memory",
+        "settings_authorized",
+        "overdue(completed)",
+        "overdue(relevant)"
+      ],
+      "phases": [
+        {
+          "label": "restart with stale checkpoint",
+          "inputs": [
+            "restart"
+          ],
+          "present": [
+            "recovered_checkpoint",
+            "unknown_interval"
+          ],
+          "absent": [
+            "settings_restored"
+          ]
+        },
+        {
+          "label": "human explains and reconciles",
+          "inputs": [
+            "power_failure_report",
+            "completion_report(completed)",
+            "relevance_report(relevant)"
+          ],
+          "present": [
+            "outage_explained",
+            "reconciled(completed)",
+            "pending(relevant)",
+            "unknown_interval"
+          ],
+          "absent": [
+            "overdue(completed)",
+            "overdue(relevant)"
+          ]
+        },
+        {
+          "label": "defaults while connection unreliable",
+          "inputs": [
+            "controllers_at_defaults"
+          ],
+          "present": [],
+          "absent": [
+            "restore_requested",
+            "settings_restored"
+          ]
+        },
+        {
+          "label": "reliable connection permits request",
+          "inputs": [
+            "connection_reliable"
+          ],
+          "present": [
+            "restore_requested"
+          ],
+          "absent": [
+            "settings_restored"
+          ]
+        },
+        {
+          "label": "observed recovery and conversational continuity",
+          "inputs": [
+            "restored_settings_report",
+            "conversation_opening"
+          ],
+          "present": [
+            "settings_restored",
+            "conversation_resumed",
+            "unknown_interval",
+            "conversation_memory"
+          ],
+          "absent": []
+        }
+      ]
+    },
+    {
+      "name": "no-settings-authorization",
+      "initial": [
+        "recovered_checkpoint"
+      ],
+      "phases": [
+        {
+          "label": "connection",
+          "inputs": [
+            "connection_reliable",
+            "controllers_at_defaults"
+          ],
+          "present": [],
+          "absent": [
+            "restore_requested"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "request-is-not-confirmation",
+      "initial": [
+        "recovered_checkpoint",
+        "settings_authorized"
+      ],
+      "phases": [
+        {
+          "label": "connection",
+          "inputs": [
+            "connection_reliable",
+            "controllers_at_defaults"
+          ],
+          "present": [
+            "restore_requested"
+          ],
+          "absent": [
+            "settings_restored"
+          ]
+        }
+      ]
+    }
+  ]
+}

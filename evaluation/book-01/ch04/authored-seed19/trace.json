@@ -1,0 +1,325 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch04/chapter.llp",
+  "key": "f9f8f347c7c03eb5062158a6bcac3a880e52f7568a0856d3157558222866299d",
+  "seed": 19,
+  "case": "authored",
+  "initial": [
+    "interpretation_open",
+    "research_pending",
+    "monitoring_active"
+  ],
+  "inputs": [
+    {
+      "label": "ambiguous morning",
+      "inputs": [
+        "dismissed_briefing",
+        "quiet_response",
+        "conversational_opening"
+      ],
+      "present": [
+        "hypothesis_upset",
+        "hypothesis_work",
+        "busy_question"
+      ],
+      "absent": []
+    },
+    {
+      "label": "explicit busy answer",
+      "inputs": [
+        "busy_yes"
+      ],
+      "present": [
+        "research_deferred",
+        "monitoring_active"
+      ],
+      "absent": []
+    },
+    {
+      "label": "apparent missed appointment",
+      "inputs": [
+        "appointment_passed",
+        "no_departure_observed"
+      ],
+      "present": [
+        "apparent_miss",
+        "hypothesis_upset"
+      ],
+      "absent": []
+    },
+    {
+      "label": "previously unavailable information",
+      "inputs": [
+        "cancellation_report",
+        "design_work_report",
+        "evening_review"
+      ],
+      "present": [
+        "working_explanation",
+        "evidence_gap_acknowledged",
+        "ambiguity_case_saved",
+        "ambiguous_observations",
+        "monitoring_active"
+      ],
+      "absent": [
+        "hypothesis_upset",
+        "apparent_miss"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +dismissed_briefing +quiet_response +conversational_opening consider_explanations ask_busy do +busy_yes reduce_interruptions do +appointment_passed +no_departure_observed apparent_missed_appointment do +cancellation_report +design_work_report +evening_review correct_explanation retain_ambiguity_case\nstage (done) | ambiguity_case_saved:1 ambiguous_observations:1 evidence_gap_acknowledged:1 interruptions_reduced:1 monitoring_active:1 research_deferred:1 working_explanation:1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +dismissed_briefing +quiet_response +conversational_opening",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "conversational_opening": 1,
+          "quiet_response": 1,
+          "dismissed_briefing": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "consider_explanations",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "interpretation_open": 1,
+          "dismissed_briefing": 1,
+          "quiet_response": 1
+        },
+        "produce": {
+          "hypothesis_upset": 1,
+          "hypothesis_work": 1,
+          "ambiguous_observations": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 3,
+        "name": "ask_busy",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "conversational_opening": 1
+        },
+        "produce": {
+          "busy_question": 1
+        },
+        "persist": {
+          "ambiguous_observations": 1
+        }
+      },
+      {
+        "i": 4,
+        "name": "do +busy_yes",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "busy_yes": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 5,
+        "name": "reduce_interruptions",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 4,
+        "episode": 0,
+        "consume": {
+          "busy_question": 1,
+          "busy_yes": 1,
+          "research_pending": 1
+        },
+        "produce": {
+          "research_deferred": 1,
+          "interruptions_reduced": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 6,
+        "name": "do +appointment_passed +no_departure_observed",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "appointment_passed": 1,
+          "no_departure_observed": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 7,
+        "name": "apparent_missed_appointment",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "appointment_passed": 1,
+          "no_departure_observed": 1
+        },
+        "produce": {
+          "apparent_miss": 1
+        },
+        "persist": {
+          "hypothesis_upset": 1
+        }
+      },
+      {
+        "i": 8,
+        "name": "do +cancellation_report +design_work_report +evening_review",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "design_work_report": 1,
+          "evening_review": 1,
+          "cancellation_report": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 9,
+        "name": "correct_explanation",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 4,
+        "episode": 0,
+        "consume": {
+          "apparent_miss": 1,
+          "hypothesis_upset": 1,
+          "hypothesis_work": 1,
+          "cancellation_report": 1,
+          "design_work_report": 1
+        },
+        "produce": {
+          "working_explanation": 1,
+          "evidence_gap_acknowledged": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 10,
+        "name": "retain_ambiguity_case",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 5,
+        "episode": 0,
+        "consume": {
+          "evening_review": 1
+        },
+        "produce": {
+          "ambiguity_case_saved": 1
+        },
+        "persist": {
+          "ambiguous_observations": 1,
+          "working_explanation": 1
+        }
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "ambiguity_case_saved": 1,
+      "ambiguous_observations": 1,
+      "evidence_gap_acknowledged": 1,
+      "interruptions_reduced": 1,
+      "monitoring_active": 1,
+      "research_deferred": 1,
+      "working_explanation": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "ambiguous morning",
+      "counts": {
+        "research_pending": 1,
+        "monitoring_active": 1,
+        "hypothesis_upset": 1,
+        "hypothesis_work": 1,
+        "ambiguous_observations": 1,
+        "busy_question": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "explicit busy answer",
+      "counts": {
+        "monitoring_active": 1,
+        "hypothesis_upset": 1,
+        "hypothesis_work": 1,
+        "ambiguous_observations": 1,
+        "research_deferred": 1,
+        "interruptions_reduced": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "apparent missed appointment",
+      "counts": {
+        "monitoring_active": 1,
+        "hypothesis_upset": 1,
+        "hypothesis_work": 1,
+        "ambiguous_observations": 1,
+        "research_deferred": 1,
+        "interruptions_reduced": 1,
+        "apparent_miss": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "previously unavailable information",
+      "counts": {
+        "monitoring_active": 1,
+        "ambiguous_observations": 1,
+        "research_deferred": 1,
+        "interruptions_reduced": 1,
+        "working_explanation": 1,
+        "evidence_gap_acknowledged": 1,
+        "ambiguity_case_saved": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

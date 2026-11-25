@@ -1,0 +1,4 @@
+# the metis loops' own state (records, sessions, scratch)
+/.metis/
+__pycache__/
+*.pyc

@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "classification": "class-F candidate (statics admit; Z-check applies with bindings)",
+  "findings": [],
+  "warnings": [],
+  "rules": [
+    [
+      "restart_with_gap",
+      "[B01-C08-S01] \"There were no events from which to remember them.\""
+    ],
+    [
+      "acknowledge_outage",
+      "[B01-C08-S01] \"I don't know what happened while I was offline.\""
+    ],
+    [
+      "close_completed_reminder",
+      "[B01-C08-S02] \"an activity he had already completed.\""
+    ],
+    [
+      "retain_relevant_reminder",
+      "[B01-C08-S02] \"The other was still relevant.\""
+    ],
+    [
+      "request_authorized_restore",
+      "[B01-C08-S03] \"after their connection became reliable.\""
+    ],
+    [
+      "confirm_restore",
+      "[B01-C08-S03] \"She restored the authorized household settings\""
+    ],
+    [
+      "continue_saved_conversation",
+      "[B01-C08-S04] \"a reasonably good one for things that did.\""
+    ]
+  ],
+  "diagnostics": [],
+  "scenarios": [
+    {
+      "key": "3aa36bb9ca14c44b2a39413bf4a2e8ef0dfdd6343c68a1de8cff13c58086b221",
+      "support": 1,
+      "diffs": [],
+      "map_events": [
+        "restart_with_gap"
+      ]
+    }
+  ],
+  "revision": true,
+  "diff_preview": [
+    [
+      "checkpoint_available",
+      1.0,
+      0.0
+    ],
+    [
+      "recovered_checkpoint",
+      0.0,
+      1.0
+    ],
+    [
+      "restart",
+      1.0,
+      0.0
+    ],
+    [
+      "unknown_interval",
+      0.0,
+      1.0
+    ]
+  ],
+  "comments_dropped": 0,
+  "text_changed": true
+}

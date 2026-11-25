@@ -1,0 +1,7 @@
+[llm]
+endpoint = "openrouter:deepseek/deepseek-v4-pro"
+loop = "openrouter:deepseek/deepseek-v4-pro"
+max_tokens = 1600
+
+[narrate]
+temperature = 0.3

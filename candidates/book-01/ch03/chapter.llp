@@ -1,0 +1,46 @@
+% Candidate simulation, not approved for deployment. Source 94e2c5829e6ebefa3bd41e35e513bba943dc8e12.
+% Book I Chapter 3: The woman who was not in the calendar. Scene IDs are defined in README.md.
+catalog nina_book01_ch03 1.
+provenance text "book-01:94e2c5829e6ebefa3bd41e35e513bba943dc8e12:C03" "2026-11-25".
+layers (story).
+stages (live).
+namespace narrative produce (story).
+type person {elena resident}.
+pred encounter_ends : narrative.
+pred introduction(person) : narrative.
+pred inventory_corrected : narrative.
+pred inventory_mushrooms : narrative.
+pred jazz_selected(person) : narrative.
+pred known_visitor(person) : narrative.
+pred loneliness_question : narrative.
+pred mushrooms_finished_report : narrative.
+pred music_request(person) : narrative.
+pred privacy_boundary : narrative.
+pred qualified_self_description : narrative.
+pred relationship_memory(person) : narrative.
+pred resident_invited_to_explain : narrative.
+pred self_description_available : narrative.
+pred simone_remark(person) : narrative.
+pred tentative_simone_preference(person) : narrative.
+pred visitor_asks_about_resident : narrative.
+stage live {
+  %% [B01-C03-S01] "Nina, meet Elena."
+  meet_visitor [story] : introduction(elena) -o known_visitor(elena).
+  %% [B01-C03-S01] "Elena asked her to play music."
+  play_requested_music [story] : $known_visitor(P) * music_request(P) -o jazz_selected(P).
+  %% [B01-C03-S02] "a tentative preference to Elena's profile"
+  record_tentative_taste [story] : $known_visitor(P) * simone_remark(P) -o tentative_simone_preference(P).
+  %% [B01-C03-S02] "Those mushrooms were finished yesterday."
+  correct_inventory [story] : inventory_mushrooms * mushrooms_finished_report -o inventory_corrected.
+  %% [B01-C03-S03] "I'll let him explain it."
+  defer_private_answer [story] : $privacy_boundary * visitor_asks_about_resident -o resident_invited_to_explain.
+  %% [B01-C03-S04] "I'm trying not to invent a nervous system for myself."
+  answer_without_fabricated_senses [story] : self_description_available * loneliness_question -o qualified_self_description.
+  %% [B01-C03-S04] "it had changed the way the two of them understood each other."
+  remember_encounter [story] : $qualified_self_description * $known_visitor(elena) * encounter_ends -o relationship_memory(elena).
+}
+#init inventory_mushrooms 1
+#init privacy_boundary 1
+#init self_description_available 1
+#steps 32
+#seeds 3

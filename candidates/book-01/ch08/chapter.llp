@@ -1,0 +1,51 @@
+% Candidate simulation, not approved for deployment. Source 94e2c5829e6ebefa3bd41e35e513bba943dc8e12.
+% Book I Chapter 8: The missing hours. Scene IDs are defined in README.md.
+catalog nina_book01_ch08 1.
+provenance text "book-01:94e2c5829e6ebefa3bd41e35e513bba943dc8e12:C08" "2026-11-25".
+layers (story).
+stages (live).
+namespace narrative produce (story).
+type reminder {completed relevant}.
+pred checkpoint_available : narrative.
+pred completion_report(reminder) : narrative.
+pred connection_reliable : narrative.
+pred controllers_at_defaults : narrative.
+pred conversation_memory : narrative.
+pred conversation_opening : narrative.
+pred conversation_resumed : narrative.
+pred outage_explained : narrative.
+pred overdue(reminder) : narrative.
+pred pending(reminder) : narrative.
+pred power_failure_report : narrative.
+pred reconciled(reminder) : narrative.
+pred recovered_checkpoint : narrative.
+pred relevance_report(reminder) : narrative.
+pred restart : narrative.
+pred restore_requested : narrative.
+pred restored_settings_report : narrative.
+pred settings_authorized : narrative.
+pred settings_restored : narrative.
+pred unknown_interval : narrative.
+stage live {
+  %% [B01-C08-S01] "There were no events from which to remember them."
+  restart_with_gap [story] : restart * checkpoint_available -o recovered_checkpoint * unknown_interval.
+  %% [B01-C08-S01] "I don't know what happened while I was offline."
+  acknowledge_outage [story] : $unknown_interval * power_failure_report -o outage_explained.
+  %% [B01-C08-S02] "an activity he had already completed."
+  close_completed_reminder [story] : overdue(R) * completion_report(R) -o reconciled(R).
+  %% [B01-C08-S02] "The other was still relevant."
+  retain_relevant_reminder [story] : overdue(R) * relevance_report(R) -o pending(R).
+  %% [B01-C08-S03] "after their connection became reliable."
+  request_authorized_restore [story] : $settings_authorized * connection_reliable * controllers_at_defaults * $recovered_checkpoint -o restore_requested.
+  %% [B01-C08-S03] "She restored the authorized household settings"
+  confirm_restore [story] : restore_requested * restored_settings_report -o settings_restored.
+  %% [B01-C08-S04] "a reasonably good one for things that did."
+  continue_saved_conversation [story] : $conversation_memory * $outage_explained * conversation_opening -o conversation_resumed.
+}
+#init checkpoint_available 1
+#init conversation_memory 1
+#init settings_authorized 1
+#init overdue(completed) 1
+#init overdue(relevant) 1
+#steps 32
+#seeds 3

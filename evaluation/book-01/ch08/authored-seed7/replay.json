@@ -1,0 +1,21 @@
+{
+  "member": "ch08",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 7,
+  "inputs": 5,
+  "fired": {
+    "1": [
+      "restart_with_gap",
+      "close_completed_reminder[R=completed]",
+      "acknowledge_outage",
+      "retain_relevant_reminder[R=relevant]",
+      "request_authorized_restore",
+      "continue_saved_conversation",
+      "confirm_restore"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

@@ -1,0 +1,21 @@
+{
+  "member": "ch03",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 7,
+  "inputs": 4,
+  "fired": {
+    "1": [
+      "meet_visitor",
+      "play_requested_music[P=elena]",
+      "record_tentative_taste[P=elena]",
+      "correct_inventory",
+      "answer_without_fabricated_senses",
+      "defer_private_answer",
+      "remember_encounter"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

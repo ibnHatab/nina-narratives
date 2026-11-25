@@ -1,0 +1,15 @@
+{
+  "member": "ch08",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 1,
+  "inputs": 1,
+  "fired": {
+    "1": [
+      "request_authorized_restore"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

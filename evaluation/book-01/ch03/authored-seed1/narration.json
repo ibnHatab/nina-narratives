@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "source": "session",
+  "seed": 0,
+  "events": 11,
+  "llm": "openrouter:deepseek/deepseek-v4-pro",
+  "narration": "The Visitor and the Resident\n\nIn this telling, the world outside moved first: an introduction to Elena was made, a request for music was asked of her, Simone remarked on Elena, a report that the mushrooms were finished was given, a visitor asked about the resident, a question of loneliness was posed, and then the encounter ended. Then, all at once, Nina met Elena, and the visitor became known. The inventory was corrected\u2014the mushrooms had been finished yesterday. At the same time, the resident deferred a private answer, inviting the resident to explain, while the question of loneliness was met with a refusal to invent a nervous system, qualifying the self-description. Then Elena asked her to play music, and jazz was selected, while a tentative preference was recorded to Elena\u2019s profile. The encounter ended, and it had changed the way the two of them understood each other, leaving a relationship memory. In the end, the inventory was corrected, jazz was selected for Elena, she was a known visitor, a privacy boundary remained, the self-description was qualified, the resident was invited to explain, and a tentative preference and a relationship memory both belonged to Elena.\n\nNarrator's note: Beat 1 held four environmental interventions, summarized as a single suppositional clause. Beat 2 held four simultaneous events, joined with \"at the same time.\" Beat 3 held three simultaneous events, joined with \"while.\"",
+  "trace_seed": 1,
+  "program_key": "8f4cf01dbc1a55170fb6e4176398e9f21ec24164a3f67d5147245dc5639c0c09",
+  "assessment": "See evaluation/book-01/REVIEW.md; ok means API success, not semantic acceptance."
+}

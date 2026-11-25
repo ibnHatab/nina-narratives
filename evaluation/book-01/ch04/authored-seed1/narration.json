@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "source": "session",
+  "seed": 0,
+  "events": 10,
+  "llm": "openrouter:deepseek/deepseek-v4-pro",
+  "narration": "The Unread Channel\n\nIn this telling, the world outside moved: a briefing was dismissed, a quiet response given, a conversational opening made, a busy confirmation arrived, an appointment passed with no departure observed, and reports of a cancellation, design work, and an evening review all came in. Then the observer considered other explanations, and the dismissed briefing and quiet response gave way to ambiguous observations and an upset, working hypothesis. She asked, \u201cBusy morning?\u201d while at the same time the missed appointment appeared to support her hypothesis. Then she said, \u201cI\u2019ll keep the interruptions down,\u201d which deferred the research and reduced interruptions, while the correct explanation emerged\u2014the cancellation had arrived through a channel she could not read\u2014clearing the apparent miss and the upset hypothesis, and leaving a working explanation and an acknowledged evidence gap. During the evening review, she saved the ambiguity case, keeping the ambiguous observations and the working explanation intact. In the end, an ambiguity case was saved, ambiguous observations remained, an evidence gap stood acknowledged, interruptions were reduced, monitoring was active, research was deferred, and a working explanation held.\n\nNarrator's note: Beat 1 held four simultaneous environmental interventions, beat 3 held two events, and beat 4 held two events.",
+  "trace_seed": 1,
+  "program_key": "f9f8f347c7c03eb5062158a6bcac3a880e52f7568a0856d3157558222866299d",
+  "assessment": "See evaluation/book-01/REVIEW.md; ok means API success, not semantic acceptance."
+}

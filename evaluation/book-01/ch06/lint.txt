@@ -1,0 +1,39 @@
+warning state-unproduced @ chapter.llp:8:6 (pred/cooking_started)
+  pred cooking_started : narrative.
+  -> produce cooking_started in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:9:6 (pred/decision_active)
+  pred decision_active : narrative.
+  -> give decision_active a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:12:6 (pred/guest_delay_report)
+  pred guest_delay_report : narrative.
+  -> produce guest_delay_report in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:13:6 (pred/improvised_dinner)
+  pred improvised_dinner : narrative.
+  -> give improvised_dinner a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:14:6 (pred/ingredient_diverted)
+  pred ingredient_diverted : narrative.
+  -> produce ingredient_diverted in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:15:6 (pred/keep_simple_word)
+  pred keep_simple_word : narrative.
+  -> produce keep_simple_word in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:18:6 (pred/original_recipe_late)
+  pred original_recipe_late : narrative.
+  -> produce original_recipe_late in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:19:6 (pred/preparation_due)
+  pred preparation_due : narrative.
+  -> produce preparation_due in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:20:6 (pred/printer_repair)
+  pred printer_repair : narrative.
+  -> produce printer_repair in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:25:6 (pred/simple_plan)
+  pred simple_plan : narrative.
+  -> give simple_plan a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:26:6 (pred/simple_reaffirmed)
+  pred simple_reaffirmed : narrative.
+  -> give simple_reaffirmed a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:27:6 (pred/simplify_consent)
+  pred simplify_consent : narrative.
+  -> produce simplify_consent in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:29:6 (pred/ten_more_minutes)
+  pred ten_more_minutes : narrative.
+  -> produce ten_more_minutes in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it

@@ -1,0 +1,78 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch01/chapter.llp",
+  "key": "c9311d2faeffedf0f7f9e32eb6884e8e4a14d6ef62fa0ce85c66baa55b45c030",
+  "seed": 19,
+  "case": "return-releases-reminder",
+  "initial": [
+    "reminder_return(call_elena)"
+  ],
+  "inputs": [
+    {
+      "label": "return",
+      "inputs": [
+        "returned_from_appointment"
+      ],
+      "present": [
+        "reminded(call_elena)"
+      ],
+      "absent": [
+        "reminder_return(call_elena)"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +returned_from_appointment remind_on_return[T=call_elena]\nstage (done) | reminded(call_elena):1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +returned_from_appointment",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "returned_from_appointment": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "remind_on_return[T=call_elena]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "reminder_return(call_elena)": 1,
+          "returned_from_appointment": 1
+        },
+        "produce": {
+          "reminded(call_elena)": 1
+        },
+        "persist": {}
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "reminded(call_elena)": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "return",
+      "counts": {
+        "reminded(call_elena)": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

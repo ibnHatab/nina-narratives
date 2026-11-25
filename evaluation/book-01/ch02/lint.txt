@@ -1,0 +1,48 @@
+warning state-unproduced @ chapter.llp:9:6 (pred/conflicting_report)
+  pred conflicting_report : narrative.
+  -> produce conflicting_report in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:11:6 (pred/explicit_activation_only)
+  pred explicit_activation_only : narrative.
+  -> produce explicit_activation_only in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:12:6 (pred/explicit_activation_required)
+  pred explicit_activation_required : narrative.
+  -> give explicit_activation_required a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:13:6 (pred/human_available)
+  pred human_available : narrative.
+  -> produce human_available in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:14:6 (pred/human_reports_remote)
+  pred human_reports_remote : narrative.
+  -> produce human_reports_remote in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:15:6 (pred/keep_ventilation)
+  pred keep_ventilation : narrative.
+  -> produce keep_ventilation in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:17:6 (pred/manual_intervention_reported)
+  pred manual_intervention_reported : narrative.
+  -> give manual_intervention_reported a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:18:6 (pred/noise_preference_at_work)
+  pred noise_preference_at_work : narrative.
+  -> produce noise_preference_at_work in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:19:6 (pred/nonzero_ventilation_required)
+  pred nonzero_ventilation_required : narrative.
+  -> give nonzero_ventilation_required a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:21:6 (pred/quiet_scene_active)
+  pred quiet_scene_active : narrative.
+  -> give quiet_scene_active a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:22:6 (pred/quiet_scene_consent)
+  pred quiet_scene_consent : narrative.
+  -> produce quiet_scene_consent in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:23:6 (pred/recognition_proposal_pending)
+  pred recognition_proposal_pending : narrative.
+  -> give recognition_proposal_pending a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:24:6 (pred/reflection_opportunity)
+  pred reflection_opportunity : narrative.
+  -> produce reflection_opportunity in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:25:6 (pred/response_overdue)
+  pred response_overdue : narrative.
+  -> produce response_overdue in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:26:6 (pred/scene_authorized)
+  pred scene_authorized : narrative.
+  -> give scene_authorized a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:28:6 (pred/work_start_word)
+  pred work_start_word : narrative.
+  -> produce work_start_word in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it

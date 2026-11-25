@@ -1,0 +1,382 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch06/chapter.llp",
+  "key": "cfcde3757ee2db1aa9844c25dd52bb7c2dd66ea3a9124ecd090843da43b20830",
+  "seed": 7,
+  "case": "authored",
+  "initial": [
+    "dinner_commitment",
+    "original_plan",
+    "reminder_available"
+  ],
+  "inputs": [
+    {
+      "label": "one reminder and requested delay",
+      "inputs": [
+        "preparation_due",
+        "ten_more_minutes"
+      ],
+      "present": [
+        "reminder_deferred"
+      ],
+      "absent": []
+    },
+    {
+      "label": "conflict during repair",
+      "inputs": [
+        "printer_repair",
+        "original_recipe_late"
+      ],
+      "present": [
+        "simplify_option",
+        "notify_guest_option",
+        "original_plan"
+      ],
+      "absent": [
+        "simple_plan"
+      ]
+    },
+    {
+      "label": "authorized simplification",
+      "inputs": [
+        "simplify_consent"
+      ],
+      "present": [
+        "simple_plan",
+        "decision_active"
+      ],
+      "absent": [
+        "original_plan"
+      ]
+    },
+    {
+      "label": "changed circumstances",
+      "inputs": [
+        "guest_delay_report"
+      ],
+      "present": [
+        "simple_plan",
+        "restoration_offered"
+      ],
+      "absent": [
+        "original_plan"
+      ]
+    },
+    {
+      "label": "decision persists and cooking adapts",
+      "inputs": [
+        "keep_simple_word",
+        "cooking_started",
+        "ingredient_diverted"
+      ],
+      "present": [
+        "simple_reaffirmed",
+        "improvised_dinner",
+        "simple_plan"
+      ],
+      "absent": [
+        "original_plan"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +preparation_due +ten_more_minutes remind_dinner honor_short_delay do +printer_repair +original_recipe_late offer_tradeoff do +simplify_consent simplify_on_consent do +guest_delay_report record_later_arrival offer_restoration do +keep_simple_word +cooking_started +ingredient_diverted coordinate_cooking retain_decision\nstage (done) | decision_active:1 dinner_commitment:1 improvised_dinner:1 simple_plan:1 simple_reaffirmed:1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +preparation_due +ten_more_minutes",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "ten_more_minutes": 1,
+          "preparation_due": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "remind_dinner",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "reminder_available": 1,
+          "preparation_due": 1
+        },
+        "produce": {
+          "dinner_reminded": 1
+        },
+        "persist": {
+          "dinner_commitment": 1
+        }
+      },
+      {
+        "i": 3,
+        "name": "honor_short_delay",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "dinner_reminded": 1,
+          "ten_more_minutes": 1
+        },
+        "produce": {
+          "reminder_deferred": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 4,
+        "name": "do +printer_repair +original_recipe_late",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "printer_repair": 1,
+          "original_recipe_late": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 5,
+        "name": "offer_tradeoff",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 4,
+        "episode": 0,
+        "consume": {
+          "reminder_deferred": 1,
+          "printer_repair": 1,
+          "original_recipe_late": 1
+        },
+        "produce": {
+          "simplify_option": 1,
+          "notify_guest_option": 1
+        },
+        "persist": {
+          "dinner_commitment": 1
+        }
+      },
+      {
+        "i": 6,
+        "name": "do +simplify_consent",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "simplify_consent": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 7,
+        "name": "simplify_on_consent",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 5,
+        "episode": 0,
+        "consume": {
+          "simplify_option": 1,
+          "notify_guest_option": 1,
+          "original_plan": 1,
+          "simplify_consent": 1
+        },
+        "produce": {
+          "simple_plan": 1,
+          "decision_active": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 8,
+        "name": "do +guest_delay_report",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "guest_delay_report": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 9,
+        "name": "record_later_arrival",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "guest_delay_report": 1
+        },
+        "produce": {
+          "schedule_slack": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 10,
+        "name": "offer_restoration",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 6,
+        "episode": 0,
+        "consume": {
+          "schedule_slack": 1
+        },
+        "produce": {
+          "restoration_offered": 1
+        },
+        "persist": {
+          "simple_plan": 1,
+          "decision_active": 1
+        }
+      },
+      {
+        "i": 11,
+        "name": "do +keep_simple_word +cooking_started +ingredient_diverted",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "cooking_started": 1,
+          "ingredient_diverted": 1,
+          "keep_simple_word": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 12,
+        "name": "coordinate_cooking",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 6,
+        "episode": 0,
+        "consume": {
+          "cooking_started": 1,
+          "ingredient_diverted": 1
+        },
+        "produce": {
+          "improvised_dinner": 1
+        },
+        "persist": {
+          "simple_plan": 1,
+          "decision_active": 1
+        }
+      },
+      {
+        "i": 13,
+        "name": "retain_decision",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 7,
+        "episode": 0,
+        "consume": {
+          "restoration_offered": 1,
+          "keep_simple_word": 1
+        },
+        "produce": {
+          "simple_reaffirmed": 1
+        },
+        "persist": {}
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "decision_active": 1,
+      "dinner_commitment": 1,
+      "improvised_dinner": 1,
+      "simple_plan": 1,
+      "simple_reaffirmed": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "one reminder and requested delay",
+      "counts": {
+        "dinner_commitment": 1,
+        "original_plan": 1,
+        "reminder_deferred": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "conflict during repair",
+      "counts": {
+        "dinner_commitment": 1,
+        "original_plan": 1,
+        "simplify_option": 1,
+        "notify_guest_option": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "authorized simplification",
+      "counts": {
+        "dinner_commitment": 1,
+        "simple_plan": 1,
+        "decision_active": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "changed circumstances",
+      "counts": {
+        "dinner_commitment": 1,
+        "simple_plan": 1,
+        "decision_active": 1,
+        "restoration_offered": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "decision persists and cooking adapts",
+      "counts": {
+        "dinner_commitment": 1,
+        "simple_plan": 1,
+        "decision_active": 1,
+        "improvised_dinner": 1,
+        "simple_reaffirmed": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

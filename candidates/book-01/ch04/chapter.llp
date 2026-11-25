@@ -1,0 +1,48 @@
+% Candidate simulation, not approved for deployment. Source 94e2c5829e6ebefa3bd41e35e513bba943dc8e12.
+% Book I Chapter 4: The art of being wrong. Scene IDs are defined in README.md.
+catalog nina_book01_ch04 1.
+provenance text "book-01:94e2c5829e6ebefa3bd41e35e513bba943dc8e12:C04" "2026-11-25".
+layers (story).
+stages (live).
+namespace narrative produce (story).
+pred ambiguity_case_saved : narrative.
+pred ambiguous_observations : narrative.
+pred apparent_miss : narrative.
+pred appointment_passed : narrative.
+pred busy_question : narrative.
+pred busy_yes : narrative.
+pred cancellation_report : narrative.
+pred conversational_opening : narrative.
+pred design_work_report : narrative.
+pred dismissed_briefing : narrative.
+pred evening_review : narrative.
+pred evidence_gap_acknowledged : narrative.
+pred hypothesis_upset : narrative.
+pred hypothesis_work : narrative.
+pred interpretation_open : narrative.
+pred interruptions_reduced : narrative.
+pred monitoring_active : narrative.
+pred no_departure_observed : narrative.
+pred quiet_response : narrative.
+pred research_deferred : narrative.
+pred research_pending : narrative.
+pred working_explanation : narrative.
+stage live {
+  %% [B01-C04-S01] "There were other explanations."
+  consider_explanations [story] : interpretation_open * dismissed_briefing * quiet_response -o hypothesis_upset * hypothesis_work * ambiguous_observations.
+  %% [B01-C04-S01] "Busy morning?"
+  ask_busy [story] : $ambiguous_observations * conversational_opening -o busy_question.
+  %% [B01-C04-S01] "I'll keep the interruptions down."
+  reduce_interruptions [story] : busy_question * busy_yes * research_pending -o research_deferred * interruptions_reduced.
+  %% [B01-C04-S02] "This appeared to support her hypothesis"
+  apparent_missed_appointment [story] : appointment_passed * no_departure_observed * $hypothesis_upset -o apparent_miss.
+  %% [B01-C04-S02] "The cancellation had arrived through a channel she could not read."
+  correct_explanation [story] : apparent_miss * hypothesis_upset * hypothesis_work * cancellation_report * design_work_report -o working_explanation * evidence_gap_acknowledged.
+  %% [B01-C04-S03] "The original events had not changed."
+  retain_ambiguity_case [story] : $ambiguous_observations * $working_explanation * evening_review -o ambiguity_case_saved.
+}
+#init interpretation_open 1
+#init research_pending 1
+#init monitoring_active 1
+#steps 32
+#seeds 3

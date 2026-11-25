@@ -1,0 +1,87 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch02/chapter.llp",
+  "key": "ec62cfbd8ef8b99582ba22a34d445e02d6fc2365913263b3221e16102d9dbbe1",
+  "seed": 1,
+  "case": "explicit-start",
+  "initial": [
+    "scene_authorized",
+    "nonzero_ventilation_required",
+    "explicit_activation_required"
+  ],
+  "inputs": [
+    {
+      "label": "word",
+      "inputs": [
+        "work_start_word"
+      ],
+      "present": [
+        "quiet_scene_active"
+      ],
+      "absent": []
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +work_start_word activate_on_word\nstage (done) | explicit_activation_required:1 nonzero_ventilation_required:1 quiet_scene_active:1 scene_authorized:1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +work_start_word",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "work_start_word": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "activate_on_word",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "work_start_word": 1
+        },
+        "produce": {
+          "quiet_scene_active": 1
+        },
+        "persist": {
+          "scene_authorized": 1,
+          "nonzero_ventilation_required": 1,
+          "explicit_activation_required": 1
+        }
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "explicit_activation_required": 1,
+      "nonzero_ventilation_required": 1,
+      "quiet_scene_active": 1,
+      "scene_authorized": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "word",
+      "counts": {
+        "scene_authorized": 1,
+        "nonzero_ventilation_required": 1,
+        "explicit_activation_required": 1,
+        "quiet_scene_active": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

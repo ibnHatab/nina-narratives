@@ -1,0 +1,5 @@
+program: chapter.llp
+display: "Nina, Book I chapter 7"
+line: "Candidate fictional simulation: The quieter constellation"
+voice: third
+clock: {beats: 1}

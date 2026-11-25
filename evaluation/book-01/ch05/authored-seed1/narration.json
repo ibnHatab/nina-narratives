@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "source": "session",
+  "seed": 0,
+  "events": 10,
+  "llm": "openrouter:deepseek/deepseek-v4-pro",
+  "narration": "A Working Visit\n\nThe house had been empty, but in this telling a promising connection, weak support, and a costly demo were already present. Then someone returned and removed their coat, and a request to \u201cshow me\u201d came with objections exchanged. Research began within her permissions and resource budget. She separated the promising idea from the unreliable implementation, leaving the implementation doubted and a qualified note in hand. She waited until he had taken off his coat, then offered the note. \u201cShow me,\u201d he said, and they entered a discussion. At the same time, they revised the work together, and the conclusion belonged to neither participant at the beginning: objections were exchanged, the initial approach was abandoned, and a better question emerged, making the research useful. In the end, a better question, doubted implementation, abandoned initial approach, research permission, useful research, shared interest, and clear tasks all remained.\n\nNarrator's note: Beat 1 held five environment events, summarized as the opening conditions. Beat 6 held one event.",
+  "trace_seed": 1,
+  "program_key": "39e0daadf7bbb9849ea69444280e5755a8ebd9b4a86b51681ff365b486805cd7",
+  "assessment": "See evaluation/book-01/REVIEW.md; ok means API success, not semantic acceptance."
+}

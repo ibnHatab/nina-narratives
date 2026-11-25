@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "source": "session",
+  "seed": 0,
+  "events": 10,
+  "llm": "openrouter:deepseek/deepseek-v4-pro",
+  "narration": "The Quiet Scene\n\nIn this telling, the world outside moved: a response became overdue, a conflicting report arrived with a human available, a human reported remote work and a noise preference, and a quiet scene was consented to with ventilation kept, explicit activation only, lab presence, and a reflection opportunity. Then the expected change in the device's reported state had not arrived. Did you change the ventilation settings in the lab? Another agent had intervened. Would you like me to make a quiet working scene? Yes. She did not install the proposal herself. In the end, explicit activation was required, the lab remained present, a manual intervention was reported, nonzero ventilation was required, a recognition proposal was pending, and the scene was authorized.\n\nNarrator's note: Beat 1 held four simultaneous environmental interventions, which were summarized as a single opening sentence.",
+  "trace_seed": 1,
+  "program_key": "3f21c8d30638505b850c0caba1674ca92d2d90910815dd972158d5d4e5590c18",
+  "assessment": "See evaluation/book-01/REVIEW.md; ok means API success, not semantic acceptance."
+}

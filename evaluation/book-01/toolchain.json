@@ -1,0 +1,38 @@
+{
+  "metispy": {
+    "revision": "51609ca694cf0a30e02241b2daa7bdf9ce9f8c29",
+    "tracked_changes": false
+  },
+  "metis-lang": {
+    "revision": "5807f7f37fc881169127b3fa989ba03731bc139e",
+    "tracked_changes": false
+  },
+  "metis-catalog": {
+    "revision": "7eb6e7d9382b43f38a2867f62577adb1d44bc936",
+    "tracked_changes": false
+  },
+  "metis-loop": {
+    "revision": "7013647c3ef47c65dfd03b9d6942c0bae3d2ce58",
+    "tracked_changes": false
+  },
+  "metis-agent": {
+    "revision": "1a80e6d501f0d3d08698ac521a09636acb0fa490",
+    "tracked_changes": false
+  },
+  "metis-worlds": {
+    "revision": "fba410a1759dfd0f3666436b5240ea574e334df2",
+    "tracked_changes": false
+  },
+  "nina-live": {
+    "revision": "d01f10f27dba8590ef56fe795580a5afe76b7119",
+    "tracked_changes": false
+  },
+  "runtime": {
+    "metispy": "0.2.1",
+    "python": "3.12.3",
+    "narrator": "openrouter:deepseek/deepseek-v4-pro",
+    "temperature": 0.3,
+    "max_tokens": 1600
+  },
+  "coordination_revision": "2420894"
+}

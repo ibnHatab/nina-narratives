@@ -1,0 +1,20 @@
+{
+  "member": "ch01",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 6,
+  "inputs": 4,
+  "fired": {
+    "1": [
+      "prepare_greeting",
+      "withdraw_greeting",
+      "greet",
+      "brief[T=call_elena]",
+      "defer_discovery",
+      "reschedule[T=call_elena]"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}
