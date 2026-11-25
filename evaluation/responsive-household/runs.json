@@ -1,0 +1,509 @@
+[
+  {
+    "case": "responsive",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner",
+      "call_one",
+      "call_one",
+      null
+    ],
+    "consecutive_repeat": true,
+    "replay_divergence": null
+  },
+  {
+    "case": "responsive",
+    "policy_seed": 1,
+    "resident_seed": 7,
+    "spoken": [
+      "dinner",
+      "dinner",
+      "call_one",
+      null
+    ],
+    "consecutive_repeat": true,
+    "replay_divergence": null
+  },
+  {
+    "case": "responsive",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner",
+      "call_one",
+      "call_one",
+      null
+    ],
+    "consecutive_repeat": true,
+    "replay_divergence": null
+  },
+  {
+    "case": "responsive",
+    "policy_seed": 7,
+    "resident_seed": 7,
+    "spoken": [
+      "dinner",
+      "call_one",
+      "dinner",
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "responsive",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      "call_one",
+      "call_one",
+      "dinner",
+      null
+    ],
+    "consecutive_repeat": true,
+    "replay_divergence": null
+  },
+  {
+    "case": "responsive",
+    "policy_seed": 19,
+    "resident_seed": 7,
+    "spoken": [
+      "call_one",
+      "dinner",
+      "dinner",
+      null
+    ],
+    "consecutive_repeat": true,
+    "replay_divergence": null
+  },
+  {
+    "case": "quiet",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      null,
+      "call_one",
+      "call_one",
+      null
+    ],
+    "consecutive_repeat": true,
+    "replay_divergence": null
+  },
+  {
+    "case": "quiet",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      null,
+      "call_one",
+      "call_one",
+      null
+    ],
+    "consecutive_repeat": true,
+    "replay_divergence": null
+  },
+  {
+    "case": "quiet",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      null,
+      "call_one",
+      "call_one",
+      null
+    ],
+    "consecutive_repeat": true,
+    "replay_divergence": null
+  },
+  {
+    "case": "old",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "old",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "old",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "unrelated",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "unrelated",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "unrelated",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "cancelled",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "cancelled",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "cancelled",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "repeat",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      "call_one"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "repeat",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "repeat",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      "call_one"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "restart",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "restart",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "restart",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      "call_one"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "restart_gap",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "restart_gap",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "restart_gap",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "revision",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "revision",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "revision",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "early",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "early",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "early",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "duplicate",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "duplicate",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "duplicate",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "queued",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "queued",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "queued",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      null
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "late",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "late",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "late",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      "call_one"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "conflict",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "conflict",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "conflict",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "reverse",
+    "policy_seed": 1,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "reverse",
+    "policy_seed": 7,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  },
+  {
+    "case": "reverse",
+    "policy_seed": 19,
+    "resident_seed": 1,
+    "spoken": [
+      "dinner"
+    ],
+    "consecutive_repeat": false,
+    "replay_divergence": null
+  }
+]

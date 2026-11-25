@@ -1,0 +1,68 @@
+{
+  "ok": true,
+  "classification": "class-F candidate (statics admit; Z-check applies with bindings)",
+  "findings": [],
+  "warnings": [],
+  "rules": [
+    [
+      "due",
+      "B01-C01-S03 \"It belonged to a future event: his return.\"\nThe host matches an observed return to this promise's outing."
+    ],
+    [
+      "select",
+      "B01-C06-S01 \"At five forty-five, she mentioned it.\"\nNina queues one ready reminder per optional speaking opportunity."
+    ],
+    [
+      "commit",
+      "Review 3 \"Distinguish queued, committed and actually spoken notifications.\"\nNina commits only after the host closes this epoch's evidence batch."
+    ],
+    [
+      "deliver",
+      "The simulated speaker returns a delivery receipt. Selection alone makes no sound."
+    ],
+    [
+      "close",
+      "B01-C08-S02 \"an activity he had already completed.\"\nA supported resident report closes the task in its current state."
+    ],
+    [
+      "reopen",
+      "B01-C04-S02 \"What had changed was the explanation connecting them.\"\nThe unresolved disagreement blocks further optional speech on this promise."
+    ],
+    [
+      "postpone",
+      "A resident who heard a reminder can explicitly ask Nina to try again."
+    ]
+  ],
+  "diagnostics": [],
+  "scenarios": [
+    {
+      "key": "df587f2eda21fe15db5a9b7d4c17ca3a254cb1ffbd08b3ee0e1779a35f5f91c9",
+      "support": 1,
+      "diffs": [],
+      "map_events": [
+        "due[T=call_one,J=appointment]",
+        "select[T=call_one]"
+      ]
+    }
+  ],
+  "revision": true,
+  "diff_preview": [
+    [
+      "attention",
+      1.0,
+      0.0
+    ],
+    [
+      "state(call_one,queued)",
+      0.0,
+      1.0
+    ],
+    [
+      "state(call_one,waiting)",
+      1.0,
+      0.0
+    ]
+  ],
+  "comments_dropped": 0,
+  "text_changed": true
+}

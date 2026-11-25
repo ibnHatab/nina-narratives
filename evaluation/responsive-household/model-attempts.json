@@ -1,0 +1,23 @@
+{
+  "endpoint": "openrouter:deepseek/deepseek-v4-pro",
+  "results": {
+    "full": {
+      "text": "In this telling, the world outside the story moved first. The door adapter reported a return from the appointment, and an interruption window opened—attention became available. Authorization arrived, along with a delivery receipt and a retry request for the first call, then a second attention window. The clock ticked. More authorization and another receipt arrived, this time with a reconcile report for the first call. A third attention window opened. The clock ticked again. Authorization returned, and now a receipt and reconcile report for dinner appeared. A fourth attention window. The clock ticked, attention withdrew, and two more ticks passed in silence.\n\nThese arrivals forced the story’s shape. The return from the appointment made both promises ready—dinner and the first call moved from waiting to ready. Nina used the first attention window to queue the call reminder, then committed it when authorization arrived. The simulated speaker delivered it. But a resident, having heard the reminder, asked Nina to try again—the retry request reset the call to ready. A second attention window let Nina queue it once more, commit it, and deliver it. This time, a reconcile report arrived: the resident reported the call done. Nina closed it.\n\nAttention remained. Nina queued the dinner reminder, committed it, and the speaker delivered it. A final reconcile report closed dinner. The clock ran out. Both promises stood closed, tied to the same returned appointment. Nothing was left waiting."
+    },
+    "epoch-1": {
+      "text": "Here is the synthetic witness rendered faithfully, preserving the specified structure and uncertainty.\n\n---\n\n**Epoch 1**\n\n- **Observation return-1:** door_adapter reported return concerning the appointment outing.\n- **Action (Nina):** Marked the reminder ready for dinner.\n- **Action (Nina):** Marked the reminder ready for the first call.\n- **Action (Nina):** Used the available interruption to queue the reminder for the first call.\n- **Action (Nina):** Committed to giving the reminder for the first call.\n- **Report (simulated speaker):** Confirmed delivery of the reminder for the first call."
+    },
+    "epoch-2": {
+      "text": "Based on the provided synthetic witness, here is the faithfully rendered sequence, preserving epochs, separating actions and reports, and marking lifecycle transitions.\n\n**Epoch 1**\n- **Action:** Nina made the reminder eligible again for the first call.\n- **Action:** Nina used the available interruption to queue the reminder for the first call.\n- **Action:** Nina committed to giving the reminder for the first call.\n- **Action:** The simulated speaker confirmed delivery of the reminder for the first call.\n- **Consumed Marker:** The first call lifecycle transitioned.\n\n**Epoch 2**\n- **Report:** Resident reported later concerning the first call (observation reply-2, occurrence epoch 2)."
+    },
+    "epoch-3": {
+      "text": "Based on the supplied synthetic witness, here is the faithfully rendered sequence, preserving uncertainty and separating actions from reports.\n\n**Epoch 3**\n\n- **Observation (Reply-3):** A resident reported being \"done\" concerning the first call.\n- **Action:** Nina closed the promise on the available report for the first call.\n- **Action:** Nina used the available interruption to queue the reminder for dinner.\n- **Action:** Nina committed to giving the reminder for dinner.\n- **Report:** The simulated speaker confirmed delivery of the reminder for dinner."
+    },
+    "epoch-4": {
+      "text": "Under the synthetic witness rendering, the epoch unfolds as follows:\n\n---\n\n**Epoch 4**\n\n- **Observation (reply-4):** A resident report is received, stating that the matter concerning dinner is done.\n- **Action (Nina):** The promise associated with the available dinner report is closed.\n- **Action (system):** No reminder is delivered during this decision cycle.\n- **Marker (consumed):** The closure of the promise marks the lifecycle transition of the dinner report from open to resolved."
+    },
+    "epoch-5": {
+      "text": "```json\n{\n  \"epochs\": [\n    {\n      \"id\": \"epoch_0\",\n      \"observations\": []\n    }\n  ]\n}\n```"
+    }
+  }
+}
