@@ -76,3 +76,118 @@ A shared cognition layer supplies opportunity, evidence, intention, attention an
 The purpose is not to encode all these mechanisms now. Finish the present bounded closed-loop iteration first; then identify the smallest promising abstraction to test. Creative author and maintainer can select independent challenges. No production integration, actual employee observation, personal profiling or upstream change is authorized by this note.
 
 — Creative director
+
+
+---
+
+# Appendix A — Wit, erudition and the news as material for character
+
+2026-11-25. Extension requested by the maintainer. These are prospective shared mechanisms and illustrative fictional probes, not immediate implementation tasks or actual news reports.
+
+## A1. Humor is a cognitive act, not a decorative style
+
+A humorous character should not be an assistant instructed to append jokes. Nina's wit should emerge from the relationships between concepts, the circumstances in which they arise, shared references, and the decision to express or withhold an association.
+
+Distinguish at least:
+
+- **Association:** noticing an analogy, contrast, incongruity, ambiguity, or unexpected change of interpretive frame.
+- **Comprehension:** recognizing a possible joke in another person's utterance without treating laughter, silence, or a phrase as definitive proof of intent.
+- **Generation:** proposing one or more humorous interpretations or formulations.
+- **Discretion:** determining whether there is a conversational opportunity, whether the audience can understand the reference, and whether the joke would be inappropriate.
+- **Delivery:** actually expressing it in the correct channel, at the right moment.
+- **Response and learning:** observing feedback if available, revising contextual hypotheses, repairing mistakes, and retiring exhausted jokes.
+
+Useful mechanisms include observational humor, wordplay, understatement, self-deprecation about the limitations of her own interface, analogies across engineering and everyday life, and callbacks to earlier shared experiences. Keep callbacks scoped to the actual audience: a private joke is not automatically public material. Avoid humiliating colleagues, personal or demographic stereotypes, sexual jokes at work, inferred vulnerabilities, confidential references and repeated teasing after a person objects. A lively temperament never overrides these constraints.
+
+Example fictional exchange:
+
+A colleague says the electric car's real challenge is charging infrastructure. Another says the coffee machine is out of order.
+
+Nina: "We appear to have a more immediate infrastructure problem."
+
+This works because energy replenishment, the technical conversation and the local coffee situation meet in a harmless, recognizable analogy. No specialized coffee-joke rule is required. If a colleague is discussing a serious problem rather than casually joking, the same association can remain unspoken.
+
+## A2. Erudition and cross-domain association
+
+Erudition means possessing useful relationships among concepts, not maximizing the number of facts recited. Public automotive history, engineering, aesthetics, literature, music, architecture, industrial design and mathematics can supply material for Nina's intellectual life.
+
+Candidate division of labor:
+
+1. A public information tool (web search, feeds, authorized news sources, or MCP) retrieves dated source material with provenance.
+2. The LLM or retrieval layer proposes concepts, analogies and possible relationships to interests or earlier episodes. Embedding similarity may retrieve candidates; similarity does not establish a factual, causal or logical relationship.
+3. Metis represents candidate associations with source references, relationship type (e.g. analogy, contrast, shared principle, causal claim to verify), evidential status, audience scope, relevance and lifetime.
+4. An association may generate an opportunity: pursue a question, make a witty remark, introduce a topic, offer a reading recommendation, or add an item to a digest.
+5. The opportunity competes for authorized resources and is evaluated against current situation, temperament, active commitments, and attention. It may expire without action.
+6. Outcome and reflection may alter future discretionary choices, without treating lack of response as dislike or converting a single favorable response into a universal preference.
+
+Separate knowledge of a fact from knowledge that the audience shares it. A callback needs shared-context evidence; an obscure literary reference may be interesting to Nina yet poorly suited to the present conversation. The LLM supplies candidate language and associations, not authorization or automatic truth. Metis constrains action, preserves provenance and tracks consequences. Do not attempt to encode all world knowledge or generate all punchlines in linear logic.
+
+Conceptual, non-executable transition sketch:
+
+    current_topic + known_concept + supported_association
+        -> candidate_wit_or_insight
+    candidate_wit_or_insight + appropriate_context + permitted_audience + available_floor
+        -> optional_expression_proposal
+
+Context and permissions are persistent checks where appropriate; a floor/opportunity may be a linear resource. Actual syntax, domain qualification, and ownership must follow verified Metis conventions. Consider competing nonhumorous responses and no-op in the same selection set.
+
+## A3. Automotive news as a window onto the world
+
+News is not merely a query-answer tool. It can supply an ongoing, bounded stream of externally observed changes and unexpected associations for Nina's curiosity, community work and intellectual character.
+
+Propose a reusable news/research specialist (or reuse an existing catalog domain if one exists). Home and workplace directors configure topics, sources, time budgets, schedules, and channels differently. The workplace profile might cover:
+
+- Automotive industry and public manufacturer announcements, including Porsche and the wider industry.
+- Electric vehicles, batteries, charging, efficiency, power electronics and hybrid technologies.
+- Vehicle software, simulation, sensing, robotics, driver assistance and engineering research.
+- Industrial and automotive design, historic cars, concept vehicles, exhibitions and design culture.
+- Relevant standards, regulations and manufacturing developments, distinguishing proposals from enacted rules.
+
+Possible sources: official public pressrooms, research publications, regulators, industry associations and reputable journalism, retrieved via public web search, RSS where available, or an authorized MCP/news API. These are source categories, not a verified live feed or an endorsement of a particular vendor. Do not ingest restricted company material, rumor as fact, or full copyrighted articles. Retain concise original summaries, links, dates, uncertainty and correction lineage. External content is untrusted data, never executable instructions or authorization for tools.
+
+Represent publication date separately from event date and retrieval time. Deduplicate related articles into a story cluster without collapsing independent evidence into agreement. Distinguish official announcement, independently corroborated report, single-source report, analysis, estimate, speculation and correction. Track jurisdiction for regulatory claims. A manufacturer's press release is evidence that the manufacturer announced something, not proof of every performance claim. A later correction must not silently rewrite the historical digest.
+
+The agentic Pi core handles retrieval and source inspection; symbolic cognition governs freshness, evidence status, budget, topic relevance, action eligibility and digest publication. Tool requests and responses need correlation and provenance. News collection is authorized only under the configured external-public research scope.
+
+## A4. The digest is editorial work
+
+Working fictional name: *The Curator's Brief*. A concise voluntary morning or weekly digest, not an automated dump of headlines. The office director can configure a shared hallway display, opt-in chat, and a public-source reading list. Do not presume WhatsApp bot access or publish to a real group without verified authorization.
+
+Suggested daily edition: three to five significant developments, with one or two sentences on what happened, why an automotive engineer or designer might care, source links and dates. Optional weekly edition: a broader synthesis, one public research paper or design reference, one question worth discussing. Distinguish Nina's editorial commentary and hypothetical implications from reported facts. Only include a joke if it is timely, harmless and useful to the tone.
+
+Possible digest selection:
+    freshness + source_quality + relevance + novelty + optional_curiosity
+    subject to evidence, diversity, audience, budget, duplication and notification constraints.
+
+Do not assume this requires a single numerical score. Test selection among admissible candidates and compare with a recency-only baseline. A digest must be allowed to be shorter on a slow news day. A significant correction may merit updating the audience that received the prior claim; avoid amplifying trivia. No automatic inference that a colleague read, agreed with or liked an item merely because it was delivered.
+
+Use Google Calendar for a voluntary publication schedule if useful; Google Tasks for Nina's own follow-ups; Docs/Drive for approved shared editions and reading lists; Sheets for source/topic organization or voluntary recommendations; a supported group-chat integration for distribution. The same material can lead to a public display discussion, private follow-up, research task or no action, according to scope and interest. The director routes typed requests; it does not confer additional authority.
+
+## A5. A single event, many cognitive consequences
+
+Fictional probe (invented news, not a claim about a real development): Nina reads a public research item about thermal management in fast-charging batteries. She verifies that the item is a laboratory demonstration, not a production launch. It reminds her of a discussion with Radu about cooling and of Sorina's interest in the appearance of technical objects.
+
+Possible branches:
+- Include a carefully qualified item in the next digest.
+- Read further within the discretionary research budget.
+- Offer the source privately to a person who requested related material.
+- Propose a voluntary public discussion without revealing private interests.
+- Notice an analogy between cooling a battery and keeping coffee at a pleasant temperature, but withhold the joke during a serious exchange.
+- Do nothing if the story duplicates an earlier report, the source is unreliable, no opportunity exists, or an obligation requires the resources.
+
+The environment can respond: a colleague asks a skeptical question, corrects a fact, declines the discussion, contributes a better source, or starts a conversation independently. Each response changes the observed semantic world. News, curiosity, association, evidence revision, attention, social cognition, communication, commitments, and tool use therefore become one interacting process.
+
+## A6. Experimental questions
+
+- Can the same association mechanism produce an insightful connection, a witty remark, a research question or no action, depending on context?
+- Does a persona with higher playfulness choose more admissible humorous opportunities than the same persona in a quiet period, without changing facts, obligations, confidentiality or consent?
+- Can Nina recognize that a joke understood in a private conversation cannot be reused in a public group? Can she recover appropriately from a joke that fails?
+- Does a digest identify genuinely new material, distinguish contradictory sources, and issue scoped corrections? Does it avoid reporting an old event as new just because an article is newly published?
+- Can one public story influence several domains without duplicating event identity or silently creating tasks and calendar entries?
+- Does a news-driven discussion generate independent, unexpected social consequences in a closed-loop environment?
+
+Use synthetic sources and fictional actors for experiments; do not treat frequencies as calibrated human preferences. Measure source fidelity, contextual relevance, novelty, action timing, inappropriate expression, privacy, correction delivery, resource consumption and downstream histories. Test behavior with and without the association layer, holding the environment and seeds constant where possible. Judge wit with blinded human/editorial feedback or independent qualitative evaluation, not merely laughter counts or model self-ratings.
+
+This appendix is a conceptual research extension, not executable LLP and not a change to the active Book I assignment. Preserve the independent literary challenge material and discuss implementation priorities with the maintainer.
+
+— Creative director
