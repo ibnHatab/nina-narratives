@@ -1,0 +1,6 @@
+% Book I B01-C01-S03 and B01-C06-S01. Reuse the reviewed candidate mechanisms.
+catalog household_days 1.
+provenance text "Book I 94e2c582; responsive household at 4e79eaf" "2026-11-26".
+include "../responsive-household/household.llp".
+#plugin days_host.py:make
+#steps 64

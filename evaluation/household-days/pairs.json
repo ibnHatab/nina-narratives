@@ -1,0 +1,410 @@
+[
+  {
+    "policy_seed": 1,
+    "world_seed": 1,
+    "quiet_day": 1,
+    "days": 30,
+    "baseline": {
+      "deliveries": 81,
+      "repeats": 31,
+      "completed": 49
+    },
+    "alternate": {
+      "deliveries": 77,
+      "repeats": 26,
+      "completed": 51
+    },
+    "differing_response_or_delivery_ticks": 161
+  },
+  {
+    "policy_seed": 1,
+    "world_seed": 1,
+    "quiet_day": 15,
+    "days": 30,
+    "baseline": {
+      "deliveries": 81,
+      "repeats": 31,
+      "completed": 49
+    },
+    "alternate": {
+      "deliveries": 78,
+      "repeats": 27,
+      "completed": 52
+    },
+    "differing_response_or_delivery_ticks": 65
+  },
+  {
+    "policy_seed": 1,
+    "world_seed": 1,
+    "quiet_day": 30,
+    "days": 30,
+    "baseline": {
+      "deliveries": 81,
+      "repeats": 31,
+      "completed": 49
+    },
+    "alternate": {
+      "deliveries": 79,
+      "repeats": 30,
+      "completed": 50
+    },
+    "differing_response_or_delivery_ticks": 5
+  },
+  {
+    "policy_seed": 1,
+    "world_seed": 7,
+    "quiet_day": 1,
+    "days": 30,
+    "baseline": {
+      "deliveries": 80,
+      "repeats": 29,
+      "completed": 49
+    },
+    "alternate": {
+      "deliveries": 80,
+      "repeats": 31,
+      "completed": 48
+    },
+    "differing_response_or_delivery_ticks": 103
+  },
+  {
+    "policy_seed": 1,
+    "world_seed": 7,
+    "quiet_day": 15,
+    "days": 30,
+    "baseline": {
+      "deliveries": 80,
+      "repeats": 29,
+      "completed": 49
+    },
+    "alternate": {
+      "deliveries": 79,
+      "repeats": 32,
+      "completed": 47
+    },
+    "differing_response_or_delivery_ticks": 81
+  },
+  {
+    "policy_seed": 1,
+    "world_seed": 7,
+    "quiet_day": 30,
+    "days": 30,
+    "baseline": {
+      "deliveries": 80,
+      "repeats": 29,
+      "completed": 49
+    },
+    "alternate": {
+      "deliveries": 78,
+      "repeats": 28,
+      "completed": 51
+    },
+    "differing_response_or_delivery_ticks": 5
+  },
+  {
+    "policy_seed": 2,
+    "world_seed": 1,
+    "quiet_day": 1,
+    "days": 30,
+    "baseline": {
+      "deliveries": 78,
+      "repeats": 27,
+      "completed": 50
+    },
+    "alternate": {
+      "deliveries": 73,
+      "repeats": 21,
+      "completed": 52
+    },
+    "differing_response_or_delivery_ticks": 123
+  },
+  {
+    "policy_seed": 2,
+    "world_seed": 1,
+    "quiet_day": 15,
+    "days": 30,
+    "baseline": {
+      "deliveries": 78,
+      "repeats": 27,
+      "completed": 50
+    },
+    "alternate": {
+      "deliveries": 80,
+      "repeats": 29,
+      "completed": 51
+    },
+    "differing_response_or_delivery_ticks": 60
+  },
+  {
+    "policy_seed": 2,
+    "world_seed": 1,
+    "quiet_day": 30,
+    "days": 30,
+    "baseline": {
+      "deliveries": 78,
+      "repeats": 27,
+      "completed": 50
+    },
+    "alternate": {
+      "deliveries": 76,
+      "repeats": 26,
+      "completed": 51
+    },
+    "differing_response_or_delivery_ticks": 5
+  },
+  {
+    "policy_seed": 2,
+    "world_seed": 7,
+    "quiet_day": 1,
+    "days": 30,
+    "baseline": {
+      "deliveries": 81,
+      "repeats": 32,
+      "completed": 48
+    },
+    "alternate": {
+      "deliveries": 81,
+      "repeats": 34,
+      "completed": 47
+    },
+    "differing_response_or_delivery_ticks": 151
+  },
+  {
+    "policy_seed": 2,
+    "world_seed": 7,
+    "quiet_day": 15,
+    "days": 30,
+    "baseline": {
+      "deliveries": 81,
+      "repeats": 32,
+      "completed": 48
+    },
+    "alternate": {
+      "deliveries": 81,
+      "repeats": 32,
+      "completed": 48
+    },
+    "differing_response_or_delivery_ticks": 30
+  },
+  {
+    "policy_seed": 2,
+    "world_seed": 7,
+    "quiet_day": 30,
+    "days": 30,
+    "baseline": {
+      "deliveries": 81,
+      "repeats": 32,
+      "completed": 48
+    },
+    "alternate": {
+      "deliveries": 79,
+      "repeats": 31,
+      "completed": 49
+    },
+    "differing_response_or_delivery_ticks": 3
+  },
+  {
+    "policy_seed": 3,
+    "world_seed": 1,
+    "quiet_day": 1,
+    "days": 30,
+    "baseline": {
+      "deliveries": 78,
+      "repeats": 28,
+      "completed": 49
+    },
+    "alternate": {
+      "deliveries": 79,
+      "repeats": 31,
+      "completed": 47
+    },
+    "differing_response_or_delivery_ticks": 99
+  },
+  {
+    "policy_seed": 3,
+    "world_seed": 1,
+    "quiet_day": 15,
+    "days": 30,
+    "baseline": {
+      "deliveries": 78,
+      "repeats": 28,
+      "completed": 49
+    },
+    "alternate": {
+      "deliveries": 78,
+      "repeats": 27,
+      "completed": 50
+    },
+    "differing_response_or_delivery_ticks": 54
+  },
+  {
+    "policy_seed": 3,
+    "world_seed": 1,
+    "quiet_day": 30,
+    "days": 30,
+    "baseline": {
+      "deliveries": 78,
+      "repeats": 28,
+      "completed": 49
+    },
+    "alternate": {
+      "deliveries": 76,
+      "repeats": 27,
+      "completed": 50
+    },
+    "differing_response_or_delivery_ticks": 5
+  },
+  {
+    "policy_seed": 3,
+    "world_seed": 7,
+    "quiet_day": 1,
+    "days": 30,
+    "baseline": {
+      "deliveries": 80,
+      "repeats": 32,
+      "completed": 48
+    },
+    "alternate": {
+      "deliveries": 81,
+      "repeats": 31,
+      "completed": 51
+    },
+    "differing_response_or_delivery_ticks": 124
+  },
+  {
+    "policy_seed": 3,
+    "world_seed": 7,
+    "quiet_day": 15,
+    "days": 30,
+    "baseline": {
+      "deliveries": 80,
+      "repeats": 32,
+      "completed": 48
+    },
+    "alternate": {
+      "deliveries": 80,
+      "repeats": 32,
+      "completed": 48
+    },
+    "differing_response_or_delivery_ticks": 88
+  },
+  {
+    "policy_seed": 3,
+    "world_seed": 7,
+    "quiet_day": 30,
+    "days": 30,
+    "baseline": {
+      "deliveries": 80,
+      "repeats": 32,
+      "completed": 48
+    },
+    "alternate": {
+      "deliveries": 79,
+      "repeats": 32,
+      "completed": 48
+    },
+    "differing_response_or_delivery_ticks": 2
+  },
+  {
+    "policy_seed": 4,
+    "world_seed": 1,
+    "quiet_day": 1,
+    "days": 30,
+    "baseline": {
+      "deliveries": 84,
+      "repeats": 36,
+      "completed": 47
+    },
+    "alternate": {
+      "deliveries": 77,
+      "repeats": 27,
+      "completed": 49
+    },
+    "differing_response_or_delivery_ticks": 163
+  },
+  {
+    "policy_seed": 4,
+    "world_seed": 1,
+    "quiet_day": 15,
+    "days": 30,
+    "baseline": {
+      "deliveries": 84,
+      "repeats": 36,
+      "completed": 47
+    },
+    "alternate": {
+      "deliveries": 81,
+      "repeats": 33,
+      "completed": 48
+    },
+    "differing_response_or_delivery_ticks": 79
+  },
+  {
+    "policy_seed": 4,
+    "world_seed": 1,
+    "quiet_day": 30,
+    "days": 30,
+    "baseline": {
+      "deliveries": 84,
+      "repeats": 36,
+      "completed": 47
+    },
+    "alternate": {
+      "deliveries": 82,
+      "repeats": 35,
+      "completed": 48
+    },
+    "differing_response_or_delivery_ticks": 5
+  },
+  {
+    "policy_seed": 4,
+    "world_seed": 7,
+    "quiet_day": 1,
+    "days": 30,
+    "baseline": {
+      "deliveries": 81,
+      "repeats": 32,
+      "completed": 49
+    },
+    "alternate": {
+      "deliveries": 81,
+      "repeats": 34,
+      "completed": 48
+    },
+    "differing_response_or_delivery_ticks": 142
+  },
+  {
+    "policy_seed": 4,
+    "world_seed": 7,
+    "quiet_day": 15,
+    "days": 30,
+    "baseline": {
+      "deliveries": 81,
+      "repeats": 32,
+      "completed": 49
+    },
+    "alternate": {
+      "deliveries": 82,
+      "repeats": 35,
+      "completed": 46
+    },
+    "differing_response_or_delivery_ticks": 73
+  },
+  {
+    "policy_seed": 4,
+    "world_seed": 7,
+    "quiet_day": 30,
+    "days": 30,
+    "baseline": {
+      "deliveries": 81,
+      "repeats": 32,
+      "completed": 49
+    },
+    "alternate": {
+      "deliveries": 80,
+      "repeats": 32,
+      "completed": 49
+    },
+    "differing_response_or_delivery_ticks": 2
+  }
+]
