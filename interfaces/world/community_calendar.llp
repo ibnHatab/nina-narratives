@@ -1,5 +1,7 @@
 catalog community_calendar 1.
-types (participant task).
+types (participant slot task).
 namespace world_community_calendar produce (dyn story).
 pred invited_guest(task,participant) : world_community_calendar.
 pred accepted_invite(task,participant) : world_community_calendar.
+pred observed_plan(task,slot) : world_community_calendar.
+pred agreed_revision(task,slot,slot) : world_community_calendar.

@@ -19,6 +19,23 @@ edges:
   - task
   - participant
   lifetime: consumed
+- pred: observed_plan(task,slot)
+  when:
+    kind: report
+    var: observed_plan
+  args:
+  - task
+  - slot
+  lifetime: consumed
+- pred: agreed_revision(task,slot,slot)
+  when:
+    kind: report
+    var: agreed_revision
+  args:
+  - task
+  - slot_2
+  - slot_3
+  lifetime: consumed
 commands: {}
 receipts:
   via: none

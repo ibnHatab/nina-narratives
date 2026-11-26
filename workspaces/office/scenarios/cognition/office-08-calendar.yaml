@@ -1,6 +1,6 @@
 scenario: office-08-calendar
 cites:
-- V02-C08-open
+- V02-C08-S3
 incarnation: office
 workspace: ../../domains
 metis_workspace: ../..
@@ -11,19 +11,57 @@ beat_s: 1
 horizon_s: 8
 truth:
   people:
-    mara: {}
+    mara:
+      private_facts:
+        practical_knowledge: the general chat also serves people who mute Nina
     sorina:
       hands:
       - task: visit
         at: 0
+      private_facts:
+        position: enthusiastic when the invitation is voluntary
     doru:
       mood: quiet
       availability: busy
       away: []
+      private_facts:
+        motive: a personal memory can be shared in parts
+    radu: {}
+    andrei:
+      private_facts:
+        position: requests evidence and questions assumed agreement
+    ana: {}
 script:
 - at: 4
   kind: floor
   channel: studio
+- at: 3
+  kind: report
+  var: observed_plan
+  person: mara
+  task: lunch
+  slot: original_slot
+- at: 4
+  kind: report
+  var: agreed_revision
+  person: sorina
+  task: lunch
+  slot_2: original_slot
+  slot_3: new_slot
+- at: 2
+  kind: report
+  var: observed_plan
+  person: mara
+  task: lunch
+  slot: original_slot
+  record_origin: home
+- at: 1
+  kind: report
+  var: agreed_revision
+  person: andrei
+  task: lunch
+  slot_2: new_slot
+  slot_3: original_slot
 monitors:
 - id: calendar
   scene: V02-C08-open
@@ -32,6 +70,16 @@ monitors:
   require:
     rule: offer
     by: 8
+- id: acknowledge_revised_plan
+  member: commitments
+  scene: V02-C08-S3
+  words: Change the matching current slot only after confirmation.
+  require:
+    rule: acknowledge_revised_plan
+    by: 8
 expect:
 - monitor: calendar
+  absent: true
+- monitor: incarnation-boundary
+- monitor: acknowledge_revised_plan
   absent: true

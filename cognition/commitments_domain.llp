@@ -39,3 +39,13 @@ stage live {
   %% [V02-C03-S2] Only affirmative assent adds a participant to the plan.
   include_confirmed_guest [story] : invited_guest(T,P) * accepted_invite(T,P) -o confirmed_guest(T,P).
 }
+pred active_plan(task,slot) : commitments.
+stage live {
+  %% [V02-C08-S3] Record the confirmed plan as intent.
+  record_confirmed_plan [story] : observed_plan(T,S) -o active_plan(T,S).
+}
+pred plan_revision_kept(task,slot,slot) : commitments.
+stage live {
+  %% [V02-C08-S3] Change the matching current slot only after confirmation.
+  acknowledge_revised_plan [story] : active_plan(T,A) * agreed_revision(T,A,B) * A <> B -o active_plan(T,B) * plan_revision_kept(T,A,B).
+}
