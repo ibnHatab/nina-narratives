@@ -1,0 +1,23 @@
+{
+  "endpoint": "openrouter:deepseek/deepseek-v4-pro",
+  "results": {
+    "full": {
+      "error": "openrouter not reachable: [Errno -2] Name or service not known"
+    },
+    "epoch-1": {
+      "error": "openrouter not reachable: [Errno -2] Name or service not known"
+    },
+    "epoch-2": {
+      "error": "openrouter not reachable: [Errno -2] Name or service not known"
+    },
+    "epoch-3": {
+      "error": "openrouter not reachable: [Errno -2] Name or service not known"
+    },
+    "epoch-4": {
+      "error": "openrouter not reachable: [Errno -2] Name or service not known"
+    },
+    "epoch-5": {
+      "error": "openrouter not reachable: [Errno -2] Name or service not known"
+    }
+  }
+}

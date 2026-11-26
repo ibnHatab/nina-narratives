@@ -1,0 +1,979 @@
+{
+  "case": "responsive",
+  "seed": 1,
+  "world_seed": 1,
+  "key": "e9183f5fd90acc157187037b2e649d1941d146e0b43301e4d7168bd628d72e35",
+  "spoken": [
+    "dinner",
+    "call_one",
+    "call_one",
+    null
+  ],
+  "latent_busy_task": "call_one",
+  "replay": {
+    "member": "household",
+    "ticks": 21,
+    "beats": 0,
+    "rules": 14,
+    "inputs": 21,
+    "fired": {
+      "1": [
+        "due[T=dinner,J=appointment]",
+        "due[T=call_one,J=appointment]"
+      ],
+      "2": [
+        "select[T=dinner]"
+      ],
+      "4": [
+        "commit[T=dinner]"
+      ],
+      "5": [
+        "deliver[T=dinner]"
+      ],
+      "6": [
+        "close[T=dinner,S=spoken]"
+      ],
+      "7": [
+        "select[T=call_one]"
+      ],
+      "9": [
+        "commit[T=call_one]"
+      ],
+      "10": [
+        "deliver[T=call_one]"
+      ],
+      "11": [
+        "postpone[T=call_one]"
+      ],
+      "12": [
+        "select[T=call_one]"
+      ],
+      "14": [
+        "commit[T=call_one]"
+      ],
+      "15": [
+        "deliver[T=call_one]"
+      ],
+      "16": [
+        "close[T=call_one,S=spoken]"
+      ]
+    },
+    "out": {},
+    "divergence": null,
+    "note": null
+  },
+  "phases": [
+    {
+      "epoch": 1,
+      "phase": "observe",
+      "inputs": [
+        "+returned(appointment) 1"
+      ],
+      "evidence": [
+        {
+          "identity": "return-1",
+          "at": 1,
+          "source": "door_adapter",
+          "kind": "return",
+          "subject": "appointment"
+        }
+      ],
+      "fired": [
+        {
+          "i": 1,
+          "name": "do +returned(appointment)",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "returned(appointment)": 1
+          },
+          "persist": {}
+        },
+        {
+          "i": 2,
+          "name": "due[T=dinner,J=appointment]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 2,
+          "episode": 0,
+          "consume": {
+            "state(dinner,waiting)": 1
+          },
+          "produce": {
+            "state(dinner,ready)": 1
+          },
+          "persist": {
+            "promise(dinner,appointment)": 1,
+            "returned(appointment)": 1
+          }
+        },
+        {
+          "i": 3,
+          "name": "due[T=call_one,J=appointment]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 2,
+          "episode": 0,
+          "consume": {
+            "state(call_one,waiting)": 1
+          },
+          "produce": {
+            "state(call_one,ready)": 1
+          },
+          "persist": {
+            "promise(call_one,appointment)": 1,
+            "returned(appointment)": 1
+          }
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,ready)": 1,
+        "state(call_one,ready)": 1
+      },
+      "hypotheses": {}
+    },
+    {
+      "epoch": 1,
+      "phase": "deliberate",
+      "inputs": [
+        "+attention"
+      ],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 4,
+          "name": "do +attention",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "attention": 1
+          },
+          "persist": {}
+        },
+        {
+          "i": 5,
+          "name": "select[T=dinner]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 3,
+          "episode": 0,
+          "consume": {
+            "state(dinner,ready)": 1,
+            "attention": 1
+          },
+          "produce": {
+            "state(dinner,queued)": 1
+          },
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(call_one,ready)": 1,
+        "state(dinner,queued)": 1
+      }
+    },
+    {
+      "epoch": 1,
+      "phase": "observe",
+      "inputs": [],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 6,
+          "name": "tick",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {},
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(call_one,ready)": 1,
+        "state(dinner,queued)": 1
+      },
+      "hypotheses": {}
+    },
+    {
+      "epoch": 1,
+      "phase": "commit",
+      "inputs": [
+        "+authorize"
+      ],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 7,
+          "name": "do +authorize",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "authorize": 1
+          },
+          "persist": {}
+        },
+        {
+          "i": 8,
+          "name": "commit[T=dinner]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 4,
+          "episode": 0,
+          "consume": {
+            "state(dinner,queued)": 1,
+            "authorize": 1
+          },
+          "produce": {
+            "state(dinner,committed)": 1
+          },
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(call_one,ready)": 1,
+        "state(dinner,committed)": 1
+      }
+    },
+    {
+      "epoch": 1,
+      "phase": "delivery",
+      "inputs": [
+        "+receipt(dinner)"
+      ],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 9,
+          "name": "do +receipt(dinner)",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "receipt(dinner)": 1
+          },
+          "persist": {}
+        },
+        {
+          "i": 10,
+          "name": "deliver[T=dinner]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 5,
+          "episode": 0,
+          "consume": {
+            "state(dinner,committed)": 1,
+            "receipt(dinner)": 1
+          },
+          "produce": {
+            "state(dinner,spoken)": 1
+          },
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(call_one,ready)": 1,
+        "state(dinner,spoken)": 1
+      }
+    },
+    {
+      "epoch": 2,
+      "phase": "observe",
+      "inputs": [
+        "+reconcile(dinner)"
+      ],
+      "evidence": [
+        {
+          "identity": "reply-2",
+          "at": 2,
+          "source": "resident",
+          "kind": "done",
+          "subject": "dinner"
+        }
+      ],
+      "fired": [
+        {
+          "i": 11,
+          "name": "do +reconcile(dinner)",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "reconcile(dinner)": 1
+          },
+          "persist": {}
+        },
+        {
+          "i": 12,
+          "name": "close[T=dinner,S=spoken]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 6,
+          "episode": 0,
+          "consume": {
+            "state(dinner,spoken)": 1,
+            "reconcile(dinner)": 1
+          },
+          "produce": {
+            "state(dinner,closed)": 1
+          },
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(call_one,ready)": 1,
+        "state(dinner,closed)": 1
+      },
+      "hypotheses": {}
+    },
+    {
+      "epoch": 2,
+      "phase": "deliberate",
+      "inputs": [
+        "+attention"
+      ],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 13,
+          "name": "do +attention",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 4,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "attention": 1
+          },
+          "persist": {}
+        },
+        {
+          "i": 14,
+          "name": "select[T=call_one]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 5,
+          "episode": 0,
+          "consume": {
+            "state(call_one,ready)": 1,
+            "attention": 1
+          },
+          "produce": {
+            "state(call_one,queued)": 1
+          },
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,queued)": 1
+      }
+    },
+    {
+      "epoch": 2,
+      "phase": "observe",
+      "inputs": [],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 15,
+          "name": "tick",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {},
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,queued)": 1
+      },
+      "hypotheses": {}
+    },
+    {
+      "epoch": 2,
+      "phase": "commit",
+      "inputs": [
+        "+authorize"
+      ],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 16,
+          "name": "do +authorize",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 5,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "authorize": 1
+          },
+          "persist": {}
+        },
+        {
+          "i": 17,
+          "name": "commit[T=call_one]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 6,
+          "episode": 0,
+          "consume": {
+            "state(call_one,queued)": 1,
+            "authorize": 1
+          },
+          "produce": {
+            "state(call_one,committed)": 1
+          },
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,committed)": 1
+      }
+    },
+    {
+      "epoch": 2,
+      "phase": "delivery",
+      "inputs": [
+        "+receipt(call_one)"
+      ],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 18,
+          "name": "do +receipt(call_one)",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "receipt(call_one)": 1
+          },
+          "persist": {}
+        },
+        {
+          "i": 19,
+          "name": "deliver[T=call_one]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 7,
+          "episode": 0,
+          "consume": {
+            "state(call_one,committed)": 1,
+            "receipt(call_one)": 1
+          },
+          "produce": {
+            "state(call_one,spoken)": 1
+          },
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,spoken)": 1
+      }
+    },
+    {
+      "epoch": 3,
+      "phase": "observe",
+      "inputs": [
+        "+retry(call_one)"
+      ],
+      "evidence": [
+        {
+          "identity": "reply-3",
+          "at": 3,
+          "source": "resident",
+          "kind": "later",
+          "subject": "call_one"
+        }
+      ],
+      "fired": [
+        {
+          "i": 20,
+          "name": "do +retry(call_one)",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "retry(call_one)": 1
+          },
+          "persist": {}
+        },
+        {
+          "i": 21,
+          "name": "postpone[T=call_one]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 8,
+          "episode": 0,
+          "consume": {
+            "state(call_one,spoken)": 1,
+            "retry(call_one)": 1
+          },
+          "produce": {
+            "state(call_one,ready)": 1
+          },
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,ready)": 1
+      },
+      "hypotheses": {}
+    },
+    {
+      "epoch": 3,
+      "phase": "deliberate",
+      "inputs": [
+        "+attention"
+      ],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 22,
+          "name": "do +attention",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 6,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "attention": 1
+          },
+          "persist": {}
+        },
+        {
+          "i": 23,
+          "name": "select[T=call_one]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 9,
+          "episode": 0,
+          "consume": {
+            "state(call_one,ready)": 1,
+            "attention": 1
+          },
+          "produce": {
+            "state(call_one,queued)": 1
+          },
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,queued)": 1
+      }
+    },
+    {
+      "epoch": 3,
+      "phase": "observe",
+      "inputs": [],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 24,
+          "name": "tick",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {},
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,queued)": 1
+      },
+      "hypotheses": {}
+    },
+    {
+      "epoch": 3,
+      "phase": "commit",
+      "inputs": [
+        "+authorize"
+      ],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 25,
+          "name": "do +authorize",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 7,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "authorize": 1
+          },
+          "persist": {}
+        },
+        {
+          "i": 26,
+          "name": "commit[T=call_one]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 10,
+          "episode": 0,
+          "consume": {
+            "state(call_one,queued)": 1,
+            "authorize": 1
+          },
+          "produce": {
+            "state(call_one,committed)": 1
+          },
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,committed)": 1
+      }
+    },
+    {
+      "epoch": 3,
+      "phase": "delivery",
+      "inputs": [
+        "+receipt(call_one)"
+      ],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 27,
+          "name": "do +receipt(call_one)",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 8,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "receipt(call_one)": 1
+          },
+          "persist": {}
+        },
+        {
+          "i": 28,
+          "name": "deliver[T=call_one]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 11,
+          "episode": 0,
+          "consume": {
+            "state(call_one,committed)": 1,
+            "receipt(call_one)": 1
+          },
+          "produce": {
+            "state(call_one,spoken)": 1
+          },
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,spoken)": 1
+      }
+    },
+    {
+      "epoch": 4,
+      "phase": "observe",
+      "inputs": [
+        "+reconcile(call_one)"
+      ],
+      "evidence": [
+        {
+          "identity": "reply-4",
+          "at": 4,
+          "source": "resident",
+          "kind": "done",
+          "subject": "call_one"
+        }
+      ],
+      "fired": [
+        {
+          "i": 29,
+          "name": "do +reconcile(call_one)",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "reconcile(call_one)": 1
+          },
+          "persist": {}
+        },
+        {
+          "i": 30,
+          "name": "close[T=call_one,S=spoken]",
+          "kind": "clause",
+          "stage": "live",
+          "post": null,
+          "beat": 12,
+          "episode": 0,
+          "consume": {
+            "state(call_one,spoken)": 1,
+            "reconcile(call_one)": 1
+          },
+          "produce": {
+            "state(call_one,closed)": 1
+          },
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,closed)": 1
+      },
+      "hypotheses": {}
+    },
+    {
+      "epoch": 4,
+      "phase": "deliberate",
+      "inputs": [
+        "+attention"
+      ],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 31,
+          "name": "do +attention",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 10,
+          "episode": 0,
+          "consume": {},
+          "produce": {
+            "attention": 1
+          },
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,closed)": 1,
+        "attention": 1
+      }
+    },
+    {
+      "epoch": 4,
+      "phase": "observe",
+      "inputs": [],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 32,
+          "name": "tick",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {},
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,closed)": 1,
+        "attention": 1
+      },
+      "hypotheses": {}
+    },
+    {
+      "epoch": 4,
+      "phase": "commit",
+      "inputs": [
+        "-attention"
+      ],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 33,
+          "name": "do -attention",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 11,
+          "episode": 0,
+          "consume": {
+            "attention": 1
+          },
+          "produce": {},
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,closed)": 1
+      }
+    },
+    {
+      "epoch": 4,
+      "phase": "delivery",
+      "inputs": [],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 34,
+          "name": "tick",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {},
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,closed)": 1
+      }
+    },
+    {
+      "epoch": 5,
+      "phase": "observe",
+      "inputs": [],
+      "evidence": [],
+      "fired": [
+        {
+          "i": 35,
+          "name": "tick",
+          "kind": "exo",
+          "stage": "live",
+          "post": null,
+          "beat": 1,
+          "episode": 0,
+          "consume": {},
+          "produce": {},
+          "persist": {}
+        }
+      ],
+      "after": {
+        "promise(call_one,appointment)": 1,
+        "promise(dinner,appointment)": 1,
+        "returned(appointment)": 1,
+        "state(dinner,closed)": 1,
+        "state(call_one,closed)": 1
+      },
+      "hypotheses": {}
+    }
+  ]
+}

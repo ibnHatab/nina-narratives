@@ -1,0 +1,30 @@
+{
+  "1": [
+    "door_adapter reported return concerning the appointment outing (observation return-1, occurrence epoch 1).",
+    "Nina marked the reminder ready for dinner.",
+    "Nina marked the reminder ready for the first call.",
+    "Nina used the available interruption to queue the reminder for dinner.",
+    "Nina committed to giving the reminder for dinner.",
+    "The simulated speaker confirmed delivery of the reminder for dinner."
+  ],
+  "2": [
+    "resident reported done concerning dinner (observation reply-2, occurrence epoch 2).",
+    "Nina closed the promise on the available report for dinner.",
+    "Nina used the available interruption to queue the reminder for the first call.",
+    "Nina committed to giving the reminder for the first call.",
+    "The simulated speaker confirmed delivery of the reminder for the first call."
+  ],
+  "3": [
+    "resident reported later concerning the first call (observation reply-3, occurrence epoch 3).",
+    "Nina made the reminder eligible again for the first call.",
+    "Nina used the available interruption to queue the reminder for the first call.",
+    "Nina committed to giving the reminder for the first call.",
+    "The simulated speaker confirmed delivery of the reminder for the first call."
+  ],
+  "4": [
+    "resident reported done concerning the first call (observation reply-4, occurrence epoch 4).",
+    "Nina closed the promise on the available report for the first call.",
+    "No reminder was delivered during this decision."
+  ],
+  "5": []
+}

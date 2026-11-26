@@ -1,0 +1,43 @@
+catalog responsive_household 1.
+provenance text "Book I 94e2c582: B01-C01-S03, B01-C04-S02, B01-C06-S01, B01-C08-S02; PR 1 review" "2026-11-26".
+layers (story).
+stages (live).
+namespace household produce (story).
+type task {call_one call_two dinner}.
+type trip {appointment errand}.
+type status {waiting ready queued committed spoken closed disputed}.
+pred promise(task,trip) : household.
+pred returned(trip) : household.
+pred state(task,status) : household.
+pred reconcile(task) : household.
+pred question(task) : household.
+pred retry(task) : household.
+pred attention : household.
+pred authorize : household.
+pred receipt(task) : household.
+stage live {
+  %% B01-C01-S03 "It belonged to a future event: his return."
+  %% The host matches an observed return to this promise's outing.
+  due [story] : $promise(T,J) * $returned(J) * state(T,waiting) -o state(T,ready).
+  %% B01-C06-S01 "At five forty-five, she mentioned it."
+  %% Nina queues one ready reminder per optional speaking opportunity.
+  select [story] : state(T,ready) * attention -o state(T,queued).
+  %% Review 3 "Distinguish queued, committed and actually spoken notifications."
+  %% Nina commits only after the host closes this epoch's evidence batch.
+  commit [story] : state(T,queued) * authorize -o state(T,committed).
+  %% The simulated speaker returns a delivery receipt. Selection alone makes no sound.
+  deliver [story] : state(T,committed) * receipt(T) -o state(T,spoken).
+  %% B01-C08-S02 "an activity he had already completed."
+  %% A supported resident report closes the task in its current state.
+  close [story] : state(T,S) * reconcile(T) -o state(T,closed).
+  %% B01-C04-S02 "What had changed was the explanation connecting them."
+  %% The unresolved disagreement blocks further optional speech on this promise.
+  reopen [story] : state(T,S) * question(T) -o state(T,disputed).
+  %% A resident who heard a reminder can explicitly ask Nina to try again.
+  postpone [story] : state(T,spoken) * retry(T) -o state(T,ready).
+}
+#init promise(call_one,appointment) 1
+#init state(call_one,waiting) 1
+#init promise(dinner,appointment) 1
+#init state(dinner,waiting) 1
+#steps 24

@@ -1,0 +1,21 @@
+warning state-unproduced @ household.llp:10:6 (pred/returned)
+  pred returned(trip) : household.
+  -> produce returned in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ household.llp:12:6 (pred/reconcile)
+  pred reconcile(task) : household.
+  -> produce reconcile in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ household.llp:13:6 (pred/question)
+  pred question(task) : household.
+  -> produce question in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ household.llp:14:6 (pred/retry)
+  pred retry(task) : household.
+  -> produce retry in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ household.llp:15:6 (pred/attention)
+  pred attention : household.
+  -> produce attention in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ household.llp:16:6 (pred/authorize)
+  pred authorize : household.
+  -> produce authorize in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ household.llp:17:6 (pred/receipt)
+  pred receipt(task) : household.
+  -> produce receipt in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it

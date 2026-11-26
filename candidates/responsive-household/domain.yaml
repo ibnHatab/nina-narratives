@@ -1,0 +1,5 @@
+program: household.llp
+display: Responsive household
+line: Two promises follow a resident through one outing and three decisions.
+voice: third
+clock: {beats: 1}
