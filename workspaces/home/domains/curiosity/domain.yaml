@@ -4,4 +4,4 @@ line: Book I curiosity
 voice: third
 clock: {beats: 1}
 shared: {topic_offer: out}
-host: ../input_host.py:make
+host: nina_world.host:curiosity   # the runtime's world host (interfaces/README.md)

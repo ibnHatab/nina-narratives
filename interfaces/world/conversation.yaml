@@ -5,15 +5,16 @@ family: conversation
 version: 1
 owner: person
 ports: {}                        # no semantic-world port yet (interfaces/README.md "Open"): edges only
-edges:                           # each logged as a report event {person, id: task|topic, var, value, ref: utterance}
-  - {pred: floor,                    from: "the floor machine opens a turn Nina may take"}
-  - {pred: arrived(task),            from: "report var=arrived: a person hands Nina something to keep"}
-  - {pred: later(task),              from: "report var=deferral value=later"}
-  - {pred: renewed(task),            from: "report var=renewed: the person asks again"}
-  - {pred: completion_report(task),  from: "report var=done: the person says it is done"}
-  - {pred: addressed(channel),       from: "office: the utterance names Nina or is in her session"}
+edges:                           # the person's words, as report events {person, id: task, var, value}; lifetime:
+                                 # beat (retracted after one beat unless consumed) | consumed (kept until a rule uses it)
+  - {pred: floor,                   when: {kind: floor},                    lifetime: beat,     note: "the floor machine opens a turn Nina may take"}
+  - {pred: "arrived(task)",         when: {kind: report, var: arrived},     lifetime: consumed, note: "a person hands Nina something to keep"}
+  - {pred: "later(task)",           when: {kind: report, var: deferral, value: later}, lifetime: consumed}
+  - {pred: "renewed(task)",         when: {kind: report, var: renewed},     lifetime: consumed, note: "the person asks again"}
+  - {pred: "completion_report(task)", when: {kind: report, var: done},      lifetime: consumed, note: "the person says it is done"}
+  - {pred: "addressed(channel)",    when: {kind: report, var: addressed},   lifetime: beat,     note: "the utterance names Nina or is in her session"}
 commands:
-  say:     {rules: [speak, mention], args: [channel], predicts: {var: uttered, value: "{text}"}, grace_s: 5, adapter: {voice: floor}}   # the voice confirms it was spoken
-  message: {rules: [speak], args: [channel], predicts: {var: posted,  value: "{text}"}, grace_s: 30, adapter: {mcp: {server: chat, tool: send_message}}}
+  say:     {rules: [speak, mention], args: [task], predicts: {var: uttered, value: "{task}"}, grace_s: 5, adapter: {person: hear}}   # the person hears it
+  message: {rules: [post_message], args: [channel], predicts: {var: posted,  value: "{text}"}, grace_s: 30, adapter: {mcp: {server: chat, tool: send_message}}}
 receipts: {via: report}          # the adapter reports uttered/posted with ref = the command id
 consumers: [attention, commitments, social, situations]

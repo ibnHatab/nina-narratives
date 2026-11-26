@@ -4,4 +4,4 @@ line: Book I social
 voice: third
 clock: {beats: 1}
 shared: {}
-host: ../input_host.py:make
+host: nina_world.host:social   # the runtime's world host (interfaces/README.md)

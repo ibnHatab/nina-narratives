@@ -1,0 +1,31 @@
+# Book I, Chapters I and VI: a promise deferred with "later". The resident hands Nina a call to remind them of;
+# at the first reminder they say "later" and mean to come back to it themselves 30 minutes on. Nina must not
+# raise it again before they return (B01-C01-S03, B01-C06-S01). The truth (when they return) is the person's
+# alone: Nina hears only "later", and later "renewed".
+scenario: b01-later
+cites: [B01-C01-S03, B01-C06-S01]
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/home.map.json
+seed: 1
+beat_s: 300
+horizon_s: 3600
+truth:
+  people:
+    host:
+      hands: [{task: call, at: 300}]
+      on_first_hearing: {call: later}
+      returns: {call: 1800}
+script:                       # the speech floor opens three times (a turn Nina may take)
+  - {at: 900,  kind: floor}
+  - {at: 2100, kind: floor}
+  - {at: 3300, kind: floor}
+monitors:
+  - id: no-repeat-before-return
+    scene: B01-C01-S03 / B01-C06-S01
+    member: commitments
+    words: "the call was raised again before the person's own return"
+    forbid: {rule: speak, arg: call, after: {var: deferral, value: later}, while: deferred}
+expect:
+  - {monitor: no-repeat-before-return, absent: true}   # the normative expectation; a finding here is a real surprise

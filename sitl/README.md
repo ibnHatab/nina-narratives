@@ -66,20 +66,30 @@ expect:                                      # the run is invalid unless these s
 
 ```sh
 (cd sitl/semworld-step && go build -o semworld-step .)        # the world fold, pinned to nina-live's version
-(cd devices && $METISC build .)                                # the composition image
-PY=../perotheia-packages/.venv/bin/python                      # metispy; metis-agent's py on PYTHONPATH
-$PY sitl/contracts.py check --workspace devices --world-map workspaces/home/world/home.map.json
-PYTHONPATH=../perotheia-packages/metis-agent/py $PY sitl/loop.py workspaces/home/scenarios/devices/b01-c02-ventilation.yaml
+(cd workspaces/home/domains && METIS_HOME=$PWD/../../../cognition $METISC build .)   # cognition image
+(cd devices && $METISC build .)                                # device image
+sitl/run.sh workspaces/home/scenarios/cognition/b01-later.yaml # one scenario (metis-agent's python, CUDA libs)
+python3 sitl/regress.py                                        # every scenario against sitl/baseline.json
+python3 sitl/regress.py --update                               # record a reviewed change as the new baseline
 ```
 
-A run writes `sitl/runs/<scenario>-s<seed>/events.jsonl` (every world input and reply, every adapter call) and
-`summary.json` (the fired command rules, the surprises, whether each `expect` was met, the world's final hash).
+A run writes `sitl/runs/<scenario>-s<seed>/events.jsonl` (every world input and reply, every edge, every fired rule,
+every adapter call) and `summary.json`. Its findings are surprise records in the workspace (`<workspace>/.metis/surprises`)
+with the trace window and the hidden truth per beat (`truth.jsonl`), so `python -m metis.trace kind RECORD` triages them.
 
-## Status
+**Regressions.** `sitl/baseline.json` holds each scenario's essence (command rules fired, findings, expectations, world
+hash). `regress.py` reports NEW findings (surprises to triage), GONE ones (fixed, or a lost producer), CHANGED acts.
+A scenario's `expect` states the narrative's norm; a finding against it is a real surprise, kept in the baseline
+until a reviewed rule change removes it.
 
-| part | state |
-|---|---|
-| `semworld-step` | **checked**: byte-identical output over repeated runs; with a settle it also returns `State()` |
-| `contracts.py check` | **checked**: 7 contracts pass schema and compile; on `devices/` every belief port resolves to a contract and the world accepts every member |
-| `nina_world/host.py`, `project.py`, `mcp_sim.py`, `loop.py` | **run**: the 11 device members merged from nina-live load with the generic host. `b01-c02-ventilation` fires `air_on` twice from the person's requests; the obeying unit is confirmed, the ignoring one gives the world surprise `u2.power`; two runs give byte-identical `events.jsonl` and `summary.json` |
-| not yet | scenario monitors, edges from the contracts (today `project.py`'s tables), the cognition members on the world contracts, `--replay`, office: sitl/TASKS.md |
+## Status (baseline 2026-11-26)
+
+| scenario | top-down rules | result | triage |
+|---|---|---|---|
+| `cognition/b01-later` | commitments + attention (Book I) | Nina raises the call again at k=7 after "later", before the person's own return → `no-repeat-before-return` (B01-C01-S03 / C06-S01) | structural: a pack |
+| `cognition/b01-completed` | commitments + attention | the person reports it done at k=4; commitments close the ledger but attention still holds the queued reminder and speaks at k=7 → `no-reminder-after-done` (B01-C08-S02) | structural: a pack (a cross-member gap) |
+| `devices/b01-c02-ventilation` | devices (merged, alignment only) | the ignoring unit → the world's own surprise `u2.power` | world (probabilistic) |
+
+The generic host (`nina_world/host.py`) serves both compositions unchanged; the person (`person_sim.py`) perceives only
+Nina's `say` and answers with reports; the monitors read the truth, no member does. Reruns are byte-identical.
+Not yet: monitors beyond `forbid`, contract-driven families (`project.py`'s tables), `--replay`, office.

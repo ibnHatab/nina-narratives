@@ -1,0 +1,101 @@
+{
+ "workspaces/home/scenarios/cognition/b01-completed.yaml": {
+  "commands": [
+   [
+    7,
+    "attention",
+    "speak",
+    [
+     "call"
+    ]
+   ]
+  ],
+  "expect": [
+   [
+    "no-reminder-after-done",
+    false
+   ]
+  ],
+  "findings": [
+   [
+    "no-reminder-after-done",
+    7
+   ]
+  ],
+  "world_hash": "6a979e26ccc8ad165375a533"
+ },
+ "workspaces/home/scenarios/cognition/b01-later.yaml": {
+  "commands": [
+   [
+    3,
+    "attention",
+    "speak",
+    [
+     "call"
+    ]
+   ],
+   [
+    7,
+    "attention",
+    "speak",
+    [
+     "call"
+    ]
+   ],
+   [
+    11,
+    "attention",
+    "speak",
+    [
+     "call"
+    ]
+   ]
+  ],
+  "expect": [
+   [
+    "no-repeat-before-return",
+    false
+   ]
+  ],
+  "findings": [
+   [
+    "no-repeat-before-return",
+    7
+   ]
+  ],
+  "world_hash": "6a979e26ccc8ad165375a533"
+ },
+ "workspaces/home/scenarios/devices/b01-c02-ventilation.yaml": {
+  "commands": [
+   [
+    4,
+    "air",
+    "air_on",
+    [
+     "u1"
+    ]
+   ],
+   [
+    8,
+    "air",
+    "air_on",
+    [
+     "u2"
+    ]
+   ]
+  ],
+  "expect": [
+   [
+    "u2.power",
+    true
+   ]
+  ],
+  "findings": [
+   [
+    "world-u2.power",
+    11
+   ]
+  ],
+  "world_hash": "987d067ff7fa6fa8b7db296c"
+ }
+}

@@ -24,12 +24,14 @@ class WorldHost:
         self.hold = {}             # role -> world time its grace ends: the program owns that belief until then
         self.owned = ()            # preds the program switches itself (read back only after the grace)
         self.fired = []            # (beat, rule, args) fired since the loop last drained them
+        self.taken = []            # the composition's own lines (the director's forwards), for the next tick
         self.now = 0.0
         self.due, self.script, self.last = (), {}, None    # AgentHost's faces (a hosted script: none here)
         REGISTRY[member] = self
 
     # the loop's face
     def give(self, now, want, levels, edges):
+        self.changed = dict(want) != self.want
         self.now, self.want, self.levels, self.edges = now, dict(want), list(levels), list(edges)
 
     def drain(self):
@@ -59,8 +61,8 @@ class WorldHost:
         dos = ['-%s %d' % (a, n) for a, n in sorted(counts.items())
                if n and a.split('(')[0] in self.retract]
         dos += self._corrections(counts)
-        dos += self.levels + ['+' + e for e in self.edges]
-        self.levels, self.edges = [], []
+        dos += self.levels + ['+' + e for e in self.edges] + self.taken
+        self.levels, self.edges, self.taken, self.changed = [], [], [], False
         return dos
 
     def sync(self, counts):
@@ -70,7 +72,9 @@ class WorldHost:
         self.fired.append((self.beat, name.split('[')[0].split('-')[0], tuple(args)))
 
     def world(self, lines):
-        raise ValueError('the SITL world takes no direct lines: write a scenario event (sitl/README.md)')
+        """The composition's own lines (Live.take: the director's forwards and relays), for the next tick. Not a door
+        for the outside: the outside comes through the loop's give() from the world and the contracts."""
+        self.taken += [l.strip() for l in lines if l.strip()]
 
     def observe(self, counts):
         return {}
@@ -79,6 +83,14 @@ class WorldHost:
         return {}
 
     def pending(self):
+        """Input waiting for the next tick: a member without a clock period beats only then (spec 15 rule 1)."""
+        return bool(self.edges or self.levels or self.taken or getattr(self, 'changed', False))
+
+    # a director's faces (metis-agent Live: the director forwards a goal to a member)
+    def deliver(self, domain, goal, tokens):
+        return ['+' + goal + ' 1']
+
+    def instance(self, domain, goal, tokens):
         return False
 
     def snapshot(self):

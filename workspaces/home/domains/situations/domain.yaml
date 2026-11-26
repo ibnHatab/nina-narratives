@@ -4,4 +4,4 @@ line: Book I situations
 voice: third
 clock: {beats: 1}
 shared: {}
-host: ../input_host.py:make
+host: nina_world.host:situations   # the runtime's world host (interfaces/README.md)

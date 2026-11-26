@@ -7,3 +7,4 @@ __pycache__/
 sitl/semworld-step/semworld-step
 sitl/runs/
 devices/build/
+devices/.metis/

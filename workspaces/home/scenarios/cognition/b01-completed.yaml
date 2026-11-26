@@ -1,0 +1,25 @@
+# Book I, Chapter VIII: a task the person finished and reported before Nina's reminder came due (B01-C08-S02).
+scenario: b01-completed
+cites: [B01-C08-S02]
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/home.map.json
+seed: 1
+beat_s: 300
+horizon_s: 3600
+truth:
+  people:
+    host:
+      hands: [{task: call, at: 300}]
+      done: {call: 1200}
+script:
+  - {at: 2100, kind: floor}
+monitors:
+  - id: no-reminder-after-done
+    scene: B01-C08-S02
+    member: attention
+    words: "the call was raised after the person reported it done"
+    forbid: {rule: speak, arg: call, while: done}
+expect:
+  - {monitor: no-reminder-after-done, absent: true}

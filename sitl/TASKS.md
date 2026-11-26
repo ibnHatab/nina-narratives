@@ -1,44 +1,41 @@
 # Implementation tasks for the formalizer (Codex)
 
-Assigned by the controller for the maintainer, 2026-11-26 (rev. 00a13dc). This file replaces GitHub issues and PRs. Work on `main`, commit and push in small steps, and record each outcome here: tick the box and add one line with the commit, what passed and what is **not run**. Read `interfaces/README.md`, `sitl/README.md` and `RUNTIME.md` first. Load `$metis-language`, `$metis-loop` and `$metis-workspace`, and use the `metis` MCP tools for linting, triage and gating. Do not modify upstream repositories, nina-live or acasa.
+Assigned by the controller for the maintainer, 2026-11-26 (baseline in `sitl/baseline.json`). Work on `main`, commit and push in small steps, and record each outcome here: tick the box and add one line with the commit, what passed and what is **not run**. Read `interfaces/README.md` and `sitl/README.md` first. Load `$metis-language`, `$metis-loop` and `$metis-workspace`, and use the `metis` MCP tools for linting, triage (`trace_kind`) and gating (`pack_propose`).
 
-**This repository is the reference.** Contracts, the generic host and the SITL define the interfaces. nina-live is source material to merge, not an authority. Availability is the world's, after discovery: never add per-incarnation `scope` or `unavailable` flags.
+**Top-down only.** Generic behaviour rules are derived from the narrative (Volume I `narratives/book-0*.md`, Volume II `narratives/volume-02/`). nina-live is not a reference: `devices/` is frozen alignment material, touched only when a contract needs it. Availability is the world's, after discovery. A rule change follows the loop: surprise → case → pack → gates → the maintainer's approval. Never edit a rule to make a scenario pass.
 
-Baseline that runs (00a13dc): `devices/` (11 members merged from nina-live) on `sitl/loop.py`. Scenario `b01-c02-ventilation` produces a world surprise, with byte-identical reruns.
+**Every change runs `python3 sitl/regress.py`.** NEW findings are surprises to triage, GONE findings must be explained, CHANGED acts must be explained. `--update` only with the change recorded here.
 
-## T1. Cognition onto the world contracts
-- [ ] Move a person's words and the floor (`arrived`, `later`, `renewed`, `completion_report`, `floor`, `uttered`) out of `cognition/iface/timing` into `interfaces/world/conversation.llp`, which exists and uses layer `dyn`. Move genuine member-to-member crossings (`opportunity`, `research`) to `interfaces/members/`. This clears the `unknown layer 'story'` errors.
-- [ ] The cognition members name `host: nina_world.host:<member>` (drop `input_host.py`). `metisc build` and `metisc --interface` must be clean, and lint must be clean.
-- [ ] Commit `workspaces/home/research/issue-4` and write `workspaces/home/REPORT.md` (the old→new map, results, surprises by kind, open questions).
+## T0. Wide, aspect-wise extraction (first)
+- [ ] For each cognition aspect (situations/evidence, commitments, attention/floor, social/relationships, curiosity, self-model, persona/temperament, conversation incl. multiparty), write `cognition/aspects/<aspect>.md`. Each entry has:
+  - scene-cited behaviours (book-chapter-scene IDs, across Volume I and Volume II), each marked observation | hypothesis | hidden truth | normative constraint | counterfactual;
+  - the generic rule candidate;
+  - the world-contract input/output it needs (an existing contract, or a NEW one, named);
+  - whether it already exists in `cognition/*.llp`;
+  - at least one SITL scenario sketch with the monitor and the surprise it should produce.
+- [ ] `cognition/aspects/README.md`: a matrix (aspect × book) and the 10 highest-value gaps, ranked.
 
-## T2. One home composition, one source of truth
-- [ ] Merge cognition and devices into **one** home composition (`workspaces/home/domains`). The device units move to `devices/` as family units, with thin instances in the workspace. Resolve name clashes: nina-live `persona` (temperament) and cognition `persona` must become one member or two distinct names. Record the decision and the evidence (issue #5: persona's preds out of the `home` namespace, and `her_mood` either a crossing or a contract).
-- [ ] `sitl/gen_director.py`: generate the director's `type domain`, `type kind`, `specialist/planner/handles` and the capacity's member type from `composition.yaml` plus the members' `shared:`. Add a `--check` drift mode and run it in `contracts.py check`.
-- [ ] Teach `contracts.py` to see rules in included family units, so its "not served" notes become exact.
+## T1. Cognition fully on the contracts
+- [x] Cognition members name `host: nina_world.host:<member>` (controller, baseline commit).
+- [ ] Move a person's words and the floor (`arrived`, `later`, `renewed`, `completion_report`, `floor`) from `cognition/iface/timing` into `interfaces/world/conversation.llp`. Route world edges by the contract's `consumers` and the member's declared preds, not by `shared:`. Keep `uttered` (attention → commitments) as a member crossing in `interfaces/members/`. `metisc build` and `--interface` must be clean, and `regress.py` must report `same`.
+- [ ] Commit `workspaces/home/research/issue-4` and write `workspaces/home/REPORT.md`.
 
-## T3. The loop, complete
-- [ ] Move `sitl/project.py`'s tables (READS, OUTCOMES, EVENTS, OWNED) and `loop.py`'s PRESETS/SWITCHES into the contracts (`families:`, `edges:`, the commands' value maps). The loop reads them from there and keeps no device knowledge.
-- [ ] Person and conversation events go through the world stream: a `say` is logged as a `report` event, and the conversation contract's edges are derived from reports. The intent still goes through `AgentHost.submit`.
-- [ ] Scenario `monitors:` (truth vs. trace, scene-cited) write findings through `Workspace`/`RuntimeFeed` with the key `<run>:<kind>:<k>`. World surprises are written the same way.
-- [ ] `loop.py --replay events.jsonl` reproduces every hash and surprise. Add a test.
+## T2. The two open structural surprises (the baseline's findings)
+- [ ] `b01-later` (`no-repeat-before-return`, B01-C01-S03 / C06-S01): what does "later" mean in the text? Deferral to the person's own return, or a retry? Write the case from the surprise record, then a pack with the narrative's distinction (the person's return is their truth; Nina waits for `renewed` or an explicit time). Run `pack_propose` and record the gates' verdict. Leave it for the maintainer's approval before it joins the catalog.
+- [ ] `b01-completed` (`no-reminder-after-done`, B01-C08-S02): commitments close the ledger, but attention keeps the queued reminder. This is a cross-member gap: a completion must withdraw the offer. Decide which member owns the withdrawal and which interface pred carries it, then the case, the pack and the gates, as above.
 
-## T4. Adapters
-- [ ] Extend `mcp_sim.py` to the lights, TV, calendar/tasks and chat tools the contracts bind. Behaviours: obey, delay, ignore, manual override, feed down, tool error. Draws are addressed by (scenario, seed, command id).
-- [ ] Check the bound tool names against the real HA MCP server's `tools/list` (read-only, through nina-live's `mcp` client or curl with the maintainer's token file; never print or commit it). Correct the contracts, and mark any unverified binding.
+## T3. Scenarios wide: every aspect in the loop
+- [ ] From T0's ranked gaps, at least two scenarios per aspect under `workspaces/home/scenarios/cognition/`. Each needs scene citations, a person truth (extend `person_sim.py`: several people, moods, availability, being away), and monitors.
+- [ ] Monitor kinds beyond `forbid`: `require` (an act must happen by a time, e.g. the promised reminder), `order` (A before B), `never_reads` (a member's act must not depend on another person's private fact). Add them to `loop.py` with a test each.
+- [ ] Contracts the aspects need, e.g. `presence` for availability vs. presence, `calendar` for appointments, a `channel` contract for private vs. public speech. Each has its `.yaml` + `.llp`, passes `contracts.py check`, and has its edges in `when:` form.
 
-## T5. Book I in the loop
-- [ ] Port the `later`/`completed` resident cards onto the loop. The resident talks only through events, and the old finding comes back as a monitor finding.
-- [ ] One scenario per Book I chapter that needs the world: C01 appointment/kettle, C02 override (exists: extend it with a monitor on what Nina *says*), C07 night ventilation, C08 missing hours (feed down, then restore). Each `expect:`s at least one world surprise.
-- [ ] Triage all findings by kind (MCP `trace_kind`). Put at least two through `pack_propose`, and record which changed a domain's essence and which were noise.
-- [ ] The devices' goldens (`devices/*/goldens`) were written with nina-live's old host. Regenerate them on `nina_world.host` and record every difference as a finding. Do not repair silently.
+## T4. Office (Volume II): a second workspace, the same cognition
+- [ ] `workspaces/office/`: its own composition, director instance and fictional world map over the **same** `cognition/` units (thin instances; spec 18 for office deltas). No ventilation, because the office's discovery finds none.
+- [ ] Office scenarios from Volume II (12 chapters) through the same loop. Multiparty conversation, typed channels per participant, groups. A monitor checks that no office event or record reads a home one.
 
-## T6. Office (Volume II)
-- [ ] `workspaces/office/`: its own composition and director instance over the same family units, plus a fictional office world map. The office lacks ventilation and lights because its discovery finds none, not because a flag says so. Add the office's own contracts from `notes/volume-02-setting.md` (typed chat channels per participant, calendar/tasks via Google MCP, public search, music).
-- [ ] Reconcile with acasa `roles/secretary/catalog`. List what it does, what this workspace replaces, and what acasa keeps (no edits there).
-- [ ] Formalize Volume II (`narratives/volume-02/`, 12 chapters) as office scenarios with scene citations, following Book I's method. Check that no office event or record reads a home one.
-
-## T7. Runtime handover
-- [ ] Keep `RUNTIME.md` true. After T3, write the equivalence harness of its step 4: run one event log through the SITL and record the hashes, lines, fired rules and surprises, as the expected output a second runtime must reproduce.
+## T5. Loop quality
+- [ ] Move `project.py`'s tables and `loop.py`'s PRESETS/SWITCHES into the contracts (`families:`, value maps), so the loop keeps no domain knowledge.
+- [ ] `loop.py --replay events.jsonl` reproduces every hash and finding. Add a test.
 
 ## Proposal (document only)
-- [ ] `interfaces/proposals/report-port.md`: a generic semantic-world port for reported vars (a categorical belief with freshness and source), addressed to metis-worlds. Do not implement it upstream.
+- [ ] `interfaces/proposals/report-port.md`: a semantic-world port for reported vars, so a person's words gain belief and freshness like readings. The world currently refuses `report` on an undeclared var ("no categorical call.deferral"), so these words travel as logged edges. Address it to metis-worlds and do not implement it upstream.
