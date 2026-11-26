@@ -35,3 +35,8 @@ stage live {
   %% [V02-C02-S2] Use the corrected identity with permission and leave the other person’s interests in place.
   correct_introduction [story] : identity_guess(E,A) * identity_correction(E,B) * correction_allowed(E) * A <> B -o revised_identity(E,B).
 }
+pred correction_due(reference) : situations.
+stage live {
+  %% [V02-C10-S2] Replace the credited source with the common origin and queue a correction.
+  collapse_shared_provenance [story] : credited_evidence(R,A) * reported_common_origin(R,B) * A <> B -o credited_evidence(R,B) * correction_due(R).
+}

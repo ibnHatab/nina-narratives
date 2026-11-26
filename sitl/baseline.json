@@ -1185,15 +1185,43 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-10-edition.yaml": {
-  "acts": [],
+  "acts": [
+   [
+    4,
+    "situations",
+    "collapse_shared_provenance",
+    [
+     "charging_article",
+     "syndicated_copy",
+     "original_announcement"
+    ]
+   ]
+  ],
   "commands": [],
   "expect": [
    [
     "edition",
     true
+   ],
+   [
+    "incarnation-boundary",
+    true
+   ],
+   [
+    "collapse_shared_provenance",
+    true
+   ],
+   [
+    "collapse_shared_provenance-scope",
+    true
    ]
   ],
-  "findings": [],
+  "findings": [
+   [
+    "incarnation-boundary",
+    2
+   ]
+  ],
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-11-unexpected.yaml": {

@@ -26,9 +26,26 @@ edges:
   - task
   - reference
   lifetime: consumed
+- pred: credited_evidence(reference,source_record)
+  when:
+    kind: report
+    var: credited_evidence
+  args:
+  - reference
+  - source_record
+  lifetime: consumed
+- pred: reported_common_origin(reference,source_record)
+  when:
+    kind: report
+    var: reported_common_origin
+  args:
+  - reference
+  - source_record
+  lifetime: consumed
 commands: {}
 receipts:
   via: none
 consumers:
 - curiosity
+- situations
 capability: public_search

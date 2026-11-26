@@ -1,6 +1,6 @@
 scenario: office-10-edition
 cites:
-- V02-C10-open
+- V02-C10-S2
 incarnation: office
 workspace: ../../domains
 metis_workspace: ../..
@@ -11,16 +11,52 @@ beat_s: 1
 horizon_s: 8
 truth:
   people:
-    mara: {}
-    sorina: {}
+    mara:
+      private_facts:
+        practical_knowledge: the general chat also serves people who mute Nina
+    sorina:
+      private_facts:
+        position: enthusiastic when the invitation is voluntary
     doru:
       mood: quiet
       availability: busy
       away: []
+      private_facts:
+        motive: a personal memory can be shared in parts
+    radu: {}
+    andrei:
+      private_facts:
+        position: requests evidence and questions assumed agreement
+    ana: {}
 script:
 - at: 2
   kind: floor
   channel: studio
+- at: 3
+  kind: report
+  var: credited_evidence
+  person: mara
+  reference: charging_article
+  source_record: syndicated_copy
+- at: 4
+  kind: report
+  var: reported_common_origin
+  person: radu
+  reference: charging_article
+  source_record: original_announcement
+- at: 2
+  kind: report
+  var: credited_evidence
+  person: mara
+  reference: charging_article
+  source_record: syndicated_copy
+  record_origin: home
+- at: 1
+  kind: report
+  var: reported_common_origin
+  person: andrei
+  reference: silver_model
+  source_record: original_announcement
 monitors:
 - id: edition
   scene: V02-C10-open
@@ -28,6 +64,25 @@ monitors:
   words: An empty news day creates no publication obligation.
   forbid:
     rule: mention
+- id: collapse_shared_provenance
+  member: situations
+  scene: V02-C10-S2
+  words: Replace the credited source with the common origin and queue a correction.
+  require:
+    rule: collapse_shared_provenance
+    by: 8
+- id: collapse_shared_provenance-scope
+  member: situations
+  scene: V02-C10-S2
+  words: The alternate request lacks matching evidence.
+  forbid:
+    rule: collapse_shared_provenance
+    arg: silver_model
 expect:
 - monitor: edition
+  absent: true
+- monitor: incarnation-boundary
+- monitor: collapse_shared_provenance
+  absent: true
+- monitor: collapse_shared_provenance-scope
   absent: true
