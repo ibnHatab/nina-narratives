@@ -1,0 +1,19 @@
+case: 'surprise at tick 4: attention'
+note: V02-C02-open. Doru is away on the hall opening. Keep the reminder private until a recipient is available.
+member: attention
+at: 4
+seed: 42
+rng: '42'
+stage: live
+init:
+- available
+boundaries:
+- lines:
+  - +reminder_offer(visit)
+  run: false
+- lines: []
+- lines:
+  - +floor
+  expect:
+    out:
+    - not: speak

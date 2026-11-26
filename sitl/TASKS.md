@@ -68,7 +68,7 @@ Review: the 29 scenarios match their baseline (the controller re-ran it), the fa
   - new preds through `interfaces/members` or `interfaces/world` only;
   - a scenario whose monitor would fail **without** the rule (show it: run the scenario with the rule hidden via `include … hiding`, record the finding, then with the rule).
   These are new formalizations derived from the text, not repairs of a finding: say so in the commit. Run regress after each one.
-- [ ] R4 the open office finding (`office-02-introductions`): triage it and write the case. No rule change without the gate.
+- [x] R4 the open office finding (`office-02-introductions`): triage it and write the case. No rule change without the gate.
 
 R1 re-baseline adds ordered firings of monitored members to each scenario essence. Existing commands, expectations and findings remain comparable.
 - [ ] R5 unblock the gate (read `sitl/notes/gate-replay.md`, the Metis agent's answer):
@@ -98,3 +98,5 @@ R3 gap 9, B03-C04-end, retire_inquiry. Hiding the rule produced the missing-act 
 R3 gap 10, V02-C07-end, take_addressed_turn. Hiding the rule produced the missing-act finding at beat 8 (seed 93). With the rule the deadline passed and the suite matched. No deployment run.
 
 R3 final controls ran both arms at seed 1 for all eight rules. Each hidden arm failed its deadline and each ordinary arm passed. Three scenario baselines changed their bound channel from hall to direct or group. The confidence case also checks that even an explicit hall grant cannot release a private answer. These probes verify cognition decisions, not delivery by external services. The 21 contract probes compiled and all 37 scenarios matched.
+
+R4 original and fresh office records triaged evidential. The extracted failing expectation and evidence are under workspaces/office/research/introductions. No repair or gate was run.
