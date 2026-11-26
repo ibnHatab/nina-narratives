@@ -1,0 +1,5 @@
+v3:
+  catalog: []
+  loaded: [situations, commitments, attention, social, curiosity, self_model, persona, office_director]
+  prompt: [../go/grammar/v3-orchestrator.txt]
+domains: {tick: true, consult: false, seed: 1, records: null}

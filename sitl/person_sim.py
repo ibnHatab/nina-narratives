@@ -18,9 +18,12 @@ class Person:
         self.heard = []            # (at, task): what they actually heard
         self.deferred = {}         # task -> at they said later
 
+    def away(self, at):
+        return any(start <= at < end for start, end in self.t.get('away', []))
+
     def listens(self, channel, at):
         return (channel in self.t.get('channels', ['hall']) and
-                not any(start <= at < end for start, end in self.t.get('away', [])))
+                not self.away(at))
 
     def scheduled(self):
         """The events the person causes regardless of Nina: handing over, finishing."""

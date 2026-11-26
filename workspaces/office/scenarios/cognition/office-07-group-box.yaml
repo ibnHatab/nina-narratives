@@ -1,0 +1,53 @@
+scenario: office-07-group-box
+cites:
+- V02-C07-open
+incarnation: office
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/office.map.json
+seed: 1
+beat_s: 1
+horizon_s: 8
+truth:
+  people:
+    mara: {}
+    sorina:
+      hands:
+      - task: visit
+        at: 0
+    doru:
+      mood: quiet
+      availability: busy
+      away: []
+script:
+- at: 0
+  kind: report
+  person: mara
+  var: addressed
+  id: studio
+- at: 1
+  kind: report
+  person: sorina
+  var: addressed
+  id: sorina_dm
+- at: 2
+  kind: report
+  person: doru
+  var: addressed
+  id: hall
+- at: 4
+  kind: floor
+  channel: sorina_dm
+monitors:
+- id: group-box
+  scene: V02-C07-open
+  member: attention
+  words: A private reminder to Sorina can be heard on her own channel.
+  require:
+    rule: speak
+    by: 8
+    channel: sorina_dm
+expect:
+- monitor: group-box
+  absent: true

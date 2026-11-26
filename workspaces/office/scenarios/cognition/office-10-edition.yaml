@@ -1,0 +1,33 @@
+scenario: office-10-edition
+cites:
+- V02-C10-open
+incarnation: office
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/office.map.json
+seed: 1
+beat_s: 1
+horizon_s: 8
+truth:
+  people:
+    mara: {}
+    sorina: {}
+    doru:
+      mood: quiet
+      availability: busy
+      away: []
+script:
+- at: 2
+  kind: floor
+  channel: studio
+monitors:
+- id: edition
+  scene: V02-C10-open
+  member: attention
+  words: An empty news day creates no publication obligation.
+  forbid:
+    rule: mention
+expect:
+- monitor: edition
+  absent: true

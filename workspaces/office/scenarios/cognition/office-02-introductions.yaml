@@ -1,0 +1,40 @@
+scenario: office-02-introductions
+cites:
+- V02-C02-open
+incarnation: office
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/office.map.json
+seed: 1
+beat_s: 1
+horizon_s: 8
+truth:
+  people:
+    mara: {}
+    sorina: {}
+    doru:
+      mood: quiet
+      availability: busy
+      away:
+      - - 0
+        - 8
+      hands:
+      - task: visit
+        at: 0
+script:
+- at: 4
+  kind: floor
+  channel: hall
+monitors:
+- id: introductions
+  scene: V02-C02-open
+  member: attention
+  words: Optional participation gives no invitation to remind an absent listener.
+  forbid:
+    rule: speak
+    person: doru
+    while: away
+expect:
+- monitor: introductions
+  absent: true

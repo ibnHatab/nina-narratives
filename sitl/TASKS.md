@@ -31,15 +31,17 @@ T1 — `c715b9d`. Build and interface passed, all three scenarios matched. No de
 T2 — `d6800e9`. Both seed-2 records triaged structural. Both gates refused at baseline replay. Candidate effects and closed-loop fixes were not run.
 
 ## T3. Scenarios wide: every aspect in the loop
-- [ ] From T0's ranked gaps, at least two scenarios per aspect under `workspaces/home/scenarios/cognition/`. Each needs scene citations, a person truth (extend `person_sim.py`: several people, moods, availability, being away), and monitors.
-- [ ] Monitor kinds beyond `forbid`: `require` (an act must happen by a time, e.g. the promised reminder), `order` (A before B), `never_reads` (a member's act must not depend on another person's private fact). Add them to `loop.py` with a test each.
-- [ ] Contracts the aspects need, e.g. `presence` for availability vs. presence, `calendar` for appointments, a `channel` contract for private vs. public speech. Each has its `.yaml` + `.llp`, passes `contracts.py check`, and has its edges in `when:` form.
+- [x] From T0's ranked gaps, at least two scenarios per aspect under `workspaces/home/scenarios/cognition/`. Each needs scene citations, a person truth (extend `person_sim.py`: several people, moods, availability, being away), and monitors.
+- [x] Monitor kinds beyond `forbid`: `require` (an act must happen by a time, e.g. the promised reminder), `order` (A before B), `never_reads` (a member's act must not depend on another person's private fact). Add them to `loop.py` with a test each.
+- [x] Contracts the aspects need, e.g. `presence` for availability vs. presence, `calendar` for appointments, a `channel` contract for private vs. public speech. Each has its `.yaml` + `.llp`, passes `contracts.py check`, and has its edges in `when:` form.
 
-T3 baseline update adds fourteen home experiments. Three new findings (absent listener, cold room source, parcel account) triaged evidential with MCP trace_kind on the recorded truth. The current truth column names tasks and has limited coverage of evidence provenance. Eight aspects now have two or more scenarios counting the original commitments pair. Noninterference probes cover the named field and audience only.
+T3 — `32549eb`, `5228a35`. Monitor unit tests, contract probe and 17 scenario comparisons passed. Live adapters were not run. The baseline update adds fourteen home experiments. Three new findings (absent listener, cold room source, parcel account) triaged evidential with MCP trace_kind on the recorded truth. The current truth column names tasks and has limited coverage of evidence provenance. Eight aspects now have two or more scenarios counting the original commitments pair. Noninterference probes cover the named field and audience only.
 
 ## T4. Office (Volume II): a second workspace, the same cognition
 - [ ] `workspaces/office/`: its own composition, director instance and fictional world map over the **same** `cognition/` units (thin instances; spec 18 for office deltas). No ventilation, because the office's discovery finds none.
 - [ ] Office scenarios from Volume II (12 chapters) through the same loop. Multiparty conversation, typed channels per participant, groups. A monitor checks that no office event or record reads a home one.
+
+T4 baseline update adds twelve studio experiments. The interview intentionally rejects a foreign record. Introductions exposes a reminder spoken during absence. Both new records triaged evidential. No external office adapters were used.
 
 ## T5. Loop quality
 - [ ] Move `project.py`'s tables and `loop.py`'s PRESETS/SWITCHES into the contracts (`families:`, value maps), so the loop keeps no domain knowledge.

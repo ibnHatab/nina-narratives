@@ -1,0 +1,8 @@
+program: curiosity.llp
+display: curiosity
+line: Book I curiosity
+voice: third
+clock: {beats: 1}
+shared: {topic_offer: out}
+host: nina_world.host:curiosity   # the runtime's world host (interfaces/README.md)
+world: {out: [show_me, objections_exchanged, private_research_window, research_permission, listener_present, conversational_opening], in: []}

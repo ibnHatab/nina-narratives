@@ -1,0 +1,39 @@
+{
+  "rooms": {
+    "hall": {
+      "name": "studio hall"
+    }
+  },
+  "lights": {},
+  "radar": {},
+  "units": {},
+  "channels": {
+    "hall": {
+      "kind": "public",
+      "people": [
+        "mara",
+        "sorina",
+        "doru"
+      ]
+    },
+    "studio": {
+      "kind": "group",
+      "people": [
+        "mara",
+        "sorina"
+      ]
+    },
+    "sorina_dm": {
+      "kind": "private",
+      "people": [
+        "sorina"
+      ]
+    },
+    "doru_dm": {
+      "kind": "private",
+      "people": [
+        "doru"
+      ]
+    }
+  }
+}

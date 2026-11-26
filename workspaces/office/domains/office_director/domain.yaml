@@ -1,0 +1,6 @@
+program: office_director.llp
+display: Office director
+line: Routes reminder proposals, research offers and utterance receipts.
+voice: line
+clock: {beats: 1}
+host: nina_world.host:office_director   # the runtime's world host (interfaces/README.md)

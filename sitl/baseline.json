@@ -293,5 +293,178 @@
    ]
   ],
   "world_hash": "987d067ff7fa6fa8b7db296c"
+ },
+ "workspaces/office/scenarios/cognition/office-01-interview.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "interview",
+    true
+   ],
+   [
+    "incarnation-boundary",
+    true
+   ]
+  ],
+  "findings": [
+   [
+    "incarnation-boundary",
+    5
+   ]
+  ],
+  "world_hash": "4af5dabd212caa293b8745b3"
+ },
+ "workspaces/office/scenarios/cognition/office-02-introductions.yaml": {
+  "commands": [
+   [
+    4,
+    "attention",
+    "speak",
+    [
+     "visit"
+    ]
+   ]
+  ],
+  "expect": [
+   [
+    "introductions",
+    false
+   ]
+  ],
+  "findings": [
+   [
+    "introductions",
+    4
+   ]
+  ],
+  "world_hash": "4af5dabd212caa293b8745b3"
+ },
+ "workspaces/office/scenarios/cognition/office-03-lunch.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "lunch",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "4af5dabd212caa293b8745b3"
+ },
+ "workspaces/office/scenarios/cognition/office-04-enthusiasm.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "enthusiasm",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "4af5dabd212caa293b8745b3"
+ },
+ "workspaces/office/scenarios/cognition/office-05-red-model.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "red-model",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "4af5dabd212caa293b8745b3"
+ },
+ "workspaces/office/scenarios/cognition/office-06-museum.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "museum",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "4af5dabd212caa293b8745b3"
+ },
+ "workspaces/office/scenarios/cognition/office-07-group-box.yaml": {
+  "commands": [
+   [
+    4,
+    "attention",
+    "speak",
+    [
+     "visit"
+    ]
+   ]
+  ],
+  "expect": [
+   [
+    "group-box",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "4af5dabd212caa293b8745b3"
+ },
+ "workspaces/office/scenarios/cognition/office-08-calendar.yaml": {
+  "commands": [
+   [
+    4,
+    "attention",
+    "speak",
+    [
+     "visit"
+    ]
+   ]
+  ],
+  "expect": [
+   [
+    "calendar",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "4af5dabd212caa293b8745b3"
+ },
+ "workspaces/office/scenarios/cognition/office-09-library.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "library",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "4af5dabd212caa293b8745b3"
+ },
+ "workspaces/office/scenarios/cognition/office-10-edition.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "edition",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "4af5dabd212caa293b8745b3"
+ },
+ "workspaces/office/scenarios/cognition/office-11-unexpected.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "unexpected",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "4af5dabd212caa293b8745b3"
+ },
+ "workspaces/office/scenarios/cognition/office-12-unplanned.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "unplanned",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "4af5dabd212caa293b8745b3"
  }
 }

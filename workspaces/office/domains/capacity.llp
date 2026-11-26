@@ -1,0 +1,5 @@
+catalog office_capacity 1.
+type task {visit lunch exhibit}.
+type domain {situations commitments attention social curiosity self_model persona}.
+type plan {original simple}.
+type channel {hall studio sorina_dm doru_dm}.

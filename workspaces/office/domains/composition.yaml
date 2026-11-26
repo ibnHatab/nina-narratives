@@ -1,0 +1,8 @@
+name: office
+capacity: capacity.llp
+interfaces: [../../../interfaces/members/reminders.llp, ../../../interfaces/members/research.llp]
+specialists: [situations, commitments, attention, social, curiosity, self_model, persona]
+direct: office_director
+planner: attention
+response: 2
+world: {out: [], in: []}

@@ -1,0 +1,8 @@
+program: self_model.llp
+display: self_model
+line: Book I self_model
+voice: third
+clock: {beats: 1}
+shared: {}
+host: nina_world.host:self_model   # the runtime's world host (interfaces/README.md)
+world: {out: [restart, checkpoint_available, power_failure_report, restored_settings_report, connection_reliable, human_moon_remark, astronomy_information], in: []}

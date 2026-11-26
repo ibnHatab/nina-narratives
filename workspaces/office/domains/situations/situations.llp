@@ -1,0 +1,10 @@
+catalog situations 1.
+include "situations_domain.llp".
+include "../capacity.llp".
+type issue {ventilation appointment pantry}.
+type reason {device_fault manual_override forgotten cancelled stale_inventory consumed}.
+type source {resident sensor}.
+alternatives(ventilation,device_fault,manual_override).
+alternatives(appointment,forgotten,cancelled).
+alternatives(pantry,stale_inventory,consumed).
+include "../../../../interfaces/world/evidence_context.llp".

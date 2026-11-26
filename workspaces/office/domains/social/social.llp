@@ -1,0 +1,4 @@
+catalog social 1.
+include "social_domain.llp".
+include "../capacity.llp".
+include "../../../../interfaces/world/channel.llp".

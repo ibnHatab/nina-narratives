@@ -1,0 +1,47 @@
+catalog office_director 1.
+include "iface/director_domain.llp".
+include "../capacity.llp".
+type kind {reminder_offer uttered topic_offer}.
+planner(attention).
+specialist(situations).
+specialist(commitments).
+specialist(social).
+specialist(curiosity).
+specialist(self_model).
+specialist(persona).
+handles(attention, reminder_offer).
+handles(commitments, uttered).
+handles(attention, topic_offer).
+#init fresh 1
+#init attention(attention) 1
+#init active(attention) 1
+#init inactive(situations) 1
+#init inactive(commitments) 1
+#init inactive(social) 1
+#init inactive(curiosity) 1
+#init inactive(self_model) 1
+#init inactive(persona) 1
+
+% Live supplies a changed or steady status boundary per member (spec 15 §9.3).
+% The director keeps the status age bounded, as in director_tree_domain.
+type age {a0 a1 a2 a3}.
+bwd older(age,age).
+older(a0,a1).
+older(a1,a2).
+older(a2,a3).
+pred changed(domain) : dir.
+pred tick_s(domain) : dir.
+pred age_of(domain,age) : dir.
+stage act {
+  %% The status of {D} changed on this boundary.
+  status_reset [dyn] : changed(D) * age_of(D,A) -o age_of(D,a0).
+  %% The status of {D} held for another boundary.
+  status_age [dyn] : tick_s(D) * age_of(D,A) * $older(A,B) -o age_of(D,B).
+}
+#init age_of(situations,a0) 1
+#init age_of(commitments,a0) 1
+#init age_of(attention,a0) 1
+#init age_of(social,a0) 1
+#init age_of(curiosity,a0) 1
+#init age_of(self_model,a0) 1
+#init age_of(persona,a0) 1

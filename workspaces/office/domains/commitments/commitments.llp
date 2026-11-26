@@ -1,0 +1,5 @@
+catalog commitments 1.
+include "commitments_domain.llp".
+include "../../../../interfaces/members/reminders.llp".
+include "../../../../interfaces/world/conversation.llp".
+include "../capacity.llp".

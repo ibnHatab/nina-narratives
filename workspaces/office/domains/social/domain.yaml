@@ -1,0 +1,8 @@
+program: social.llp
+display: social
+line: Book I social
+voice: third
+clock: {beats: 1}
+shared: {}
+host: nina_world.host:social   # the runtime's world host (interfaces/README.md)
+world: {out: [visitor_asks_about_resident, privacy_boundary], in: []}

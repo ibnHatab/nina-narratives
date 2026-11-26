@@ -28,6 +28,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'sitl'))
 
 from mcp_sim import HomeAssistantSim  # noqa: E402
+from scope import audience, check_paths, local_event
 from monitors import Monitors
 from person_sim import Person  # noqa: E402
 from project import EVENTS, OUTCOMES, OWNED, Projector  # noqa: E402
@@ -136,6 +137,9 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
     base = Path(scenario_path).parent
     ws = (base / sc['workspace']).resolve()                     # the composition's directory
     home = (base / sc['metis_workspace']).resolve() if sc.get('metis_workspace') else ws
+    scope = sc.get('incarnation')
+    if scope:
+        check_paths(scope, ws, (base / sc['world_map']).resolve(), home)
     home = Path(storage or home)
     comparisons = {}
     for monitor in sc.get('monitors') or []:
@@ -223,6 +227,13 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
                 pending = [(a, e) for a, e in pending if a > t]
                 person_cmds, beat_edges = [], {}
                 for ev in due:
+                    if scope and not local_event(scope, ev):
+                        finding = dict(kind='violation', slug=f'foreign-record-{k}', k=k, k0=k, k1=k,
+                                       member=comp['direct'], monitor='incarnation-boundary',
+                                       words=f"{sc['cites'][0]}: blocked foreign event or record")
+                        findings.append(finding)
+                        feed.finding(finding)
+                        continue
                     if ev.get('kind') in WORLD_KINDS:
                         rep = world.send({x: v for x, v in ev.items() if x != 'note'})
                         surprises += [dict(s, k=k) for s in (rep.get('out') or {}).get('Surprises') or []]
@@ -278,10 +289,11 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
                         cid = '%s:%d:%s:%s' % (run_id, k, rule, ','.join(args))
                         adapter = spec['adapter']
                         if 'person' in adapter:                 # Nina speaks: the people hear it
-                            for p in people.values():
-                                if p.listens(channel, t):
-                                    pending += p.hear(t, args[0] if args else None)
-                            log.write(json.dumps({'adapter': 'person', 'cid': cid, 'heard': args}) + '\n')
+                            listeners = audience(m.get('channels'), channel, people, t)
+                            for p in listeners:
+                                pending += p.hear(t, args[0] if args else None)
+                            log.write(json.dumps({'adapter': 'person', 'cid': cid, 'heard': args, 'channel': channel,
+                                                  'listeners': [p.name for p in listeners]}) + '\n')
                             continue
                         role = args[0]
                         pred, tool, targs = device_command(rule, family, spec, role, m)

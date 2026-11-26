@@ -1,0 +1,5 @@
+catalog persona 1.
+include "persona_domain.llp".
+include "../capacity.llp".
+#init persona_continuity 1
+include "../../../../interfaces/world/temperament.llp".
