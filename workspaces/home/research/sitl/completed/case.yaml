@@ -1,0 +1,20 @@
+case: 'surprise at tick 4: attention'
+note: written by metis.trace case from a trace; it fails until a rule passes it
+member: attention
+at: 4
+seed: 2
+rng: '2'
+stage: live
+init:
+- available
+boundaries:
+- lines: []
+- lines:
+  - +reminder_offer(call)
+  run: false
+- lines: []
+- lines:
+  - +completion_report(call)
+  expect:
+    after:
+    - pending(call) 0

@@ -1,0 +1,20 @@
+case: 'surprise at tick 4: commitments'
+note: written by metis.trace case from a trace; it fails until a rule passes it
+member: commitments
+at: 4
+seed: 2
+rng: '2'
+stage: live
+init: []
+boundaries:
+- lines: []
+- lines:
+  - +arrived(call)
+- lines:
+  - +uttered(call)
+  run: false
+- lines:
+  - +later(call)
+  expect:
+    after:
+    - ledger(call,spoken)

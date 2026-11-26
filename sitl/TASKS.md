@@ -19,12 +19,14 @@ T0 — `589aee3`. Three SITL baselines matched. Scenario sketches are research d
 
 ## T1. Cognition fully on the contracts
 - [x] Cognition members name `host: nina_world.host:<member>` (controller, baseline commit).
-- [ ] Move a person's words and the floor (`arrived`, `later`, `renewed`, `completion_report`, `floor`) from `cognition/iface/timing` into `interfaces/world/conversation.llp`. Route world edges by the contract's `consumers` and the member's declared preds, not by `shared:`. Keep `uttered` (attention → commitments) as a member crossing in `interfaces/members/`. `metisc build` and `--interface` must be clean, and `regress.py` must report `same`.
-- [ ] Commit `workspaces/home/research/issue-4` and write `workspaces/home/REPORT.md`.
+- [x] Move a person's words and the floor (`arrived`, `later`, `renewed`, `completion_report`, `floor`) from `cognition/iface/timing` into `interfaces/world/conversation.llp`. Route world edges by the contract's `consumers` and the member's declared preds, not by `shared:`. Keep `uttered` (attention → commitments) as a member crossing in `interfaces/members/`. `metisc build` and `--interface` must be clean, and `regress.py` must report `same`.
+- [x] Commit `workspaces/home/research/issue-4` and write `workspaces/home/REPORT.md`.
+
+T1 — `c715b9d`. Build and interface passed, all three scenarios matched. No deployment run.
 
 ## T2. The two open structural surprises (the baseline's findings)
-- [ ] `b01-later` (`no-repeat-before-return`, B01-C01-S03 / C06-S01): what does "later" mean in the text? Deferral to the person's own return, or a retry? Write the case from the surprise record, then a pack with the narrative's distinction (the person's return is their truth; Nina waits for `renewed` or an explicit time). Run `pack_propose` and record the gates' verdict. Leave it for the maintainer's approval before it joins the catalog.
-- [ ] `b01-completed` (`no-reminder-after-done`, B01-C08-S02): commitments close the ledger, but attention keeps the queued reminder. This is a cross-member gap: a completion must withdraw the offer. Decide which member owns the withdrawal and which interface pred carries it, then the case, the pack and the gates, as above.
+- [x] `b01-later` (`no-repeat-before-return`, B01-C01-S03 / C06-S01): what does "later" mean in the text? Deferral to the person's own return, or a retry? Write the case from the surprise record, then a pack with the narrative's distinction (the person's return is their truth; Nina waits for `renewed` or an explicit time). Run `pack_propose` and record the gates' verdict. Leave it for the maintainer's approval before it joins the catalog.
+- [x] `b01-completed` (`no-reminder-after-done`, B01-C08-S02): commitments close the ledger, but attention keeps the queued reminder. This is a cross-member gap: a completion must withdraw the offer. Decide which member owns the withdrawal and which interface pred carries it, then the case, the pack and the gates, as above.
 
 ## T3. Scenarios wide: every aspect in the loop
 - [ ] From T0's ranked gaps, at least two scenarios per aspect under `workspaces/home/scenarios/cognition/`. Each needs scene citations, a person truth (extend `person_sim.py`: several people, moods, availability, being away), and monitors.
