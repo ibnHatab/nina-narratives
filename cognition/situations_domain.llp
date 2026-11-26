@@ -26,3 +26,7 @@ stage live {
   accept_report [story] : considering(I) * candidate(I,R) * explanation_report(I,R,S)
     -o accepted_report(I,R,S).
 }
+stage live {
+  %% [B06-C01-end] Keep the observer and its measurement site attached to the reading.
+  attribute_reading [story] : reading_sample(S,O) * sample_site(S,L) -o attributed_sample(S,O,L).
+}

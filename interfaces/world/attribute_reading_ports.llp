@@ -1,0 +1,5 @@
+catalog attribute_reading_ports 1.
+types (observer sample site).
+namespace attribute_reading_ports produce (story dyn).
+pred reading_sample(sample,observer) : attribute_reading_ports.
+pred sample_site(sample,site) : attribute_reading_ports.

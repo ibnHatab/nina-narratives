@@ -8,3 +8,8 @@ alternatives(ventilation,device_fault,manual_override).
 alternatives(appointment,forgotten,cancelled).
 alternatives(pantry,stale_inventory,consumed).
 include "../../../../interfaces/world/evidence_context.llp".
+type observer {thermometer}.
+type sample {reading_one}.
+type site {shelf}.
+include "../../../../interfaces/world/attribute_reading_ports.llp".
+include "../../../../interfaces/members/attribute_reading_ports.llp".

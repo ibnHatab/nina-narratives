@@ -1,0 +1,45 @@
+scenario: attribute_reading
+cites:
+- B06-C01-end
+aspect: situations
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/home.map.json
+seed: 1
+beat_s: 1
+horizon_s: 8
+truth:
+  people:
+    host:
+      channels:
+      - hall
+      - direct
+    guest:
+      mood: quiet
+      channels:
+      - hall
+script:
+- at: 1
+  kind: report
+  person: host
+  var: reading_sample
+  sample: reading_one
+  observer: thermometer
+- at: 2
+  kind: report
+  person: host
+  var: sample_site
+  sample: reading_one
+  site: shelf
+monitors:
+- id: attribute_reading
+  scene: B06-C01-end
+  member: situations
+  words: Keep the observer and its measurement site attached to the reading.
+  require:
+    rule: attribute_reading
+    by: 8
+expect:
+- monitor: attribute_reading
+  absent: true

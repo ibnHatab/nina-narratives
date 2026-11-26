@@ -1,0 +1,26 @@
+family: attribute_reading_ports
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: reading_sample(sample,observer)
+  when:
+    kind: report
+    var: reading_sample
+  args:
+  - sample
+  - observer
+  lifetime: consumed
+- pred: sample_site(sample,site)
+  when:
+    kind: report
+    var: sample_site
+  args:
+  - sample
+  - site
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- situations

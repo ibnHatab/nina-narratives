@@ -1,0 +1,4 @@
+catalog attribute_reading_results 1.
+types (observer sample site).
+namespace attribute_reading_results produce (story dyn).
+pred attributed_sample(sample,observer,site) : attribute_reading_results.

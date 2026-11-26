@@ -50,6 +50,29 @@
   ],
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
+ "workspaces/home/scenarios/cognition/attribute_reading.yaml": {
+  "acts": [
+   [
+    2,
+    "situations",
+    "attribute_reading",
+    [
+     "reading_one",
+     "thermometer",
+     "shelf"
+    ]
+   ]
+  ],
+  "commands": [],
+  "expect": [
+   [
+    "attribute_reading",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
  "workspaces/home/scenarios/cognition/b01-completed.yaml": {
   "acts": [
    [

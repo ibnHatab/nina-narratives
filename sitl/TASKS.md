@@ -86,3 +86,5 @@ R3 gap 3, B09-C02-end, reply_in_confidence. Hiding the rule produced the missing
 R3 gap 4, B02-C06-end, hold_for_listener. Hiding the rule produced the missing-act finding at beat 8 (seed 93). With the rule the deadline passed and the suite matched. No deployment run.
 
 R3 gap 5, V02-C08-end, confirm_group_slot. Hiding the rule produced the missing-act finding at beat 8 (seed 93). With the rule the deadline passed and the suite matched. No deployment run.
+
+R3 gap 6, B06-C01-end, attribute_reading. Hiding the rule produced the missing-act finding at beat 8 (seed 93). With the rule the deadline passed and the suite matched. No deployment run.
