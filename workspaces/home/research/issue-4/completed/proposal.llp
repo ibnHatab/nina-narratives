@@ -1,0 +1,4 @@
+stage live {
+  %% B01-C08-S02. Remove a pending reminder when its completion is reported.
+  withdraw [story] : pending(T) * completion_report(T) -o ().
+}

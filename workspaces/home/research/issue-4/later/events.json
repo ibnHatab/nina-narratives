@@ -1,0 +1,46 @@
+{
+  "card": "later",
+  "seed": 1,
+  "days": 1,
+  "image": "072cb5c25f2c",
+  "arrival": 1,
+  "completion": null,
+  "censored": true,
+  "later": 4,
+  "renewed": 9,
+  "heard": [
+    3,
+    7,
+    11
+  ],
+  "openings": [
+    {
+      "tick": 3,
+      "events": [
+        "speak[T=call]",
+        "finish[T=call]"
+      ]
+    },
+    {
+      "tick": 7,
+      "events": [
+        "speak[T=call]",
+        "finish[T=call]"
+      ]
+    },
+    {
+      "tick": 11,
+      "events": [
+        "speak[T=call]",
+        "finish[T=call]"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "decision": 4,
+      "heard": 7,
+      "member": "commitments"
+    }
+  ]
+}

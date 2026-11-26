@@ -1,0 +1,5 @@
+drop postpone.
+stage live {
+  %% B01-C01-S03. Keep the reminder spoken until a fresh invitation arrives.
+  postpone [story] : ledger(T,spoken) * later(T) -o ledger(T,spoken).
+}

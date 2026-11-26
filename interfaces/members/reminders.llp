@@ -3,4 +3,3 @@ types (task).
 namespace conversation_iface produce (story).
 pred reminder_offer(task) : conversation_iface.
 pred uttered(task) : conversation_iface.
-pred completion_report(task) : conversation_iface.

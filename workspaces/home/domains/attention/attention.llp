@@ -1,7 +1,7 @@
 catalog attention 1.
 include "attention_domain.llp".
-include "iface/conversation.llp".
-include "iface/opportunity.llp".
-include "iface/research.llp".
+include "../../../../interfaces/members/reminders.llp".
+include "../../../../interfaces/world/conversation.llp".
+include "../../../../interfaces/members/research.llp".
 include "../capacity.llp".
 #init available 1

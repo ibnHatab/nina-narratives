@@ -7,13 +7,15 @@ Assigned by the controller for the maintainer, 2026-11-26 (baseline in `sitl/bas
 **Every change runs `python3 sitl/regress.py`.** NEW findings are surprises to triage, GONE findings must be explained, CHANGED acts must be explained. `--update` only with the change recorded here.
 
 ## T0. Wide, aspect-wise extraction (first)
-- [ ] For each cognition aspect (situations/evidence, commitments, attention/floor, social/relationships, curiosity, self-model, persona/temperament, conversation incl. multiparty), write `cognition/aspects/<aspect>.md`. Each entry has:
+- [x] For each cognition aspect (situations/evidence, commitments, attention/floor, social/relationships, curiosity, self-model, persona/temperament, conversation incl. multiparty), write `cognition/aspects/<aspect>.md`. Each entry has:
   - scene-cited behaviours (book-chapter-scene IDs, across Volume I and Volume II), each marked observation | hypothesis | hidden truth | normative constraint | counterfactual;
   - the generic rule candidate;
   - the world-contract input/output it needs (an existing contract, or a NEW one, named);
   - whether it already exists in `cognition/*.llp`;
   - at least one SITL scenario sketch with the monitor and the surprise it should produce.
-- [ ] `cognition/aspects/README.md`: a matrix (aspect × book) and the 10 highest-value gaps, ranked.
+- [x] `cognition/aspects/README.md`: a matrix (aspect × book) and the 10 highest-value gaps, ranked.
+
+T0 — `589aee3`. Three SITL baselines matched. Scenario sketches are research designs and have not been executed as part of extraction.
 
 ## T1. Cognition fully on the contracts
 - [x] Cognition members name `host: nina_world.host:<member>` (controller, baseline commit).

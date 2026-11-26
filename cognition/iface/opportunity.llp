@@ -1,3 +1,0 @@
-catalog opportunity_iface 1.
-namespace opportunity_iface produce (story).
-pred floor : opportunity_iface.

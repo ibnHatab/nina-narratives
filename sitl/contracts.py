@@ -77,7 +77,7 @@ def check_compile(contracts):
     with tempfile.TemporaryDirectory() as tmp:
         for u in units:
             Path(tmp, u.name).write_text(u.read_text())
-        body = ['catalog contract_probe 1.', 'layers (dyn).', 'stages (serve).']
+        body = ['catalog contract_probe 1.', 'layers (dyn story).', 'stages (serve).']
         body += [f'type {t} {{{t}_1}}.' for t in sorted(types)]
         body += [f'include "{u.name}".' for u in units]
         body += ['namespace contract_probe produce (dyn).', 'pred probe_seen : contract_probe.',

@@ -1,4 +1,4 @@
 catalog curiosity 1.
 include "curiosity_domain.llp".
-include "iface/research.llp".
+include "../../../../interfaces/members/research.llp".
 include "../capacity.llp".

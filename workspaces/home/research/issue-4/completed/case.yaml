@@ -1,0 +1,22 @@
+case: 'surprise at tick 4: attention'
+note: B01-C08-S02 completed before another opening
+member: attention
+at: 4
+seed: 1
+rng: '1'
+stage: live
+init:
+- available
+boundaries:
+- lines: []
+- lines:
+  - +reminder_offer(dinner)
+  run: false
+- lines: []
+- lines:
+  - +completion_report(dinner)
+  run: false
+- lines: []
+  expect:
+    after:
+    - pending(dinner) 0

@@ -2,3 +2,4 @@ catalog home_capacity 1.
 type task {call dinner}.
 type domain {situations commitments attention social curiosity self_model persona}.
 type plan {original simple}.
+type channel {hall}.

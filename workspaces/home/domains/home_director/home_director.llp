@@ -1,7 +1,7 @@
 catalog home_director 1.
 include "iface/director_domain.llp".
 include "../capacity.llp".
-type kind {reminder_offer uttered topic_offer completion_report floor}.
+type kind {reminder_offer uttered topic_offer}.
 planner(attention).
 specialist(situations).
 specialist(commitments).
@@ -12,8 +12,6 @@ specialist(persona).
 handles(attention, reminder_offer).
 handles(commitments, uttered).
 handles(attention, topic_offer).
-handles(attention, completion_report).
-handles(attention, floor).
 #init fresh 1
 #init attention(attention) 1
 #init active(attention) 1

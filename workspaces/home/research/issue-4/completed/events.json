@@ -1,0 +1,30 @@
+{
+  "card": "completed",
+  "seed": 1,
+  "days": 1,
+  "image": "072cb5c25f2c",
+  "arrival": 1,
+  "completion": 4,
+  "censored": false,
+  "later": null,
+  "renewed": null,
+  "heard": [
+    7
+  ],
+  "openings": [
+    {
+      "tick": 7,
+      "events": [
+        "speak[T=dinner]",
+        "finish[T=dinner]"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "decision": 4,
+      "heard": 7,
+      "member": "attention"
+    }
+  ]
+}

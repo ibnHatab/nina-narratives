@@ -1,0 +1,24 @@
+case: 'surprise at tick 4: commitments'
+note: B01-C01-S03 wait for the renewed invitation
+member: commitments
+at: 4
+seed: 1
+rng: '1'
+stage: live
+init: []
+boundaries:
+- lines: []
+- lines:
+  - +arrived(call)
+  run: false
+- lines: []
+- lines:
+  - +uttered(call)
+  run: false
+- lines:
+  - +later(call)
+  run: false
+- lines: []
+  expect:
+    after:
+    - ledger(call,spoken)

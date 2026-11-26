@@ -1,5 +1,5 @@
 catalog commitments 1.
 include "commitments_domain.llp".
-include "iface/conversation.llp".
-include "iface/timing.llp".
+include "../../../../interfaces/members/reminders.llp".
+include "../../../../interfaces/world/conversation.llp".
 include "../capacity.llp".

@@ -73,7 +73,7 @@ def contracts(world_dir):
                 rules[rule] = (c['family'], name, spec)
         for e in c.get('edges') or []:
             if isinstance(e, dict) and e.get('when'):
-                edges.append(dict(e, family=c['family']))
+                edges.append(dict(e, family=c['family'], consumers=c['consumers']))
     return rules, edges
 
 
@@ -202,7 +202,11 @@ def run(scenario_path, seed=None, out_dir=None):
     hosts = dict(nh.REGISTRY)
     rules, edge_specs = contracts(ROOT / 'interfaces/world')
     edge_preds = {e['pred'].split('(')[0]: e.get('lifetime', 'beat') for e in edge_specs}
-    takes = {n: {p for p, d in (mans[n].get('shared') or {}).items() if d == 'in'} for n in names}
+    takes = {n: set((mans[n].get('world') or {}).get('out') or []) for n in names}
+    for name, preds in takes.items():
+        allowed = {e['pred'].split('(')[0] for e in edge_specs if name in e['consumers']}
+        if preds - allowed:
+            raise ValueError(f'{name} declares unauthorized world edges {sorted(preds - allowed)}')
     for n, h in hosts.items():
         h.retract = (set(OUTCOMES.get(n, ())) | set(EVENTS.get(n, ()))
                      | {p for p in takes.get(n, ()) if edge_preds.get(p) == 'beat'})

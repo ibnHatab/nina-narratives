@@ -3,5 +3,6 @@ display: attention
 line: Book I attention
 voice: third
 clock: {beats: 1}
-shared: {floor: in, reminder_offer: in, uttered: out, topic_offer: in, completion_report: in}
+shared: {reminder_offer: in, uttered: out, topic_offer: in}
+world: {out: [floor, completion_report], in: []}
 host: nina_world.host:attention   # the runtime's world host (interfaces/README.md)
