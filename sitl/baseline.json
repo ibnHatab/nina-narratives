@@ -1231,6 +1231,15 @@
     "persona",
     "quiet_expression",
     []
+   ],
+   [
+    4,
+    "social",
+    "correct_attribution_with_subject",
+    [
+     "exhibit",
+     "ana"
+    ]
    ]
   ],
   "commands": [],
@@ -1238,9 +1247,26 @@
    [
     "unexpected",
     true
+   ],
+   [
+    "incarnation-boundary",
+    true
+   ],
+   [
+    "correct_attribution_with_subject",
+    true
+   ],
+   [
+    "correct_attribution_with_subject-scope",
+    true
    ]
   ],
-  "findings": [],
+  "findings": [
+   [
+    "incarnation-boundary",
+    2
+   ]
+  ],
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-12-unplanned.yaml": {

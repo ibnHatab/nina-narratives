@@ -141,3 +141,5 @@ First extraction from manuscript revision `77af431`. Scene identifiers refer to 
 - V02-C09-S3 `select_approved_local_media`. Hiding the office delta rule produced the missing act at beat eight. The enabled image met the deadline. The boundary probe denied the home-origin report. Only this office scenario changed. The delta uses the spec 18 include form because the separate extension manifest produced a runtime source-key mismatch.
 
 - V02-C10-S2 `collapse_shared_provenance`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+
+- V02-C11-S4 `correct_attribution_with_subject`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.

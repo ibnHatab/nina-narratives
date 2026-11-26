@@ -85,6 +85,22 @@ edges:
   args:
   - message
   lifetime: consumed
+- pred: attribution_challenged(task,participant)
+  when:
+    kind: report
+    var: attribution_challenged
+  args:
+  - task
+  - participant
+  lifetime: consumed
+- pred: approved_credit(task,participant)
+  when:
+    kind: report
+    var: approved_credit
+  args:
+  - task
+  - participant
+  lifetime: consumed
 commands: {}
 receipts:
   via: none
