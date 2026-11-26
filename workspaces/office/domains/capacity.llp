@@ -9,3 +9,5 @@ type participant {mara sorina doru radu andrei ana}.
 type slot {original_slot new_slot}.
 type reference {silver_model charging_article}.
 type source_record {syndicated_copy original_announcement}.
+type asset {red_model cabinet_fallback family_photo}.
+type contribution {designer organiser}.

@@ -1,0 +1,27 @@
+family: community_media
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: shared_component(asset,participant)
+  when:
+    kind: report
+    var: shared_component
+  args:
+  - asset
+  - participant
+  lifetime: consumed
+- pred: display_permission(asset,participant)
+  when:
+    kind: report
+    var: display_permission
+  args:
+  - asset
+  - participant
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- social
+capability: community_media

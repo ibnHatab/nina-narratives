@@ -945,15 +945,42 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-06-museum.yaml": {
-  "acts": [],
+  "acts": [
+   [
+    4,
+    "social",
+    "authorize_component_display",
+    [
+     "red_model",
+     "doru"
+    ]
+   ]
+  ],
   "commands": [],
   "expect": [
    [
     "museum",
     true
+   ],
+   [
+    "incarnation-boundary",
+    true
+   ],
+   [
+    "authorize_component_display",
+    true
+   ],
+   [
+    "authorize_component_display-scope",
+    true
    ]
   ],
-  "findings": [],
+  "findings": [
+   [
+    "incarnation-boundary",
+    2
+   ]
+  ],
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-07-group-box.yaml": {

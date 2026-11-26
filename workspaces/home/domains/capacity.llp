@@ -9,3 +9,5 @@ type participant {resident visitor}.
 type slot {first_slot revised_slot}.
 type reference {public_link}.
 type source_record {local_report original_report}.
+type asset {personal_photo}.
+type contribution {contributor}.

@@ -22,3 +22,8 @@ stage live {
   %% [V02-C01-S1] Agreement to a community remit grants authority within that remit.
   honor_community_scope [story] : community_role(P) * $agreed_social_scope(P) -o social_scope_kept(P).
 }
+pred displayable_component(asset) : social.
+stage live {
+  %% [V02-C06-S4] Require permission from the contributor for that exact asset.
+  authorize_component_display [story] : shared_component(A,P) * display_permission(A,P) -o displayable_component(A).
+}
