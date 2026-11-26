@@ -92,7 +92,7 @@ until a reviewed rule change removes it.
 
 The generic host (`nina_world/host.py`) serves both compositions unchanged; the person (`person_sim.py`) perceives only
 Nina's `say` and answers with reports; the monitors read the truth, no member does. Reruns are byte-identical.
-Not yet: monitors beyond `forbid`, contract-driven families (`project.py`'s tables), `--replay`, office.
+Subsequent research added all four mechanisms below.
 
 ## Research suite after the baseline
 

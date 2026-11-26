@@ -18,3 +18,16 @@ def audience(channels, name, people, at):
     if channel['kind'] not in ('public', 'group', 'private') or (channel['kind'] == 'private' and len(listeners) != 1):
         raise ValueError(f'invalid channel membership for {name}')
     return [people[n] for n in listeners if not people[n].away(at)]
+
+
+def grant_floor(due, waiting):
+    """The voice has one floor token. Queue simultaneous turns with their original channel."""
+    waiting.extend(e for e in due if e.get('kind') == 'floor')
+    if not waiting:
+        return due
+    grant = waiting.pop(0)
+    # Keep the grant at the first opening in the outside event order.
+    position = next((i for i, e in enumerate(due) if e.get('kind') == 'floor'), 0)
+    events = [e for e in due if e.get('kind') != 'floor']
+    events.insert(position, grant)
+    return events

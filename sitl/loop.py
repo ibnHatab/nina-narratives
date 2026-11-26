@@ -30,7 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'sitl'))
 
 from mcp_sim import HomeAssistantSim, discovery, device_command  # noqa: E402
-from scope import audience, check_paths, local_event
+from scope import audience, check_paths, grant_floor, local_event
 from monitors import Monitors
 from person_sim import Person  # noqa: E402
 from project import Projector  # noqa: E402
@@ -176,6 +176,7 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
     feed.start()
     feed.run_started(run_id, 'traces/' + run_id, dict(scenario=sc['scenario'], seed=seed))
     k = 0
+    waiting_floors = []
     channel = 'hall'
     tasks = sorted({h['task'] for p in people.values() for h in p.t.get('hands') or []})
     truth_log = (trace_dir / 'truth.jsonl').open('w')     # the hidden truth per beat, for the triage (spec 20 §4)
@@ -192,11 +193,12 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
                 due += [e for a, e in sorted(pending, key=lambda x: x[0]) if a <= t]
                 pending = [(a, e) for a, e in pending if a > t]
                 person_cmds, beat_edges = [], {}
-                for ev in due:
+                for ev in grant_floor(due, waiting_floors):
                     if scope and not local_event(scope, ev):
                         finding = dict(kind='violation', slug=f'foreign-record-{k}', k=k, k0=k, k1=k,
                                        member=comp['direct'], monitor='incarnation-boundary',
                                        words=f"{sc['cites'][0]}: blocked foreign event or record")
+                        log.write(json.dumps({'rejected': ev, 'monitor': 'incarnation-boundary', 'k': k}) + '\n')
                         findings.append(finding)
                         feed.finding(finding)
                         continue

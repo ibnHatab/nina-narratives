@@ -44,8 +44,12 @@ T3 — `32549eb`, `5228a35`. Monitor unit tests, contract probe and 17 scenario 
 T4 — `992cabe`. Both images built, all 29 baselines matched. The baseline update adds twelve studio experiments. The interview intentionally rejects a foreign record. Introductions exposes a reminder spoken during absence. Both new records triaged evidential. No external office adapters were used.
 
 ## T5. Loop quality
-- [ ] Move `project.py`'s tables and `loop.py`'s PRESETS/SWITCHES into the contracts (`families:`, value maps), so the loop keeps no domain knowledge.
-- [ ] `loop.py --replay events.jsonl` reproduces every hash and finding. Add a test.
+- [x] Move `project.py`'s tables and `loop.py`'s PRESETS/SWITCHES into the contracts (`families:`, value maps), so the loop keeps no domain knowledge.
+- [x] `loop.py --replay events.jsonl` reproduces every hash and finding. Add a test.
+
+T5 — `1ccd14f`. All 29 event logs reproduced row by row, including findings. The corruption test rejected a changed result. Upstream composition replay of the two T2 cases remains refused.
 
 ## Proposal (document only)
-- [ ] `interfaces/proposals/report-port.md`: a semantic-world port for reported vars, so a person's words gain belief and freshness like readings. The world currently refuses `report` on an undeclared var ("no categorical call.deferral"), so these words travel as logged edges. Address it to metis-worlds and do not implement it upstream.
+- [x] `interfaces/proposals/report-port.md`: a semantic-world port for reported vars, so a person's words gain belief and freshness like readings. The world currently refuses `report` on an undeclared var ("no categorical call.deferral"), so these words travel as logged edges. Address it to metis-worlds and do not implement it upstream.
+
+Proposal — `1ccd14f`. Document reviewed against the current edge contract. No upstream implementation or calibration was run.

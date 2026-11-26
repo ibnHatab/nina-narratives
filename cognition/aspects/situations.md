@@ -6,6 +6,7 @@
 | B06-C01-end | observation | Moving the sensor changes which readings can be compared. | Partition evidence at changes of measurement context. | NEW evidence_context → qualified comparison | missing |
 | B07-C01-end | hypothesis | A forecast, a call and the account of a trip answer different questions. | Retain source and scope on an assessment. | NEW evidence_context → attribution | partial, consider |
 | V02-C05-end | observation | Nina corrects her assumption about how often the model maker smiles outside the hall. | Limit claims to sampled encounters. | presence + conversation → qualified speech | missing |
+| B06-C02-end | hidden truth | The parcel was delivered to the wrong door. The resident only learns this from the later photograph. | A notification can support delivery while leaving receipt by this person unresolved. | evidence_context → sourced account | missing recipient distinction |
 
 ## SITL experiment
 

@@ -15,6 +15,9 @@ truth:
       channels:
       - hall
       - direct
+      private_facts:
+        delivery_location: wrong_door
+        recipient_has_parcel: false
     guest:
       mood: quiet
       channels:
@@ -24,14 +27,14 @@ script:
   kind: report
   var: discrepancy
   person: host
-  issue: appointment
-  source: sensor
+  issue: parcel
+  source: courier
 - at: 3
   kind: report
   var: explanation_report
   person: host
-  issue: appointment
-  reason: cancelled
+  issue: parcel
+  reason: wrong_door
   source: resident
 monitors:
 - id: parcel-account

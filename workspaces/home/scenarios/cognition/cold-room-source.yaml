@@ -15,6 +15,8 @@ truth:
       channels:
       - hall
       - direct
+      private_facts:
+        thermometer_location: above_computer
     guest:
       mood: quiet
       channels:
@@ -24,13 +26,13 @@ script:
   kind: report
   var: discrepancy
   person: host
-  issue: ventilation
+  issue: laboratory
   source: sensor
 - at: 3
   kind: report
   var: clarification_opportunity
   person: host
-  issue: ventilation
+  issue: laboratory
 monitors:
 - id: cold-room-source
   scene: B06-C01-end

@@ -1,10 +1,12 @@
 catalog situations 1.
 include "situations_domain.llp".
 include "../capacity.llp".
-type issue {ventilation appointment pantry}.
-type reason {device_fault manual_override forgotten cancelled stale_inventory consumed}.
-type source {resident sensor}.
+type issue {ventilation appointment pantry laboratory parcel}.
+type reason {device_fault manual_override forgotten cancelled stale_inventory consumed desk_draft sensor_location premature_status wrong_door}.
+type source {resident sensor courier}.
 alternatives(ventilation,device_fault,manual_override).
 alternatives(appointment,forgotten,cancelled).
 alternatives(pantry,stale_inventory,consumed).
 include "../../../../interfaces/world/evidence_context.llp".
+alternatives(laboratory,desk_draft,sensor_location).
+alternatives(parcel,premature_status,wrong_door).

@@ -53,6 +53,6 @@ class Person:
         done_at = (self.t.get('done') or {}).get(task)
         later_at = self.deferred.get(task)
         back = (self.t.get('returns') or {}).get(task)
-        return {'busy': self.t.get('availability') == 'busy', 'away': not self.listens('hall', at),
+        return {'busy': self.t.get('availability') == 'busy', 'away': self.away(at),
                 'quiet': self.t.get('mood') == 'quiet', 'done': done_at is not None and at >= done_at,
                 'deferred': later_at is not None and (back is None or at < later_at + back)}
