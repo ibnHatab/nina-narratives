@@ -18,12 +18,17 @@ class Person:
         self.heard = []            # (at, task): what they actually heard
         self.deferred = {}         # task -> at they said later
 
+    def listens(self, channel, at):
+        return (channel in self.t.get('channels', ['hall']) and
+                not any(start <= at < end for start, end in self.t.get('away', [])))
+
     def scheduled(self):
         """The events the person causes regardless of Nina: handing over, finishing."""
         out = [{'at': h['at'], 'kind': 'report', 'person': self.name, 'id': h['task'], 'var': 'arrived', 'value': 'yes'}
                for h in self.t.get('hands') or []]
         out += [{'at': at, 'kind': 'report', 'person': self.name, 'id': task, 'var': 'done', 'value': 'yes'}
                 for task, at in (self.t.get('done') or {}).items()]
+        out += [dict(event, person=self.name, kind='report') for event in self.t.get('reports', [])]
         return out
 
     def hear(self, at, task):
@@ -45,5 +50,6 @@ class Person:
         done_at = (self.t.get('done') or {}).get(task)
         later_at = self.deferred.get(task)
         back = (self.t.get('returns') or {}).get(task)
-        return {'done': done_at is not None and at >= done_at,
+        return {'busy': self.t.get('availability') == 'busy', 'away': not self.listens('hall', at),
+                'quiet': self.t.get('mood') == 'quiet', 'done': done_at is not None and at >= done_at,
                 'deferred': later_at is not None and (back is None or at < later_at + back)}

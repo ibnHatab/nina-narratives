@@ -14,6 +14,7 @@ One beat (sitl/README.md):
 Everything in and out is logged, in order, to <out>/events.jsonl; summary.json holds the acts, findings and checks.
 """
 import argparse
+import copy
 import json
 import os
 import subprocess
@@ -27,6 +28,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'sitl'))
 
 from mcp_sim import HomeAssistantSim  # noqa: E402
+from monitors import Monitors
 from person_sim import Person  # noqa: E402
 from project import EVENTS, OUTCOMES, OWNED, Projector  # noqa: E402
 
@@ -86,7 +88,8 @@ def edge_of(ev, edges):
         if any(ev.get(k) != v for k, v in on.items() if k != 'kind'):
             continue
         pred = e['pred'].split('(')[0]
-        atom = pred + ('(%s)' % ev['id'] if '(' in e['pred'] else '')
+        args = [str(ev[field]) for field in e.get('args', ['id'] if '(' in e['pred'] else [])]
+        atom = pred + ('(' + ','.join(args) + ')' if args else '')
         return atom, e.get('lifetime', 'beat')
     return None
 
@@ -128,48 +131,26 @@ def discovery(m, at):
     return [{'at': at, 'kind': 'ha_state', 'ha': s} for s in out]
 
 
-class Monitors:
-    """The scenario's normative checks: the hidden truth against what fired. Each finding cites its scene.
-
-    forbid: {rule, arg, after: {var, value}, while: deferred|done}: the rule must not fire on ARG once the
-    person's report AFTER was given, while the person's truth says WHILE. A finding's window runs from the
-    report's beat to the firing."""
-
-    def __init__(self, specs, people):
-        self.specs, self.people, self.seen = specs or [], people, {}
-
-    def report(self, ev, k):
-        self.seen.setdefault((ev.get('var'), ev.get('value'), ev.get('id')), k)
-
-    def check(self, rule, args, at, k):
-        out = []
-        for m in self.specs:
-            f = m['forbid']
-            if rule != f['rule'] or (f.get('arg') and f['arg'] not in args):
-                continue
-            task = f.get('arg') or (args[0] if args else None)
-            after = f.get('after') or {}
-            k0 = self.seen.get((after.get('var'), after.get('value'), task)) if after else 0
-            if after and k0 is None:
-                continue
-            if not after and f.get('while') == 'done':      # the window opens at the person's own report
-                k0 = self.seen.get(('done', 'yes', task), 0)
-            truth = {}
-            for p in self.people.values():
-                for key, v in p.truth_at(task, at).items():
-                    truth[key] = truth.get(key) or v
-            if f.get('while') and not truth.get(f['while']):
-                continue
-            out.append({'kind': 'violation', 'slug': '%s-%d' % (m['id'], k), 'member': m.get('member'), 'k': k0,
-                        'k0': k0, 'k1': k, 'words': '%s: %s' % (m['scene'], m['words']), 'monitor': m['id']})
-        return out
-
-
-def run(scenario_path, seed=None, out_dir=None):
-    sc = yaml.safe_load(Path(scenario_path).read_text())
+def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
+    sc = scenario if scenario is not None else yaml.safe_load(Path(scenario_path).read_text())
     base = Path(scenario_path).parent
     ws = (base / sc['workspace']).resolve()                     # the composition's directory
     home = (base / sc['metis_workspace']).resolve() if sc.get('metis_workspace') else ws
+    home = Path(storage or home)
+    comparisons = {}
+    for monitor in sc.get('monitors') or []:
+        if 'never_reads' not in monitor:
+            continue
+        spec = monitor['never_reads']
+        other = copy.deepcopy(sc)
+        other['scenario'] += '-' + monitor['id'] + '-control'
+        other['monitors'], other['expect'] = [], []
+        person = other['truth']['people'][spec['person']]
+        if person[spec['field']] == spec['alternative']:
+            raise ValueError('noninterference control must change the private fact')
+        person[spec['field']] = spec['alternative']
+        control = run(scenario_path, seed, out_dir, scenario=other, storage=home)
+        comparisons[monitor['id']] = control['acts']
     m = json.loads((base / sc['world_map']).read_text())
     seed = sc.get('seed', 1) if seed is None else seed
     run_id = '%s-s%d' % (sc['scenario'], seed)
@@ -228,6 +209,7 @@ def run(scenario_path, seed=None, out_dir=None):
     feed.start()
     feed.run_started(run_id, 'traces/' + run_id, dict(scenario=sc['scenario'], seed=seed))
     k = 0
+    channel = 'hall'
     tasks = sorted({h['task'] for p in people.values() for h in p.t.get('hands') or []})
     truth_log = (trace_dir / 'truth.jsonl').open('w')     # the hidden truth per beat, for the triage (spec 20 §4)
     with (out / 'events.jsonl').open('w') as log:
@@ -251,6 +233,8 @@ def run(scenario_path, seed=None, out_dir=None):
                         continue
                     if ev.get('kind') == 'report':
                         monitors.report(ev, k)
+                    if ev['kind'] == 'floor':
+                        channel = ev.get('channel', 'hall')
                     hit = edge_of(ev, edge_specs)
                     if hit is None:
                         raise ValueError('event %s matches no contract edge' % ev)
@@ -283,9 +267,9 @@ def run(scenario_path, seed=None, out_dir=None):
                 for n, h in sorted(hosts.items()):
                     for _, rule, args in h.drain():
                         args = list(args)
-                        acts.append({'at': t, 'k': k, 'member': n, 'rule': rule, 'args': args})
+                        acts.append({'at': t, 'k': k, 'member': n, 'rule': rule, 'args': args, 'channel': channel})
                         log.write(json.dumps({'fired': rule, 'member': n, 'args': args, 'k': k}) + '\n')
-                        for f in monitors.check(rule, args, t, k):
+                        for f in monitors.check(acts[-1]):
                             findings.append(f)
                             feed.finding(f)
                         if rule not in rules:
@@ -295,7 +279,8 @@ def run(scenario_path, seed=None, out_dir=None):
                         adapter = spec['adapter']
                         if 'person' in adapter:                 # Nina speaks: the people hear it
                             for p in people.values():
-                                pending += p.hear(t, args[0] if args else None)
+                                if p.listens(channel, t):
+                                    pending += p.hear(t, args[0] if args else None)
                             log.write(json.dumps({'adapter': 'person', 'cid': cid, 'heard': args}) + '\n')
                             continue
                         role = args[0]
@@ -310,6 +295,9 @@ def run(scenario_path, seed=None, out_dir=None):
                         pending += [(a, {'at': a, 'kind': 'ha_state', 'ha': s}) for a, s in receipts]
                 t += beat_s
                 k += 1
+            for finding in monitors.finish(t - beat_s, k - 1, comparisons):
+                findings.append(finding)
+                feed.finding(finding)
             final = world.send({'hash': True})['hash']
         finally:
             world.close()
@@ -322,7 +310,7 @@ def run(scenario_path, seed=None, out_dir=None):
     ids = feed.run_ended(run_id, 'done')
     feed.stop()
     summary = {'run': run_id, 'scenario': sc['scenario'], 'seed': seed, 'image': getattr(live.image, 'hash', None),
-               'commands': [a for a in acts if a['rule'] in rules], 'fired': len(acts), 'says': says,
+               'acts': acts, 'commands': [a for a in acts if a['rule'] in rules], 'fired': len(acts), 'says': says,
                'surprises': surprises, 'findings': [{k_: v for k_, v in f.items() if k_ != 'world'} for f in findings],
                'records': [i for i in ids if i], 'world_hash': final}
     checks = []
