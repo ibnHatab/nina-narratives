@@ -14,24 +14,26 @@ truth:
     host:
       channels:
       - hall
+      - group
       - direct
     guest:
       mood: quiet
       channels:
       - hall
+      - group
 script:
 - at: 1
   kind: report
   person: host
   var: offered_slot
   task: call
-  channel: hall
+  channel: group
 - at: 2
   kind: report
   person: host
   var: group_assent
   task: call
-  channel: hall
+  channel: group
 monitors:
 - id: confirm_group_slot
   scene: V02-C08-end

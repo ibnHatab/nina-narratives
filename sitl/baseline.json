@@ -295,7 +295,7 @@
     "confirm_group_slot",
     [
      "call",
-     "hall"
+     "group"
     ]
    ]
   ],
@@ -556,12 +556,12 @@
  "workspaces/home/scenarios/cognition/reply_in_confidence.yaml": {
   "acts": [
    [
-    2,
+    4,
     "social",
     "reply_in_confidence",
     [
      "call",
-     "hall"
+     "direct"
     ]
    ]
   ],
@@ -569,6 +569,10 @@
   "expect": [
    [
     "reply_in_confidence",
+    true
+   ],
+   [
+    "no-public-confidence",
     true
    ]
   ],
@@ -648,7 +652,7 @@
     "social",
     "take_addressed_turn",
     [
-     "hall"
+     "group"
     ]
    ]
   ],

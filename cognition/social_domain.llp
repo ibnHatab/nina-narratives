@@ -11,7 +11,7 @@ stage live {
 }
 stage live {
   %% [B09-C02-end] A confidence may be answered only in its authorized channel.
-  reply_in_confidence [story] : private_question(T,C) * $authorized_channel(T,C) -o scoped_answer(T,C).
+  reply_in_confidence [story] : private_question(T,C) * $authorized_channel(T,C) * $private_session(C) -o scoped_answer(T,C).
 }
 stage live {
   %% [V02-C07-end] A group turn addressed to Nina can be answered in its own channel.

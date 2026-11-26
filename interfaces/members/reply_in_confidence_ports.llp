@@ -2,3 +2,4 @@ catalog reply_in_confidence_results 1.
 types (channel task).
 namespace reply_in_confidence_results produce (story dyn).
 pred scoped_answer(task,channel) : reply_in_confidence_results.
+bwd private_session(channel).

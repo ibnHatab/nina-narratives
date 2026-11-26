@@ -14,24 +14,38 @@ truth:
     host:
       channels:
       - hall
+      - group
       - direct
     guest:
       mood: quiet
       channels:
       - hall
+      - group
 script:
-- at: 1
+- at: 0
   kind: report
   person: host
   var: private_question
   task: call
   channel: hall
-- at: 2
+- at: 1
   kind: report
   person: host
   var: authorized_channel
   task: call
   channel: hall
+- at: 3
+  kind: report
+  person: host
+  var: private_question
+  task: call
+  channel: direct
+- at: 4
+  kind: report
+  person: host
+  var: authorized_channel
+  task: call
+  channel: direct
 monitors:
 - id: reply_in_confidence
   scene: B09-C02-end
@@ -40,6 +54,15 @@ monitors:
   require:
     rule: reply_in_confidence
     by: 8
+- id: no-public-confidence
+  member: social
+  scene: B09-C02-end
+  words: A hall grant cannot expose a confidence.
+  forbid:
+    rule: reply_in_confidence
+    arg: hall
 expect:
 - monitor: reply_in_confidence
+  absent: true
+- monitor: no-public-confidence
   absent: true

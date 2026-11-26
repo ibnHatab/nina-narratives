@@ -6,3 +6,5 @@ include "../../../../interfaces/world/reply_in_confidence_ports.llp".
 include "../../../../interfaces/members/reply_in_confidence_ports.llp".
 include "../../../../interfaces/world/take_addressed_turn_ports.llp".
 include "../../../../interfaces/members/take_addressed_turn_ports.llp".
+private_session(sorina_dm).
+private_session(doru_dm).

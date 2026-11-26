@@ -63,7 +63,7 @@ Review: the 29 scenarios match their baseline (the controller re-ran it), the fa
 
 - [x] R1 `regress.py` essence: add every fired rule of the members a scenario's monitors name, as `[k, member, rule, args]`, director bookkeeping excluded. Re-baseline once with this file's line explaining it, then show that a deliberately reordered firing in a scratch copy is reported CHANGED (do not commit the scratch).
 - [x] R2 truth: extend `truth.jsonl` to everything the person adapters and the monitors read (availability, away, audience/channel, evidence source and location, done/deferred). Re-triage the three evidential findings and record their kinds.
-- [ ] R3 formalize the ranked gaps **3–10** of `cognition/aspects/README.md` as new cognition rules (gaps 1–2 are the T2 cases and wait for the gate). Each gap gets:
+- [x] R3 formalize the ranked gaps **3–10** of `cognition/aspects/README.md` as new cognition rules (gaps 1–2 are the T2 cases and wait for the gate). Each gap gets:
   - scene-cited `%%` docs;
   - new preds through `interfaces/members` or `interfaces/world` only;
   - a scenario whose monitor would fail **without** the rule (show it: run the scenario with the rule hidden via `include … hiding`, record the finding, then with the rule).
@@ -96,3 +96,5 @@ R3 gap 8, B04-C01-end, keep_promised_notice. Hiding the rule produced the missin
 R3 gap 9, B03-C04-end, retire_inquiry. Hiding the rule produced the missing-act finding at beat 8 (seed 93). With the rule the deadline passed and the suite matched. No deployment run.
 
 R3 gap 10, V02-C07-end, take_addressed_turn. Hiding the rule produced the missing-act finding at beat 8 (seed 93). With the rule the deadline passed and the suite matched. No deployment run.
+
+R3 final controls ran both arms at seed 1 for all eight rules. Each hidden arm failed its deadline and each ordinary arm passed. Three scenario baselines changed their bound channel from hall to direct or group. The confidence case also checks that even an explicit hall grant cannot release a private answer. These probes verify cognition decisions, not delivery by external services. The 21 contract probes compiled and all 37 scenarios matched.
