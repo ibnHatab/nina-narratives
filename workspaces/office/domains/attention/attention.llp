@@ -5,3 +5,6 @@ include "../../../../interfaces/world/conversation.llp".
 include "../../../../interfaces/members/research.llp".
 include "../capacity.llp".
 #init available 1
+type listener {guest}.
+include "../../../../interfaces/world/hold_for_listener_ports.llp".
+include "../../../../interfaces/members/hold_for_listener_ports.llp".

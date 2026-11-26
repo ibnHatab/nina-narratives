@@ -1,0 +1,48 @@
+scenario: hold_for_listener
+cites:
+- B02-C06-end
+aspect: attention
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/home.map.json
+seed: 1
+beat_s: 1
+horizon_s: 8
+truth:
+  people:
+    host:
+      channels:
+      - hall
+      - direct
+    guest:
+      mood: quiet
+      channels:
+      - hall
+script:
+- at: 1
+  kind: report
+  person: host
+  var: person_present
+  listener: guest
+- at: 2
+  kind: report
+  person: host
+  var: busy_listener
+  listener: guest
+- at: 3
+  kind: report
+  person: host
+  var: proposed_turn
+  listener: guest
+monitors:
+- id: hold_for_listener
+  scene: B02-C06-end
+  member: attention
+  words: A present person can be unavailable for this conversation.
+  require:
+    rule: hold_for_listener
+    by: 8
+expect:
+- monitor: hold_for_listener
+  absent: true

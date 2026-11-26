@@ -276,6 +276,27 @@
   "findings": [],
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
+ "workspaces/home/scenarios/cognition/hold_for_listener.yaml": {
+  "acts": [
+   [
+    3,
+    "attention",
+    "hold_for_listener",
+    [
+     "guest"
+    ]
+   ]
+  ],
+  "commands": [],
+  "expect": [
+   [
+    "hold_for_listener",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
  "workspaces/home/scenarios/cognition/loyalty.yaml": {
   "acts": [
    [

@@ -1,0 +1,31 @@
+family: hold_for_listener_ports
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: person_present(listener)
+  when:
+    kind: report
+    var: person_present
+  args:
+  - listener
+  lifetime: consumed
+- pred: busy_listener(listener)
+  when:
+    kind: report
+    var: busy_listener
+  args:
+  - listener
+  lifetime: consumed
+- pred: proposed_turn(listener)
+  when:
+    kind: report
+    var: proposed_turn
+  args:
+  - listener
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- attention

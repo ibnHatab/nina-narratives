@@ -20,3 +20,7 @@ stage live {
   %% B01-C05-S03. Spend this opening to bring up the optional topic.
   mention [story] : topic_pending * floor * $available -o ().
 }
+stage live {
+  %% [B02-C06-end] A present person can be unavailable for this conversation.
+  hold_for_listener [story] : proposed_turn(P) * $person_present(P) * $busy_listener(P) -o held_turn(P).
+}

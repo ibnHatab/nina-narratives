@@ -1,0 +1,4 @@
+catalog hold_for_listener_results 1.
+types (listener).
+namespace hold_for_listener_results produce (story dyn).
+pred held_turn(listener) : hold_for_listener_results.

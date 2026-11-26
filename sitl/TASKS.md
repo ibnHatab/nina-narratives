@@ -82,3 +82,5 @@ R1 re-baseline adds ordered firings of monitored members to each scenario essenc
 R1 scratch control swapped two distinct monitored firings and produced CHANGED. R2 fresh seed 42 records in scenario order (absent-listener, cold-room-source, parcel-account) triaged ontological, evidential, evidential. The truth now distinguishes recipients and places from named obligations. A reported measurement or delivery still leaves its interpretation open.
 
 R3 gap 3, B09-C02-end, reply_in_confidence. Hiding the rule produced the missing-act finding at beat 8 (seed 93). With the rule the deadline passed and the suite matched. No deployment run.
+
+R3 gap 4, B02-C06-end, hold_for_listener. Hiding the rule produced the missing-act finding at beat 8 (seed 93). With the rule the deadline passed and the suite matched. No deployment run.

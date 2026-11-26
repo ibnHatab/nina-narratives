@@ -1,0 +1,6 @@
+catalog hold_for_listener_ports 1.
+types (listener).
+namespace hold_for_listener_ports produce (story dyn).
+pred person_present(listener) : hold_for_listener_ports.
+pred busy_listener(listener) : hold_for_listener_ports.
+pred proposed_turn(listener) : hold_for_listener_ports.
