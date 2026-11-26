@@ -1,0 +1,22 @@
+family: channel
+version: 1
+owner: person
+ports: {}
+edges:
+- pred: visitor_asks_about_resident
+  when:
+    kind: report
+    var: visitor_asks_about_resident
+  args: []
+  lifetime: consumed
+- pred: privacy_boundary
+  when:
+    kind: report
+    var: privacy_boundary
+  args: []
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- social

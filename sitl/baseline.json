@@ -1,4 +1,29 @@
 {
+ "workspaces/home/scenarios/cognition/absent-listener.yaml": {
+  "commands": [
+   [
+    4,
+    "attention",
+    "speak",
+    [
+     "call"
+    ]
+   ]
+  ],
+  "expect": [
+   [
+    "absent-listener",
+    false
+   ]
+  ],
+  "findings": [
+   [
+    "absent-listener",
+    4
+   ]
+  ],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
  "workspaces/home/scenarios/cognition/b01-completed.yaml": {
   "commands": [
    [
@@ -64,6 +89,177 @@
    ]
   ],
   "world_hash": "6a979e26ccc8ad165375a533"
+ },
+ "workspaces/home/scenarios/cognition/bird-question.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "bird-question",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
+ "workspaces/home/scenarios/cognition/blue-bowl.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "blue-bowl",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
+ "workspaces/home/scenarios/cognition/cold-room-source.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "cold-room-source",
+    false
+   ]
+  ],
+  "findings": [
+   [
+    "cold-room-source",
+    8
+   ]
+  ],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
+ "workspaces/home/scenarios/cognition/declined-game.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "declined-game",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
+ "workspaces/home/scenarios/cognition/loyalty.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "loyalty",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
+ "workspaces/home/scenarios/cognition/missing-hours.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "missing-hours",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
+ "workspaces/home/scenarios/cognition/ordinary-timer.yaml": {
+  "commands": [
+   [
+    4,
+    "attention",
+    "speak",
+    [
+     "call"
+    ]
+   ]
+  ],
+  "expect": [
+   [
+    "ordinary-timer",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
+ "workspaces/home/scenarios/cognition/parcel-account.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "parcel-account",
+    false
+   ]
+  ],
+  "findings": [
+   [
+    "parcel-account",
+    8
+   ]
+  ],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
+ "workspaces/home/scenarios/cognition/private-question.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "private-question",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
+ "workspaces/home/scenarios/cognition/promised-opening.yaml": {
+  "commands": [
+   [
+    4,
+    "attention",
+    "speak",
+    [
+     "call"
+    ]
+   ]
+  ],
+  "expect": [
+   [
+    "promised-opening",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
+ "workspaces/home/scenarios/cognition/quiet-expression.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "quiet-expression",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
+ "workspaces/home/scenarios/cognition/shared-objection.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "shared-objection",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
+ "workspaces/home/scenarios/cognition/unsolicited-receipt.yaml": {
+  "commands": [],
+  "expect": [
+   [
+    "unsolicited-receipt",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/devices/b01-c02-ventilation.yaml": {
   "commands": [

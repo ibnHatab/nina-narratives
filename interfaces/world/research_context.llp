@@ -1,0 +1,8 @@
+catalog world_research_context 1.
+namespace world_research_context produce (dyn story).
+pred show_me : world_research_context.
+pred objections_exchanged : world_research_context.
+pred private_research_window : world_research_context.
+pred research_permission : world_research_context.
+pred listener_present : world_research_context.
+pred conversational_opening : world_research_context.

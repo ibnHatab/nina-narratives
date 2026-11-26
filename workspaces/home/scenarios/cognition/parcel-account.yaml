@@ -1,0 +1,46 @@
+scenario: parcel-account
+cites:
+- B06-C02-end
+aspect: situations
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/home.map.json
+seed: 1
+beat_s: 1
+horizon_s: 8
+truth:
+  people:
+    host:
+      channels:
+      - hall
+      - direct
+    guest:
+      mood: quiet
+      channels:
+      - hall
+script:
+- at: 1
+  kind: report
+  var: discrepancy
+  person: host
+  issue: appointment
+  source: sensor
+- at: 3
+  kind: report
+  var: explanation_report
+  person: host
+  issue: appointment
+  reason: cancelled
+  source: resident
+monitors:
+- id: parcel-account
+  scene: B06-C02-end
+  member: situations
+  words: A reported explanation must retain its source.
+  require:
+    rule: accept_report
+    by: 8
+expect:
+- monitor: parcel-account
+  absent: true

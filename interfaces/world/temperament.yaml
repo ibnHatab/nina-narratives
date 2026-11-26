@@ -1,0 +1,16 @@
+family: temperament
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: quiet_period
+  when:
+    kind: report
+    var: quiet_period
+  args: []
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- persona

@@ -6,8 +6,8 @@ version: 1
 owner: world
 ports: {}
 edges:
-  - {pred: event_due(event),     from: "report var=due from the calendar adapter's poll"}
-  - {pred: rsvp(event, answer),  from: "report var=rsvp"}
+  - {pred: event_due(event),     when: {kind: report, var: due}}
+  - {pred: "rsvp(event,answer)", args: [id, value], when: {kind: report, var: rsvp}}
 commands:                        # bindings per incarnation; verify tool names against each server's tools/list
   event:  {rules: [event], args: [event], predicts: {var: created, value: "{event}"}, grace_s: 30,
            adapter: {home: {mcp: {server: ha, tool: calendar_create_event}}, office: {mcp: {server: gcal, tool: create_event}}}}

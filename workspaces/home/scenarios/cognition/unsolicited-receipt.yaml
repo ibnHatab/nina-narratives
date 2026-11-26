@@ -1,0 +1,36 @@
+scenario: unsolicited-receipt
+cites:
+- B01-C08-S03
+aspect: self_model
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/home.map.json
+seed: 1
+beat_s: 1
+horizon_s: 8
+truth:
+  people:
+    host:
+      channels:
+      - hall
+      - direct
+    guest:
+      mood: quiet
+      channels:
+      - hall
+script:
+- at: 2
+  kind: report
+  var: restored_settings_report
+  person: host
+monitors:
+- id: unsolicited-receipt
+  scene: B01-C08-S03
+  member: self_model
+  words: A receipt alone cannot establish an authorized restoration.
+  forbid:
+    rule: confirm_restore
+expect:
+- monitor: unsolicited-receipt
+  absent: true

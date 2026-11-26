@@ -1,0 +1,52 @@
+family: continuity
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: restart
+  when:
+    kind: report
+    var: restart
+  args: []
+  lifetime: consumed
+- pred: checkpoint_available
+  when:
+    kind: report
+    var: checkpoint_available
+  args: []
+  lifetime: consumed
+- pred: power_failure_report
+  when:
+    kind: report
+    var: power_failure_report
+  args: []
+  lifetime: consumed
+- pred: restored_settings_report
+  when:
+    kind: report
+    var: restored_settings_report
+  args: []
+  lifetime: consumed
+- pred: connection_reliable
+  when:
+    kind: report
+    var: connection_reliable
+  args: []
+  lifetime: consumed
+- pred: human_moon_remark
+  when:
+    kind: report
+    var: human_moon_remark
+  args: []
+  lifetime: consumed
+- pred: astronomy_information
+  when:
+    kind: report
+    var: astronomy_information
+  args: []
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- self_model

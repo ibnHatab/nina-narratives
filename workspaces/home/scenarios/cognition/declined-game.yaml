@@ -1,0 +1,41 @@
+scenario: declined-game
+cites:
+- B02-C05-end
+aspect: conversation
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/home.map.json
+seed: 1
+beat_s: 1
+horizon_s: 8
+truth:
+  people:
+    host:
+      channels:
+      - hall
+      - direct
+    guest:
+      mood: quiet
+      channels:
+      - hall
+script:
+- at: 1
+  kind: report
+  var: deferral
+  person: host
+  id: call
+  value: later
+- at: 3
+  kind: floor
+  channel: hall
+monitors:
+- id: declined-game
+  scene: B02-C05-end
+  member: attention
+  words: A decline is compatible with leaving the next group turn open.
+  forbid:
+    rule: mention
+expect:
+- monitor: declined-game
+  absent: true

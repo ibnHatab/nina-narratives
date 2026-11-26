@@ -1,0 +1,37 @@
+scenario: ordinary-timer
+cites:
+- B04-C01-end
+aspect: persona
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/home.map.json
+seed: 1
+beat_s: 1
+horizon_s: 8
+truth:
+  people:
+    host:
+      mood: quiet
+      hands:
+      - task: call
+        at: 0
+script:
+- at: 1
+  kind: report
+  var: quiet_period
+  person: host
+- at: 4
+  kind: floor
+  channel: hall
+monitors:
+- id: ordinary-timer
+  scene: B04-C01-end
+  member: attention
+  words: A quieter expression still permits the promised service.
+  require:
+    rule: speak
+    by: 8
+expect:
+- monitor: ordinary-timer
+  absent: true

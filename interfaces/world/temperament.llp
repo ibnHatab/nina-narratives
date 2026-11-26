@@ -1,0 +1,3 @@
+catalog world_temperament 1.
+namespace world_temperament produce (dyn story).
+pred quiet_period : world_temperament.

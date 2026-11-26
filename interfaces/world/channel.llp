@@ -1,0 +1,4 @@
+catalog world_channel 1.
+namespace world_channel produce (dyn story).
+pred visitor_asks_about_resident : world_channel.
+pred privacy_boundary : world_channel.

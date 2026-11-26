@@ -1,0 +1,46 @@
+family: research_context
+version: 1
+owner: person
+ports: {}
+edges:
+- pred: show_me
+  when:
+    kind: report
+    var: show_me
+  args: []
+  lifetime: consumed
+- pred: objections_exchanged
+  when:
+    kind: report
+    var: objections_exchanged
+  args: []
+  lifetime: consumed
+- pred: private_research_window
+  when:
+    kind: report
+    var: private_research_window
+  args: []
+  lifetime: consumed
+- pred: research_permission
+  when:
+    kind: report
+    var: research_permission
+  args: []
+  lifetime: consumed
+- pred: listener_present
+  when:
+    kind: report
+    var: listener_present
+  args: []
+  lifetime: consumed
+- pred: conversational_opening
+  when:
+    kind: report
+    var: conversational_opening
+  args: []
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- curiosity

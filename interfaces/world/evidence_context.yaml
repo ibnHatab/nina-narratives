@@ -1,0 +1,34 @@
+family: evidence_context
+version: 1
+owner: person
+ports: {}
+edges:
+- pred: discrepancy(issue,source)
+  when:
+    kind: report
+    var: discrepancy
+  args:
+  - issue
+  - source
+  lifetime: consumed
+- pred: explanation_report(issue,reason,source)
+  when:
+    kind: report
+    var: explanation_report
+  args:
+  - issue
+  - reason
+  - source
+  lifetime: consumed
+- pred: clarification_opportunity(issue)
+  when:
+    kind: report
+    var: clarification_opportunity
+  args:
+  - issue
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- situations

@@ -5,3 +5,4 @@ voice: third
 clock: {beats: 1}
 shared: {}
 host: nina_world.host:situations   # the runtime's world host (interfaces/README.md)
+world: {out: [discrepancy, explanation_report, clarification_opportunity], in: []}

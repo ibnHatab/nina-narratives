@@ -1,0 +1,43 @@
+scenario: shared-objection
+cites:
+- B01-C05-S04
+aspect: curiosity
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/home.map.json
+seed: 1
+beat_s: 1
+horizon_s: 8
+truth:
+  people:
+    host:
+      channels:
+      - hall
+      - direct
+    guest:
+      mood: quiet
+      channels:
+      - hall
+script:
+- at: 1
+  kind: report
+  var: objections_exchanged
+  person: host
+- at: 3
+  kind: report
+  var: show_me
+  person: host
+monitors:
+- id: shared-objection
+  scene: B01-C05-S04
+  member: curiosity
+  words: An objection before a discussion cannot revise a joint conclusion.
+  order:
+    first:
+      rule: discuss
+    second:
+      rule: revise_together
+expect:
+- monitor: shared-objection
+  absent: true

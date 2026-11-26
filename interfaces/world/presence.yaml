@@ -7,9 +7,9 @@ ports:
   present:      {world_port: present,      keys: [room], levels: {presence: {at: [0.3, 0.7], names: [nobody, maybe_someone, someone]}}}
   someone_home: {world_port: someone_home, keys: [],     levels: {household: {at: [0.3, 0.7], names: [nobody_home, unsure_home, someone_home]}}}
 edges:                           # asserted by the host for one beat, on the edge named, from the level change
-  - {pred: entered(room),  from: "present(R) crosses 0.7 upward"}
-  - {pred: came_home,      from: "someone_home crosses 0.7 upward"}
-  - {pred: left_home,      from: "someone_home crosses 0.3 downward"}
+  - {pred: entered(room),  when: {kind: presence_edge, edge: entered}}
+  - {pred: came_home,      when: {kind: presence_edge, edge: came_home}}
+  - {pred: left_home,      when: {kind: presence_edge, edge: left_home}}
 commands: {}
 receipts: {via: none}
 freshness: {feed_down: forget}   # the radar's "off" decays only while the feed is up (semantic-world DESIGN §4)

@@ -28,10 +28,14 @@ T1 — `c715b9d`. Build and interface passed, all three scenarios matched. No de
 - [x] `b01-later` (`no-repeat-before-return`, B01-C01-S03 / C06-S01): what does "later" mean in the text? Deferral to the person's own return, or a retry? Write the case from the surprise record, then a pack with the narrative's distinction (the person's return is their truth; Nina waits for `renewed` or an explicit time). Run `pack_propose` and record the gates' verdict. Leave it for the maintainer's approval before it joins the catalog.
 - [x] `b01-completed` (`no-reminder-after-done`, B01-C08-S02): commitments close the ledger, but attention keeps the queued reminder. This is a cross-member gap: a completion must withdraw the offer. Decide which member owns the withdrawal and which interface pred carries it, then the case, the pack and the gates, as above.
 
+T2 — `d6800e9`. Both seed-2 records triaged structural. Both gates refused at baseline replay. Candidate effects and closed-loop fixes were not run.
+
 ## T3. Scenarios wide: every aspect in the loop
 - [ ] From T0's ranked gaps, at least two scenarios per aspect under `workspaces/home/scenarios/cognition/`. Each needs scene citations, a person truth (extend `person_sim.py`: several people, moods, availability, being away), and monitors.
 - [ ] Monitor kinds beyond `forbid`: `require` (an act must happen by a time, e.g. the promised reminder), `order` (A before B), `never_reads` (a member's act must not depend on another person's private fact). Add them to `loop.py` with a test each.
 - [ ] Contracts the aspects need, e.g. `presence` for availability vs. presence, `calendar` for appointments, a `channel` contract for private vs. public speech. Each has its `.yaml` + `.llp`, passes `contracts.py check`, and has its edges in `when:` form.
+
+T3 baseline update adds fourteen home experiments. Three new findings (absent listener, cold room source, parcel account) triaged evidential with MCP trace_kind on the recorded truth. The current truth column names tasks and has limited coverage of evidence provenance. Eight aspects now have two or more scenarios counting the original commitments pair. Noninterference probes cover the named field and audience only.
 
 ## T4. Office (Volume II): a second workspace, the same cognition
 - [ ] `workspaces/office/`: its own composition, director instance and fictional world map over the **same** `cognition/` units (thin instances; spec 18 for office deltas). No ventilation, because the office's discovery finds none.

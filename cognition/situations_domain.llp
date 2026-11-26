@@ -1,18 +1,15 @@
 catalog situations_domain 1.
 % Book I, fiction revision 94e2c582.
-layers (story).
+layers (story dyn).
 stages (live).
 namespace situations produce (story).
 types (issue reason source).
 bwd alternatives(issue,reason,reason).
-pred discrepancy(issue,source) : situations.
 pred observation_kept(issue,source) : situations.
 pred open_issue(issue) : situations.
 pred considering(issue) : situations.
 pred candidate(issue,reason) : situations.
-pred explanation_report(issue,reason,source) : situations.
 pred accepted_report(issue,reason,source) : situations.
-pred clarification_opportunity(issue) : situations.
 pred clarification_asked(issue) : situations.
 pred interruption_budget : situations.
 stage live {

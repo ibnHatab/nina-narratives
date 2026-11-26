@@ -1,0 +1,9 @@
+catalog world_continuity 1.
+namespace world_continuity produce (dyn story).
+pred restart : world_continuity.
+pred checkpoint_available : world_continuity.
+pred power_failure_report : world_continuity.
+pred restored_settings_report : world_continuity.
+pred connection_reliable : world_continuity.
+pred human_moon_remark : world_continuity.
+pred astronomy_information : world_continuity.

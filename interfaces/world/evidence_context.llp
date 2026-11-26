@@ -1,0 +1,6 @@
+catalog world_evidence_context 1.
+types (issue reason source).
+namespace world_evidence_context produce (dyn story).
+pred discrepancy(issue,source) : world_evidence_context.
+pred explanation_report(issue,reason,source) : world_evidence_context.
+pred clarification_opportunity(issue) : world_evidence_context.

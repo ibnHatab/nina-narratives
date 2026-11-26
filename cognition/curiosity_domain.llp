@@ -1,28 +1,22 @@
 catalog curiosity_domain 1.
 % Book I, fiction revision 94e2c582.
-layers (story).
+layers (story dyn).
 stages (live).
 namespace curiosity produce (story).
 
 pred better_question : curiosity.
-pred conversational_opening : curiosity.
 pred costly_demo : curiosity.
 pred discussion_active : curiosity.
-pred listener_present : curiosity.
 pred implementation_doubted : curiosity.
 pred initial_approach_abandoned : curiosity.
-pred private_research_window : curiosity.
 pred note_capacity : curiosity.
-pred objections_exchanged : curiosity.
 pred promising_connection : curiosity.
 pred qualified_note : curiosity.
 pred research_active : curiosity.
 pred research_budget : curiosity.
 pred research_offer : curiosity.
-pred research_permission : curiosity.
 pred research_useful : curiosity.
 pred shared_interest : curiosity.
-pred show_me : curiosity.
 pred tasks_clear : curiosity.
 pred weak_support : curiosity.
 stage live {

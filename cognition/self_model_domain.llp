@@ -1,24 +1,17 @@
 catalog self_model_domain 1.
 % Book I, fiction revision 94e2c582.
-layers (story).
+layers (story dyn).
 stages (live).
 namespace self_model produce (story).
 
-pred astronomy_information : self_model.
-pred human_moon_remark : self_model.
 pred moon_known_indirectly : self_model.
-pred checkpoint_available : self_model.
-pred connection_reliable : self_model.
 pred controllers_at_defaults : self_model.
 pred conversation_memory : self_model.
 pred conversation_opening : self_model.
 pred conversation_resumed : self_model.
 pred outage_explained : self_model.
-pred power_failure_report : self_model.
 pred recovered_checkpoint : self_model.
-pred restart : self_model.
 pred restore_requested : self_model.
-pred restored_settings_report : self_model.
 pred settings_authorized : self_model.
 pred settings_restored : self_model.
 pred unknown_interval : self_model.
