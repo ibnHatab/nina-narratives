@@ -1,0 +1,26 @@
+family: reply_in_confidence_ports
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: private_question(task,channel)
+  when:
+    kind: report
+    var: private_question
+  args:
+  - task
+  - channel
+  lifetime: consumed
+- pred: authorized_channel(task,channel)
+  when:
+    kind: report
+    var: authorized_channel
+  args:
+  - task
+  - channel
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- social

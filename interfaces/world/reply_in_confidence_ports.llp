@@ -1,0 +1,5 @@
+catalog reply_in_confidence_ports 1.
+types (channel task).
+namespace reply_in_confidence_ports produce (story dyn).
+pred private_question(task,channel) : reply_in_confidence_ports.
+pred authorized_channel(task,channel) : reply_in_confidence_ports.

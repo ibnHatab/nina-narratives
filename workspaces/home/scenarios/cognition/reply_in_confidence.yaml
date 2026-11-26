@@ -1,0 +1,45 @@
+scenario: reply_in_confidence
+cites:
+- B09-C02-end
+aspect: social
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/home.map.json
+seed: 1
+beat_s: 1
+horizon_s: 8
+truth:
+  people:
+    host:
+      channels:
+      - hall
+      - direct
+    guest:
+      mood: quiet
+      channels:
+      - hall
+script:
+- at: 1
+  kind: report
+  person: host
+  var: private_question
+  task: call
+  channel: hall
+- at: 2
+  kind: report
+  person: host
+  var: authorized_channel
+  task: call
+  channel: hall
+monitors:
+- id: reply_in_confidence
+  scene: B09-C02-end
+  member: social
+  words: A confidence may be answered only in its authorized channel.
+  require:
+    rule: reply_in_confidence
+    by: 8
+expect:
+- monitor: reply_in_confidence
+  absent: true

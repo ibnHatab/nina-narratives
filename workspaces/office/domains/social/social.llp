@@ -2,3 +2,5 @@ catalog social 1.
 include "social_domain.llp".
 include "../capacity.llp".
 include "../../../../interfaces/world/channel.llp".
+include "../../../../interfaces/world/reply_in_confidence_ports.llp".
+include "../../../../interfaces/members/reply_in_confidence_ports.llp".

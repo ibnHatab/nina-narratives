@@ -460,6 +460,28 @@
   "findings": [],
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
+ "workspaces/home/scenarios/cognition/reply_in_confidence.yaml": {
+  "acts": [
+   [
+    2,
+    "social",
+    "reply_in_confidence",
+    [
+     "call",
+     "hall"
+    ]
+   ]
+  ],
+  "commands": [],
+  "expect": [
+   [
+    "reply_in_confidence",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
  "workspaces/home/scenarios/cognition/shared-objection.yaml": {
   "acts": [],
   "commands": [],
