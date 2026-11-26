@@ -608,6 +608,27 @@
   "findings": [],
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
+ "workspaces/home/scenarios/cognition/retire_inquiry.yaml": {
+  "acts": [
+   [
+    2,
+    "curiosity",
+    "retire_inquiry",
+    [
+     "call"
+    ]
+   ]
+  ],
+  "commands": [],
+  "expect": [
+   [
+    "retire_inquiry",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
  "workspaces/home/scenarios/cognition/shared-objection.yaml": {
   "acts": [],
   "commands": [],

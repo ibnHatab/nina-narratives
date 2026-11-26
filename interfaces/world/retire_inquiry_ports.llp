@@ -1,0 +1,5 @@
+catalog retire_inquiry_ports 1.
+types (task).
+namespace retire_inquiry_ports produce (story dyn).
+pred open_inquiry(task) : retire_inquiry_ports.
+pred retirement_decision(task) : retire_inquiry_ports.

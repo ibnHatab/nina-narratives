@@ -1,0 +1,24 @@
+family: retire_inquiry_ports
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: open_inquiry(task)
+  when:
+    kind: report
+    var: open_inquiry
+  args:
+  - task
+  lifetime: consumed
+- pred: retirement_decision(task)
+  when:
+    kind: report
+    var: retirement_decision
+  args:
+  - task
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- curiosity

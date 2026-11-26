@@ -1,0 +1,4 @@
+catalog retire_inquiry_results 1.
+types (task).
+namespace retire_inquiry_results produce (story dyn).
+pred retired_inquiry(task) : retire_inquiry_results.

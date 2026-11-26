@@ -31,3 +31,7 @@ stage live {
   %% [B01-C05-S04] "the conclusion belonged to neither participant at the beginning."
   revise_together [story] : discussion_active * objections_exchanged -o better_question * initial_approach_abandoned * research_useful.
 }
+stage live {
+  %% [B03-C04-end] Retire an open question on its investigator’s decision without offering it publicly.
+  retire_inquiry [story] : open_inquiry(T) * retirement_decision(T) -o retired_inquiry(T).
+}
