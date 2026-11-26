@@ -865,15 +865,42 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-04-enthusiasm.yaml": {
-  "acts": [],
+  "acts": [
+   [
+    5,
+    "attention",
+    "offer_in_opted_channel",
+    [
+     "exhibit",
+     "studio"
+    ]
+   ]
+  ],
   "commands": [],
   "expect": [
    [
     "enthusiasm",
     true
+   ],
+   [
+    "incarnation-boundary",
+    true
+   ],
+   [
+    "offer_in_opted_channel",
+    true
+   ],
+   [
+    "offer_in_opted_channel-scope",
+    true
    ]
   ],
-  "findings": [],
+  "findings": [
+   [
+    "incarnation-boundary",
+    2
+   ]
+  ],
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-05-red-model.yaml": {

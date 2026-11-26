@@ -24,3 +24,8 @@ stage live {
   %% [B02-C06-end] A present person can be unavailable for this conversation.
   hold_for_listener [story] : proposed_turn(P) * $person_present(P) * $busy_listener(P) -o held_turn(P).
 }
+pred eligible_prompt(task,channel) : attention.
+stage live {
+  %% [V02-C04-S2] Use an opt-in discussion channel with an actual opening.
+  offer_in_opted_channel [story] : prepared_prompt(T) * $discussion_opt_in(C) * prompt_opening(C) -o eligible_prompt(T,C).
+}

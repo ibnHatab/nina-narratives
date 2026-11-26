@@ -8,3 +8,4 @@ include "../capacity.llp".
 type listener {guest}.
 include "../../../../interfaces/world/hold_for_listener_ports.llp".
 include "../../../../interfaces/members/hold_for_listener_ports.llp".
+include "../../../../interfaces/world/studio_chat.llp".

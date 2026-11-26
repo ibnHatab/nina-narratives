@@ -40,10 +40,32 @@ edges:
   args:
   - encounter
   lifetime: consumed
+- pred: prepared_prompt(task)
+  when:
+    kind: report
+    var: prepared_prompt
+  args:
+  - task
+  lifetime: consumed
+- pred: discussion_opt_in(channel)
+  when:
+    kind: report
+    var: discussion_opt_in
+  args:
+  - channel
+  lifetime: consumed
+- pred: prompt_opening(channel)
+  when:
+    kind: report
+    var: prompt_opening
+  args:
+  - channel
+  lifetime: consumed
 commands: {}
 receipts:
   via: none
 consumers:
+- attention
 - situations
 - social
 capability: studio_chat
