@@ -1,0 +1,7 @@
+program: persona.llp
+display: persona
+line: Book I persona
+voice: third
+clock: {beats: 1}
+shared: {}
+host: ../input_host.py:make

@@ -1,0 +1,7 @@
+program: commitments.llp
+display: commitments
+line: Book I commitments
+voice: third
+clock: {beats: 1}
+shared: {arrived: in, uttered: in, completion_report: in, later: in, renewed: in, reminder_offer: out}
+host: ../input_host.py:make

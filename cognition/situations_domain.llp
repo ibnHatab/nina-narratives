@@ -1,0 +1,36 @@
+catalog situations_domain 1.
+% Book I, fiction revision 94e2c582.
+layers (story).
+stages (live).
+namespace situations produce (story).
+type issue {ventilation appointment pantry}.
+type reason {device_fault manual_override forgotten cancelled stale_inventory consumed}.
+type source {resident sensor}.
+bwd alternatives(issue,reason,reason).
+alternatives(ventilation,device_fault,manual_override).
+alternatives(appointment,forgotten,cancelled).
+alternatives(pantry,stale_inventory,consumed).
+pred discrepancy(issue,source) : situations.
+pred observation_kept(issue,source) : situations.
+pred open_issue(issue) : situations.
+pred considering(issue) : situations.
+pred candidate(issue,reason) : situations.
+pred explanation_report(issue,reason,source) : situations.
+pred accepted_report(issue,reason,source) : situations.
+pred clarification_opportunity(issue) : situations.
+pred clarification_asked(issue) : situations.
+pred interruption_budget : situations.
+stage live {
+  %% [B01-C02-S01, B01-C04-S01] "There were several possible explanations."
+  %% Nina retains the observed discrepancy and considers two possible explanations; neither is established as true.
+  consider [story] : discrepancy(I,S) * open_issue(I) * alternatives(I,A,B)
+    -o observation_kept(I,S) * considering(I) * candidate(I,A) * candidate(I,B).
+  %% [B01-C02-S01, B01-C04-S01] "Busy morning?"
+  %% Given an explicit opportunity, Nina spends one available interruption to ask for clarification, before certainty.
+  clarify [story] : $considering(I) * clarification_opportunity(I) * interruption_budget
+    -o clarification_asked(I).
+  %% [B01-C02-S02, B01-C04-S02] "What had changed was the explanation connecting them."
+  %% Nina accepts a sourced report as her current explanation; she retains the observations, not certainty about hidden truth.
+  accept_report [story] : considering(I) * candidate(I,R) * explanation_report(I,R,S)
+    -o accepted_report(I,R,S).
+}

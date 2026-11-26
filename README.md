@@ -28,4 +28,4 @@ Literary research corpus with executable formalization candidates, not an operat
 
 ## Book I formalization review
 
-Executable research candidates and reproducible simulations are in [candidates/book-01](candidates/book-01/README.md). Read the [evaluation report](evaluation/book-01/REVIEW.md) for mechanical results, narration failures, preserved counterexamples and questions for the creative team. These proposals are not deployed home rules.
+Executable research candidates and reproducible simulations are in [workspaces/home/scenarios/volume-01/book-01](workspaces/home/scenarios/volume-01/book-01/README.md). Read the [evaluation report](evaluation/book-01/REVIEW.md) for mechanical results, narration failures, preserved counterexamples and questions for the creative team. These proposals are not deployed home rules.

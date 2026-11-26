@@ -1,0 +1,5 @@
+catalog commitments 1.
+include "commitments_domain.llp".
+include "iface/conversation.llp".
+include "iface/timing.llp".
+include "../capacity.llp".

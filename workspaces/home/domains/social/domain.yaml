@@ -1,0 +1,7 @@
+program: social.llp
+display: social
+line: Book I social
+voice: third
+clock: {beats: 1}
+shared: {}
+host: ../input_host.py:make

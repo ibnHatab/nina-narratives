@@ -1,0 +1,6 @@
+program: home_director.llp
+display: Home director
+line: Routes reminder proposals, research offers and utterance receipts.
+voice: line
+clock: {beats: 1}
+host: ../input_host.py:make

@@ -1,0 +1,6 @@
+catalog timing_iface 1.
+types (task).
+namespace timing_iface produce (story).
+pred arrived(task) : timing_iface.
+pred later(task) : timing_iface.
+pred renewed(task) : timing_iface.

@@ -7,14 +7,14 @@ Each simulated day has three speaking opportunities. At each, the resident respo
 Run directly from the repository root with the installed CLI:
 
 ```sh
-./scripts/open-metis.sh candidates/household-days
+./scripts/open-metis.sh workspaces/home/simulations/household-days
 # In the REPL type: run 4000
 ```
 
 For paired experiments use the Metis environment's Python:
 
 ```sh
-../perotheia-packages/.venv/bin/python candidates/household-days/compare.py \
+../perotheia-packages/.venv/bin/python workspaces/home/simulations/household-days/compare.py \
   --days 30 --seeds 4 --output .metis/household-days
 ```
 

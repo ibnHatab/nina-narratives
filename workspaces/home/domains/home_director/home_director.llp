@@ -1,0 +1,25 @@
+catalog home_director 1.
+include "iface/director_domain.llp".
+include "../capacity.llp".
+type kind {reminder_offer uttered topic_offer completion_report floor}.
+planner(attention).
+specialist(situations).
+specialist(commitments).
+specialist(social).
+specialist(curiosity).
+specialist(self_model).
+specialist(persona).
+handles(attention, reminder_offer).
+handles(commitments, uttered).
+handles(attention, topic_offer).
+handles(attention, completion_report).
+handles(attention, floor).
+#init fresh 1
+#init attention(attention) 1
+#init active(attention) 1
+#init inactive(situations) 1
+#init inactive(commitments) 1
+#init inactive(social) 1
+#init inactive(curiosity) 1
+#init inactive(self_model) 1
+#init inactive(persona) 1

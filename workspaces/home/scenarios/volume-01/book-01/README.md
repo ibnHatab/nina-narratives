@@ -22,11 +22,11 @@ To regenerate narration as well, source your trusted private environment and exp
 For an interactive run, use tmux as the metis-loop skill requires:
 
 ```sh
-export NINA_CASE="$PWD/candidates/book-01/ch01/cases.json"
+export NINA_CASE="$PWD/workspaces/home/scenarios/volume-01/book-01/ch01/cases.json"
 export NINA_SCENARIO=authored
 tmux new-session -s nina-ch01 ./scripts/open-metis.sh \
   --plugin "$PWD/scripts/simulated_inputs.py:make" \
-  candidates/book-01/ch01/chapter.llp
+  workspaces/home/scenarios/volume-01/book-01/ch01/chapter.llp
 # REPL:
 # run 128
 # narrate
@@ -42,7 +42,7 @@ Raw Segments witnesses are portable, with repository-relative program references
 ```sh
 ../perotheia-packages/.venv/bin/python -m metis.trace replay \
   evaluation/book-01/ch01/authored-seed1/segments ch01 \
-  candidates/book-01/ch01/chapter.llp
+  workspaces/home/scenarios/volume-01/book-01/ch01/chapter.llp
 ```
 
 See [home mapping](HOME-MAPPING.md) for the proposed integration boundaries. No composition, intent vocabulary, weights, deployed permissions, or host implementation has been changed. The `.metis/` workspace is generated and ignored; a fresh clone recreates it using either script.

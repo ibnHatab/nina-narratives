@@ -1,0 +1,7 @@
+program: situations.llp
+display: situations
+line: Book I situations
+voice: third
+clock: {beats: 1}
+shared: {}
+host: ../input_host.py:make

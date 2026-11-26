@@ -1,0 +1,7 @@
+program: self_model.llp
+display: self_model
+line: Book I self_model
+voice: third
+clock: {beats: 1}
+shared: {}
+host: ../input_host.py:make

@@ -1,0 +1,3 @@
+catalog situations 1.
+include "situations_domain.llp".
+include "../capacity.llp".

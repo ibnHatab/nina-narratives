@@ -1,0 +1,22 @@
+catalog attention_domain 1.
+% Book I, fiction revision 94e2c582.
+layers (story).
+stages (live).
+namespace attention produce (story).
+pred available : attention.
+pred speaking(task) : attention.
+pred pending(task) : attention.
+pred topic_pending : attention.
+invariant voice (available speaking) : 1.
+stage live {
+  %% B01-C06-S01. Keep the proposed reminder until an actual speaking opportunity.
+  enqueue [story] : reminder_offer(T) -o pending(T).
+  %% B01-C01-S03. Spend the floor once on an outstanding reminder.
+  speak [story] : pending(T) * floor * available -o speaking(T).
+  %% The speaker acknowledges this utterance.
+  finish [story] : speaking(T) -o available * uttered(T).
+  %% B01-C05-S03. A research offer can wait for a separate opening.
+  save_topic [story] : topic_offer -o topic_pending.
+  %% B01-C05-S03. Spend this opening to bring up the optional topic.
+  mention [story] : topic_pending * floor * $available -o ().
+}

@@ -1,0 +1,3 @@
+catalog self_model 1.
+include "self_model_domain.llp".
+include "../capacity.llp".

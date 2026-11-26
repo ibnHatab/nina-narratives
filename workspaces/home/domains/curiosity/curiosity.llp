@@ -1,0 +1,4 @@
+catalog curiosity 1.
+include "curiosity_domain.llp".
+include "iface/research.llp".
+include "../capacity.llp".

@@ -1,0 +1,13 @@
+catalog self_model_domain 1.
+% Book I, fiction revision 94e2c582.
+layers (story).
+stages (live).
+namespace self_model produce (story).
+
+pred astronomy_information : self_model.
+pred human_moon_remark : self_model.
+pred moon_known_indirectly : self_model.
+stage live {
+  %% [B01-C07-S02] "not because she could see it herself."
+  qualify_moon_knowledge [story] : astronomy_information * human_moon_remark -o moon_known_indirectly.
+}

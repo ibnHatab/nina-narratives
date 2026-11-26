@@ -1,0 +1,3 @@
+catalog research_iface 1.
+namespace research_iface produce (story).
+pred topic_offer : research_iface.

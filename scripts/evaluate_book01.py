@@ -42,7 +42,7 @@ def main():
     workspace(ROOT).made()
     output = ROOT / 'evaluation/book-01'
     summary = []
-    for directory in sorted((ROOT / 'candidates/book-01').glob('*')):
+    for directory in sorted((ROOT / 'workspaces/home/scenarios/volume-01/book-01').glob('*')):
         if not directory.is_dir():
             continue
         if args.mechanisms_only and directory.name != 'mechanisms':

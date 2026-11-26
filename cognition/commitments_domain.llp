@@ -1,0 +1,21 @@
+catalog commitments_domain 1.
+% Book I, fiction revision 94e2c582.
+layers (story).
+stages (live).
+namespace commitments produce (story).
+type phase {ready queued spoken closed}.
+pred ledger(task,phase) : commitments.
+stage live {
+  %% B01-C01-S03. The promised occurrence has arrived.
+  due [story] : arrived(T) -o ledger(T,ready).
+  %% B01-C06-S01. Send the ready reminder to the floor specialist.
+  offer [story] : ledger(T,ready) -o ledger(T,queued) * reminder_offer(T).
+  %% An utterance receipt, independent of completion.
+  heard [story] : ledger(T,queued) * uttered(T) -o ledger(T,spoken).
+  %% B01-C08-S02. A completion report closes the matching commitment.
+  close [story] : ledger(T,S) * completion_report(T) -o ledger(T,closed).
+  %% Historical household-days interpretation of a request to try later.
+  postpone [story] : ledger(T,spoken) * later(T) -o ledger(T,ready).
+  %% B01-C01-S03. A fresh explicit invitation can also renew the reminder.
+  invite [story] : ledger(T,spoken) * renewed(T) -o ledger(T,ready).
+}
