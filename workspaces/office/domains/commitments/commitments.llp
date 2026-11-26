@@ -5,3 +5,4 @@ include "../../../../interfaces/world/conversation.llp".
 include "../capacity.llp".
 include "../../../../interfaces/world/confirm_group_slot_ports.llp".
 include "../../../../interfaces/members/confirm_group_slot_ports.llp".
+include "../../../../interfaces/world/community_calendar.llp".

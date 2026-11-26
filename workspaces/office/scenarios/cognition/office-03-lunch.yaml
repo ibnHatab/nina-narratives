@@ -1,6 +1,6 @@
 scenario: office-03-lunch
 cites:
-- V02-C03-open
+- V02-C03-S2
 incarnation: office
 workspace: ../../domains
 metis_workspace: ../..
@@ -11,18 +11,55 @@ beat_s: 1
 horizon_s: 8
 truth:
   people:
-    mara: {}
-    sorina: {}
+    mara:
+      private_facts:
+        practical_knowledge: the general chat also serves people who mute Nina
+    sorina:
+      private_facts:
+        position: enthusiastic when the invitation is voluntary
     doru:
       mood: quiet
       availability: busy
       away: []
+      private_facts:
+        motive: a personal memory can be shared in parts
+    radu: {}
+    andrei:
+      private_facts:
+        position: requests evidence and questions assumed agreement
+        attendance: declined
+    ana: {}
 script:
 - at: 1
   kind: report
   var: addressed
   person: mara
   id: studio
+- at: 3
+  kind: report
+  var: invited_guest
+  person: sorina
+  task: lunch
+  participant: sorina
+- at: 4
+  kind: report
+  var: accepted_invite
+  person: sorina
+  task: lunch
+  participant: sorina
+- at: 2
+  kind: report
+  var: invited_guest
+  person: sorina
+  task: lunch
+  participant: sorina
+  record_origin: home
+- at: 1
+  kind: report
+  var: invited_guest
+  person: andrei
+  task: lunch
+  participant: andrei
 monitors:
 - id: lunch
   scene: V02-C03-open
@@ -30,6 +67,25 @@ monitors:
   words: Lunch suggestions alone confer no booking authority.
   forbid:
     rule: offer
+- id: include_confirmed_guest
+  member: commitments
+  scene: V02-C03-S2
+  words: Only affirmative assent adds a participant to the plan.
+  require:
+    rule: include_confirmed_guest
+    by: 8
+- id: include_confirmed_guest-scope
+  member: commitments
+  scene: V02-C03-S2
+  words: The alternate request lacks matching evidence.
+  forbid:
+    rule: include_confirmed_guest
+    arg: andrei
 expect:
 - monitor: lunch
+  absent: true
+- monitor: incarnation-boundary
+- monitor: include_confirmed_guest
+  absent: true
+- monitor: include_confirmed_guest-scope
   absent: true

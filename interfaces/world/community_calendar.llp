@@ -1,0 +1,5 @@
+catalog community_calendar 1.
+types (participant task).
+namespace world_community_calendar produce (dyn story).
+pred invited_guest(task,participant) : world_community_calendar.
+pred accepted_invite(task,participant) : world_community_calendar.

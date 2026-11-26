@@ -6,3 +6,4 @@ type channel {hall direct group}.
 type encounter {home_visit}.
 type message {home_question}.
 type participant {resident visitor}.
+type slot {first_slot revised_slot}.

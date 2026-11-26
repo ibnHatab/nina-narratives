@@ -1,0 +1,27 @@
+family: community_calendar
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: invited_guest(task,participant)
+  when:
+    kind: report
+    var: invited_guest
+  args:
+  - task
+  - participant
+  lifetime: consumed
+- pred: accepted_invite(task,participant)
+  when:
+    kind: report
+    var: accepted_invite
+  args:
+  - task
+  - participant
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- commitments
+capability: community_calendar

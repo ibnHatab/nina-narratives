@@ -826,15 +826,42 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-03-lunch.yaml": {
-  "acts": [],
+  "acts": [
+   [
+    4,
+    "commitments",
+    "include_confirmed_guest",
+    [
+     "lunch",
+     "sorina"
+    ]
+   ]
+  ],
   "commands": [],
   "expect": [
    [
     "lunch",
     true
+   ],
+   [
+    "incarnation-boundary",
+    true
+   ],
+   [
+    "include_confirmed_guest",
+    true
+   ],
+   [
+    "include_confirmed_guest-scope",
+    true
    ]
   ],
-  "findings": [],
+  "findings": [
+   [
+    "incarnation-boundary",
+    2
+   ]
+  ],
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-04-enthusiasm.yaml": {

@@ -34,3 +34,8 @@ stage live {
   %% [V02-C08-end] Confirm the suggested group appointment after the group assents to that slot.
   confirm_group_slot [story] : offered_slot(T,C) * group_assent(T,C) -o confirmed_slot(T,C).
 }
+pred confirmed_guest(task,participant) : commitments.
+stage live {
+  %% [V02-C03-S2] Only affirmative assent adds a participant to the plan.
+  include_confirmed_guest [story] : invited_guest(T,P) * accepted_invite(T,P) -o confirmed_guest(T,P).
+}
