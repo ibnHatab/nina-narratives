@@ -1,0 +1,10 @@
+# Habits: "again" and "the usual" in any domain, from the history of the person's requests. The host is nina-live's (habits/).
+display: the habits
+line: "habits: again, and the usual at this time of day, in any domain"
+voice: line
+program: habits.llp
+host: nina_world.host:habits   # the runtime's world host (interfaces/README.md): SITL sitl/nina_world, nina-live its own
+intent: {spec: intent.yaml}
+clock: {beats: 1, period: 1}
+records: records/
+commands: [repeat, usual, replay_it]

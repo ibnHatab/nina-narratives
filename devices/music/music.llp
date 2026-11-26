@@ -1,0 +1,78 @@
+% Music: internet radio on MPD (through Home Assistant): the taste's lifted rules
+% (../taste_domain.llp) instanced over the genres, and what is the music's own.
+%
+% The person's taste is the semantic world's (semworld taste): every station Nina has played is an
+% item with free tags (its genre, the directory's tags, the person's own words once kept), and the
+% person's kept and skipped are evidence for that station at that time of day; the home's character
+% leans before the person has said anything (catalog/character.yaml). The host reads it: the
+% favourite now, something else, something never tried (the base's favourite, runner_up, explore,
+% untasted, last_here), and binds each genre to its station.
+%
+% The music's own: a genre asked by name (or the person's own words: gx, the host's search over
+% the taste, then the directory); the volume; the floor (while anyone talks the music is ducked);
+% a scene's wish from the director (night fades it to a whisper, away stops it).
+catalog music 1.
+provenance text "music: radio on MPD, the taste's lifted rules over genres; by name or the person's words; ducked while anyone talks" "2026-11-24".
+layers (dyn).
+stages (serve).
+include "../shared/home_world.llp".
+include "../iface/home.llp".
+include "../shared/offers.llp".   % the genres (gx: the person's own words)
+include "../taste_domain.llp".
+
+pred cmd_play(offer) : home.           % by name (the person's words in the payload)
+pred cmd_louder : home.
+pred cmd_quieter : home.
+pred talking : home.                   % the host: someone holds the floor
+pred floor_free : home.                % ... and its complement
+pred ducked : home.
+pred unducked : home.
+pred louder : home.
+pred quieter : home.
+pred duck_down : home.
+pred duck_up : home.
+pred whisper : home.
+pred mood_pick(mood, offer) : home.    % the host: what each mood would play now (the taste, in the mood's tags)
+pred moody(mood) : home.
+
+stage serve {
+  %% I put on {O}.
+  play [dyn] : cmd_play(O) * idle -o active(O) * engage(O) * ok.
+  %% I switch to {O}.
+  switch [dyn] : cmd_play(O) * active(A) -o active(O) * engage(O) * ok.
+  %% Louder.
+  up [dyn] : cmd_louder * $active(O) -o louder * ok.
+  %% Softer.
+  down [dyn] : cmd_quieter * $active(O) -o quieter * ok.
+  %% Nothing is playing.
+  vol_none [dyn] : cmd_louder * $idle -o no.
+  %% Nothing is playing.
+  vol_none2 [dyn] : cmd_quieter * $idle -o no.
+
+  % ── the floor: down while anyone talks, back after ──
+  %% Someone is talking: I turn the music down.
+  duck [dyn] : $talking * $active(O) * unducked -o ducked * duck_down.
+  %% The floor is free: the music comes back up.
+  unduck [dyn] : $floor_free * ducked -o unducked * duck_up.
+  %% The music stopped while ducked.
+  unduck_idle [dyn] : $idle * ducked -o unducked.
+
+  % ── the director: a mood's wish (the atmosphere's) ──
+  %% For a {M} mood: {O}.
+  mood_play [dyn] : mood_music(M) * idle * $mood_pick(M, O) -o active(O) * engage(O) * moody(M).
+  %% The mood turns {M}: {O}.
+  mood_switch [dyn] : mood_music(M) * active(A) * $mood_pick(M, O) -o active(O) * engage(O) * moody(M).
+
+  % ── the director: a scene's wish ──
+  %% Good night: the music fades to a whisper.
+  night [dyn] : scene_music(night) * $active(O) -o whisper.
+  %% Everyone is out: I stop the music.
+  away [dyn] : scene_music(away) * active(O) -o idle * release.
+  %% The scene changed; the music was not playing.
+  scene_quiet [dyn] : scene_music(S) * $idle -o ().
+  %% Welcome back: the music stays as it is.
+  scene_home [dyn] : scene_music(home) * $active(O) -o ().
+}
+
+#init idle 1
+#init unducked 1

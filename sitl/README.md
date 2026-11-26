@@ -66,15 +66,20 @@ expect:                                      # the run is invalid unless these s
 
 ```sh
 (cd sitl/semworld-step && go build -o semworld-step .)        # the world fold, pinned to nina-live's version
-python3 sitl/contracts.py check --workspace workspaces/home/domains --incarnation home \
-        --world-map workspaces/home/world/home.map.json         # contracts and members agree, the world accepts them
-python3 sitl/loop.py workspaces/home/scenarios/<s>.yaml --seed 7   # (to implement: sitl/TASKS.md)
+(cd devices && $METISC build .)                                # the composition image
+PY=../perotheia-packages/.venv/bin/python                      # metispy; metis-agent's py on PYTHONPATH
+$PY sitl/contracts.py check --workspace devices --world-map workspaces/home/world/home.map.json
+PYTHONPATH=../perotheia-packages/metis-agent/py $PY sitl/loop.py workspaces/home/scenarios/devices/b01-c02-ventilation.yaml
 ```
+
+A run writes `sitl/runs/<scenario>-s<seed>/events.jsonl` (every world input and reply, every adapter call) and
+`summary.json` (the fired command rules, the surprises, whether each `expect` was met, the world's final hash).
 
 ## Status
 
 | part | state |
 |---|---|
-| `semworld-step` | **built and checked**: 27 events of the semantic world's test day give byte-identical output on two runs, level do-lines per member, and the world's own surprise `u1.power: commanded off, no reading after 15 s` |
-| `contracts.py check` | **built and checked**: 6 contracts pass schema and compile. Against nina-live `catalog/domains`, every belief port resolves to a contract and the world accepts every member. 76 command rules are still unbound (the Task 3 migration list) |
-| `loop.py`, `mcp_sim.py`, edges, monitors, scenarios | **to implement**: sitl/TASKS.md |
+| `semworld-step` | **checked**: byte-identical output over repeated runs; with a settle it also returns `State()` |
+| `contracts.py check` | **checked**: 7 contracts pass schema and compile; on `devices/` every belief port resolves to a contract and the world accepts every member |
+| `nina_world/host.py`, `project.py`, `mcp_sim.py`, `loop.py` | **run**: the 11 device members merged from nina-live load with the generic host. `b01-c02-ventilation` fires `air_on` twice from the person's requests; the obeying unit is confirmed, the ignoring one gives the world surprise `u2.power`; two runs give byte-identical `events.jsonl` and `summary.json` |
+| not yet | scenario monitors, edges from the contracts (today `project.py`'s tables), the cognition members on the world contracts, `--replay`, office: sitl/TASKS.md |

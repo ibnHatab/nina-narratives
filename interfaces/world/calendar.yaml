@@ -4,16 +4,14 @@
 family: calendar
 version: 1
 owner: world
-scope: [home, office]
-unavailable: unavailable_calendar
 ports: {}
 edges:
   - {pred: event_due(event),     from: "report var=due from the calendar adapter's poll"}
-  - {pred: rsvp(event, answer),  from: "report var=rsvp", scope: [office]}
+  - {pred: rsvp(event, answer),  from: "report var=rsvp"}
 commands:                        # bindings per incarnation; verify tool names against each server's tools/list
-  event:  {args: [event], predicts: {var: created, value: "{event}"}, grace_s: 30,
+  event:  {rules: [event], args: [event], predicts: {var: created, value: "{event}"}, grace_s: 30,
            adapter: {home: {mcp: {server: ha, tool: calendar_create_event}}, office: {mcp: {server: gcal, tool: create_event}}}}
-  todo:   {args: [task],  predicts: {var: created, value: "{task}"},  grace_s: 30,
+  todo:   {rules: [todo], args: [task],  predicts: {var: created, value: "{task}"},  grace_s: 30,
            adapter: {home: {mcp: {server: ha, tool: todo_add_item}},     office: {mcp: {server: gtasks, tool: insert_task}}}}
 receipts: {via: report}          # the tool result is reported with ref = the command id; an error is a report too
 consumers: [agenda, commitments, social]

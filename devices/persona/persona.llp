@@ -1,0 +1,70 @@
+% Persona: the moments that set Nina's temperament aside (the user's design, 2026-11-24, §10: the
+% numbers in Go, the behaviour in Metis). Her temperament (nina-live persona/, catalog/persona.yaml)
+% gives her mood day by day; a moment of the conversation, or the person's own wish, holds another
+% mood for a while: an emergency or a safety warning calm and plain, the person upset gentle, a
+% technical problem or a debate focused; casual talk, or "be yourself", lets it go. The voice says
+% what the moment is (the tool), the rules decide, the host holds the mood and lifts it when it
+% expires. Her mood is an accent: these rules never touch what she does, only how she speaks.
+catalog persona 1.
+provenance text "persona: the moments that set Nina's temperament aside" "2026-11-24".
+layers (dyn).
+stages (serve).
+include "../shared/home_world.llp".
+
+type persona_act {persona}.
+type temper {calm wake focus lively cozy playful evening sleep}.
+type moment {emergency warning distress technical debate casual}.
+
+bwd steadies(moment, temper).
+steadies(emergency, calm).
+steadies(warning, calm).
+steadies(distress, cozy).
+steadies(technical, focus).
+steadies(debate, focus).
+bwd natural(moment).
+natural(casual).
+
+pred cmd_moment(moment) : home.   % the voice: what this moment of the conversation is
+pred cmd_wish(temper) : home.     % the person: "be more playful", "calm down"
+pred cmd_natural : home.          % the person: "be yourself again"
+pred free : home.                 % her own temperament speaks
+pred held(temper) : home.         % a mood the moment holds
+pred wished(temper) : home.       % a mood the person asked for (casual talk keeps it)
+pred expired : home.              % the host: the mood's time is up
+pred done(persona_act) : home.
+pred refused(persona_act) : home.
+
+stage serve {
+  %% This calls for {T}: my mood can wait.
+  steady [dyn] : cmd_moment(K) * $steadies(K, T) * free -o held(T) * done(persona).
+  %% Still a moment for {T}.
+  steady_again [dyn] : cmd_moment(K) * $steadies(K, T) * held(A) -o held(T) * done(persona).
+  %% This calls for {T}, whatever mood you asked of me.
+  steady_wished [dyn] : cmd_moment(K) * $steadies(K, T) * wished(A) -o held(T) * done(persona).
+  %% The moment has passed: back to my own temperament.
+  relax [dyn] : cmd_moment(K) * $natural(K) * held(A) -o free * done(persona).
+  %% You asked me for {A}: I keep it.
+  relax_wished [dyn] : cmd_moment(K) * $natural(K) * $wished(A) -o done(persona).
+  %% Nothing to set aside: I'm myself.
+  relax_free [dyn] : cmd_moment(K) * $natural(K) * $free -o done(persona).
+  %% As you like: {T}.
+  wish [dyn] : cmd_wish(T) * free -o wished(T) * done(persona).
+  %% As you like: {T} instead.
+  wish_held [dyn] : cmd_wish(T) * held(A) -o wished(T) * done(persona).
+  %% As you like: {T} instead.
+  wish_again [dyn] : cmd_wish(T) * wished(A) -o wished(T) * done(persona).
+  %% Myself again.
+  natural [dyn] : cmd_natural * held(A) -o free * done(persona).
+  %% Myself again.
+  natural_wished [dyn] : cmd_natural * wished(A) -o free * done(persona).
+  %% I am myself already.
+  natural_free [dyn] : cmd_natural * $free -o done(persona).
+  %% That moment is over: back to my own temperament.
+  lapse [dyn] : expired * held(A) -o free.
+  %% The mood you asked for has run its time: back to my own temperament.
+  lapse_wished [dyn] : expired * wished(A) -o free.
+  %% Nothing held.
+  lapse_free [dyn] : expired * $free -o ().
+}
+
+#init free 1

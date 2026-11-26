@@ -54,15 +54,14 @@ Every update from outside is an **event in the world stream**, folded by the sem
 family: ventilation            # the contract's name; one file per sensor/actuator family
 version: 1
 owner: world                   # who writes its readings: world (semantic world) | host | person
-scope: [home]                  # incarnations that offer it. Elsewhere it is declared unavailable, never silently absent
-unavailable: unavailable(ventilation)   # the atom the director asserts where the family is not in scope
 ports:                         # levels the semantic world offers (spec 16). A member reads them via beliefs:/levels:
   unit_on:  {world_port: on,       keys: [unit], levels: {power:   {at: [0.05, 0.95], names: ["off", unconfirmed, "on"]}}}
   out_cold: {world_port: out_cold, keys: [unit], levels: {outside: {at: [0.5],        names: [mild_out, cold_out]}}}
 edges:                         # one-beat facts the host asserts on an edge, logged as world events
   - {pred: unit_missing(unit), from: "reachable(U) falls below 0.5"}
-commands:                      # out: a member's command rule → world command event → adapter call
-  air_on:
+commands:                      # out: a fired rule named in `rules` → world command event → adapter call
+  unit_on:
+    rules: [air_on]              # the actuating rules; the person's verbs (intent.yaml) are inputs, not commands
     args: [unit]
     predicts: {var: power, value: "on"}   # the world's prediction, written before the call
     grace_s: 15                           # no confirming reading within it → world surprise
@@ -80,8 +79,8 @@ consumers: [air, comfort]      # members allowed to read it (checked against the
 - **One door per fact.** A fact has one contract and one writer. When two members need it, they both read it, and neither re-derives it.
 - **Exclusive families with an unsensed member** (as nina-live `home_world.llp`): a reading whose sensor is not wired is `unsensed`, so a rule that needs the reading does not fire. A key the world does not know holds no level atom: silence is never a level.
 - **Correlation.** Each command event carries the command's id, and a receipt names it (`ref`). Pending-command expiry is the world's (`grace_s`), and so is the surprise.
-- **Principal and scope.** A contract names who may cause its commands (`consumers`) and in which incarnation (`scope`). Routing a request through the director grants no authority. Office contracts never read home contracts' records.
-- **Unavailable, not emulated.** A family out of scope yields its `unavailable` atom. The office has no `ventilation`, so a scene wish for the air is refused with a reason rather than lost for lack of a handler.
+- **Principal.** A contract names who may cause its commands (`consumers`). Routing a request through the director grants no authority. Each incarnation has its own world stream: no record crosses incarnations.
+- **Availability is the world's, after discovery.** Contracts are incarnation-independent. What exists is what the world discovered: the initial `get_states` of each adapter (HA's entities, the MCP servers' tools). A port with no discovered keys holds no atom, so its rules cannot fire. A request naming a device the world does not have binds the standing handle (`ux`, `lx`) and the rule refuses it with a reason. The office has no ventilation because its discovery finds no unit. Nothing in a contract or a director says so.
 
 ## Incarnations: one catalog, two directories
 
@@ -104,15 +103,26 @@ A thin member instance includes the family unit by name and binds its types. Off
 
 The director's `type domain`, `type kind` and `handles/2` and the capacity's member type are **generated** from `composition.yaml` and the members' `shared:` declarations. They are never written by hand. A check fails when a generated file is stale. In nina-live today these lists are written three times (`composition.yaml`, `shared/home_map.llp`, `director/director.llp`), and acasa `roles/secretary` already had to rewrite two of them.
 
+## The catalog is independent of the runtime
+
+The catalog (`cognition/`, `devices/`, `interfaces/`, `workspaces/*` compositions) holds rules, manifests, intents and contracts. It names one thing of the runtime: the host module, `host: nina_world.host:<member>`. Every runtime provides that module. A runtime serves this catalog when it does four things:
+
+1. **world:** folds every outside update as an event of the world stream through the semantic world, and gives each member its level do-lines (`Out.Lines`) and the families and edges of the world contracts at its tick;
+2. **commands:** when a rule named in a contract's `commands.*.rules` fires, writes the `command` event (the prediction) before the adapter call, then calls the adapter (MCP `tools/call` as the contract binds it) and folds the receipt back as an event;
+3. **person:** delivers the person's requests through the member's intent card (the mapper, `AgentHost.submit`), never as host lines;
+4. **discovery:** builds the world map from what its adapters report (entities, tools). The catalog never ships a deployment's map.
+
+`sitl/` is one such runtime (Python, simulated adapters). nina-live is another (Go). Switching or updating the catalog therefore means pointing the runtime at another catalog root (`METIS_CATALOG`, `METIS_HOME`), with no fork.
+
 ## Repointing nina-live and acasa
 
 Because the deployed runtime and the SITL share the world fold and the contracts, plugging these catalogs into Nina requires these steps (MIGRATION.md will spell out each path):
-1. nina-live: `catalog/domains/shared/home_world.llp`, `iface/home.llp` and the `commands:` lists move to contracts here. Its hosts publish only what the contracts declare, and its MCP client gets the `adapter:` bindings.
+1. nina-live: its catalog host (`catalog/world/home_host.py`, a second world in Python, and the HA REST backend) is replaced by its runtime's `nina_world.host`. Its device control goes through pi-core's `mcp` client as the contracts bind it. Its catalog directory is replaced by a pointer to this catalog (see `RUNTIME.md`).
 2. acasa: `domains/home` (the first-generation monolith) is retired. The deployment side stays: HA connection, `devices.json` → the world map, `live/` configs, `roles/<incarnation>` pointing at `workspaces/<incarnation>`.
 3. Both set `METIS_HOME` to this repository's families and `METIS_CATALOG` to a workspace.
 
 ## Status
 
-Design accepted by the maintainer 2026-11-26. `sitl/semworld-step` is built and checked: it gives byte-identical output on repeated runs and raises the world's own command surprise. The contracts in `interfaces/world/` are first examples. Most members still read their inputs through ad hoc host injection; migrating them is tracked in `sitl/TASKS.md`.
+Design accepted by the maintainer 2026-11-26. **Runs:** the 11 device members merged from nina-live (`devices/`, from nina-live 702c428, host lines repointed to `nina_world.host`) run on the SITL. In `workspaces/home/scenarios/devices/b01-c02-ventilation.yaml`, a person's request fires `air_on`. The ventilation contract turns it into a world command and a simulated HA MCP call. A unit that ignores the call produces the world's own surprise `u2.power: commanded on, no reading after 15 s`. Two runs give byte-identical event logs. The cognition members (`workspaces/home/domains`) still take their inputs by direct injection; moving them onto the world contracts is `sitl/TASKS.md` T1/T3.
 
 Open: conversation-level facts (utterances, completion reports, calendar arrivals) have no semantic-world port yet. They arrive as `report` events, but the home adapter offers ports only for devices and `strain`. A generic report-port (categorical belief over a reported var, with freshness) is a proposal for metis-worlds. Until then they are host edge events logged in the same stream, which keeps them deterministic but leaves them without belief.

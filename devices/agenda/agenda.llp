@@ -1,0 +1,52 @@
+% Agenda: Nina's events on her calendar and her to-dos on the person's task list, written through
+% Home Assistant (the user's plan, 2026-11-24: Home Assistant is the integration layer, Google
+% Calendar and Google Tasks the exchange point with the phone). The rules decide where Nina may
+% write; the host (nina-live agenda/) holds what the atoms cannot (the summary, the time, the
+% duration: the call's payload) and calls calendar.create_event or todo.add_item. The person's own
+% calendar is read, never written: an event goes on Nina's calendar, which the phone shows beside it.
+catalog agenda 1.
+provenance text "agenda: Nina's events on her own calendar and her to-dos on the person's task list, through Home Assistant" "2026-11-24".
+layers (dyn).
+stages (serve).
+include "../shared/home_world.llp".
+
+% the calendars and lists Nina knows (their entities are the host's: agenda.yaml in nina.yaml)
+type target {nina_cal nina_local person_cal my_tasks nina_todo}.
+type agenda_act {agenda}.
+
+bwd writable(target).
+bwd calendar(target).
+bwd tasklist(target).
+writable(nina_cal).
+writable(nina_local).
+writable(my_tasks).
+writable(nina_todo).
+calendar(nina_cal).
+calendar(nina_local).
+calendar(person_cal).
+tasklist(my_tasks).
+tasklist(nina_todo).
+
+pred cmd_event(target) : home.       % an event (its summary, start and duration: the payload)
+pred cmd_todo(target) : home.        % a to-do (its summary and due date: the payload)
+pred failed(target) : home.          % the host: Home Assistant refused the write
+
+pred done(agenda_act) : home.
+pred refused(agenda_act) : home.
+pred put(target) : home.
+pred added(target) : home.
+
+stage serve {
+  %% I put it on {C}.
+  event [dyn] : cmd_event(C) * $writable(C) * $calendar(C) -o put(C) * done(agenda).
+  %% That calendar is yours: I put my events on my own calendar, which your phone shows beside it.
+  event_theirs [dyn] : cmd_event(person_cal) -o refused(agenda).
+  %% {C} is a task list, not a calendar.
+  event_list [dyn] : cmd_event(C) * $tasklist(C) -o refused(agenda).
+  %% I add it to {L}.
+  todo [dyn] : cmd_todo(L) * $writable(L) * $tasklist(L) -o added(L) * done(agenda).
+  %% {L} is a calendar, not a task list.
+  todo_cal [dyn] : cmd_todo(L) * $calendar(L) -o refused(agenda).
+  %% It did not reach {C}: Home Assistant refused it.
+  write_failed [dyn] : failed(C) -o ().
+}

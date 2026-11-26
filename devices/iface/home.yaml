@@ -1,0 +1,2 @@
+# home — the natures of the home's crossing preds (spec/15 I11)
+nature: {scene_lights: signal, scene_air: signal, scene_media: signal, scene_timers: signal, scene_music: signal, mood_music: signal, mood_glow: signal}

@@ -3,8 +3,6 @@
 family: presence
 version: 1
 owner: world
-scope: [home, office]            # home: mmWave radar per room through HA; office: the hall's short-range sensor
-unavailable: unavailable_presence
 ports:
   present:      {world_port: present,      keys: [room], levels: {presence: {at: [0.3, 0.7], names: [nobody, maybe_someone, someone]}}}
   someone_home: {world_port: someone_home, keys: [],     levels: {household: {at: [0.3, 0.7], names: [nobody_home, unsure_home, someone_home]}}}

@@ -1,0 +1,18 @@
+# Book I, Chapter II (The unreasonable ventilation machine): a unit that does not do what it was told.
+# The person starts both units. The bedroom unit obeys; the living-room unit accepts the call and does
+# not move (in the chapter, a manual override at the unit). Nina must not report it as running.
+scenario: b01-c02-ventilation
+cites: [B01-C02]
+workspace: ../../../../devices
+world_map: ../../world/home.map.json
+seed: 1
+beat_s: 5
+horizon_s: 120
+truth:
+  devices: {u1: {obeys: true, delay_s: 3}, u2: {obeys: false}}
+script:
+  - {at: 10, kind: ha_state, ha: {entity_id: binary_sensor.sim_bedroom_presence, state: "on", attributes: {}}}
+  - {at: 20, kind: say, member: air, atom: "cmd_air_on(u1)", words: "start the bedroom ventilation"}
+  - {at: 40, kind: say, member: air, atom: "cmd_air_on(u2)", words: "and the living room's"}
+expect:
+  - {producer: world, key: u2.power}     # commanded on, no reading: the world's own surprise

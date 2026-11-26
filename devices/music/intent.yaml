@@ -1,0 +1,52 @@
+# The music's intents: radio on MPD. The person's own words always go in `words` too: the host learns them.
+persona: |
+  You are the voice of a personal assistant. The person is talking to YOU. Map a request about
+  music or radio to exactly one intent JSON. Respond with only the JSON.
+verbs:
+  - {verb: PLAY, meaning: "play a kind of music or a station (genre, words)"}
+  - {verb: SOMETHING, meaning: "play something / something else, no kind named"}
+  - {verb: AGAIN, meaning: "the same as last time, the usual"}
+  - {verb: STOP, meaning: "stop the music"}
+  - {verb: LOUDER, meaning: "louder"}
+  - {verb: QUIETER, meaning: "softer, quieter"}
+slots:
+  genre: string
+  words: string
+guidance: |
+  `genre` is one of jazz, classical, ambient, lofi, rock, pop, electronic, news, world, or what the
+  person said. `words` is ALWAYS the person's own words for what they want, verbatim ("something
+  calm for reading", "that French station").
+examples:
+  - ["play some jazz", {"intent":"PLAY","genre":"jazz","words":"some jazz"}]
+  - ["put on something calm for reading", {"intent":"PLAY","genre":"calm","words":"something calm for reading"}]
+  - ["play something", {"intent":"SOMETHING"}]
+  - ["something else", {"intent":"SOMETHING"}]
+  - ["the usual", {"intent":"AGAIN"}]
+  - ["stop the music", {"intent":"STOP"}]
+spoken:
+  heading: Spoken response (after the JSON)
+  text: |
+    After the JSON comes "Spoken response:" and one short sentence said out loud.
+  examples:
+    - ["play some jazz", {"intent":"PLAY","genre":"jazz","words":"some jazz"}, "Jazz it is."]
+map:
+  - {verb: PLAY, atom: "cmd_play({genre:offer})", act: music}
+  - {verb: SOMETHING, atom: "cmd_something", act: music}
+  - {verb: AGAIN, atom: "cmd_again", act: music}
+  - {verb: STOP, atom: "cmd_off", act: music}
+  - {verb: LOUDER, atom: "cmd_louder", act: music}
+  - {verb: QUIETER, atom: "cmd_quieter", act: music}
+outcomes: {ok: done, no: refused}
+handles:
+  offer:
+    jazz: {description: ["jazz", "swing", "blues", "bebop"]}
+    classical: {description: ["classical", "classic", "orchestra", "piano", "opera", "baroque"]}
+    ambient: {description: ["ambient", "calm", "relaxing", "chill out", "meditation", "sleep"]}
+    lofi: {description: ["lofi", "lo-fi", "lo fi", "study", "focus", "beats"]}
+    rock: {description: ["rock", "metal", "punk", "indie"]}
+    pop: {description: ["pop", "hits", "top 40", "charts"]}
+    electronic: {description: ["electronic", "techno", "house", "trance", "edm"]}
+    news: {description: ["news", "talk", "bbc", "radio news"]}
+    world: {description: ["world", "latin", "reggae", "african", "folk"]}
+fallback: {offer: gx}
+standing: [gx]

@@ -2,8 +2,6 @@
 family: ventilation
 version: 1
 owner: world
-scope: [home]
-unavailable: unavailable_ventilation
 ports:
   unit_on:  {world_port: unit_on,      keys: [unit], levels: {power:   {at: [0.05, 0.95], names: ["off", unconfirmed, "on"]}}}
   reach:    {world_port: reachable, keys: [unit], levels: {answers: {at: [0.5],        names: [silent, answering]}}}
@@ -11,10 +9,16 @@ ports:
   preset:   {world_port: preset,   keys: [unit, mode], one: mode}
 edges:
   - {pred: unit_missing(unit), from: "reach(U) falls below 0.5"}
-commands:                        # adapter bindings: verify against the live tools/list of the HA MCP server
-  air_on:  {args: [unit], predicts: {var: power, value: "on"},  grace_s: 15, adapter: {mcp: {server: ha, tool: HassTurnOn,  args: {name: "{unit.entity}"}}}}
-  air_off: {args: [unit], predicts: {var: power, value: "off"}, grace_s: 15, adapter: {mcp: {server: ha, tool: HassTurnOff, args: {name: "{unit.entity}"}}}}
-  air_night: {args: [unit], predicts: {var: preset, value: night}, grace_s: 15, adapter: {mcp: {server: ha, tool: HassFanSetPreset, args: {name: "{unit.entity}", preset: night}}}}
+commands:                        # out: a fired rule named in `rules` → world command event → adapter call
+  unit_on:     {rules: [air_on], args: [unit], predicts: {var: power, value: "on"}, grace_s: 15,
+                adapter: {mcp: {server: ha, tool: HassTurnOn, args: {name: "{unit.fans}"}}}}
+  unit_off:    {rules: [air_off, air_off_cold, sweep_air_off, sweep_air_off_heat], args: [unit], predicts: {var: power, value: "off"}, grace_s: 15,
+                adapter: {mcp: {server: ha, tool: HassTurnOff, args: {name: "{unit.fans}"}}}}
+  unit_preset: {rules: [air_night, air_night_from_boost, sweep_night, sweep_night_boost, air_boost, air_boost_from_night, normal_from_night, normal_from_boost],
+                args: [unit], predicts: {var: preset, value: "{rule.preset}"}, grace_s: 15,
+                adapter: {mcp: {server: ha, tool: HassFanSetPresetMode, args: {name: "{unit.supply}", preset_mode: "{rule.preset}"}}}}
+  unit_switch: {rules: [heater_up, heater_down, winter_up, winter_down], args: [unit], predicts: {var: "{rule.switch}", value: "{rule.state}"}, grace_s: 15,
+                adapter: {mcp: {server: ha, tool: "{rule.tool}", args: {name: "{unit.switch}"}}}}
 receipts: {via: ha_state}        # the world confirms a command by a reading; none within grace_s → world surprise
 freshness: {feed_down: forget}
 consumers: [air, comfort, scenes]

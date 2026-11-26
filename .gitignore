@@ -5,3 +5,5 @@ __pycache__/
 /workspaces/*/.metis/
 /workspaces/*/domains/build/
 sitl/semworld-step/semworld-step
+sitl/runs/
+devices/build/

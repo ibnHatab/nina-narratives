@@ -1,0 +1,6 @@
+# director — the home's director: a scene's wishes routed to the packages that carry them out
+display: the director
+line: "the director: a scene's wishes to the lights, the air and the media"
+voice: line
+program: director.llp
+clock: {beats: 1}

@@ -3,4 +3,3 @@ catalog world_ventilation 1.
 types (unit).
 namespace world_ventilation produce (dyn).
 pred unit_missing(unit) : world_ventilation.
-pred unavailable_ventilation : world_ventilation.

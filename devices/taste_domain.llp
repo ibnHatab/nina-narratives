@@ -1,0 +1,65 @@
+% taste_domain — the taste's lifted rules (nina-live, 2026-11-24; the user: "make the preferences
+% general, so the lifted Metis rules apply in any domain"). An instance includes this file and
+% completes its type: `offer`, the handles its domain can offer (music: the genres; a light: its
+% colours). The person's taste is not here: it is the semantic world's (semworld taste: items with
+% free tags, preferences per time of day and mood, the home's character as priors), and the host
+% reads it and asserts what it means now:
+%   favourite(O)   the offer liked most now                   (none: untasted)
+%   runner_up(O)   the next, other than the one active        (none: explore(O), one never tried)
+%   last_here(O)   the last offer at this time of day         (exactly one)
+% and, after the fact, kept(O) (on long enough to count) or skipped(O) (left within moments),
+% which the host turns into the world's evidence for the very item. The instance turns ok and no
+% into its outcomes and adds what is its own (a request by name, a volume, a mood).
+catalog taste_domain 1.
+provenance text "the taste's lifted rules: something, something else, again, off, and the person's feedback" "2026-11-24".
+layers (dyn).
+types (offer).   % completed by the instance that includes this file (spec 12)
+
+namespace taste produce (dyn).
+
+pred idle : taste.
+pred active(offer) : taste.
+pred favourite(offer) : taste.
+pred runner_up(offer) : taste.
+pred explore(offer) : taste.
+pred untasted : taste.
+pred last_here(offer) : taste.
+pred kept(offer) : taste.
+pred skipped(offer) : taste.
+
+pred cmd_something : taste.       % "something" (idle), "something else" (active)
+pred cmd_again : taste.           % "again", "the usual"
+pred cmd_off : taste.
+
+pred engage(offer) : taste.       % the host: start offering O (its item: the world's select)
+pred release : taste.             % the host: stop
+pred learned(offer) : taste.      % the host: kept, evidence for the item
+pred forgot(offer) : taste.       % the host: skipped, evidence against it
+pred ok : taste.
+pred no : taste.
+
+stage serve {
+  %% Something you like now: {O}.
+  something [dyn] : cmd_something * idle * $favourite(O) -o active(O) * engage(O) * ok.
+  %% I don't know your taste for this yet: {O}, what was on last at this time.
+  something_new [dyn] : cmd_something * idle * $untasted * $last_here(O) -o active(O) * engage(O) * ok.
+  %% Something else you like: {O}.
+  something_else [dyn] : cmd_something * active(A) * $runner_up(O) -o active(O) * engage(O) * ok.
+  %% Something new: {O}. Keep it if you like it, and I'll remember.
+  something_new_one [dyn] : cmd_something * active(A) * $explore(O) -o active(O) * engage(O) * ok.
+  %% {O} again, as last time at this hour.
+  again [dyn] : cmd_again * idle * $last_here(O) -o active(O) * engage(O) * ok.
+  %% It is already on.
+  again_on [dyn] : cmd_again * $active(O) -o no.
+  %% I turn it off.
+  off [dyn] : cmd_off * active(O) -o idle * release * ok.
+  %% Nothing is on.
+  off_none [dyn] : cmd_off * $idle -o no.
+
+  %% You kept {O} on: I'll remember you like it.
+  learn [dyn] : kept(O) * $active(O) -o learned(O).
+  %% You moved on from {O} quickly: I'll remember that too.
+  unlearn [dyn] : skipped(O) -o forgot(O).
+  %% It was turned off before it counted.
+  kept_gone [dyn] : kept(O) * $idle -o ().
+}

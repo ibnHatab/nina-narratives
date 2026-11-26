@@ -1,0 +1,66 @@
+% Scenes: the mode the home is in (home | night | away), at the person's word or suggested by what
+% the home sees. The mode is the program's own (it changes only here); the host fans a new mode out
+% to the other packages as one wish per device (sweep_off, sweep_air_off, sweep_air_night,
+% sweep_tv_off), and each package settles its own devices by its own rules ('Commands as
+% constraints': the scene says WHAT, each package knows HOW). A suggestion is said, never done:
+% the person decides.
+catalog scenes 1.
+provenance text "scenes: home, night, away, set at a person's word; away suggested when the home empties, night left at dawn on a word; arriving home ends away" "2026-11-21".
+layers (dyn).
+stages (serve).
+include "../shared/home_world.llp".
+include "../iface/home.llp".
+
+type scenes_act {scene}.
+
+pred mode(scene) : home.
+pred cmd_scene(scene) : home.
+
+pred done(scenes_act) : home.
+pred refused(scenes_act) : home.
+pred suggest(scene) : home.
+pred welcomed : home.
+
+% the home's mood (the user: profiles and routines that make sense together, the home's character):
+% one wish to every domain that expresses it, each choosing its own expression by the mood's tags
+% (catalog/character.yaml) and the person's taste in that mood. At the person's word, or by a
+% routine on Nina's clock (the character's times: the scheduler asks as a person would).
+pred mood_now(mood) : home.
+pred no_mood : home.
+pred cmd_mood(mood) : home.
+
+stage serve {
+  %% The home turns {M}.
+  mood_set [dyn] : cmd_mood(M) * no_mood -o mood_now(M) * mood_music(M) * mood_glow(M) * done(scene).
+  %% From {M0} to {M}.
+  mood_change [dyn] : cmd_mood(M) * mood_now(M0) -o mood_now(M) * mood_music(M) * mood_glow(M) * done(scene).
+  %% I switch the home to its {S} mode.
+  scene_set [dyn] : cmd_scene(S) * mode(M) * other(M, S) -o mode(S) * scene_lights(S) * scene_air(S) * scene_media(S) * scene_timers(S) * scene_music(S) * done(scene).
+  %% The home is already in its {S} mode.
+  scene_already [dyn] : cmd_scene(S) * $mode(S) -o refused(scene).
+
+  %% Nobody seems to be home: shall I set the home to away?
+  suggest_away [dyn] : left_home * $mode(home) -o suggest(away).
+  %% Nobody is home, and the home is already set for it.
+  left_settled [dyn] : left_home * $mode(away) -o welcomed.
+  %% Nobody seems to be home, at night: shall I set the home to away?
+  suggest_away_night [dyn] : left_home * $mode(night) -o suggest(away).
+  %% Welcome home: I set the home back from away.
+  arrive [dyn] : came_home * mode(away) -o mode(home) * welcomed.
+  %% Someone came home.
+  arrive_home [dyn] : came_home * $mode(home) -o welcomed.
+  %% Someone came home at night.
+  arrive_night [dyn] : came_home * $mode(night) -o welcomed.
+  %% The sun is up: shall I end the night?
+  morning [dyn] : dawn * $mode(night) -o suggest(home).
+  %% The sun is up.
+  morning_day [dyn] : dawn * $mode(home) -o welcomed.
+  %% The sun is up; the home is away.
+  morning_away [dyn] : dawn * $mode(away) -o welcomed.
+}
+
+#init mode(home) 1
+#query mode(night)
+#steps 4
+
+#init no_mood 1

@@ -13,7 +13,8 @@
 //
 // Output, exactly one JSON object per input line, flushed: {"seq", "ok", "error"?, "out"?, "hash"}. "out" is
 // home.Out: the surprises the event raised and, for a settle, each member's wake and level do-lines and the
-// projected lines. A host takes members' lines from "out" and never asks the board itself (DESIGN.md §8).
+// projected lines. A host takes members' lines from "out" and never asks the board itself (DESIGN.md §8). A
+// settle's reply also carries "state", home.State(): the likeliest values the SITL projects to the families.
 package main
 
 import (
@@ -36,11 +37,12 @@ type control struct {
 }
 
 type reply struct {
-	Seq   int       `json:"seq"`
-	OK    bool      `json:"ok"`
-	Error string    `json:"error,omitempty"`
-	Out   *home.Out `json:"out,omitempty"`
-	Hash  string    `json:"hash"`
+	Seq   int         `json:"seq"`
+	OK    bool        `json:"ok"`
+	Error string      `json:"error,omitempty"`
+	Out   *home.Out   `json:"out,omitempty"`
+	State *home.State `json:"state,omitempty"` // with a settle: the likeliest values, for the families (State())
+	Hash  string      `json:"hash"`
 }
 
 func main() {
@@ -98,6 +100,10 @@ func main() {
 				r.OK, r.Error = false, err.Error()
 			} else {
 				r.Out = &o
+				if ev.Kind == "settle" {
+					st := h.State()
+					r.State = &st
+				}
 			}
 		}
 		r.Hash = h.Hash()

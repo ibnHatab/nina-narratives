@@ -1,0 +1,11 @@
+# Glow: the bedroom's LED Geiling lights (Alexa, through Home Assistant), colours chosen by the person's taste and the home's character. The host is nina-live's (glow/).
+display: the bedroom light
+line: "glow: the bedroom light's colour and brightness, by your taste and the home's character"
+voice: line
+program: glow.llp
+host: nina_world.host:glow   # the runtime's world host (interfaces/README.md): SITL sitl/nina_world, nina-live its own
+intent: {spec: intent.yaml}
+clock: {beats: 1, period: 1}
+records: records/
+commands: [glow, reglow, something, something_new, something_else, something_new_one, again, off, up, down, mood_glow_on, mood_glow_change, her_glow, her_yours, her_off]
+shared: {mood_glow: in}   # the home composition: a mood's wish (iface/home.llp)

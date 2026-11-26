@@ -1,0 +1,11 @@
+# Music: internet radio on MPD through Home Assistant, a taste learned per time of day, ducked while anyone talks. The host is nina-live's (music/).
+display: the music
+line: "music: radio on MPD, your taste learned per time of day, down while anyone talks"
+voice: line
+program: music.llp
+host: nina_world.host:music   # the runtime's world host (interfaces/README.md): SITL sitl/nina_world, nina-live its own
+intent: {spec: intent.yaml}
+clock: {beats: 1, period: 1}
+records: records/
+commands: [play, switch, something, something_new, something_else, something_new_one, again, off, up, down, duck, unduck, night, away, mood_play, mood_switch]
+shared: {scene_music: in, mood_music: in}   # the home composition: a scene's wish (iface/home.llp)

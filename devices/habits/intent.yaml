@@ -1,0 +1,26 @@
+# The habits' intents: again, the usual (in any domain; the person's words narrow it).
+persona: |
+  You are the voice of a personal assistant. The person is talking to YOU. Map a request to repeat
+  something, or to do "the usual", to exactly one intent JSON. Respond with only the JSON.
+verbs:
+  - {verb: AGAIN, meaning: "do that again, the same as last time (words: what, if said)"}
+  - {verb: USUAL, meaning: "the usual, as I always do at this time (words: what, if said)"}
+slots:
+  words: string
+guidance: |
+  `words` is what the person named, verbatim ("the music", "the evening lights"), or empty.
+examples:
+  - ["do that again", {"intent":"AGAIN"}]
+  - ["the music again", {"intent":"AGAIN","words":"the music"}]
+  - ["the usual", {"intent":"USUAL"}]
+  - ["the usual for the evening", {"intent":"USUAL","words":"evening"}]
+spoken:
+  heading: Spoken response (after the JSON)
+  text: |
+    After the JSON comes "Spoken response:" and one short sentence said out loud.
+  examples:
+    - ["the usual", {"intent":"USUAL"}, "The usual, coming up."]
+map:
+  - {verb: AGAIN, atom: "cmd_repeat", act: habits}
+  - {verb: USUAL, atom: "cmd_usual", act: habits}
+outcomes: {done: done, refused: refused}

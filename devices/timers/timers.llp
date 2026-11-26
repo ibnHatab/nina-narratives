@@ -1,0 +1,79 @@
+% Timers: countdowns, and reminders for when the home changes its mode (nina-live, 2026-11-24;
+% docs/DOMAINS.md: time and reminders, release 0.1). The rules keep each timer's lifecycle; the
+% host (nina-live timers/) keeps what the program cannot: the minutes, the subject and the
+% deadline, which come with the call as its payload. A slot is taken by the rules (free → running
+% or waiting), so two timers never share one; the host asserts due(T) when T's time has come, and
+% full when no slot is free, and retracts what lasts one beat (clearing, a scene's wish). One
+% stage: a cycle of stage links would spin. A reminder waits for a scene: the director routes scenes' wish
+% scene_timers(S) here (iface/home.llp), so "remind me when I leave" fires on the away mode.
+catalog timers 1.
+provenance text "timers: countdowns at a word, and reminders for when the home goes away, to night or back home" "2026-11-24".
+layers (dyn).
+stages (serve).
+include "../shared/home_world.llp".
+include "../iface/home.llp".
+
+type timer {k1 k2 k3 k4 k5 k6}.
+type timers_act {timers}.
+
+pred free(timer) : home.
+pred counting(timer) : home.
+pred waiting(timer, scene) : home.   % a reminder for when the home goes to its S mode
+pred due(timer) : home.              % the host: its time has come
+pred full : home.                    % the host: no slot is free
+pred held(timer) : home.             % the host, after a restart: a countdown it remembers
+pred held_for(timer, scene) : home.  % … a reminder it remembers
+
+pred cmd_timer : home.               % a countdown (its minutes and subject: the payload)
+pred cmd_remind(scene) : home.       % a reminder for the S mode (its subject: the payload)
+pred cmd_timers_off : home.          % cancel them all
+pred cmd_timers_query : home.        % what is set
+pred clearing : home.                % a cancel under way (the host retracts it the next beat)
+
+pred done(timers_act) : home.
+pred refused(timers_act) : home.
+pred said(timers_act) : home.
+pred started(timer) : home.
+pred armed(timer, scene) : home.
+pred rang(timer) : home.
+pred cancelled(timer) : home.
+pred kept(timer) : home.
+
+stage serve {
+  %% I set a timer for {T}.
+  set [dyn] : cmd_timer * free(T) -o counting(T) * started(T) * done(timers).
+  %% I can't set another timer: all six are in use.
+  set_full [dyn] : cmd_timer * $full -o refused(timers).
+  %% I'll remind you of {T} when the home goes to its {S} mode.
+  remind_set [dyn] : cmd_remind(S) * free(T) -o waiting(T, S) * armed(T, S) * done(timers).
+  %% I can't keep another reminder: all six slots are in use.
+  remind_full [dyn] : cmd_remind(S) * $full -o refused(timers).
+
+  %% Time's up: {T}.
+  ring [dyn] : due(T) * counting(T) -o free(T) * rang(T).
+  %% Reminder: {T}.
+  remind [dyn] : $scene_timers(S) * waiting(T, S) -o free(T) * rang(T).
+
+  %% I cancel the timers and the reminders.
+  cancel_all [dyn] : cmd_timers_off -o clearing * done(timers).
+  %% I cancel {T}.
+  cancel [dyn] : $clearing * counting(T) -o free(T) * cancelled(T).
+  %% I cancel the reminder of {T}.
+  cancel_reminder [dyn] : $clearing * waiting(T, S) -o free(T) * cancelled(T).
+  %% Here is what is set.
+  query [dyn] : cmd_timers_query -o said(timers).
+  %% {T} had already rung.
+  due_gone [dyn] : due(T) * $free(T) -o ().
+
+  %% {T} carries on after a restart.
+  restore [dyn] : held(T) * free(T) -o counting(T) * kept(T).
+  %% The reminder of {T} carries on after a restart.
+  restore_reminder [dyn] : held_for(T, S) * free(T) -o waiting(T, S) * kept(T).
+}
+
+#init free(k1) 1
+#init free(k2) 1
+#init free(k3) 1
+#init free(k4) 1
+#init free(k5) 1
+#init free(k6) 1

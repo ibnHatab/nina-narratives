@@ -1,0 +1,11 @@
+# composition — Nina's home as one package (nina-live, 2026-11-24): the five packages under the home's director;
+# a scene's wishes are routed by the director's rules, no longer fanned out by the host. metisc build . writes the
+# image under build/.
+name: home
+capacity: shared/home_map.llp
+interfaces: [iface/home.llp]
+specialists: [lights, air, media, comfort, scenes, timers, agenda, music, habits, glow, persona]
+direct: director
+planner: scenes
+response: 2
+world: {out: [], in: []}

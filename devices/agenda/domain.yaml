@@ -1,0 +1,10 @@
+# Agenda: Nina's events and to-dos through Home Assistant's calendars and lists (Google's: the phone sees them). The host is nina-live's (agenda/).
+display: the agenda
+line: "agenda: Nina's events on her own calendar and her to-dos on your task list, through Home Assistant"
+voice: line
+program: agenda.llp
+host: nina_world.host:agenda   # the runtime's world host (interfaces/README.md): SITL sitl/nina_world, nina-live its own
+intent: {spec: intent.yaml}
+clock: {beats: 1, period: 1}
+records: records/
+commands: [event, todo]

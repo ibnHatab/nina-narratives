@@ -1,0 +1,5 @@
+% The composition's offers: the handles the taste's lifted rules (../taste_domain.llp) range over,
+% one type for every instance (a type means one thing across the members, spec 15 I6). Each instance
+% uses its own: the music its genres (gx: the person's own words), the glow its colours.
+catalog offers 1.
+type offer {jazz classical ambient lofi rock pop electronic news world gx  warm amber sunset ember white daylight cool gx_colour}.

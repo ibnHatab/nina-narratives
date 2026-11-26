@@ -1,0 +1,14 @@
+# lights: the home's lights, through Home Assistant's MCP server.
+family: lights
+version: 1
+owner: world
+ports:
+  light_on: {world_port: light_on, keys: [light], levels: {lamp: {at: [0.05, 0.95], names: ["off", unconfirmed, "on"]}}}
+edges: []
+commands:
+  light_on:  {rules: [light_on], args: [light], predicts: {var: power, value: "on"}, grace_s: 15,
+              adapter: {mcp: {server: ha, tool: HassTurnOn, args: {name: "{light.entity}"}}}}
+  light_off: {rules: [light_off, sweep_off, vacant_off], args: [light], predicts: {var: power, value: "off"}, grace_s: 15,
+              adapter: {mcp: {server: ha, tool: HassTurnOff, args: {name: "{light.entity}"}}}}
+receipts: {via: ha_state}
+consumers: [lights, scenes]

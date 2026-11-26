@@ -1,13 +1,13 @@
 """World contracts (interfaces/world/*.yaml): load them and check a workspace against them.
 
-    python3 sitl/contracts.py check [--workspace DIR --incarnation home|office] [--world-map MAP]
+    python3 sitl/contracts.py check [--workspace DIR] [--world-map MAP]
 
 Three checks, each reported, none silently skipped:
 
 1. schema: every contract has the keys of interfaces/README.md and its .llp compiles inside a probe member
    (metisc; a unit alone cannot be compiled, its layers are its includer's);
-2. members: every member of the workspace's composition reads only ports that a contract in scope offers
-   (beliefs: {b: {port: P}}), and every command it declares is bound in a contract in scope;
+2. members: every member of the workspace's composition reads only ports a contract offers, as one of its
+   consumers; every contract command's actuating rules exist in a member's program;
 3. world: the semantic world itself accepts each member's manifest (Board.Join refuses a port the world does not
    offer), via sitl/semworld-step with the workspace's world map.
 
@@ -26,7 +26,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 WORLD = ROOT / 'interfaces' / 'world'
-KEYS = {'family', 'version', 'owner', 'scope', 'unavailable', 'ports', 'edges', 'commands', 'receipts', 'consumers'}
+KEYS = {'family', 'version', 'owner', 'ports', 'edges', 'commands', 'receipts', 'consumers'}
 OWNERS = {'world', 'host', 'person'}
 RECEIPTS = {'none', 'ha_state', 'report'}
 
@@ -59,7 +59,7 @@ def check_schema(contracts):
         if (c.get('receipts') or {}).get('via') not in RECEIPTS:
             bad.append(f'{name}: receipts.via not in {sorted(RECEIPTS)}')
         for cmd, spec in (c.get('commands') or {}).items():
-            for k in ('args', 'predicts', 'grace_s', 'adapter'):
+            for k in ('rules', 'args', 'predicts', 'grace_s', 'adapter'):
                 if k not in spec:
                     bad.append(f'{name}: command {cmd} lacks {k}')
         if name != c['_path'].stem:
@@ -100,28 +100,30 @@ def members(workspace):
     return comp, found
 
 
-def in_scope(contracts, incarnation):
-    return {n: c for n, c in contracts.items() if incarnation in (c.get('scope') or [])}
-
-
-def check_members(contracts, workspace, incarnation):
-    scope = in_scope(contracts, incarnation)
-    offered = {spec['world_port']: n for n, c in scope.items() for spec in (c.get('ports') or {}).values()}
-    bound = {cmd: n for n, c in scope.items() for cmd in (c.get('commands') or {})}
+def check_members(contracts, workspace):
+    """Members read only offered ports, as consumers; every contract command's rules exist in a member's program.
+    Availability is not checked here: it is the world's, after discovery (a port with no keys gives no atom)."""
+    offered = {spec['world_port']: n for n, c in contracts.items() for spec in (c.get('ports') or {}).values()}
     _, ms = members(workspace)
     bad = []
     for name, (_, man) in sorted(ms.items()):
         for belief, spec in (man.get('beliefs') or {}).items():
             port = spec.get('port') if isinstance(spec, dict) else None
             if port not in offered:
-                bad.append(f'{name}: reads port {port!r} (belief {belief}) that no {incarnation} contract offers')
-            elif name not in (scope[offered[port]].get('consumers') or []):
+                bad.append(f'{name}: reads port {port!r} (belief {belief}) that no contract offers')
+            elif name not in (contracts[offered[port]].get('consumers') or []):
                 bad.append(f'{name}: reads {offered[port]}.{port} but is not among its consumers')
-        # YAML 1.1 reads a bare off/on/yes as a bool: a command named off is still the command 'off'
-        unbound = [c if isinstance(c, str) else {False: 'off', True: 'on'}[c] for c in man.get('commands') or []]
-        unbound = [c for c in unbound if c not in bound]
-        if unbound:
-            bad.append(f'{name}: {len(unbound)} command(s) bound in no {incarnation} contract: {" ".join(unbound)}')
+    defined = set()
+    for name, (path, _) in ms.items():
+        for llp in path.parent.glob('*.llp'):
+            defined |= set(re.findall(r'^\s+([a-z_][a-z0-9_]*) \[', llp.read_text(), re.M))
+    for n, c in sorted(contracts.items()):
+        for cmd, spec in (c.get('commands') or {}).items():
+            missing = [r for r in spec.get('rules') or [] if r not in defined]
+            if missing and len(missing) == len(spec.get('rules') or []):
+                bad.append(f'note: {n}.{cmd} is not served by this workspace (none of {" ".join(missing)})')
+            elif missing:
+                bad.append(f'{n}.{cmd}: rules in no member program: {" ".join(missing)}')
     return bad
 
 
@@ -151,20 +153,22 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('cmd', choices=['check'])
     ap.add_argument('--workspace', type=Path, help="a composition's directory (where composition.yaml is)")
-    ap.add_argument('--incarnation', default='home')
     ap.add_argument('--world-map', type=Path, help='the semantic world map (home.map.json)')
     a = ap.parse_args()
     contracts = load()
     sections = [('schema', check_schema(contracts)), ('compile', check_compile(contracts))]
     if a.workspace:
-        sections.append(('members', check_members(contracts, a.workspace, a.incarnation)))
+        sections.append(('members', check_members(contracts, a.workspace)))
         if a.world_map:
             sections.append(('world', check_world(a.workspace, a.world_map)))
         else:
             sections.append(('world', ['not run: no --world-map']))
     failed = False
     for title, findings in sections:
-        status = 'ok' if not findings else ('not run' if all(f.startswith('not run') for f in findings) else 'FAIL')
+        real = [f for f in findings if not f.startswith(('note:', 'not run'))]
+        status = 'ok' if not real else 'FAIL'
+        if not real and any(f.startswith('not run') for f in findings):
+            status = 'not run'
         failed |= status == 'FAIL'
         print(f'{title}: {status} ({len(contracts)} contracts)' if title in ('schema', 'compile') else f'{title}: {status}')
         for f in findings:

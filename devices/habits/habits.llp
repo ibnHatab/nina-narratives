@@ -1,0 +1,51 @@
+% Habits: "again" and "the usual", in any domain (the user, 2026-11-24: "fuzzy matching on the last
+% use is just another domain: a cross-domain skill reusing the last intent"). The host keeps every
+% card call from the log (stream call) and, for a request, finds the call meant: "again" is the
+% most recent, "the usual" the most frequent at this time of day, the person's words narrowing
+% either (a fuzzy match over the calls' words). The rules decide what may be repeated: a home
+% command, a scene, the music, a timer; never a calendar entry (it would be written twice).
+% The call is answered at once (the host's finding comes a beat later), and what was found, or why
+% nothing is repeated, is the next line.
+catalog habits 1.
+provenance text "habits: again and the usual, in any domain, from the history of the person's requests" "2026-11-24".
+layers (dyn).
+stages (serve).
+include "../shared/home_world.llp".
+
+type habits_act {habits}.
+
+bwd repeatable(domain).
+bwd once(domain).
+repeatable(lights).
+repeatable(air).
+repeatable(media).
+repeatable(scenes).
+repeatable(comfort).
+repeatable(timers).
+repeatable(music).
+repeatable(glow).
+once(agenda).
+once(habits).
+once(persona).     % a moment of the conversation is not repeated
+
+pred cmd_repeat : home.          % "again" (the person's words: the payload)
+pred cmd_usual : home.           % "the usual"
+pred seeking : home.
+pred found(domain) : home.       % the host: the call meant is in this domain
+pred nothing : home.             % the host: no call matches
+pred replay(domain) : home.
+pred done(habits_act) : home.
+pred refused(habits_act) : home.
+
+stage serve {
+  %% Let me see what you did last.
+  repeat [dyn] : cmd_repeat -o seeking * done(habits).
+  %% Let me see what you usually do at this hour.
+  usual [dyn] : cmd_usual -o seeking * done(habits).
+  %% As before: {D}.
+  replay_it [dyn] : found(D) * seeking * $repeatable(D) -o replay(D).
+  %% I won't repeat that: it would put it on {D} twice.
+  replay_once [dyn] : found(D) * seeking * $once(D) -o ().
+  %% I don't know what you mean yet: you haven't asked me for it before.
+  replay_none [dyn] : nothing * seeking -o ().
+}

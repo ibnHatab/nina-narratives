@@ -1,0 +1,11 @@
+# Timers and reminders: countdowns at a word, and reminders for when the home changes its mode. The host is nina-live's (timers/).
+display: the timers
+line: "timers: countdowns at a word, and reminders for when the home goes away, to night or back home"
+voice: line
+program: timers.llp
+host: nina_world.host:timers   # the runtime's world host (interfaces/README.md): SITL sitl/nina_world, nina-live its own
+intent: {spec: intent.yaml}
+clock: {beats: 1, period: 1}
+records: records/
+commands: [set, remind_set, ring, remind, cancel, cancel_reminder]
+shared: {scene_timers: in}   # the home composition: a scene's wish (iface/home.llp)

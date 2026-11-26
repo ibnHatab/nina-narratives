@@ -1,0 +1,11 @@
+# The TV and the infrared devices over roles t1, ir1.
+display: the media
+line: "media: the TV on, off, louder, quieter; infrared devices by their remote's keys (the IR remote is not wired yet)"
+voice: own
+program: media.llp
+host: nina_world.host:media   # the runtime's world host (interfaces/README.md): SITL sitl/nina_world, nina-live its own
+intent: {spec: intent.yaml}
+clock: {beats: 1, period: 1}
+records: records/
+commands: [tv_up, tv_down, tv_louder, tv_quieter, ir_send, sweep_tv]
+shared: {scene_media: in}   # the home composition: a scene's wishes (iface/home.llp)

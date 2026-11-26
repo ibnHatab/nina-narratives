@@ -6,4 +6,3 @@ namespace world_presence produce (dyn).
 pred entered(room) : world_presence.
 pred came_home : world_presence.
 pred left_home : world_presence.
-pred unavailable_presence : world_presence.

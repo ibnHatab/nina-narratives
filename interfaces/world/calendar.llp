@@ -5,4 +5,3 @@ namespace world_calendar produce (dyn).
 pred event_due(event) : world_calendar.
 pred rsvp(event, answer) : world_calendar.
 pred created(event) : world_calendar.         % the receipt: the adapter reported the event made
-pred unavailable_calendar : world_calendar.
