@@ -177,6 +177,7 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
     feed.run_started(run_id, 'traces/' + run_id, dict(scenario=sc['scenario'], seed=seed))
     k = 0
     waiting_floors = []
+    evidence = {}
     channel = 'hall'
     tasks = sorted({h['task'] for p in people.values() for h in p.t.get('hands') or []})
     truth_log = (trace_dir / 'truth.jsonl').open('w')     # the hidden truth per beat, for the triage (spec 20 §4)
@@ -212,6 +213,8 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
                         continue
                     if ev.get('kind') == 'report':
                         monitors.report(ev, k)
+                        if 'issue' in ev and 'source' in ev:
+                            evidence.setdefault(ev['issue'], []).append(dict(ev))
                     if ev['kind'] == 'floor':
                         channel = ev.get('channel', 'hall')
                     hit = edge_of(ev, edge_specs)
@@ -240,6 +243,15 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
                     things.append({'id': task, 'role': task, 'class': 'obligation', 'as': 'task',
                                    'completed': tr.get('done', False), 'deferred': tr.get('deferred', False),
                                    'available': any(a.startswith('floor') for e in beat_edges.values() for a in e)})
+                listeners = audience(m.get('channels'), channel, people, t)
+                for name, person in people.items():
+                    things.append(dict(id=name, role=name, **{'class': 'person', 'as': 'person'},
+                                       away=person.away(t), availability=person.t.get('availability'),
+                                       mood=person.t.get('mood'), channel=channel, listening=person in listeners,
+                                       private_facts=person.t.get('private_facts', {}),
+                                       heard=list(person.heard), tasks={task: person.truth_at(task, t) for task in tasks}))
+                for issue, reports in evidence.items():
+                    things.append(dict(id=issue, role=issue, **{'class': 'issue', 'as': 'issue'}, reports=reports))
                 truth_log.write(json.dumps({'k': k, 'things': things}, sort_keys=True) + '\n')
                 live.tick()
                 feed.tick(k)

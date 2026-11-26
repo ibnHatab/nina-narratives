@@ -62,7 +62,7 @@ Review: the 29 scenarios match their baseline (the controller re-ran it), the fa
 - **The gate is blocked.** `pack_propose` refuses composition records at the baseline replay. The controller has asked the Metis agent what a composition trace needs; wait for its answer before changing the trace format.
 
 - [x] R1 `regress.py` essence: add every fired rule of the members a scenario's monitors name, as `[k, member, rule, args]`, director bookkeeping excluded. Re-baseline once with this file's line explaining it, then show that a deliberately reordered firing in a scratch copy is reported CHANGED (do not commit the scratch).
-- [ ] R2 truth: extend `truth.jsonl` to everything the person adapters and the monitors read (availability, away, audience/channel, evidence source and location, done/deferred). Re-triage the three evidential findings and record their kinds.
+- [x] R2 truth: extend `truth.jsonl` to everything the person adapters and the monitors read (availability, away, audience/channel, evidence source and location, done/deferred). Re-triage the three evidential findings and record their kinds.
 - [ ] R3 formalize the ranked gaps **3–10** of `cognition/aspects/README.md` as new cognition rules (gaps 1–2 are the T2 cases and wait for the gate). Each gap gets:
   - scene-cited `%%` docs;
   - new preds through `interfaces/members` or `interfaces/world` only;
@@ -78,3 +78,5 @@ R1 re-baseline adds ordered firings of monitored members to each scenario essenc
   4. `replay_check` must pass;
   5. then `pack_propose` both T2 cases and record the verdicts.
   Do this after R1, before R3.
+
+R1 scratch control swapped two distinct monitored firings and produced CHANGED. R2 fresh seed 42 records in scenario order (absent-listener, cold-room-source, parcel-account) triaged ontological, evidential, evidential. The truth now distinguishes recipients and places from named obligations. A reported measurement or delivery still leaves its interpretation open.
