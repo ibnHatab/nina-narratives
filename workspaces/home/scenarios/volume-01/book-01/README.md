@@ -1,10 +1,10 @@
 # Book I formalization candidates
 
-The eight chapter packages are executable, deliberately narrow mechanism sketches. They are proposals for review, not installed household rules. The shared `mechanisms/` package tests a smaller reusable account of situations and commitments across several chapters. Read the [evaluation](../../evaluation/book-01/REVIEW.md) before interpreting a passing simulation as success.
+The eight chapter packages are executable, deliberately narrow mechanism sketches. They are proposals for review, not installed household rules. The shared `mechanisms/` package tests a smaller reusable account of situations and commitments across several chapters. Read the [evaluation](../../../../../evaluation/book-01/REVIEW.md) before interpreting a passing simulation as success.
 
 Source fiction: `narratives/book-01-small-universe-of-home.md` at `94e2c5829e6ebefa3bd41e35e513bba943dc8e12`. The coordination update at `2420894` adds the creative director's letter and Book II; it does not change Book I. Book II was deliberately left unread as possible independent evaluation material for the creative team. None of these cases is an independent holdout.
 
-Each chapter has a real `domain.yaml`, compiled `chapter.llp`, source/scene annotations and `cases.json`. Scene IDs `B01-Cnn-Snn` are extraction IDs, anchored by exact quotations in that chapter's README; they do not edit the canonical text. A source quote licenses the question being modeled, not every implementation assumption. READMEs name those assumptions and omissions.
+Each chapter has a real `baseline-manifest.yaml`, compiled `chapter.llp`, source/scene annotations and `cases.json`. Scene IDs `B01-Cnn-Snn` are extraction IDs, anchored by exact quotations in that chapter's README; they do not edit the canonical text. A source quote licenses the question being modeled, not every implementation assumption. READMEs name those assumptions and omissions.
 
 ## Reproduce with installed Metis
 

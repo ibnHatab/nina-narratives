@@ -59,7 +59,7 @@ def main():
                    sha256=hashlib.sha256(source.read_bytes()).hexdigest()))
         if compilation.returncode:
             raise RuntimeError(compilation.stdout + compilation.stderr)
-        check_manifest(directory / 'domain.yaml', root=ROOT)
+        check_manifest(directory / 'baseline-manifest.yaml', root=ROOT)
         # New standalone bases: revise runs the harness; accept is never called.
         blank = ROOT / '.metis/empty.llp'
         blank.write_text('catalog empty 1.\nlayers (story).\nstages (live).\nstage live {}\n')
@@ -75,7 +75,7 @@ def main():
         if not gate.get('ok'):
             raise RuntimeError(f'{directory.name} gate refused: {gate}')
         lint = subprocess.run([sys.executable, '-m', 'metis.lint', str(source),
-                               '--manifest', str(directory / 'domain.yaml')], capture_output=True, text=True)
+                               '--manifest', str(directory / 'baseline-manifest.yaml')], capture_output=True, text=True)
         (chapter_output / 'lint.txt').write_text(lint.stdout + lint.stderr)
         if lint.returncode:
             raise RuntimeError('lint could not run: ' + lint.stderr)

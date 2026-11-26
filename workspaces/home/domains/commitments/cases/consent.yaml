@@ -1,0 +1,9 @@
+case: 'B01-C06-S03: slack permits reconsideration'
+boundaries:
+- lines:
+  - +consented_plan(dinner,simple)
+  - +changed_circumstances(dinner)
+  expect:
+    after:
+    - consented_plan(dinner,simple)
+    - reconsideration_offered(dinner)

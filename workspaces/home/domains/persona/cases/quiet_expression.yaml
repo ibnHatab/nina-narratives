@@ -1,0 +1,8 @@
+case: 'B01-C07-S01: quiet expression preserves continuity'
+boundaries:
+- lines:
+  - +quiet_period
+  expect:
+    after:
+    - graphite_expression
+    - persona_continuity

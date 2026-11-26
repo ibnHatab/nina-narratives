@@ -5,13 +5,13 @@ stages (live).
 namespace curiosity produce (story).
 
 pred better_question : curiosity.
-pred coat_removed : curiosity.
+pred conversational_opening : curiosity.
 pred costly_demo : curiosity.
 pred discussion_active : curiosity.
-pred human_returned : curiosity.
+pred listener_present : curiosity.
 pred implementation_doubted : curiosity.
 pred initial_approach_abandoned : curiosity.
-pred nobody_home : curiosity.
+pred private_research_window : curiosity.
 pred note_capacity : curiosity.
 pred objections_exchanged : curiosity.
 pred promising_connection : curiosity.
@@ -27,11 +27,11 @@ pred tasks_clear : curiosity.
 pred weak_support : curiosity.
 stage live {
   %% [B01-C05-S01] "within her research permissions and resource budget."
-  begin_research [story] : $shared_interest * $research_permission * research_budget * $tasks_clear * nobody_home -o research_active.
+  begin_research [story] : $shared_interest * $research_permission * research_budget * $tasks_clear * private_research_window -o research_active.
   %% [B01-C05-S02] "separated the promising idea from the unreliable implementation"
   separate_idea_from_implementation [story] : research_active * promising_connection * weak_support * costly_demo * note_capacity -o qualified_note * implementation_doubted.
   %% [B01-C05-S03] "she waited until he had taken off his coat."
-  offer_note [story] : qualified_note * human_returned * coat_removed -o research_offer * topic_offer.
+  offer_note [story] : qualified_note * listener_present * conversational_opening -o research_offer * topic_offer.
   %% [B01-C05-S03] "Show me."
   discuss [story] : research_offer * show_me -o discussion_active.
   %% [B01-C05-S04] "the conclusion belonged to neither participant at the beginning."

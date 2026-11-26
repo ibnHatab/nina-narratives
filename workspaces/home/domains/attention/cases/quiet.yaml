@@ -1,0 +1,9 @@
+case: 'B01-C06-S01: a queued reminder awaits the floor'
+boundaries:
+- lines:
+  - +reminder_offer(dinner)
+  expect:
+    after:
+    - pending(dinner)
+    - uttered(dinner) 0
+    - available

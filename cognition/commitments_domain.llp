@@ -3,8 +3,13 @@ catalog commitments_domain 1.
 layers (story).
 stages (live).
 namespace commitments produce (story).
+types (plan).
 type phase {ready queued spoken closed}.
 pred ledger(task,phase) : commitments.
+pred consented_plan(task,plan) : commitments.
+pred change_consent(task,plan) : commitments.
+pred changed_circumstances(task) : commitments.
+pred reconsideration_offered(task) : commitments.
 stage live {
   %% B01-C01-S03. The promised occurrence has arrived.
   due [story] : arrived(T) -o ledger(T,ready).
@@ -18,4 +23,10 @@ stage live {
   postpone [story] : ledger(T,spoken) * later(T) -o ledger(T,ready).
   %% B01-C01-S03. A fresh explicit invitation can also renew the reminder.
   invite [story] : ledger(T,spoken) * renewed(T) -o ledger(T,ready).
+  %% [B01-C06-S02] "Do it."
+  %% Explicit fresh consent changes the selected plan. Changed circumstances alone grant no such permission.
+  change_plan [story] : consented_plan(T,A) * change_consent(T,B) -o consented_plan(T,B).
+  %% [B01-C06-S03] "A changed circumstance did not automatically cancel a decision"
+  %% Changed circumstances can prompt reconsideration while preserving the consented plan.
+  reconsider [story] : $consented_plan(T,A) * changed_circumstances(T) -o reconsideration_offered(T).
 }

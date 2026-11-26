@@ -3,13 +3,8 @@ catalog situations_domain 1.
 layers (story).
 stages (live).
 namespace situations produce (story).
-type issue {ventilation appointment pantry}.
-type reason {device_fault manual_override forgotten cancelled stale_inventory consumed}.
-type source {resident sensor}.
+types (issue reason source).
 bwd alternatives(issue,reason,reason).
-alternatives(ventilation,device_fault,manual_override).
-alternatives(appointment,forgotten,cancelled).
-alternatives(pantry,stale_inventory,consumed).
 pred discrepancy(issue,source) : situations.
 pred observation_kept(issue,source) : situations.
 pred open_issue(issue) : situations.

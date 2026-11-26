@@ -1,0 +1,10 @@
+case: 'B01-C02-S01 and C04-S01: retain two hypotheses'
+boundaries:
+- lines:
+  - +discrepancy(ventilation,sensor)
+  - +open_issue(ventilation)
+  expect:
+    after:
+    - candidate(ventilation,device_fault)
+    - candidate(ventilation,manual_override)
+    - accepted_report(ventilation,device_fault,sensor) 0

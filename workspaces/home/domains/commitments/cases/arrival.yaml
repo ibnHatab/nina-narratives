@@ -1,0 +1,8 @@
+case: 'B01-C01-S03: arrival makes an offer'
+boundaries:
+- lines:
+  - +arrived(call)
+  expect:
+    after:
+    - ledger(call,queued)
+    - uttered(call) 0

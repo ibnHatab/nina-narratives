@@ -1,0 +1,11 @@
+case: 'B01-C08-S03: a requested restoration still awaits confirmation'
+boundaries:
+- lines:
+  - +recovered_checkpoint
+  - +settings_authorized
+  - +connection_reliable
+  - +controllers_at_defaults
+  expect:
+    after:
+    - restore_requested
+    - settings_restored 0

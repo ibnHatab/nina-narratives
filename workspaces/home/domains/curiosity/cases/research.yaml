@@ -1,0 +1,9 @@
+case: 'B01-C05-S03: opportunity to share a qualified note'
+boundaries:
+- lines:
+  - +qualified_note
+  - +listener_present
+  - +conversational_opening
+  expect:
+    out:
+    - topic_offer

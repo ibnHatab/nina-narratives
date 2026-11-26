@@ -1,0 +1,8 @@
+case: 'B01-C03-S03: let the resident answer'
+boundaries:
+- lines:
+  - +visitor_asks_about_resident
+  - +privacy_boundary
+  expect:
+    after:
+    - resident_invited_to_explain
