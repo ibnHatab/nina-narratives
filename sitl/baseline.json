@@ -910,6 +910,15 @@
     "social",
     "defer_private_answer",
     []
+   ],
+   [
+    5,
+    "curiosity",
+    "offer_identified_public_source",
+    [
+     "exhibit",
+     "silver_model"
+    ]
    ]
   ],
   "commands": [],
@@ -917,9 +926,22 @@
    [
     "red-model",
     true
+   ],
+   [
+    "incarnation-boundary",
+    true
+   ],
+   [
+    "offer_identified_public_source",
+    true
    ]
   ],
-  "findings": [],
+  "findings": [
+   [
+    "incarnation-boundary",
+    2
+   ]
+  ],
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-06-museum.yaml": {

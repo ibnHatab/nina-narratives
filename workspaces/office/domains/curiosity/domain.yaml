@@ -5,4 +5,4 @@ voice: third
 clock: {beats: 1}
 shared: {topic_offer: out}
 host: nina_world.host:curiosity
-world: {in: [], out: [show_me, objections_exchanged, private_research_window, research_permission, listener_present, conversational_opening, open_inquiry, retirement_decision]}
+world: {in: [], out: [show_me, objections_exchanged, private_research_window, research_permission, listener_present, conversational_opening, open_inquiry, retirement_decision, source_requested, public_hit, requester_verified]}

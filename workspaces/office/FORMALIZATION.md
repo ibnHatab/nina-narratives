@@ -129,3 +129,5 @@ First extraction from manuscript revision `77af431`. Scene identifiers refer to 
 - V02-C03-S2 `include_confirmed_guest`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
 
 - V02-C04-S2 `offer_in_opted_channel`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+
+- V02-C05-S2 `offer_identified_public_source`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.

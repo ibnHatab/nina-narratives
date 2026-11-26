@@ -1,0 +1,6 @@
+catalog public_search 1.
+types (reference task).
+namespace world_public_search produce (dyn story).
+pred source_requested(task) : world_public_search.
+pred public_hit(task,reference) : world_public_search.
+pred requester_verified(task,reference) : world_public_search.

@@ -7,3 +7,5 @@ type encounter {hall_visit}.
 type message {box_question other_thread}.
 type participant {mara sorina doru radu andrei ana}.
 type slot {original_slot new_slot}.
+type reference {silver_model charging_article}.
+type source_record {syndicated_copy original_announcement}.

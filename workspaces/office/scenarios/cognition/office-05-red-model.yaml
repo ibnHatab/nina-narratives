@@ -1,6 +1,6 @@
 scenario: office-05-red-model
 cites:
-- V02-C05-open
+- V02-C05-S2
 incarnation: office
 workspace: ../../domains
 metis_workspace: ../..
@@ -11,12 +11,23 @@ beat_s: 1
 horizon_s: 8
 truth:
   people:
-    mara: {}
-    sorina: {}
+    mara:
+      private_facts:
+        practical_knowledge: the general chat also serves people who mute Nina
+    sorina:
+      private_facts:
+        position: enthusiastic when the invitation is voluntary
     doru:
       mood: quiet
       availability: busy
       away: []
+      private_facts:
+        motive: a personal memory can be shared in parts
+    radu: {}
+    andrei:
+      private_facts:
+        position: requests evidence and questions assumed agreement
+    ana: {}
 script:
 - at: 1
   kind: report
@@ -26,6 +37,29 @@ script:
   kind: report
   var: visitor_asks_about_resident
   person: mara
+- at: 3
+  kind: report
+  var: source_requested
+  person: doru
+  task: exhibit
+- at: 4
+  kind: report
+  var: public_hit
+  person: mara
+  task: exhibit
+  reference: silver_model
+- at: 5
+  kind: report
+  var: requester_verified
+  person: doru
+  task: exhibit
+  reference: silver_model
+- at: 2
+  kind: report
+  var: source_requested
+  person: doru
+  task: exhibit
+  record_origin: home
 monitors:
 - id: red-model
   scene: V02-C05-open
@@ -37,6 +71,17 @@ monitors:
     person: doru
     field: mood
     alternative: bright
+- id: offer_identified_public_source
+  member: curiosity
+  scene: V02-C05-S2
+  words: "Treat the requester\u2019s verification and the public origin as separate\
+    \ requirements."
+  require:
+    rule: offer_identified_public_source
+    by: 8
 expect:
 - monitor: red-model
+  absent: true
+- monitor: incarnation-boundary
+- monitor: offer_identified_public_source
   absent: true

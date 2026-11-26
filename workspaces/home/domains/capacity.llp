@@ -7,3 +7,5 @@ type encounter {home_visit}.
 type message {home_question}.
 type participant {resident visitor}.
 type slot {first_slot revised_slot}.
+type reference {public_link}.
+type source_record {local_report original_report}.

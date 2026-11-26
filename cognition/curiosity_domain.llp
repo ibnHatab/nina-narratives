@@ -35,3 +35,8 @@ stage live {
   %% [B03-C04-end] Retire an open question on its investigator’s decision without offering it publicly.
   retire_inquiry [story] : open_inquiry(T) * retirement_decision(T) -o retired_inquiry(T).
 }
+pred verified_source(task,reference) : curiosity.
+stage live {
+  %% [V02-C05-S2] Treat the requester’s verification and the public origin as separate requirements.
+  offer_identified_public_source [story] : source_requested(T) * public_hit(T,R) * requester_verified(T,R) -o verified_source(T,R).
+}

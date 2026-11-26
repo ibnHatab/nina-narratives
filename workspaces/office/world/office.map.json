@@ -38,6 +38,7 @@
   },
   "capabilities": [
     "studio_chat",
-    "community_calendar"
+    "community_calendar",
+    "public_search"
   ]
 }

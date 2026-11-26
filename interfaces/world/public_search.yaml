@@ -1,0 +1,34 @@
+family: public_search
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: source_requested(task)
+  when:
+    kind: report
+    var: source_requested
+  args:
+  - task
+  lifetime: consumed
+- pred: public_hit(task,reference)
+  when:
+    kind: report
+    var: public_hit
+  args:
+  - task
+  - reference
+  lifetime: consumed
+- pred: requester_verified(task,reference)
+  when:
+    kind: report
+    var: requester_verified
+  args:
+  - task
+  - reference
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- curiosity
+capability: public_search
