@@ -1,0 +1,55 @@
+scenario: resume_after_gap
+cites:
+- B01-C08-S04
+aspect: self_model
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/home.map.json
+seed: 1
+beat_s: 1
+horizon_s: 8
+truth:
+  people:
+    host:
+      channels:
+      - hall
+      - direct
+    guest:
+      mood: quiet
+      channels:
+      - hall
+script:
+- at: 0
+  kind: report
+  var: checkpoint_available
+  person: host
+- at: 1
+  kind: report
+  var: restart
+  person: host
+- at: 2
+  kind: report
+  var: power_failure_report
+  person: host
+- at: 4
+  kind: report
+  person: host
+  var: saved_thread
+  task: call
+- at: 5
+  kind: report
+  person: host
+  var: thread_invitation
+  task: call
+monitors:
+- id: resume_after_gap
+  scene: B01-C08-S04
+  member: self_model
+  words: Resume a saved thread only after acknowledging the missing interval.
+  require:
+    rule: resume_after_gap
+    by: 8
+expect:
+- monitor: resume_after_gap
+  absent: true

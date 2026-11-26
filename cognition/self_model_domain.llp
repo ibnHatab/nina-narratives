@@ -29,3 +29,7 @@ stage live {
   %% [B01-C08-S04] "a reasonably good one for things that did."
   continue_saved_conversation [story] : $conversation_memory * $outage_explained * conversation_opening -o conversation_resumed.
 }
+stage live {
+  %% [B01-C08-S04] Resume a saved thread only after acknowledging the missing interval.
+  resume_after_gap [story] : saved_thread(T) * thread_invitation(T) * $outage_explained -o resumed_thread(T).
+}

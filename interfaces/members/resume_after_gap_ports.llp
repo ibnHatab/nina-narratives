@@ -1,0 +1,4 @@
+catalog resume_after_gap_results 1.
+types (task).
+namespace resume_after_gap_results produce (story dyn).
+pred resumed_thread(task) : resume_after_gap_results.

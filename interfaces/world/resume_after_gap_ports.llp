@@ -1,0 +1,5 @@
+catalog resume_after_gap_ports 1.
+types (task).
+namespace resume_after_gap_ports produce (story dyn).
+pred saved_thread(task) : resume_after_gap_ports.
+pred thread_invitation(task) : resume_after_gap_ports.

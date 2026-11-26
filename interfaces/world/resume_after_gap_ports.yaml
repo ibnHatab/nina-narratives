@@ -1,0 +1,24 @@
+family: resume_after_gap_ports
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: saved_thread(task)
+  when:
+    kind: report
+    var: saved_thread
+  args:
+  - task
+  lifetime: consumed
+- pred: thread_invitation(task)
+  when:
+    kind: report
+    var: thread_invitation
+  args:
+  - task
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- self_model

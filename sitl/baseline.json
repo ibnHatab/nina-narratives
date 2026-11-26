@@ -548,6 +548,39 @@
   "findings": [],
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
+ "workspaces/home/scenarios/cognition/resume_after_gap.yaml": {
+  "acts": [
+   [
+    1,
+    "self_model",
+    "restart_with_gap",
+    []
+   ],
+   [
+    2,
+    "self_model",
+    "acknowledge_outage",
+    []
+   ],
+   [
+    5,
+    "self_model",
+    "resume_after_gap",
+    [
+     "call"
+    ]
+   ]
+  ],
+  "commands": [],
+  "expect": [
+   [
+    "resume_after_gap",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
  "workspaces/home/scenarios/cognition/shared-objection.yaml": {
   "acts": [],
   "commands": [],
