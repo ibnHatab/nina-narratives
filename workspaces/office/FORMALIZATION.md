@@ -1,5 +1,19 @@
 # Volume II formalization
 
+Twelve chapter mechanisms run in the office SITL. Eleven are shared with home. Chapter IX uses an office attention extension for the community display. Each chapter's positive monitor failed with its rule hidden and passed when enabled. The full suite matched 37 baselines. Home's results matched at every chapter checkpoint.
+
+The office fixtures deliberately submit one home-origin report each. The boundary rejects all twelve before delivery. The existing Chapter II reminder spoken while Doru is absent remains a finding. Correcting an introduction exercises a different decision from delivering a reminder. No new behavioral findings appeared in the enabled Volume II arms.
+
+The fixtures supply explicit reports for consent, membership, source lineage and media approval. Authentication, revocation, real adapter receipts, and responses to concurrent changes remain unvalidated. These decisions do not publish, edit a calendar or fetch media. Hidden motives are available to the evaluation harness.
+
+The fictional discovery map enables `studio_chat`, `community_calendar`, `public_search` and `community_media`. The adapter contract retains the separate calendar event and task commands. Volume II exercises plan and consent reports. Task writes and their receipts remain untested.
+
+### Editorial questions
+
+- When an introduction corrects Nina's guess, does consent authorize only that encounter or a durable identity association?
+- Should someone who says “perhaps” receive a conditional invitation without appearing in the confirmed list?
+- If a corrected publication has travelled beyond the original channel, how far does Nina's responsibility for repair extend?
+
 First extraction from manuscript revision `77af431`. Scene identifiers refer to the exchanges named by the observations below. In chapters with explicit scene breaks the suffix follows their order. In the opening installment it indexes the selected exchanges, with the setup preceding a selected later exchange counted as S1. Hypotheses and hidden truth guide fixtures. They do not grant the member knowledge.
 
 ## V02-C01-S1 · The interview
@@ -122,26 +136,28 @@ First extraction from manuscript revision `77af431`. Scene identifiers refer to 
 - **Outside the first pass** — Emergent collaboration and the final reflection.
 - **Mechanism** — `record_bounded_credit` in shared situations cognition. Inputs use `community_media`.
 
-- V02-C01-S1 `honor_community_scope`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+## Chapter verification
 
-- V02-C02-S2 `correct_introduction`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+- V02-C01-S1 `honor_community_scope`. The control without the rule produced a missing-act finding at beat eight. The enabled image met the deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
 
-- V02-C03-S2 `include_confirmed_guest`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+- V02-C02-S2 `correct_introduction`. The control without the rule produced a missing-act finding at beat eight. The enabled image met the deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
 
-- V02-C04-S2 `offer_in_opted_channel`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+- V02-C03-S2 `include_confirmed_guest`. The control without the rule produced a missing-act finding at beat eight. The enabled image met the deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
 
-- V02-C05-S2 `offer_identified_public_source`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+- V02-C04-S2 `offer_in_opted_channel`. The control without the rule produced a missing-act finding at beat eight. The enabled image met the deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
 
-- V02-C06-S4 `authorize_component_display`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+- V02-C05-S2 `offer_identified_public_source`. The control without the rule produced a missing-act finding at beat eight. The enabled image met the deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
 
-- V02-C07-S1 `reply_to_person_in_session`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+- V02-C06-S4 `authorize_component_display`. The control without the rule produced a missing-act finding at beat eight. The enabled image met the deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
 
-- V02-C08-S3 `acknowledge_revised_plan`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+- V02-C07-S1 `reply_to_person_in_session`. The control without the rule produced a missing-act finding at beat eight. The enabled image met the deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+
+- V02-C08-S3 `acknowledge_revised_plan`. The control without the rule produced a missing-act finding at beat eight. The enabled image met the deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
 
 - V02-C09-S3 `select_approved_local_media`. Hiding the office delta rule produced the missing act at beat eight. The enabled image met the deadline. The boundary probe denied the home-origin report. Only this office scenario changed. The delta uses the spec 18 include form because the separate extension manifest produced a runtime source-key mismatch.
 
-- V02-C10-S2 `collapse_shared_provenance`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+- V02-C10-S2 `collapse_shared_provenance`. The control without the rule produced a missing-act finding at beat eight. The enabled image met the deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
 
-- V02-C11-S4 `correct_attribution_with_subject`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+- V02-C11-S4 `correct_attribution_with_subject`. The control without the rule produced a missing-act finding at beat eight. The enabled image met the deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
 
-- V02-C12-S5 `record_bounded_credit`. The hidden control produced the missing act at beat eight. The normal image met the new deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
+- V02-C12-S5 `record_bounded_credit`. The control without the rule produced a missing-act finding at beat eight. The enabled image met the deadline. The boundary probe denied a home-origin report. Only this office scenario changed in the regression comparison. No live adapter ran.
