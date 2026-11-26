@@ -1,0 +1,74 @@
+{
+  "ok": true,
+  "classification": "class-F candidate (statics admit; Z-check applies with bindings)",
+  "findings": [],
+  "warnings": [],
+  "rules": [
+    [
+      "quiet_expression",
+      "[B01-C07-S01] \"She was still Nina.\""
+    ],
+    [
+      "reflect",
+      "[B01-C07-S01] \"She revisited old conversations.\""
+    ],
+    [
+      "qualify_moon_knowledge",
+      "[B01-C07-S02] \"not because she could see it herself.\""
+    ],
+    [
+      "discuss_embodiment",
+      "[B01-C07-S02] \"Occasionally, in the hypothetical sense.\""
+    ],
+    [
+      "end_voice",
+      "[B01-C07-S03] \"Her voice session ended.\""
+    ],
+    [
+      "check_timers",
+      "[B01-C07-S03] \"checked the outstanding timers\""
+    ]
+  ],
+  "diagnostics": [],
+  "scenarios": [
+    {
+      "key": "3ff6b55a566eebb117c85aaf49d326d2ea5cf03062da52f0a7ebdc8c1cac3425",
+      "support": 1,
+      "diffs": [],
+      "map_events": [
+        "quiet_expression",
+        "reflect"
+      ]
+    }
+  ],
+  "revision": true,
+  "diff_preview": [
+    [
+      "discretionary_attention",
+      1.0,
+      0.0
+    ],
+    [
+      "graphite_expression",
+      0.0,
+      1.0
+    ],
+    [
+      "quiet_period",
+      1.0,
+      0.0
+    ],
+    [
+      "reflection_done",
+      0.0,
+      1.0
+    ],
+    [
+      "saved_conversations",
+      1.0,
+      0.0
+    ]
+  ],
+  "comments_dropped": 0,
+  "text_changed": true
+}

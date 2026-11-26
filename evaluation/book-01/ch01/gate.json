@@ -1,0 +1,67 @@
+{
+  "ok": true,
+  "classification": "class-F candidate (statics admit; Z-check applies with bindings)",
+  "findings": [],
+  "warnings": [],
+  "rules": [
+    [
+      "prepare_greeting",
+      "[B01-C01-S01] \"Nina prepared a greeting.\""
+    ],
+    [
+      "withdraw_greeting",
+      "[B01-C01-S01] \"She withdrew the greeting.\""
+    ],
+    [
+      "greet",
+      "[B01-C01-S02] \"Now the evidence was considerably better.\""
+    ],
+    [
+      "brief",
+      "[B01-C01-S02] \"you promised yourself you'd call Elena.\""
+    ],
+    [
+      "reschedule",
+      "[B01-C01-S03] \"No. When I'm back from the appointment.\""
+    ],
+    [
+      "remind_on_return",
+      "[B01-C01-S03] \"It belonged to a future event: his return.\""
+    ],
+    [
+      "defer_discovery",
+      "[B01-C01-S04] \"Not before coffee.\""
+    ]
+  ],
+  "diagnostics": [],
+  "scenarios": [
+    {
+      "key": "8cd83c0948a25716c58d614a45082c76126d907800043fa7bb16f5678f685461",
+      "support": 1,
+      "diffs": [],
+      "map_events": [
+        "prepare_greeting"
+      ]
+    }
+  ],
+  "revision": true,
+  "diff_preview": [
+    [
+      "bedroom_motion",
+      1.0,
+      0.0
+    ],
+    [
+      "greeting_available",
+      1.0,
+      0.0
+    ],
+    [
+      "greeting_tentative",
+      0.0,
+      1.0
+    ]
+  ],
+  "comments_dropped": 0,
+  "text_changed": true
+}

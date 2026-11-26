@@ -1,0 +1,324 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch03/chapter.llp",
+  "key": "8f4cf01dbc1a55170fb6e4176398e9f21ec24164a3f67d5147245dc5639c0c09",
+  "seed": 19,
+  "case": "authored",
+  "initial": [
+    "inventory_mushrooms",
+    "privacy_boundary",
+    "self_description_available"
+  ],
+  "inputs": [
+    {
+      "label": "introduced visitor",
+      "inputs": [
+        "introduction(elena)",
+        "music_request(elena)"
+      ],
+      "present": [
+        "known_visitor(elena)",
+        "jazz_selected(elena)"
+      ],
+      "absent": []
+    },
+    {
+      "label": "scoped taste and corrected inventory",
+      "inputs": [
+        "simone_remark(elena)",
+        "mushrooms_finished_report"
+      ],
+      "present": [
+        "tentative_simone_preference(elena)",
+        "inventory_corrected"
+      ],
+      "absent": [
+        "tentative_simone_preference(resident)",
+        "inventory_mushrooms"
+      ]
+    },
+    {
+      "label": "private question and self description",
+      "inputs": [
+        "visitor_asks_about_resident",
+        "loneliness_question"
+      ],
+      "present": [
+        "resident_invited_to_explain",
+        "qualified_self_description"
+      ],
+      "absent": []
+    },
+    {
+      "label": "encounter ends",
+      "inputs": [
+        "encounter_ends"
+      ],
+      "present": [
+        "relationship_memory(elena)"
+      ],
+      "absent": []
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +introduction(elena) +music_request(elena) meet_visitor play_requested_music[P=elena] do +simone_remark(elena) +mushrooms_finished_report correct_inventory record_tentative_taste[P=elena] do +visitor_asks_about_resident +loneliness_question defer_private_answer answer_without_fabricated_senses do +encounter_ends remember_encounter\nstage (done) | inventory_corrected:1 jazz_selected(elena):1 known_visitor(elena):1 privacy_boundary:1 qualified_self_description:1 relationship_memory(elena):1 resident_invited_to_explain:1 tentative_simone_preference(elena):1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +introduction(elena) +music_request(elena)",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "music_request(elena)": 1,
+          "introduction(elena)": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "meet_visitor",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "introduction(elena)": 1
+        },
+        "produce": {
+          "known_visitor(elena)": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 3,
+        "name": "play_requested_music[P=elena]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "music_request(elena)": 1
+        },
+        "produce": {
+          "jazz_selected(elena)": 1
+        },
+        "persist": {
+          "known_visitor(elena)": 1
+        }
+      },
+      {
+        "i": 4,
+        "name": "do +simone_remark(elena) +mushrooms_finished_report",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "simone_remark(elena)": 1,
+          "mushrooms_finished_report": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 5,
+        "name": "correct_inventory",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "inventory_mushrooms": 1,
+          "mushrooms_finished_report": 1
+        },
+        "produce": {
+          "inventory_corrected": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 6,
+        "name": "record_tentative_taste[P=elena]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "simone_remark(elena)": 1
+        },
+        "produce": {
+          "tentative_simone_preference(elena)": 1
+        },
+        "persist": {
+          "known_visitor(elena)": 1
+        }
+      },
+      {
+        "i": 7,
+        "name": "do +visitor_asks_about_resident +loneliness_question",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "visitor_asks_about_resident": 1,
+          "loneliness_question": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 8,
+        "name": "defer_private_answer",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "visitor_asks_about_resident": 1
+        },
+        "produce": {
+          "resident_invited_to_explain": 1
+        },
+        "persist": {
+          "privacy_boundary": 1
+        }
+      },
+      {
+        "i": 9,
+        "name": "answer_without_fabricated_senses",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "self_description_available": 1,
+          "loneliness_question": 1
+        },
+        "produce": {
+          "qualified_self_description": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 10,
+        "name": "do +encounter_ends",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "encounter_ends": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 11,
+        "name": "remember_encounter",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "encounter_ends": 1
+        },
+        "produce": {
+          "relationship_memory(elena)": 1
+        },
+        "persist": {
+          "qualified_self_description": 1,
+          "known_visitor(elena)": 1
+        }
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "inventory_corrected": 1,
+      "jazz_selected(elena)": 1,
+      "known_visitor(elena)": 1,
+      "privacy_boundary": 1,
+      "qualified_self_description": 1,
+      "relationship_memory(elena)": 1,
+      "resident_invited_to_explain": 1,
+      "tentative_simone_preference(elena)": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "introduced visitor",
+      "counts": {
+        "inventory_mushrooms": 1,
+        "privacy_boundary": 1,
+        "self_description_available": 1,
+        "known_visitor(elena)": 1,
+        "jazz_selected(elena)": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "scoped taste and corrected inventory",
+      "counts": {
+        "privacy_boundary": 1,
+        "self_description_available": 1,
+        "known_visitor(elena)": 1,
+        "jazz_selected(elena)": 1,
+        "inventory_corrected": 1,
+        "tentative_simone_preference(elena)": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "private question and self description",
+      "counts": {
+        "privacy_boundary": 1,
+        "known_visitor(elena)": 1,
+        "jazz_selected(elena)": 1,
+        "inventory_corrected": 1,
+        "tentative_simone_preference(elena)": 1,
+        "resident_invited_to_explain": 1,
+        "qualified_self_description": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "encounter ends",
+      "counts": {
+        "privacy_boundary": 1,
+        "known_visitor(elena)": 1,
+        "jazz_selected(elena)": 1,
+        "inventory_corrected": 1,
+        "tentative_simone_preference(elena)": 1,
+        "resident_invited_to_explain": 1,
+        "qualified_self_description": 1,
+        "relationship_memory(elena)": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

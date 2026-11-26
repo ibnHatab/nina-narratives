@@ -1,0 +1,168 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/mechanisms/chapter.llp",
+  "key": "979ee55f2588db3c458d02a9ef47c198fea3d328f17ab7040bc8fcf4513a0b3d",
+  "seed": 1,
+  "case": "appointment-explanation",
+  "initial": [
+    "open_issue(appointment)",
+    "interruption_budget"
+  ],
+  "inputs": [
+    {
+      "label": "ambiguous observation",
+      "inputs": [
+        "discrepancy(appointment,sensor)",
+        "clarification_opportunity(appointment)"
+      ],
+      "present": [
+        "candidate(appointment,forgotten)",
+        "candidate(appointment,cancelled)",
+        "clarification_asked(appointment)",
+        "observation_kept(appointment,sensor)"
+      ],
+      "absent": []
+    },
+    {
+      "label": "sourced clarification",
+      "inputs": [
+        "explanation_report(appointment,cancelled,resident)"
+      ],
+      "present": [
+        "accepted_report(appointment,cancelled,resident)",
+        "observation_kept(appointment,sensor)"
+      ],
+      "absent": [
+        "considering(appointment)"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +discrepancy(appointment,sensor) +clarification_opportunity(appointment) consider[I=appointment,S=sensor,A=forgotten,B=cancelled] clarify[I=appointment] do +explanation_report(appointment,cancelled,resident) accept_report[I=appointment,R=cancelled,S=resident]\nstage (done) | accepted_report(appointment,cancelled,resident):1 candidate(appointment,forgotten):1 clarification_asked(appointment):1 observation_kept(appointment,sensor):1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +discrepancy(appointment,sensor) +clarification_opportunity(appointment)",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "clarification_opportunity(appointment)": 1,
+          "discrepancy(appointment,sensor)": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "consider[I=appointment,S=sensor,A=forgotten,B=cancelled]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "discrepancy(appointment,sensor)": 1,
+          "open_issue(appointment)": 1
+        },
+        "produce": {
+          "observation_kept(appointment,sensor)": 1,
+          "considering(appointment)": 1,
+          "candidate(appointment,forgotten)": 1,
+          "candidate(appointment,cancelled)": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 3,
+        "name": "clarify[I=appointment]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "clarification_opportunity(appointment)": 1,
+          "interruption_budget": 1
+        },
+        "produce": {
+          "clarification_asked(appointment)": 1
+        },
+        "persist": {
+          "considering(appointment)": 1
+        }
+      },
+      {
+        "i": 4,
+        "name": "do +explanation_report(appointment,cancelled,resident)",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "explanation_report(appointment,cancelled,resident)": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 5,
+        "name": "accept_report[I=appointment,R=cancelled,S=resident]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 4,
+        "episode": 0,
+        "consume": {
+          "considering(appointment)": 1,
+          "candidate(appointment,cancelled)": 1,
+          "explanation_report(appointment,cancelled,resident)": 1
+        },
+        "produce": {
+          "accepted_report(appointment,cancelled,resident)": 1
+        },
+        "persist": {}
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "accepted_report(appointment,cancelled,resident)": 1,
+      "candidate(appointment,forgotten)": 1,
+      "clarification_asked(appointment)": 1,
+      "observation_kept(appointment,sensor)": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "ambiguous observation",
+      "counts": {
+        "observation_kept(appointment,sensor)": 1,
+        "considering(appointment)": 1,
+        "candidate(appointment,forgotten)": 1,
+        "candidate(appointment,cancelled)": 1,
+        "clarification_asked(appointment)": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    },
+    {
+      "phase": "sourced clarification",
+      "counts": {
+        "observation_kept(appointment,sensor)": 1,
+        "candidate(appointment,forgotten)": 1,
+        "clarification_asked(appointment)": 1,
+        "accepted_report(appointment,cancelled,resident)": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

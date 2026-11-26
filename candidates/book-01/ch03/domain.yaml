@@ -1,0 +1,5 @@
+program: chapter.llp
+display: "Nina, Book I chapter 3"
+line: "Candidate fictional simulation: The woman who was not in the calendar"
+voice: third
+clock: {beats: 1}

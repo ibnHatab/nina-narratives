@@ -1,0 +1,102 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch06/chapter.llp",
+  "key": "ff65c9e8266960c1a445c8aaadf1bc4d7b86b980c04c44daf9f97fd3163711d0",
+  "seed": 19,
+  "case": "arrival-delay-does-not-revoke",
+  "initial": [
+    "simple_plan",
+    "decision_active"
+  ],
+  "inputs": [
+    {
+      "label": "later",
+      "inputs": [
+        "guest_delay_report"
+      ],
+      "present": [
+        "simple_plan",
+        "decision_active"
+      ],
+      "absent": [
+        "original_plan"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +guest_delay_report record_later_arrival offer_restoration\nstage (done) | decision_active:1 restoration_offered:1 simple_plan:1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +guest_delay_report",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "guest_delay_report": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "record_later_arrival",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "guest_delay_report": 1
+        },
+        "produce": {
+          "schedule_slack": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 3,
+        "name": "offer_restoration",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "schedule_slack": 1
+        },
+        "produce": {
+          "restoration_offered": 1
+        },
+        "persist": {
+          "simple_plan": 1,
+          "decision_active": 1
+        }
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "decision_active": 1,
+      "restoration_offered": 1,
+      "simple_plan": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "later",
+      "counts": {
+        "simple_plan": 1,
+        "decision_active": 1,
+        "restoration_offered": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

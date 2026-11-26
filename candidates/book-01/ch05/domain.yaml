@@ -1,0 +1,5 @@
+program: chapter.llp
+display: "Nina, Book I chapter 5"
+line: "Candidate fictional simulation: A project of her own"
+voice: third
+clock: {beats: 1}

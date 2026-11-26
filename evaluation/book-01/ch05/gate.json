@@ -1,0 +1,59 @@
+{
+  "ok": true,
+  "classification": "class-F candidate (statics admit; Z-check applies with bindings)",
+  "findings": [],
+  "warnings": [],
+  "rules": [
+    [
+      "begin_research",
+      "[B01-C05-S01] \"within her research permissions and resource budget.\""
+    ],
+    [
+      "separate_idea_from_implementation",
+      "[B01-C05-S02] \"separated the promising idea from the unreliable implementation\""
+    ],
+    [
+      "offer_note",
+      "[B01-C05-S03] \"she waited until he had taken off his coat.\""
+    ],
+    [
+      "discuss",
+      "[B01-C05-S03] \"Show me.\""
+    ],
+    [
+      "revise_together",
+      "[B01-C05-S04] \"the conclusion belonged to neither participant at the beginning.\""
+    ]
+  ],
+  "diagnostics": [],
+  "scenarios": [
+    {
+      "key": "55c4714dc0675b080cceb858cc4ee22bf03b545f109213c728fc853a430ec864",
+      "support": 1,
+      "diffs": [],
+      "map_events": [
+        "begin_research"
+      ]
+    }
+  ],
+  "revision": true,
+  "diff_preview": [
+    [
+      "nobody_home",
+      1.0,
+      0.0
+    ],
+    [
+      "research_active",
+      0.0,
+      1.0
+    ],
+    [
+      "research_budget",
+      1.0,
+      0.0
+    ]
+  ],
+  "comments_dropped": 0,
+  "text_changed": true
+}

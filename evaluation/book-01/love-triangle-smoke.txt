@@ -1,0 +1,32 @@
+run 6
+narrate
+metis shell — love_triangle.llp (catalog love-triangle, key e648d2c47888…)
+stage go | 4 atoms, 4 tokens — 'state' tabulates them
+llm openrouter:deepseek/deepseek-v4-pro · loop openrouter:deepseek/deepseek-v4-p
+ro · formalize the loop's · OpenRouter key set (OPENROUTER_API_KEY)
+workspace .: no bundle · 0 open surprise(s) · trace .metis/traces/repl-20261125T
+175759-70b29e
+type 'help' for commands, 'events' to see what can fire
+llp> run 6
+jealousy[A=helena,B=hermia,C=hermia] jealousy[A=helena,B=lysander,C=hermia] jeal
+ousy[A=hermia,B=helena,C=lysander] jealousy[A=helena,B=hermia,C=hermia] jealousy
+[A=hermia,B=helena,C=lysander] move_on[A=hermia,B=helena]
+stage go | anger(hermia,hermia):2 anger(hermia,lysander):1 anger(lysander,helena
+):2 anger(lysander,hermia):2 eros(helena,hermia):1 eros(helena,lysander):1 eros(
+lysander,hermia):1
+llp> narrate
+A Tangled Heart
+
+Helena loved Hermia while Hermia loved Helena, and Hermia seethed at both Helena
+ and herself; at the same time, Hermia loved Helena while Lysander loved Hermia,
+ so Lysander seethed at Hermia and Helena. Then Helena loved Lysander while Herm
+ia loved Helena, and Hermia seethed at Helena and Lysander, while once more Lysa
+nder seethed at Hermia and Helena. Then Hermia again seethed at Helena and herse
+lf. At last, with three angers aimed at Helena, Hermia’s love for her died. In t
+he end, Hermia was angry at herself twice, angry at Lysander, and Lysander was t
+wice angry at both Helena and Hermia, while Helena still loved Hermia and Lysand
+er, and Lysander still loved Hermia.
+
+Narrator's note: Beats 1 and 2 each held two events, and the repeated anger of L
+ysander in beat 2 was merged with the first.
+llp>

@@ -1,0 +1,16 @@
+{
+  "member": "mechanisms",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 2,
+  "inputs": 2,
+  "fired": {
+    "1": [
+      "change_plan[T=dinner,A=original,B=simple]",
+      "reconsider[T=dinner,A=simple]"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

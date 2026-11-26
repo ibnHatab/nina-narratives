@@ -1,0 +1,20 @@
+{
+  "member": "ch07",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 6,
+  "inputs": 3,
+  "fired": {
+    "1": [
+      "quiet_expression",
+      "reflect",
+      "qualify_moon_knowledge",
+      "discuss_embodiment",
+      "end_voice",
+      "check_timers"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

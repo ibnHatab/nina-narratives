@@ -1,0 +1,2138 @@
+[
+  {
+    "chapter": "ch01",
+    "case": "authored",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch01",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 6,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "prepare_greeting",
+          "withdraw_greeting",
+          "greet",
+          "brief[T=call_elena]",
+          "defer_discovery",
+          "reschedule[T=call_elena]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch01",
+    "case": "authored",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch01",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 6,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "prepare_greeting",
+          "withdraw_greeting",
+          "greet",
+          "brief[T=call_elena]",
+          "defer_discovery",
+          "reschedule[T=call_elena]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch01",
+    "case": "authored",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch01",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 6,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "prepare_greeting",
+          "withdraw_greeting",
+          "greet",
+          "brief[T=call_elena]",
+          "reschedule[T=call_elena]",
+          "defer_discovery"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch01",
+    "case": "return-releases-reminder",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch01",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "remind_on_return[T=call_elena]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch01",
+    "case": "return-releases-reminder",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch01",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "remind_on_return[T=call_elena]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch01",
+    "case": "return-releases-reminder",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch01",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "remind_on_return[T=call_elena]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch01",
+    "case": "kettle-alone",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch01",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch01",
+    "case": "kettle-alone",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch01",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch01",
+    "case": "kettle-alone",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch01",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch02",
+    "case": "authored",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch02",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 6,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "notice_missing_report",
+          "ask_about_override",
+          "revise_explanation",
+          "offer_quiet_scene",
+          "agree_scene",
+          "prepare_proposal"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch02",
+    "case": "authored",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch02",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 6,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "notice_missing_report",
+          "ask_about_override",
+          "revise_explanation",
+          "offer_quiet_scene",
+          "agree_scene",
+          "prepare_proposal"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch02",
+    "case": "authored",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch02",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 6,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "notice_missing_report",
+          "ask_about_override",
+          "revise_explanation",
+          "offer_quiet_scene",
+          "agree_scene",
+          "prepare_proposal"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch02",
+    "case": "explicit-start",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch02",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "activate_on_word"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch02",
+    "case": "explicit-start",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch02",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "activate_on_word"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch02",
+    "case": "explicit-start",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch02",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "activate_on_word"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch02",
+    "case": "presence-is-not-concentration",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch02",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch02",
+    "case": "presence-is-not-concentration",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch02",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch02",
+    "case": "presence-is-not-concentration",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch02",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch02",
+    "case": "word-without-consent",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch02",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch02",
+    "case": "word-without-consent",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch02",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch02",
+    "case": "word-without-consent",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch02",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch03",
+    "case": "authored",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch03",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 7,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "meet_visitor",
+          "play_requested_music[P=elena]",
+          "record_tentative_taste[P=elena]",
+          "correct_inventory",
+          "answer_without_fabricated_senses",
+          "defer_private_answer",
+          "remember_encounter"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch03",
+    "case": "authored",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch03",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 7,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "meet_visitor",
+          "play_requested_music[P=elena]",
+          "record_tentative_taste[P=elena]",
+          "correct_inventory",
+          "answer_without_fabricated_senses",
+          "defer_private_answer",
+          "remember_encounter"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch03",
+    "case": "authored",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch03",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 7,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "meet_visitor",
+          "play_requested_music[P=elena]",
+          "correct_inventory",
+          "record_tentative_taste[P=elena]",
+          "defer_private_answer",
+          "answer_without_fabricated_senses",
+          "remember_encounter"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch03",
+    "case": "unintroduced-voice",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch03",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch03",
+    "case": "unintroduced-voice",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch03",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch03",
+    "case": "unintroduced-voice",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch03",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch04",
+    "case": "authored",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch04",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 6,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "consider_explanations",
+          "ask_busy",
+          "reduce_interruptions",
+          "apparent_missed_appointment",
+          "correct_explanation",
+          "retain_ambiguity_case"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch04",
+    "case": "authored",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch04",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 6,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "consider_explanations",
+          "ask_busy",
+          "reduce_interruptions",
+          "apparent_missed_appointment",
+          "correct_explanation",
+          "retain_ambiguity_case"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch04",
+    "case": "authored",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch04",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 6,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "consider_explanations",
+          "ask_busy",
+          "reduce_interruptions",
+          "apparent_missed_appointment",
+          "correct_explanation",
+          "retain_ambiguity_case"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch04",
+    "case": "silence-without-diagnosis",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch04",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "consider_explanations"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch04",
+    "case": "silence-without-diagnosis",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch04",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "consider_explanations"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch04",
+    "case": "silence-without-diagnosis",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch04",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "consider_explanations"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch05",
+    "case": "authored",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch05",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 5,
+      "inputs": 5,
+      "fired": {
+        "1": [
+          "begin_research",
+          "separate_idea_from_implementation",
+          "offer_note",
+          "discuss",
+          "revise_together"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch05",
+    "case": "authored",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch05",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 5,
+      "inputs": 5,
+      "fired": {
+        "1": [
+          "begin_research",
+          "separate_idea_from_implementation",
+          "offer_note",
+          "discuss",
+          "revise_together"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch05",
+    "case": "authored",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch05",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 5,
+      "inputs": 5,
+      "fired": {
+        "1": [
+          "begin_research",
+          "separate_idea_from_implementation",
+          "offer_note",
+          "discuss",
+          "revise_together"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch05",
+    "case": "no-research-permission",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch05",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch05",
+    "case": "no-research-permission",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch05",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch05",
+    "case": "no-research-permission",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch05",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch05",
+    "case": "no-budget",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch05",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch05",
+    "case": "no-budget",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch05",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch05",
+    "case": "no-budget",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch05",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch06",
+    "case": "authored",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch06",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 8,
+      "inputs": 5,
+      "fired": {
+        "1": [
+          "remind_dinner",
+          "honor_short_delay",
+          "offer_tradeoff",
+          "simplify_on_consent",
+          "record_later_arrival",
+          "offer_restoration",
+          "retain_decision",
+          "coordinate_cooking"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch06",
+    "case": "authored",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch06",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 8,
+      "inputs": 5,
+      "fired": {
+        "1": [
+          "remind_dinner",
+          "honor_short_delay",
+          "offer_tradeoff",
+          "simplify_on_consent",
+          "record_later_arrival",
+          "offer_restoration",
+          "coordinate_cooking",
+          "retain_decision"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch06",
+    "case": "authored",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch06",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 8,
+      "inputs": 5,
+      "fired": {
+        "1": [
+          "remind_dinner",
+          "honor_short_delay",
+          "offer_tradeoff",
+          "simplify_on_consent",
+          "record_later_arrival",
+          "offer_restoration",
+          "coordinate_cooking",
+          "retain_decision"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch06",
+    "case": "no-consent-no-replanning",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch06",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "offer_tradeoff"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch06",
+    "case": "no-consent-no-replanning",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch06",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "offer_tradeoff"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch06",
+    "case": "no-consent-no-replanning",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch06",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "offer_tradeoff"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch06",
+    "case": "arrival-delay-does-not-revoke",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch06",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 2,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "record_later_arrival",
+          "offer_restoration"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch06",
+    "case": "arrival-delay-does-not-revoke",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch06",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 2,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "record_later_arrival",
+          "offer_restoration"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch06",
+    "case": "arrival-delay-does-not-revoke",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch06",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 2,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "record_later_arrival",
+          "offer_restoration"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch07",
+    "case": "authored",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch07",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 6,
+      "inputs": 3,
+      "fired": {
+        "1": [
+          "quiet_expression",
+          "reflect",
+          "discuss_embodiment",
+          "qualify_moon_knowledge",
+          "end_voice",
+          "check_timers"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch07",
+    "case": "authored",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch07",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 6,
+      "inputs": 3,
+      "fired": {
+        "1": [
+          "quiet_expression",
+          "reflect",
+          "discuss_embodiment",
+          "qualify_moon_knowledge",
+          "end_voice",
+          "check_timers"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch07",
+    "case": "authored",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch07",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 6,
+      "inputs": 3,
+      "fired": {
+        "1": [
+          "quiet_expression",
+          "reflect",
+          "qualify_moon_knowledge",
+          "discuss_embodiment",
+          "end_voice",
+          "check_timers"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch07",
+    "case": "mood-does-not-consume-duty",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch07",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "quiet_expression"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch07",
+    "case": "mood-does-not-consume-duty",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch07",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "quiet_expression"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch07",
+    "case": "mood-does-not-consume-duty",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch07",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "quiet_expression"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch08",
+    "case": "authored",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch08",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 7,
+      "inputs": 5,
+      "fired": {
+        "1": [
+          "restart_with_gap",
+          "acknowledge_outage",
+          "retain_relevant_reminder[R=relevant]",
+          "close_completed_reminder[R=completed]",
+          "request_authorized_restore",
+          "confirm_restore",
+          "continue_saved_conversation"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch08",
+    "case": "authored",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch08",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 7,
+      "inputs": 5,
+      "fired": {
+        "1": [
+          "restart_with_gap",
+          "close_completed_reminder[R=completed]",
+          "acknowledge_outage",
+          "retain_relevant_reminder[R=relevant]",
+          "request_authorized_restore",
+          "continue_saved_conversation",
+          "confirm_restore"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch08",
+    "case": "authored",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch08",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 7,
+      "inputs": 5,
+      "fired": {
+        "1": [
+          "restart_with_gap",
+          "close_completed_reminder[R=completed]",
+          "retain_relevant_reminder[R=relevant]",
+          "acknowledge_outage",
+          "request_authorized_restore",
+          "confirm_restore",
+          "continue_saved_conversation"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch08",
+    "case": "no-settings-authorization",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch08",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch08",
+    "case": "no-settings-authorization",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch08",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch08",
+    "case": "no-settings-authorization",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch08",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 0,
+      "inputs": 1,
+      "fired": {},
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch08",
+    "case": "request-is-not-confirmation",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch08",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "request_authorized_restore"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch08",
+    "case": "request-is-not-confirmation",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch08",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "request_authorized_restore"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "ch08",
+    "case": "request-is-not-confirmation",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "ch08",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "request_authorized_restore"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "fan-explanation",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 3,
+      "inputs": 2,
+      "fired": {
+        "1": [
+          "consider[I=ventilation,S=sensor,A=device_fault,B=manual_override]",
+          "clarify[I=ventilation]",
+          "accept_report[I=ventilation,R=manual_override,S=resident]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "fan-explanation",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 3,
+      "inputs": 2,
+      "fired": {
+        "1": [
+          "consider[I=ventilation,S=sensor,A=device_fault,B=manual_override]",
+          "clarify[I=ventilation]",
+          "accept_report[I=ventilation,R=manual_override,S=resident]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "fan-explanation",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 3,
+      "inputs": 2,
+      "fired": {
+        "1": [
+          "consider[I=ventilation,S=sensor,A=device_fault,B=manual_override]",
+          "clarify[I=ventilation]",
+          "accept_report[I=ventilation,R=manual_override,S=resident]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "appointment-explanation",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 3,
+      "inputs": 2,
+      "fired": {
+        "1": [
+          "consider[I=appointment,S=sensor,A=forgotten,B=cancelled]",
+          "clarify[I=appointment]",
+          "accept_report[I=appointment,R=cancelled,S=resident]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "appointment-explanation",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 3,
+      "inputs": 2,
+      "fired": {
+        "1": [
+          "consider[I=appointment,S=sensor,A=forgotten,B=cancelled]",
+          "clarify[I=appointment]",
+          "accept_report[I=appointment,R=cancelled,S=resident]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "appointment-explanation",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 3,
+      "inputs": 2,
+      "fired": {
+        "1": [
+          "consider[I=appointment,S=sensor,A=forgotten,B=cancelled]",
+          "clarify[I=appointment]",
+          "accept_report[I=appointment,R=cancelled,S=resident]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "pantry-transfer",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 3,
+      "inputs": 2,
+      "fired": {
+        "1": [
+          "consider[I=pantry,S=sensor,A=stale_inventory,B=consumed]",
+          "clarify[I=pantry]",
+          "accept_report[I=pantry,R=consumed,S=resident]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "pantry-transfer",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 3,
+      "inputs": 2,
+      "fired": {
+        "1": [
+          "consider[I=pantry,S=sensor,A=stale_inventory,B=consumed]",
+          "clarify[I=pantry]",
+          "accept_report[I=pantry,R=consumed,S=resident]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "pantry-transfer",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 3,
+      "inputs": 2,
+      "fired": {
+        "1": [
+          "consider[I=pantry,S=sensor,A=stale_inventory,B=consumed]",
+          "clarify[I=pantry]",
+          "accept_report[I=pantry,R=consumed,S=resident]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "authored",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 4,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "rebind_promise[T=call,A=morning,B=return]",
+          "make_ready[T=call,E=return]",
+          "remind[T=call]",
+          "reconcile_notified[T=call]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "authored",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 4,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "rebind_promise[T=call,A=morning,B=return]",
+          "make_ready[T=call,E=return]",
+          "remind[T=call]",
+          "reconcile_notified[T=call]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "authored",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 4,
+      "inputs": 4,
+      "fired": {
+        "1": [
+          "rebind_promise[T=call,A=morning,B=return]",
+          "make_ready[T=call,E=return]",
+          "remind[T=call]",
+          "reconcile_notified[T=call]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "dinner-consent-persists",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 2,
+      "inputs": 2,
+      "fired": {
+        "1": [
+          "change_plan[T=dinner,A=original,B=simple]",
+          "reconsider[T=dinner,A=simple]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "dinner-consent-persists",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 2,
+      "inputs": 2,
+      "fired": {
+        "1": [
+          "change_plan[T=dinner,A=original,B=simple]",
+          "reconsider[T=dinner,A=simple]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "dinner-consent-persists",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 2,
+      "inputs": 2,
+      "fired": {
+        "1": [
+          "change_plan[T=dinner,A=original,B=simple]",
+          "reconsider[T=dinner,A=simple]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "outage-reconcile",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "reconcile_scheduled[T=call,E=return]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "outage-reconcile",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "reconcile_scheduled[T=call,E=return]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "outage-reconcile",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 1,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "reconcile_scheduled[T=call,E=return]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "competing-reminders",
+    "seed": 1,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 3,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "make_ready[T=secondary_call,E=return]",
+          "make_ready[T=call,E=return]",
+          "remind[T=secondary_call]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "competing-reminders",
+    "seed": 7,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 3,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "make_ready[T=call,E=return]",
+          "remind[T=call]",
+          "make_ready[T=secondary_call,E=return]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "competing-reminders",
+    "seed": 19,
+    "passed": true,
+    "known_limitation": null,
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 3,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "make_ready[T=secondary_call,E=return]",
+          "remind[T=secondary_call]",
+          "make_ready[T=call,E=return]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "stale-trigger-counterexample",
+    "seed": 1,
+    "passed": false,
+    "known_limitation": "Trigger atoms lack event identity/freshness.",
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 2,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "rebind_promise[T=call,A=morning,B=return]",
+          "make_ready[T=call,E=return]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "stale-trigger-counterexample",
+    "seed": 7,
+    "passed": false,
+    "known_limitation": "Trigger atoms lack event identity/freshness.",
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 2,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "rebind_promise[T=call,A=morning,B=return]",
+          "make_ready[T=call,E=return]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "stale-trigger-counterexample",
+    "seed": 19,
+    "passed": false,
+    "known_limitation": "Trigger atoms lack event identity/freshness.",
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 2,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "rebind_promise[T=call,A=morning,B=return]",
+          "make_ready[T=call,E=return]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "completion-race-counterexample",
+    "seed": 1,
+    "passed": false,
+    "known_limitation": "No priority between reminder and completion reconciliation.",
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 2,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "remind[T=call]",
+          "reconcile_notified[T=call]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "completion-race-counterexample",
+    "seed": 7,
+    "passed": false,
+    "known_limitation": "No priority between reminder and completion reconciliation.",
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 2,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "remind[T=call]",
+          "reconcile_notified[T=call]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  },
+  {
+    "chapter": "mechanisms",
+    "case": "completion-race-counterexample",
+    "seed": 19,
+    "passed": false,
+    "known_limitation": "No priority between reminder and completion reconciliation.",
+    "replay": {
+      "member": "mechanisms",
+      "ticks": 1,
+      "beats": 0,
+      "rules": 2,
+      "inputs": 1,
+      "fired": {
+        "1": [
+          "remind[T=call]",
+          "reconcile_notified[T=call]"
+        ]
+      },
+      "out": {},
+      "divergence": null,
+      "note": null
+    }
+  }
+]

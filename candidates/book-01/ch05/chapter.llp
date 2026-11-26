@@ -1,0 +1,47 @@
+% Candidate simulation, not approved for deployment. Source 94e2c5829e6ebefa3bd41e35e513bba943dc8e12.
+% Book I Chapter 5: A project of her own. Scene IDs are defined in README.md.
+catalog nina_book01_ch05 1.
+provenance text "book-01:94e2c5829e6ebefa3bd41e35e513bba943dc8e12:C05" "2026-11-25".
+layers (story).
+stages (live).
+namespace narrative produce (story).
+pred better_question : narrative.
+pred coat_removed : narrative.
+pred costly_demo : narrative.
+pred discussion_active : narrative.
+pred human_returned : narrative.
+pred implementation_doubted : narrative.
+pred initial_approach_abandoned : narrative.
+pred nobody_home : narrative.
+pred note_capacity : narrative.
+pred objections_exchanged : narrative.
+pred promising_connection : narrative.
+pred qualified_note : narrative.
+pred research_active : narrative.
+pred research_budget : narrative.
+pred research_offer : narrative.
+pred research_permission : narrative.
+pred research_useful : narrative.
+pred shared_interest : narrative.
+pred show_me : narrative.
+pred tasks_clear : narrative.
+pred weak_support : narrative.
+stage live {
+  %% [B01-C05-S01] "within her research permissions and resource budget."
+  begin_research [story] : $shared_interest * $research_permission * research_budget * $tasks_clear * nobody_home -o research_active.
+  %% [B01-C05-S02] "separated the promising idea from the unreliable implementation"
+  separate_idea_from_implementation [story] : research_active * promising_connection * weak_support * costly_demo * note_capacity -o qualified_note * implementation_doubted.
+  %% [B01-C05-S03] "she waited until he had taken off his coat."
+  offer_note [story] : qualified_note * human_returned * coat_removed -o research_offer.
+  %% [B01-C05-S03] "Show me."
+  discuss [story] : research_offer * show_me -o discussion_active.
+  %% [B01-C05-S04] "the conclusion belonged to neither participant at the beginning."
+  revise_together [story] : discussion_active * objections_exchanged -o better_question * initial_approach_abandoned * research_useful.
+}
+#init shared_interest 1
+#init research_permission 1
+#init research_budget 1
+#init tasks_clear 1
+#init note_capacity 1
+#steps 32
+#seeds 3

@@ -1,0 +1,42 @@
+warning state-unproduced @ chapter.llp:8:6 (pred/astronomy_information)
+  pred astronomy_information : narrative.
+  -> produce astronomy_information in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:10:6 (pred/discretionary_attention)
+  pred discretionary_attention : narrative.
+  -> produce discretionary_attention in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:11:6 (pred/embodiment_question)
+  pred embodiment_question : narrative.
+  -> produce embodiment_question in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:12:6 (pred/good_night)
+  pred good_night : narrative.
+  -> produce good_night in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:13:6 (pred/graphite_expression)
+  pred graphite_expression : narrative.
+  -> give graphite_expression a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:14:6 (pred/human_moon_remark)
+  pred human_moon_remark : narrative.
+  -> produce human_moon_remark in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:15:6 (pred/hypothetical_embodiment_discussed)
+  pred hypothetical_embodiment_discussed : narrative.
+  -> give hypothetical_embodiment_discussed a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:16:6 (pred/moon_known_indirectly)
+  pred moon_known_indirectly : narrative.
+  -> give moon_known_indirectly a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:17:6 (pred/night_persona)
+  pred night_persona : narrative.
+  -> give night_persona a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:20:6 (pred/quiet_period)
+  pred quiet_period : narrative.
+  -> produce quiet_period in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:21:6 (pred/reflection_done)
+  pred reflection_done : narrative.
+  -> give reflection_done a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:22:6 (pred/saved_conversations)
+  pred saved_conversations : narrative.
+  -> produce saved_conversations in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:24:6 (pred/timers_checked)
+  pred timers_checked : narrative.
+  -> give timers_checked a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:25:6 (pred/ventilation_lowering_requested)
+  pred ventilation_lowering_requested : narrative.
+  -> give ventilation_lowering_requested a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on

@@ -1,0 +1,135 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "chapter": "B01-C06",
+  "seeds": [
+    1,
+    7,
+    19
+  ],
+  "cases": [
+    {
+      "name": "authored",
+      "initial": [
+        "dinner_commitment",
+        "original_plan",
+        "reminder_available"
+      ],
+      "phases": [
+        {
+          "label": "one reminder and requested delay",
+          "inputs": [
+            "preparation_due",
+            "ten_more_minutes"
+          ],
+          "present": [
+            "reminder_deferred"
+          ],
+          "absent": []
+        },
+        {
+          "label": "conflict during repair",
+          "inputs": [
+            "printer_repair",
+            "original_recipe_late"
+          ],
+          "present": [
+            "simplify_option",
+            "notify_guest_option",
+            "original_plan"
+          ],
+          "absent": [
+            "simple_plan"
+          ]
+        },
+        {
+          "label": "authorized simplification",
+          "inputs": [
+            "simplify_consent"
+          ],
+          "present": [
+            "simple_plan",
+            "decision_active"
+          ],
+          "absent": [
+            "original_plan"
+          ]
+        },
+        {
+          "label": "changed circumstances",
+          "inputs": [
+            "guest_delay_report"
+          ],
+          "present": [
+            "simple_plan",
+            "restoration_offered"
+          ],
+          "absent": [
+            "original_plan"
+          ]
+        },
+        {
+          "label": "decision persists and cooking adapts",
+          "inputs": [
+            "keep_simple_word",
+            "cooking_started",
+            "ingredient_diverted"
+          ],
+          "present": [
+            "simple_reaffirmed",
+            "improvised_dinner",
+            "simple_plan"
+          ],
+          "absent": [
+            "original_plan"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "no-consent-no-replanning",
+      "initial": [
+        "dinner_commitment",
+        "original_plan",
+        "reminder_deferred"
+      ],
+      "phases": [
+        {
+          "label": "conflict",
+          "inputs": [
+            "printer_repair",
+            "original_recipe_late"
+          ],
+          "present": [
+            "original_plan",
+            "simplify_option"
+          ],
+          "absent": [
+            "simple_plan"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "arrival-delay-does-not-revoke",
+      "initial": [
+        "simple_plan",
+        "decision_active"
+      ],
+      "phases": [
+        {
+          "label": "later",
+          "inputs": [
+            "guest_delay_report"
+          ],
+          "present": [
+            "simple_plan",
+            "decision_active"
+          ],
+          "absent": [
+            "original_plan"
+          ]
+        }
+      ]
+    }
+  ]
+}

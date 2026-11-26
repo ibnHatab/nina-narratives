@@ -1,0 +1,15 @@
+{
+  "member": "ch06",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 1,
+  "inputs": 1,
+  "fired": {
+    "1": [
+      "offer_tradeoff"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

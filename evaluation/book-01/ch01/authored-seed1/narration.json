@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "source": "session",
+  "seed": 0,
+  "events": 10,
+  "llm": "openrouter:deepseek/deepseek-v4-pro",
+  "narration": "Nina\u2019s Morning\n\nNina stirred in the bedroom, but no one followed. From the hallway came motion, the sound of a kettle, and a question about the day. She decided she would call Elena, though not before coffee. Then she prepared a greeting, while at the same time putting off any discovery until after coffee. She withdrew the greeting. Then, with the evidence now considerably better, she greeted someone. While greeted, she remembered she had promised herself she\u2019d call Elena, and so she briefed herself on that task. But then she rescheduled: no, she would call Elena when she was back from her appointment. In the end, the call to Elena was briefed but deferred, a greeting had been withdrawn, someone was greeted, and a reminder waited for her return.\n\nNarrator's note: Beat 1 held four environment events, beat 2 held two, and beat 5 held two; the environment events were told as outside happenings, and the simultaneous beats were joined with \u201cwhile\u201d or \u201cat the same time.\u201d",
+  "trace_seed": 1,
+  "program_key": "66bc82fea9e1272c064726a4de9df15265f9b9d5fad17da8593c601b4746b20d",
+  "assessment": "See evaluation/book-01/REVIEW.md; ok means API success, not semantic acceptance."
+}

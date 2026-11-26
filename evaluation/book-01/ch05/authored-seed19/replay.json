@@ -1,0 +1,19 @@
+{
+  "member": "ch05",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 5,
+  "inputs": 5,
+  "fired": {
+    "1": [
+      "begin_research",
+      "separate_idea_from_implementation",
+      "offer_note",
+      "discuss",
+      "revise_together"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

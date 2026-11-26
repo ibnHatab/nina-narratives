@@ -1,0 +1,93 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch06/chapter.llp",
+  "key": "1d2d18bcf20f14f20e69ac96c28f34e2ead13361a900c0a9e091746b6e730f41",
+  "seed": 1,
+  "case": "no-consent-no-replanning",
+  "initial": [
+    "dinner_commitment",
+    "original_plan",
+    "reminder_deferred"
+  ],
+  "inputs": [
+    {
+      "label": "conflict",
+      "inputs": [
+        "printer_repair",
+        "original_recipe_late"
+      ],
+      "present": [
+        "original_plan",
+        "simplify_option"
+      ],
+      "absent": [
+        "simple_plan"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +printer_repair +original_recipe_late offer_tradeoff\nstage (done) | dinner_commitment:1 notify_guest_option:1 original_plan:1 simplify_option:1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +printer_repair +original_recipe_late",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "printer_repair": 1,
+          "original_recipe_late": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "offer_tradeoff",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "reminder_deferred": 1,
+          "printer_repair": 1,
+          "original_recipe_late": 1
+        },
+        "produce": {
+          "simplify_option": 1,
+          "notify_guest_option": 1
+        },
+        "persist": {
+          "dinner_commitment": 1
+        }
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "dinner_commitment": 1,
+      "notify_guest_option": 1,
+      "original_plan": 1,
+      "simplify_option": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "conflict",
+      "counts": {
+        "dinner_commitment": 1,
+        "original_plan": 1,
+        "simplify_option": 1,
+        "notify_guest_option": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

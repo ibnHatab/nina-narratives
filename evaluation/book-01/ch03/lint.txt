@@ -1,0 +1,42 @@
+warning state-unproduced @ chapter.llp:9:6 (pred/encounter_ends)
+  pred encounter_ends : narrative.
+  -> produce encounter_ends in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:10:6 (pred/introduction)
+  pred introduction(person) : narrative.
+  -> produce introduction in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:11:6 (pred/inventory_corrected)
+  pred inventory_corrected : narrative.
+  -> give inventory_corrected a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:13:6 (pred/jazz_selected)
+  pred jazz_selected(person) : narrative.
+  -> give jazz_selected a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:14:6 (pred/known_visitor)
+  pred known_visitor(person) : narrative.
+  -> give known_visitor a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:15:6 (pred/loneliness_question)
+  pred loneliness_question : narrative.
+  -> produce loneliness_question in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:16:6 (pred/mushrooms_finished_report)
+  pred mushrooms_finished_report : narrative.
+  -> produce mushrooms_finished_report in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:17:6 (pred/music_request)
+  pred music_request(person) : narrative.
+  -> produce music_request in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:19:6 (pred/qualified_self_description)
+  pred qualified_self_description : narrative.
+  -> give qualified_self_description a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:20:6 (pred/relationship_memory)
+  pred relationship_memory(person) : narrative.
+  -> give relationship_memory a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:21:6 (pred/resident_invited_to_explain)
+  pred resident_invited_to_explain : narrative.
+  -> give resident_invited_to_explain a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:23:6 (pred/simone_remark)
+  pred simone_remark(person) : narrative.
+  -> produce simone_remark in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:24:6 (pred/tentative_simone_preference)
+  pred tentative_simone_preference(person) : narrative.
+  -> give tentative_simone_preference a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:25:6 (pred/visitor_asks_about_resident)
+  pred visitor_asks_about_resident : narrative.
+  -> produce visitor_asks_about_resident in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it

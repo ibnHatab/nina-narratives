@@ -1,0 +1,5 @@
+program: chapter.llp
+display: "Nina, Book I chapter 4"
+line: "Candidate fictional simulation: The art of being wrong"
+voice: third
+clock: {beats: 1}

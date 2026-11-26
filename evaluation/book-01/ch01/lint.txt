@@ -1,0 +1,39 @@
+warning state-unproduced @ chapter.llp:9:6 (pred/bedroom_motion)
+  pred bedroom_motion : narrative.
+  -> produce bedroom_motion in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:10:6 (pred/briefed)
+  pred briefed(task) : narrative.
+  -> give briefed a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:11:6 (pred/day_question)
+  pred day_question : narrative.
+  -> produce day_question in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:12:6 (pred/discovery_deferred)
+  pred discovery_deferred : narrative.
+  -> give discovery_deferred a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:14:6 (pred/greeted)
+  pred greeted : narrative.
+  -> give greeted a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:17:6 (pred/greeting_withdrawn)
+  pred greeting_withdrawn : narrative.
+  -> give greeting_withdrawn a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:18:6 (pred/hallway_motion)
+  pred hallway_motion : narrative.
+  -> produce hallway_motion in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:19:6 (pred/kettle_heard)
+  pred kettle_heard : narrative.
+  -> produce kettle_heard in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:20:6 (pred/no_followup)
+  pred no_followup : narrative.
+  -> produce no_followup in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:21:6 (pred/not_before_coffee)
+  pred not_before_coffee : narrative.
+  -> produce not_before_coffee in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:22:6 (pred/reminded)
+  pred reminded(task) : narrative.
+  -> give reminded a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:25:6 (pred/request_after_return)
+  pred request_after_return(task) : narrative.
+  -> produce request_after_return in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:26:6 (pred/returned_from_appointment)
+  pred returned_from_appointment : narrative.
+  -> produce returned_from_appointment in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it

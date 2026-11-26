@@ -1,0 +1,73 @@
+{
+  "ok": true,
+  "classification": "class-F candidate (statics admit; Z-check applies with bindings)",
+  "findings": [],
+  "warnings": [],
+  "rules": [
+    [
+      "meet_visitor",
+      "[B01-C03-S01] \"Nina, meet Elena.\""
+    ],
+    [
+      "play_requested_music",
+      "[B01-C03-S01] \"Elena asked her to play music.\""
+    ],
+    [
+      "record_tentative_taste",
+      "[B01-C03-S02] \"a tentative preference to Elena's profile\""
+    ],
+    [
+      "correct_inventory",
+      "[B01-C03-S02] \"Those mushrooms were finished yesterday.\""
+    ],
+    [
+      "defer_private_answer",
+      "[B01-C03-S03] \"I'll let him explain it.\""
+    ],
+    [
+      "answer_without_fabricated_senses",
+      "[B01-C03-S04] \"I'm trying not to invent a nervous system for myself.\""
+    ],
+    [
+      "remember_encounter",
+      "[B01-C03-S04] \"it had changed the way the two of them understood each other.\""
+    ]
+  ],
+  "diagnostics": [],
+  "scenarios": [
+    {
+      "key": "412fe2267556ef49e071e57dc4a0c6330cf0428de208e4cfc6ad8d8d36f27cc2",
+      "support": 1,
+      "diffs": [],
+      "map_events": [
+        "meet_visitor",
+        "play_requested_music[P=elena]"
+      ]
+    }
+  ],
+  "revision": true,
+  "diff_preview": [
+    [
+      "introduction(elena)",
+      1.0,
+      0.0
+    ],
+    [
+      "jazz_selected(elena)",
+      0.0,
+      1.0
+    ],
+    [
+      "known_visitor(elena)",
+      0.0,
+      1.0
+    ],
+    [
+      "music_request(elena)",
+      1.0,
+      0.0
+    ]
+  ],
+  "comments_dropped": 0,
+  "text_changed": true
+}

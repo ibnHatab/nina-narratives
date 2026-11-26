@@ -1,0 +1,18 @@
+{
+  "member": "mechanisms",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 4,
+  "inputs": 4,
+  "fired": {
+    "1": [
+      "rebind_promise[T=call,A=morning,B=return]",
+      "make_ready[T=call,E=return]",
+      "remind[T=call]",
+      "reconcile_notified[T=call]"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

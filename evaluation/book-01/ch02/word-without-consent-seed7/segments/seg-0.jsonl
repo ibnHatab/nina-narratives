@@ -1,0 +1,2 @@
+{"clock":"command","composition":null,"image":null,"protocol":"99f429e38aa3fa2c","commands":[],"clocks":[{"domain":"ch02","n":1}],"live":"metis-loop-console","members":{"ch02":{"seed":1,"weights":[],"out":[],"key":"edd05ed23378fe29313b2c021b2429846647438252e407823d148af4819aef8e","program":"candidates/book-01/ch02/chapter.llp"}},"trace":1,"k0":0,"checkpoint":"checkpoints/k0.json"}
+{"k":1,"t":1795623027.583,"members":{"ch02":{"why":"command","cmd":"run 128","seq":[{"take":["+work_start_word"],"by":"tool"}],"out":[]}}}

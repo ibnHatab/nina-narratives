@@ -1,0 +1,17 @@
+{
+  "member": "mechanisms",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 3,
+  "inputs": 1,
+  "fired": {
+    "1": [
+      "make_ready[T=call,E=return]",
+      "remind[T=call]",
+      "make_ready[T=secondary_call,E=return]"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

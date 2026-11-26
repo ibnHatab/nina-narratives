@@ -1,0 +1,45 @@
+warning state-unproduced @ chapter.llp:10:6 (pred/completion_report)
+  pred completion_report(reminder) : narrative.
+  -> produce completion_report in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:11:6 (pred/connection_reliable)
+  pred connection_reliable : narrative.
+  -> produce connection_reliable in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:12:6 (pred/controllers_at_defaults)
+  pred controllers_at_defaults : narrative.
+  -> produce controllers_at_defaults in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:14:6 (pred/conversation_opening)
+  pred conversation_opening : narrative.
+  -> produce conversation_opening in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:15:6 (pred/conversation_resumed)
+  pred conversation_resumed : narrative.
+  -> give conversation_resumed a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:16:6 (pred/outage_explained)
+  pred outage_explained : narrative.
+  -> give outage_explained a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:18:6 (pred/pending)
+  pred pending(reminder) : narrative.
+  -> give pending a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:19:6 (pred/power_failure_report)
+  pred power_failure_report : narrative.
+  -> produce power_failure_report in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:20:6 (pred/reconciled)
+  pred reconciled(reminder) : narrative.
+  -> give reconciled a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:21:6 (pred/recovered_checkpoint)
+  pred recovered_checkpoint : narrative.
+  -> give recovered_checkpoint a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-unproduced @ chapter.llp:22:6 (pred/relevance_report)
+  pred relevance_report(reminder) : narrative.
+  -> produce relevance_report in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:23:6 (pred/restart)
+  pred restart : narrative.
+  -> produce restart in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-unproduced @ chapter.llp:25:6 (pred/restored_settings_report)
+  pred restored_settings_report : narrative.
+  -> produce restored_settings_report in some rule, hold it in #init, or list it as in or world-private in the manifest: nothing here makes it
+warning state-dead-end @ chapter.llp:27:6 (pred/settings_restored)
+  pred settings_restored : narrative.
+  -> give settings_restored a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on
+warning state-dead-end @ chapter.llp:28:6 (pred/unknown_interval)
+  pred unknown_interval : narrative.
+  -> give unknown_interval a consumer (a release, a cancel, a done), list it as out or a status in the manifest, or drop the rule that produces it: a hold with no way on

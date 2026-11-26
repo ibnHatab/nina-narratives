@@ -1,0 +1,17 @@
+{
+  "member": "mechanisms",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 3,
+  "inputs": 2,
+  "fired": {
+    "1": [
+      "consider[I=pantry,S=sensor,A=stale_inventory,B=consumed]",
+      "clarify[I=pantry]",
+      "accept_report[I=pantry,R=consumed,S=resident]"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

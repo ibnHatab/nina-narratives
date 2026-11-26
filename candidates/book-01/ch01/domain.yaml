@@ -1,0 +1,5 @@
+program: chapter.llp
+display: "Nina, Book I chapter 1"
+line: "Candidate fictional simulation: The morning before anyone wakes"
+voice: third
+clock: {beats: 1}

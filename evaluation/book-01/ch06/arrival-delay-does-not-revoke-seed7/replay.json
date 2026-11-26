@@ -1,0 +1,16 @@
+{
+  "member": "ch06",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 2,
+  "inputs": 1,
+  "fired": {
+    "1": [
+      "record_later_arrival",
+      "offer_restoration"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

@@ -1,0 +1,15 @@
+{
+  "member": "ch01",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 1,
+  "inputs": 1,
+  "fired": {
+    "1": [
+      "remind_on_return[T=call_elena]"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

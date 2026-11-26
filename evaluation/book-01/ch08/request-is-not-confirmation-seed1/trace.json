@@ -1,0 +1,88 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/ch08/chapter.llp",
+  "key": "fcedd51611daff2eebb67a0b9def3ff3777ba29102bf29d8f462bc17d765a6e3",
+  "seed": 1,
+  "case": "request-is-not-confirmation",
+  "initial": [
+    "recovered_checkpoint",
+    "settings_authorized"
+  ],
+  "inputs": [
+    {
+      "label": "connection",
+      "inputs": [
+        "connection_reliable",
+        "controllers_at_defaults"
+      ],
+      "present": [
+        "restore_requested"
+      ],
+      "absent": [
+        "settings_restored"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +connection_reliable +controllers_at_defaults request_authorized_restore\nstage (done) | recovered_checkpoint:1 restore_requested:1 settings_authorized:1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +connection_reliable +controllers_at_defaults",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "controllers_at_defaults": 1,
+          "connection_reliable": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "request_authorized_restore",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "connection_reliable": 1,
+          "controllers_at_defaults": 1
+        },
+        "produce": {
+          "restore_requested": 1
+        },
+        "persist": {
+          "settings_authorized": 1,
+          "recovered_checkpoint": 1
+        }
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "recovered_checkpoint": 1,
+      "restore_requested": 1,
+      "settings_authorized": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "connection",
+      "counts": {
+        "recovered_checkpoint": 1,
+        "settings_authorized": 1,
+        "restore_requested": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

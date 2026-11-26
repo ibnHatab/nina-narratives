@@ -1,0 +1,79 @@
+% Candidate shared mechanisms, not deployed or human-approved.
+% Fiction source 94e2c5829e6ebefa3bd41e35e513bba943dc8e12, B01-C01/C02/C04/C06/C08.
+% Issue and task constants instantiate a reusable rule schema; no character-named rules.
+catalog nina_situations_commitments 1.
+provenance text "Book I situations and commitments: source 94e2c5829e6ebefa3bd41e35e513bba943dc8e12" "2026-11-25".
+layers (story).
+stages (live).
+namespace cognition produce (story).
+type issue {ventilation appointment pantry}.
+type reason {device_fault manual_override forgotten cancelled stale_inventory consumed}.
+type source {resident sensor}.
+type task {call dinner secondary_call}.
+type trigger {morning return arrival}.
+type plan {original simple}.
+bwd alternatives(issue,reason,reason).
+alternatives(ventilation,device_fault,manual_override).
+alternatives(appointment,forgotten,cancelled).
+alternatives(pantry,stale_inventory,consumed).
+pred discrepancy(issue,source) : cognition.
+pred observation_kept(issue,source) : cognition.
+pred open_issue(issue) : cognition.
+pred considering(issue) : cognition.
+pred candidate(issue,reason) : cognition.
+pred explanation_report(issue,reason,source) : cognition.
+pred accepted_report(issue,reason,source) : cognition.
+pred clarification_opportunity(issue) : cognition.
+pred clarification_asked(issue) : cognition.
+pred interruption_budget : cognition.
+pred promise(task,trigger) : cognition.
+pred rebind(task,trigger,trigger) : cognition.
+pred trigger_observed(trigger) : cognition.
+pred ready(task) : cognition.
+pred notified(task) : cognition.
+pred fulfilled(task) : cognition.
+pred completion_report(task) : cognition.
+pred consented_plan(task,plan) : cognition.
+pred change_consent(task,plan) : cognition.
+pred changed_circumstances(task) : cognition.
+pred reconsideration_offered(task) : cognition.
+stage live {
+  %% [B01-C02-S01, B01-C04-S01] "There were several possible explanations."
+  %% Nina retains the observed discrepancy and considers two possible explanations; neither is established as true.
+  consider [story] : discrepancy(I,S) * open_issue(I) * alternatives(I,A,B)
+    -o observation_kept(I,S) * considering(I) * candidate(I,A) * candidate(I,B).
+  %% [B01-C02-S01, B01-C04-S01] "Busy morning?"
+  %% Given an explicit opportunity, Nina spends one available interruption to ask for clarification, before certainty.
+  clarify [story] : $considering(I) * clarification_opportunity(I) * interruption_budget
+    -o clarification_asked(I).
+  %% [B01-C02-S02, B01-C04-S02] "What had changed was the explanation connecting them."
+  %% Nina accepts a sourced report as her current explanation; she retains the observations, not certainty about hidden truth.
+  accept_report [story] : considering(I) * candidate(I,R) * explanation_report(I,R,S)
+    -o accepted_report(I,R,S).
+  %% [B01-C01-S03] "It belonged to a future event: his return."
+  %% At the resident's instruction, Nina changes a promise's trigger, preserving the promise itself.
+  rebind_promise [story] : promise(T,A) * rebind(T,A,B) -o promise(T,B).
+  %% [B01-C01-S03] "It belonged to a future event: his return."
+  %% A reported trigger makes its promised reminder ready; a notification has not yet happened.
+  make_ready [story] : promise(T,E) * $trigger_observed(E) -o ready(T).
+  %% [B01-C01-S02, B01-C06-S01] "At five forty-five, she mentioned it."
+  %% Nina spends one interruption opportunity to remind the resident about task T. Notification does not fulfill the task.
+  remind [story] : ready(T) * interruption_budget -o notified(T).
+  %% [B01-C08-S02] "an activity he had already completed."
+  %% A human completion report closes a still-scheduled promise without delivering an obsolete reminder.
+  reconcile_scheduled [story] : promise(T,E) * completion_report(T) -o fulfilled(T).
+  %% [B01-C08-S02] "an activity he had already completed."
+  %% A human completion report closes a ready promise before any notification.
+  reconcile_ready [story] : ready(T) * completion_report(T) -o fulfilled(T).
+  %% [B01-C08-S02] "an activity he had already completed."
+  %% A human completion report closes an already-notified task; the earlier reminder alone did not establish completion.
+  reconcile_notified [story] : notified(T) * completion_report(T) -o fulfilled(T).
+  %% [B01-C06-S02] "Do it."
+  %% Explicit fresh consent changes the selected plan. Changed circumstances alone grant no such permission.
+  change_plan [story] : consented_plan(T,A) * change_consent(T,B) -o consented_plan(T,B).
+  %% [B01-C06-S03] "A changed circumstance did not automatically cancel a decision"
+  %% Changed circumstances can prompt reconsideration while preserving the consented plan.
+  reconsider [story] : $consented_plan(T,A) * changed_circumstances(T) -o reconsideration_offered(T).
+}
+#steps 32
+#seeds 3

@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "source": "session",
+  "seed": 0,
+  "events": 13,
+  "llm": "openrouter:deepseek/deepseek-v4-pro",
+  "narration": "A Dinner Decision\n\nIn this telling, the world outside moved first: the preparation time came due, with only ten more minutes to spare, while the printer needed repair and the original recipe was late. At the same time, consent was given to simplify, a guest\u2019s delay was reported, and the cook kept her word to keep things simple even as cooking started and an ingredient was diverted. At five forty-five, she mentioned the dinner, and the conflict of the guest\u2019s delay disappeared. Then she honored a short delay, granting another ten minutes. She offered a tradeoff: simplify the recipe or tell Elena. The choice was made to simplify. Later, she offered to restore the original dinner, but at the same time, they improvised with the cooking. The decision was retained: no, the simple one was fine. In the end, the simple plan and the decision remained active, the dinner commitment held, an improvised dinner was made, and the simple choice was reaffirmed.\n\nNarrator's note: Beat 1 held five simultaneous environmental events, beat 2 held two events, and beat 6 held two events.",
+  "trace_seed": 1,
+  "program_key": "cfcde3757ee2db1aa9844c25dd52bb7c2dd66ea3a9124ecd090843da43b20830",
+  "assessment": "See evaluation/book-01/REVIEW.md; ok means API success, not semantic acceptance."
+}

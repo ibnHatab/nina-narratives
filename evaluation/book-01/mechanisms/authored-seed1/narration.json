@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "source": "session",
+  "seed": 0,
+  "events": 8,
+  "llm": "openrouter:deepseek/deepseek-v4-pro",
+  "narration": "**A Promise Rebound**\n\nIn this telling, the world outside moved: a promise was set to be rebound from morning to return, the morning trigger was observed, the return trigger was observed, and a completion report arrived for the call. Then Nina changed the promise\u2019s trigger from morning to return, preserving the promise itself. At the same time, the reported return trigger made the promised reminder ready. Then Nina spent an interruption opportunity to remind the resident about the call. Finally, the human completion report closed the already-notified task, fulfilling it. In the end the call was fulfilled, and the morning and return triggers had been observed.\n\nNarrator's note: Beat 1 held four environment interventions, beat 3 held two events joined by \u201cat the same time\u201d, and the final state\u2019s two trigger_observed facts were combined into one closing sentence.",
+  "trace_seed": 1,
+  "program_key": "e16d1883bb73f066bef946d4e88b8cece608b537d94204880ea8b37c39b8c53a",
+  "assessment": "See evaluation/book-01/REVIEW.md; ok means API success, not semantic acceptance."
+}

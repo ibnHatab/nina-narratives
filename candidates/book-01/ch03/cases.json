@@ -1,0 +1,88 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "chapter": "B01-C03",
+  "seeds": [
+    1,
+    7,
+    19
+  ],
+  "cases": [
+    {
+      "name": "authored",
+      "initial": [
+        "inventory_mushrooms",
+        "privacy_boundary",
+        "self_description_available"
+      ],
+      "phases": [
+        {
+          "label": "introduced visitor",
+          "inputs": [
+            "introduction(elena)",
+            "music_request(elena)"
+          ],
+          "present": [
+            "known_visitor(elena)",
+            "jazz_selected(elena)"
+          ],
+          "absent": []
+        },
+        {
+          "label": "scoped taste and corrected inventory",
+          "inputs": [
+            "simone_remark(elena)",
+            "mushrooms_finished_report"
+          ],
+          "present": [
+            "tentative_simone_preference(elena)",
+            "inventory_corrected"
+          ],
+          "absent": [
+            "tentative_simone_preference(resident)",
+            "inventory_mushrooms"
+          ]
+        },
+        {
+          "label": "private question and self description",
+          "inputs": [
+            "visitor_asks_about_resident",
+            "loneliness_question"
+          ],
+          "present": [
+            "resident_invited_to_explain",
+            "qualified_self_description"
+          ],
+          "absent": []
+        },
+        {
+          "label": "encounter ends",
+          "inputs": [
+            "encounter_ends"
+          ],
+          "present": [
+            "relationship_memory(elena)"
+          ],
+          "absent": []
+        }
+      ]
+    },
+    {
+      "name": "unintroduced-voice",
+      "initial": [
+        "privacy_boundary"
+      ],
+      "phases": [
+        {
+          "label": "remark",
+          "inputs": [
+            "simone_remark(elena)"
+          ],
+          "present": [],
+          "absent": [
+            "tentative_simone_preference(elena)"
+          ]
+        }
+      ]
+    }
+  ]
+}

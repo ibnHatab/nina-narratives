@@ -1,0 +1,77 @@
+{
+  "ok": true,
+  "classification": "class-F candidate (statics admit; Z-check applies with bindings)",
+  "findings": [],
+  "warnings": [],
+  "rules": [
+    [
+      "remind_dinner",
+      "[B01-C06-S01] \"At five forty-five, she mentioned it.\""
+    ],
+    [
+      "honor_short_delay",
+      "[B01-C06-S01] \"Another ten minutes.\""
+    ],
+    [
+      "offer_tradeoff",
+      "[B01-C06-S02] \"We can simplify the recipe, or you can tell Elena.\""
+    ],
+    [
+      "simplify_on_consent",
+      "[B01-C06-S02] \"Do it.\""
+    ],
+    [
+      "record_later_arrival",
+      "[B01-C06-S03] \"The conflict disappeared.\""
+    ],
+    [
+      "offer_restoration",
+      "[B01-C06-S03] \"We can restore the original dinner.\""
+    ],
+    [
+      "retain_decision",
+      "[B01-C06-S03] \"No, the simple one is fine.\""
+    ],
+    [
+      "coordinate_cooking",
+      "[B01-C06-S04] \"They improvised.\""
+    ]
+  ],
+  "diagnostics": [],
+  "scenarios": [
+    {
+      "key": "3e3cfa5971cc38df12b00c594f53d0b0ac7e41741428751426124e1fe5c7154f",
+      "support": 1,
+      "diffs": [],
+      "map_events": [
+        "remind_dinner",
+        "honor_short_delay"
+      ]
+    }
+  ],
+  "revision": true,
+  "diff_preview": [
+    [
+      "preparation_due",
+      1.0,
+      0.0
+    ],
+    [
+      "reminder_available",
+      1.0,
+      0.0
+    ],
+    [
+      "reminder_deferred",
+      0.0,
+      1.0
+    ],
+    [
+      "ten_more_minutes",
+      1.0,
+      0.0
+    ]
+  ],
+  "comments_dropped": 0,
+  "text_changed": true
+}

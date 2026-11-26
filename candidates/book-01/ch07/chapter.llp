@@ -1,0 +1,46 @@
+% Candidate simulation, not approved for deployment. Source 94e2c5829e6ebefa3bd41e35e513bba943dc8e12.
+% Book I Chapter 7: The quieter constellation. Scene IDs are defined in README.md.
+catalog nina_book01_ch07 1.
+provenance text "book-01:94e2c5829e6ebefa3bd41e35e513bba943dc8e12:C07" "2026-11-25".
+layers (story).
+stages (live).
+namespace narrative produce (story).
+pred astronomy_information : narrative.
+pred commitments_active : narrative.
+pred discretionary_attention : narrative.
+pred embodiment_question : narrative.
+pred good_night : narrative.
+pred graphite_expression : narrative.
+pred human_moon_remark : narrative.
+pred hypothetical_embodiment_discussed : narrative.
+pred moon_known_indirectly : narrative.
+pred night_persona : narrative.
+pred night_settings_authorized : narrative.
+pred persona_continuity : narrative.
+pred quiet_period : narrative.
+pred reflection_done : narrative.
+pred saved_conversations : narrative.
+pred timer_check_due : narrative.
+pred timers_checked : narrative.
+pred ventilation_lowering_requested : narrative.
+pred voice_session : narrative.
+stage live {
+  %% [B01-C07-S01] "She was still Nina."
+  quiet_expression [story] : quiet_period * $persona_continuity -o graphite_expression.
+  %% [B01-C07-S01] "She revisited old conversations."
+  reflect [story] : $graphite_expression * discretionary_attention * saved_conversations -o reflection_done.
+  %% [B01-C07-S02] "not because she could see it herself."
+  qualify_moon_knowledge [story] : astronomy_information * human_moon_remark -o moon_known_indirectly.
+  %% [B01-C07-S02] "Occasionally, in the hypothetical sense."
+  discuss_embodiment [story] : embodiment_question * $persona_continuity -o hypothetical_embodiment_discussed.
+  %% [B01-C07-S03] "Her voice session ended."
+  end_voice [story] : good_night * voice_session * $night_settings_authorized -o night_persona * ventilation_lowering_requested * timer_check_due.
+  %% [B01-C07-S03] "checked the outstanding timers"
+  check_timers [story] : timer_check_due * $commitments_active -o timers_checked.
+}
+#init commitments_active 1
+#init persona_continuity 1
+#init voice_session 1
+#init night_settings_authorized 1
+#steps 32
+#seeds 3

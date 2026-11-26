@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "source": "session",
+  "seed": 0,
+  "events": 12,
+  "llm": "openrouter:deepseek/deepseek-v4-pro",
+  "narration": "A Restart, and a Conversation Continued\n\nThe world outside the story moved: a restart occurred, along with a power failure report, a completion report for something completed, and a relevance report for something relevant. The controllers were at their defaults, the connection became reliable, and a restored settings report arrived with a conversation opening.\n\nThen, because there were no events from which to remember them, the restart and the checkpoint were lost, leaving a recovered checkpoint and an unknown interval. At the same time, the other was still relevant, so the overdue relevance report became pending, while an activity he had already completed was reconciled from its overdue completion report.\n\nNext, the system acknowledged the outage, explaining that it did not know what happened while it was offline, and the power failure report was gone. Then, after their connection became reliable, the controllers at their defaults and the recovered checkpoint gave way to a request for an authorized restore.\n\nFinally, she restored the authorized household settings, consuming the restore request and the restored settings report. At the same time, the conversation resumed\u2014a reasonably good one for things that did\u2014using the conversation memory and the explained outage.\n\nIn the end, a conversation memory remained, the conversation was resumed, the outage was explained, the relevant reminder was pending, the completed one was reconciled, and the settings were both authorized and restored, with the recovered checkpoint and the unknown interval still present.\n\nNarrator's note: Beat 1 held five simultaneous environmental interventions, beat 2 held three events, and beat 4 held two events.",
+  "trace_seed": 1,
+  "program_key": "7eb02e1c66605fa66376f32e1476610c0296958a0bb26bb6ee3bbe8d4bb1792c",
+  "assessment": "See evaluation/book-01/REVIEW.md; ok means API success, not semantic acceptance."
+}

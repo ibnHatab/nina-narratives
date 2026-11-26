@@ -1,0 +1,119 @@
+{
+  "source_revision": "94e2c5829e6ebefa3bd41e35e513bba943dc8e12",
+  "program": "candidates/book-01/mechanisms/chapter.llp",
+  "key": "5f83de241a22d2f77a767f86e907c5202b35a59aac0d22edc6581d2c08365cc6",
+  "seed": 7,
+  "case": "competing-reminders",
+  "initial": [
+    "promise(call,return)",
+    "promise(secondary_call,return)",
+    "interruption_budget"
+  ],
+  "inputs": [
+    {
+      "label": "one opportunity, two promises",
+      "inputs": [
+        "trigger_observed(return)"
+      ],
+      "present": [],
+      "absent": [
+        "fulfilled(call)",
+        "fulfilled(secondary_call)"
+      ]
+    }
+  ],
+  "result": {
+    "ok": true,
+    "text": "do +trigger_observed(return) make_ready[T=call,E=return] remind[T=call] make_ready[T=secondary_call,E=return]\nstage (done) | notified(call):1 ready(secondary_call):1 trigger_observed(return):1",
+    "fired": [
+      {
+        "i": 1,
+        "name": "do +trigger_observed(return)",
+        "kind": "exo",
+        "stage": "live",
+        "post": null,
+        "beat": 1,
+        "episode": 0,
+        "consume": {},
+        "produce": {
+          "trigger_observed(return)": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 2,
+        "name": "make_ready[T=call,E=return]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "promise(call,return)": 1
+        },
+        "produce": {
+          "ready(call)": 1
+        },
+        "persist": {
+          "trigger_observed(return)": 1
+        }
+      },
+      {
+        "i": 3,
+        "name": "remind[T=call]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 3,
+        "episode": 0,
+        "consume": {
+          "ready(call)": 1,
+          "interruption_budget": 1
+        },
+        "produce": {
+          "notified(call)": 1
+        },
+        "persist": {}
+      },
+      {
+        "i": 4,
+        "name": "make_ready[T=secondary_call,E=return]",
+        "kind": "clause",
+        "stage": "live",
+        "post": null,
+        "beat": 2,
+        "episode": 0,
+        "consume": {
+          "promise(secondary_call,return)": 1
+        },
+        "produce": {
+          "ready(secondary_call)": 1
+        },
+        "persist": {
+          "trigger_observed(return)": 1
+        }
+      }
+    ],
+    "stage": "(done)",
+    "counts": {
+      "notified(call)": 1,
+      "ready(secondary_call)": 1,
+      "trigger_observed(return)": 1
+    }
+  },
+  "checks": [
+    {
+      "phase": "one opportunity, two promises",
+      "counts": {
+        "trigger_observed(return)": 1,
+        "notified(call)": 1,
+        "ready(secondary_call)": 1
+      },
+      "missing": [],
+      "forbidden": [],
+      "ok": true
+    }
+  ],
+  "complete": true,
+  "passed": true
+}

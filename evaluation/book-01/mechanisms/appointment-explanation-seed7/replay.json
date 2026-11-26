@@ -1,0 +1,17 @@
+{
+  "member": "mechanisms",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 3,
+  "inputs": 2,
+  "fired": {
+    "1": [
+      "consider[I=appointment,S=sensor,A=forgotten,B=cancelled]",
+      "clarify[I=appointment]",
+      "accept_report[I=appointment,R=cancelled,S=resident]"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

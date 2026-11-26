@@ -1,0 +1,67 @@
+{
+  "ok": true,
+  "classification": "class-F candidate (statics admit; Z-check applies with bindings)",
+  "findings": [],
+  "warnings": [],
+  "rules": [
+    [
+      "notice_missing_report",
+      "[B01-C02-S01] \"the expected change in the device's reported state had not arrived.\""
+    ],
+    [
+      "ask_about_override",
+      "[B01-C02-S01] \"Did you change the ventilation settings in the lab?\""
+    ],
+    [
+      "revise_explanation",
+      "[B01-C02-S02] \"Another agent had intervened.\""
+    ],
+    [
+      "offer_quiet_scene",
+      "[B01-C02-S02] \"Would you like me to make a quiet working scene?\""
+    ],
+    [
+      "agree_scene",
+      "[B01-C02-S03] \"Yes. But don't switch off the ventilation completely.\""
+    ],
+    [
+      "activate_on_word",
+      "[B01-C02-S03] \"I'll tell you for now.\""
+    ],
+    [
+      "prepare_proposal",
+      "[B01-C02-S04] \"She did not install the proposal herself.\""
+    ]
+  ],
+  "diagnostics": [],
+  "scenarios": [
+    {
+      "key": "937caf770df3b080a4d95f4a0e421be5eaed40640dbc8ffc8f65a424bb08cfe4",
+      "support": 1,
+      "diffs": [],
+      "map_events": [
+        "notice_missing_report"
+      ]
+    }
+  ],
+  "revision": true,
+  "diff_preview": [
+    [
+      "command_pending",
+      1.0,
+      0.0
+    ],
+    [
+      "explanation_open",
+      0.0,
+      1.0
+    ],
+    [
+      "response_overdue",
+      1.0,
+      0.0
+    ]
+  ],
+  "comments_dropped": 0,
+  "text_changed": true
+}

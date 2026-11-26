@@ -1,0 +1,17 @@
+{
+  "member": "mechanisms",
+  "ticks": 1,
+  "beats": 0,
+  "rules": 3,
+  "inputs": 2,
+  "fired": {
+    "1": [
+      "consider[I=ventilation,S=sensor,A=device_fault,B=manual_override]",
+      "clarify[I=ventilation]",
+      "accept_report[I=ventilation,R=manual_override,S=resident]"
+    ]
+  },
+  "out": {},
+  "divergence": null,
+  "note": null
+}

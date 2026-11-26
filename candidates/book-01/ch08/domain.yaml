@@ -1,0 +1,5 @@
+program: chapter.llp
+display: "Nina, Book I chapter 8"
+line: "Candidate fictional simulation: The missing hours"
+voice: third
+clock: {beats: 1}
