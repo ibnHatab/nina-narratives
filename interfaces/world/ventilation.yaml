@@ -22,3 +22,78 @@ commands:                        # out: a fired rule named in `rules` → world 
 receipts: {via: ha_state}        # the world confirms a command by a reading; none within grace_s → world surprise
 freshness: {feed_down: forget}
 consumers: [air, comfort, scenes]
+families:
+  air:
+    reads:
+    - running
+    - stopped
+    - normal_mode
+    - night_mode
+    - boost_mode
+    - heater_on
+    - heater_off
+    - winter_on
+    - winter_off
+    - unit_ok
+    - unit_missing
+    - cold_out
+    - mild_out
+    - out_unknown
+    outcomes:
+    - done
+    - refused
+    - switched
+    - kept
+    - missed
+    - advise_winter
+    - noted
+    events:
+    - chilled
+    owned:
+    - normal_mode
+    - night_mode
+    - boost_mode
+    - heater_on
+    - heater_off
+    - winter_on
+    - winter_off
+role_map: units
+bindings:
+  unit.supply: fan.{prefix}_supply_fan
+  unit.fans:
+  - fan.{prefix}_supply_fan
+  - fan.{prefix}_extract_fan
+  unit.switch: switch.{prefix}_{rule.switch}
+values:
+  air_night:
+    rule.preset: night
+  air_night_from_boost:
+    rule.preset: night
+  sweep_night:
+    rule.preset: night
+  sweep_night_boost:
+    rule.preset: night
+  air_boost:
+    rule.preset: boost
+  air_boost_from_night:
+    rule.preset: boost
+  normal_from_night:
+    rule.preset: normal
+  normal_from_boost:
+    rule.preset: normal
+  heater_up:
+    rule.switch: heater
+    rule.state: 'on'
+    rule.tool: HassTurnOn
+  heater_down:
+    rule.switch: heater
+    rule.state: 'off'
+    rule.tool: HassTurnOff
+  winter_up:
+    rule.switch: winter
+    rule.state: 'on'
+    rule.tool: HassTurnOn
+  winter_down:
+    rule.switch: winter
+    rule.state: 'off'
+    rule.tool: HassTurnOff

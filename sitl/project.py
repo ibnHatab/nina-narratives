@@ -6,36 +6,8 @@ module turns its likeliest values (home.State) into the exclusive families of in
 per role, `unsensed`/`untracked` when the world does not know) and the one-beat edges. It keeps the
 classification's own state, the vacant timer and the hysteresis, which the rules expect.
 
-The per-member tables (READS, OUTCOMES, EVENTS, OWNED, ACTS) are catalog knowledge copied from nina-live's
-host. They move into the world contracts in sitl/TASKS.md T7.
+Projection membership and edge ownership come from interfaces/world/*.yaml.
 """
-
-READS = {
-    'lights': ('light_lit', 'light_dark', 'light_ok', 'light_missing', 'room_lit', 'room_unlit',
-               'occupied', 'empty', 'vacant', 'unsensed', 'day', 'night'),
-    'air': ('running', 'stopped', 'normal_mode', 'night_mode', 'boost_mode', 'heater_on', 'heater_off',
-            'winter_on', 'winter_off', 'unit_ok', 'unit_missing', 'cold_out', 'mild_out', 'out_unknown'),
-    'media': ('tv_on', 'tv_off', 'tv_ok', 'tv_missing', 'ir_ready', 'ir_absent'),
-    'scenes': ('someone_home', 'nobody_home', 'home_unsensed', 'day', 'night'),
-    'comfort': ('running', 'stopped', 'heater_on', 'heater_off', 'cold_room', 'comfy_room', 'warm_room',
-                'untracked', 'humid_room', 'fresh_room', 'humidity_unknown'),
-}
-OUTCOMES = {
-    'lights': ('done', 'refused', 'switched', 'kept', 'missed', 'auto_off', 'suggest_light'),
-    'air': ('done', 'refused', 'switched', 'kept', 'missed', 'advise_winter', 'noted'),
-    'media': ('done', 'refused', 'switched', 'kept', 'missed', 'sent'),
-    'scenes': ('done', 'refused', 'scene_lights', 'scene_air', 'scene_media', 'suggest', 'welcomed'),
-    'comfort': ('advise_air', 'advise_heater', 'advise_open', 'noted', 'said', 'refused'),
-}
-EVENTS = {
-    'lights': ('entered',), 'air': ('chilled',), 'media': (),
-    'scenes': ('left_home', 'came_home', 'dawn'), 'comfort': ('got_cold', 'got_warm', 'got_humid'),
-}
-OWNED = {
-    'lights': ('light_lit', 'light_dark', 'room_lit', 'room_unlit'),
-    'air': ('normal_mode', 'night_mode', 'boost_mode', 'heater_on', 'heater_off', 'winter_on', 'winter_off'),
-    'media': ('tv_on', 'tv_off'),
-}
 
 
 def hysteresis(prev, value, enter, leave, above):
@@ -47,7 +19,8 @@ def hysteresis(prev, value, enter, leave, above):
 
 
 class Projector:
-    def __init__(self, world_map):
+    def __init__(self, world_map, families):
+        self.families = families
         self.m = world_map
         self.th = world_map.get('thresholds') or {}
         self.empty_since = {}      # room -> world time it was first seen empty
@@ -134,9 +107,8 @@ class Projector:
         r['ir_ready'], r['ir_absent'] = ir, not ir
         return r, ev
 
-    @staticmethod
-    def for_member(member, families, edges):
-        reads = READS.get(member, ())
+    def for_member(self, member, families, edges):
+        reads = self.families.get(member, {}).get('reads', ())
         want = {a: v for a, v in families.items() if a.split('(')[0] in reads}
-        evs = [e for e in edges if e.split('(')[0] in EVENTS.get(member, ())]
+        evs = [e for e in edges if e.split('(')[0] in self.families.get(member, {}).get('events', ())]
         return want, evs

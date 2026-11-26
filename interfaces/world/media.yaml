@@ -1,0 +1,28 @@
+family: media
+version: 1
+owner: world
+ports: {}
+edges: []
+commands: {}
+receipts: {via: none}
+consumers: [media]
+families:
+  media:
+    reads:
+    - tv_on
+    - tv_off
+    - tv_ok
+    - tv_missing
+    - ir_ready
+    - ir_absent
+    outcomes:
+    - done
+    - refused
+    - switched
+    - kept
+    - missed
+    - sent
+    events: []
+    owned:
+    - tv_on
+    - tv_off

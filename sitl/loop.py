@@ -20,6 +20,8 @@ import os
 import subprocess
 import sys
 import time
+import tempfile
+from itertools import zip_longest
 from pathlib import Path
 
 import yaml
@@ -27,17 +29,12 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'sitl'))
 
-from mcp_sim import HomeAssistantSim  # noqa: E402
+from mcp_sim import HomeAssistantSim, discovery, device_command  # noqa: E402
 from scope import audience, check_paths, local_event
 from monitors import Monitors
 from person_sim import Person  # noqa: E402
-from project import EVENTS, OUTCOMES, OWNED, Projector  # noqa: E402
+from project import Projector  # noqa: E402
 
-PRESETS = {'air_night': 'night', 'air_night_from_boost': 'night', 'sweep_night': 'night', 'sweep_night_boost': 'night',
-           'air_boost': 'boost', 'air_boost_from_night': 'boost', 'normal_from_night': 'normal',
-           'normal_from_boost': 'normal'}
-SWITCHES = {'heater_up': ('heater', 'on', 'HassTurnOn'), 'heater_down': ('heater', 'off', 'HassTurnOff'),
-            'winter_up': ('winter', 'on', 'HassTurnOn'), 'winter_down': ('winter', 'off', 'HassTurnOff')}
 WORLD_KINDS = {'ha_state', 'feed_down', 'command', 'conclude', 'settle', 'strain'}
 
 
@@ -68,16 +65,17 @@ class World:
 
 def contracts(world_dir):
     """(rule -> (family, command, spec), [edge specs]) from every contract."""
-    rules, edges = {}, []
+    rules, edges, families = {}, [], {}
     for path in sorted(world_dir.glob('*.yaml')):
         c = yaml.safe_load(path.read_text())
+        families.update(c.get('families', {}))
         for name, spec in (c.get('commands') or {}).items():
             for rule in spec.get('rules') or []:
-                rules[rule] = (c['family'], name, spec)
+                rules[rule] = (c, name, spec)
         for e in c.get('edges') or []:
             if isinstance(e, dict) and e.get('when'):
                 edges.append(dict(e, family=c['family'], consumers=c['consumers']))
-    return rules, edges
+    return rules, edges, families
 
 
 def edge_of(ev, edges):
@@ -93,43 +91,6 @@ def edge_of(ev, edges):
         atom = pred + ('(' + ','.join(args) + ')' if args else '')
         return atom, e.get('lifetime', 'beat')
     return None
-
-
-def device_command(rule, family, spec, role, m):
-    """The world's prediction (var, value) and the HA tool call for a fired device rule on ROLE."""
-    pred, mcp = dict(spec['predicts']), dict(spec['adapter']['mcp'])
-    if family == 'lights':
-        return pred, mcp['tool'], {'name': m['lights'][role]['entity']}
-    pre = m['units'][role]['prefix']
-    fans = ['fan.%s_supply_fan' % pre, 'fan.%s_extract_fan' % pre]
-    if rule in PRESETS:
-        pred['value'] = PRESETS[rule]
-        return pred, mcp['tool'], {'name': fans[0], 'preset_mode': PRESETS[rule]}
-    if rule in SWITCHES:
-        var, state, tool = SWITCHES[rule]
-        return {'var': var, 'value': state}, tool, {'name': 'switch.%s_%s' % (pre, var)}
-    return pred, mcp['tool'], {'name': fans}
-
-
-def discovery(m, at):
-    """The initial get_states: every entity the map names, as discovered. Devices off, rooms empty."""
-    out = []
-    for d in (m.get('lights') or {}).values():
-        if d.get('entity'):
-            out.append({'entity_id': d['entity'], 'state': 'off', 'attributes': {}})
-    for d in (m.get('units') or {}).values():
-        for f in ('supply', 'extract'):
-            out.append({'entity_id': 'fan.%s_%s_fan' % (d['prefix'], f), 'state': 'off', 'attributes': {}})
-        for sv in ('heater', 'winter'):
-            out.append({'entity_id': 'switch.%s_%s' % (d['prefix'], sv), 'state': 'off', 'attributes': {}})
-    for d in (m.get('tvs') or {}).values():
-        if d.get('entity'):
-            out.append({'entity_id': d['entity'], 'state': 'off', 'attributes': {}})
-    for r, e in (m.get('radar') or {}).items():
-        if e and not r.startswith('_'):
-            out.append({'entity_id': e, 'state': 'off', 'attributes': {}})
-    out.append({'entity_id': m.get('sun', 'sun.sun'), 'state': 'above_horizon', 'attributes': {}})
-    return [{'at': at, 'kind': 'ha_state', 'ha': s} for s in out]
 
 
 def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
@@ -174,6 +135,7 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
     from metis_agent.runtime.feed import RuntimeFeed
     from metis_agent.service import Live
     from metis_agent.trace import NoModel
+    home.mkdir(parents=True, exist_ok=True)
     workspace = Workspace(home)
     workspace.made()
     trace_dir = workspace.path('trace', run=run_id)
@@ -185,7 +147,7 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
     live = Live(cfg, NoModel())
     live.handle_due = lambda *_: None
     hosts = dict(nh.REGISTRY)
-    rules, edge_specs = contracts(ROOT / 'interfaces/world')
+    rules, edge_specs, families = contracts(ROOT / 'interfaces/world')
     edge_preds = {e['pred'].split('(')[0]: e.get('lifetime', 'beat') for e in edge_specs}
     takes = {n: set((mans[n].get('world') or {}).get('out') or []) for n in names}
     for name, preds in takes.items():
@@ -193,15 +155,16 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
         if preds - allowed:
             raise ValueError(f'{name} declares unauthorized world edges {sorted(preds - allowed)}')
     for n, h in hosts.items():
-        h.retract = (set(OUTCOMES.get(n, ())) | set(EVENTS.get(n, ()))
+        family = families.get(n, {})
+        h.retract = (set(family.get('outcomes', ())) | set(family.get('events', ()))
                      | {p for p in takes.get(n, ()) if edge_preds.get(p) == 'beat'})
-        h.owned = OWNED.get(n, ())
+        h.owned = family.get('owned', ())
 
     truth = sc.get('truth') or {}
     ha = HomeAssistantSim(truth.get('devices'))
     people = {name: Person(name, t) for name, t in (truth.get('people') or {}).items()}
     monitors = Monitors(sc.get('monitors'), people)
-    proj = Projector(m)
+    proj = Projector(m, families)
     beat_s, horizon = float(sc.get('beat_s', 5)), float(sc['horizon_s'])
     script = discovery(m, 0.0) + [dict(e) for e in sc.get('script') or []]
     for p in people.values():
@@ -217,6 +180,9 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
     tasks = sorted({h['task'] for p in people.values() for h in p.t.get('hands') or []})
     truth_log = (trace_dir / 'truth.jsonl').open('w')     # the hidden truth per beat, for the triage (spec 20 §4)
     with (out / 'events.jsonl').open('w') as log:
+        header = {'sitl': 1, 'scenario_file': os.path.relpath(Path(scenario_path).resolve(), ROOT),
+                  'scenario': sc, 'seed': seed, 'image': live.image.hash}
+        log.write(json.dumps(header) + '\n')
         world = World(base / sc['world_map'], readers, log)
         try:
             t = 0.0
@@ -258,7 +224,7 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
                 fams, dev_edges = proj.project(reply['state'], t)
                 lines = (reply.get('out') or {}).get('Lines') or {}
                 for n, h in hosts.items():
-                    want, evs = Projector.for_member(n, fams, dev_edges)
+                    want, evs = proj.for_member(n, fams, dev_edges)
                     h.give(t, want, lines.get(n) or [], evs + beat_edges.get(n, []))
                 for i, p in enumerate(person_cmds):
                     live.agents.agents[p['member']].host.submit('%s:%d:say%d' % (run_id, k, i), p['atom'])
@@ -317,6 +283,8 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
         findings.append({'kind': 'violation', 'slug': 'world-%s-%d' % (s['key'], s['k']), 'k': s['k'], 'k0': s['k'],
                          'k1': s['k'], 'words': 'world (%s): %s %s' % (s['kind'], s['key'], s['why']), 'world': s})
         feed.finding(findings[-1])
+    with (out / 'events.jsonl').open('a') as log:
+        log.write(json.dumps({'findings': findings, 'world_hash': final}, sort_keys=True) + '\n')
     truth_log.close()
     live.tracer.close()
     ids = feed.run_ended(run_id, 'done')
@@ -337,12 +305,35 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
     return summary
 
 
+def replay(log_path):
+    """Re-execute the recorded outside and seed against this image with fresh trace storage."""
+    path = Path(log_path)
+    with path.open() as original, tempfile.TemporaryDirectory() as tmp:
+        header = json.loads(original.readline())
+        if header.get('sitl') != 1:
+            raise ValueError('missing SITL replay header')
+        original.seek(0)
+        out = Path(tmp) / 'runs'
+        summary = run(ROOT / header['scenario_file'], header['seed'], out,
+                      scenario=header['scenario'], storage=Path(tmp) / 'workspace')
+        with (out / summary['run'] / 'events.jsonl').open() as reproduced:
+            for idx, (left, right) in enumerate(zip_longest(original, reproduced), 1):
+                if left != right:
+                    raise ValueError(f'replay diverged at row {idx}')
+    return dict(run=summary['run'], world_hash=summary['world_hash'], findings=summary['findings'])
+
+
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('scenario')
+    group = ap.add_mutually_exclusive_group(required=True)
+    group.add_argument('scenario', nargs='?')
+    group.add_argument('--replay', metavar='EVENTS')
     ap.add_argument('--seed', type=int)
     ap.add_argument('--out')
     a = ap.parse_args()
+    if a.replay:
+        print(json.dumps(replay(a.replay), indent=2))
+        sys.exit(0)
     t0 = time.time()
     s = run(a.scenario, a.seed, a.out)
     print(json.dumps({k: s[k] for k in ('run', 'commands', 'findings', 'expect', 'world_hash')}, indent=1))

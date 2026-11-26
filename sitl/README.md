@@ -93,3 +93,11 @@ until a reviewed rule change removes it.
 The generic host (`nina_world/host.py`) serves both compositions unchanged; the person (`person_sim.py`) perceives only
 Nina's `say` and answers with reports; the monitors read the truth, no member does. Reruns are byte-identical.
 Not yet: monitors beyond `forbid`, contract-driven families (`project.py`'s tables), `--replay`, office.
+
+## Research suite after the baseline
+
+The suite now includes sixteen home cognition scenarios, the ventilation control and twelve studio scenarios. The aspect matrix and ranking are in cognition/aspects/README.md. The full task and ruling ledger is in sitl/TASKS.md. A matching baseline may contain a narrative violation.
+
+Use `sitl/run.sh --replay sitl/runs/b01-completed-s1/events.jsonl` after running the scenario. Replay rebuilds the outside from the recorded scenario and seed in temporary trace storage and compares every log row, including intermediate world hashes, listener deliveries and final findings. It uses the current compiled image and world map. The transcript header identifies the image. A changed image or divergent row fails replay. Older transcripts need a new run to supply the header.
+
+The require monitor checks a time interval, order checks precedence in observed acts, and never_reads runs a control with one changed private truth field and compares the selected member and channel. An inactive member can pass a negative monitor. Read its trace alongside positive requirements before drawing a conclusion about competence. These are finite experiments.

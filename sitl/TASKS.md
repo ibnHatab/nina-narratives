@@ -38,10 +38,10 @@ T2 — `d6800e9`. Both seed-2 records triaged structural. Both gates refused at 
 T3 — `32549eb`, `5228a35`. Monitor unit tests, contract probe and 17 scenario comparisons passed. Live adapters were not run. The baseline update adds fourteen home experiments. Three new findings (absent listener, cold room source, parcel account) triaged evidential with MCP trace_kind on the recorded truth. The current truth column names tasks and has limited coverage of evidence provenance. Eight aspects now have two or more scenarios counting the original commitments pair. Noninterference probes cover the named field and audience only.
 
 ## T4. Office (Volume II): a second workspace, the same cognition
-- [ ] `workspaces/office/`: its own composition, director instance and fictional world map over the **same** `cognition/` units (thin instances; spec 18 for office deltas). No ventilation, because the office's discovery finds none.
-- [ ] Office scenarios from Volume II (12 chapters) through the same loop. Multiparty conversation, typed channels per participant, groups. A monitor checks that no office event or record reads a home one.
+- [x] `workspaces/office/`: its own composition, director instance and fictional world map over the **same** `cognition/` units (thin instances; spec 18 for office deltas). No ventilation, because the office's discovery finds none.
+- [x] Office scenarios from Volume II (12 chapters) through the same loop. Multiparty conversation, typed channels per participant, groups. A monitor checks that no office event or record reads a home one.
 
-T4 baseline update adds twelve studio experiments. The interview intentionally rejects a foreign record. Introductions exposes a reminder spoken during absence. Both new records triaged evidential. No external office adapters were used.
+T4 — `992cabe`. Both images built, all 29 baselines matched. The baseline update adds twelve studio experiments. The interview intentionally rejects a foreign record. Introductions exposes a reminder spoken during absence. Both new records triaged evidential. No external office adapters were used.
 
 ## T5. Loop quality
 - [ ] Move `project.py`'s tables and `loop.py`'s PRESETS/SWITCHES into the contracts (`families:`, value maps), so the loop keeps no domain knowledge.

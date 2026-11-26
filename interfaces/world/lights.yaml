@@ -12,3 +12,35 @@ commands:
               adapter: {mcp: {server: ha, tool: HassTurnOff, args: {name: "{light.entity}"}}}}
 receipts: {via: ha_state}
 consumers: [lights, scenes]
+families:
+  lights:
+    reads:
+    - light_lit
+    - light_dark
+    - light_ok
+    - light_missing
+    - room_lit
+    - room_unlit
+    - occupied
+    - empty
+    - vacant
+    - unsensed
+    - day
+    - night
+    outcomes:
+    - done
+    - refused
+    - switched
+    - kept
+    - missed
+    - auto_off
+    - suggest_light
+    events:
+    - entered
+    owned:
+    - light_lit
+    - light_dark
+    - room_lit
+    - room_unlit
+role_map: lights
+bindings: {light.entity: "{entity}"}

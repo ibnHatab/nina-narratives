@@ -114,9 +114,18 @@ def check_members(contracts, workspace):
             elif name not in (contracts[offered[port]].get('consumers') or []):
                 bad.append(f'{name}: reads {offered[port]}.{port} but is not among its consumers')
     defined = set()
+    comp, _ = members(workspace)
+    build = workspace / 'build' / (comp['name'] + '.build')
+    image = None
+    if build.exists():
+        image = build.parent / build.read_text().splitlines()[0].split()[1]
     for name, (path, _) in ms.items():
-        for llp in path.parent.glob('*.llp'):
-            defined |= set(re.findall(r'^\s+([a-z_][a-z0-9_]*) \[', llp.read_text(), re.M))
+        sidecar = image / 'members' / name / 'sidecar.json' if image else None
+        if sidecar and sidecar.exists():
+            defined.update(e['rule'] for e in json.loads(sidecar.read_text())['events'] if 'rule' in e)
+        else:
+            for llp in path.parent.glob('*.llp'):
+                defined.update(re.findall(r'^\s+([a-z_][a-z0-9_]*) \[', llp.read_text(), re.M))
     for n, c in sorted(contracts.items()):
         for cmd, spec in (c.get('commands') or {}).items():
             missing = [r for r in spec.get('rules') or [] if r not in defined]

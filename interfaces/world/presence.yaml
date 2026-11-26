@@ -14,3 +14,23 @@ commands: {}
 receipts: {via: none}
 freshness: {feed_down: forget}   # the radar's "off" decays only while the feed is up (semantic-world DESIGN §4)
 consumers: [lights, comfort, scenes, attention, social]
+families:
+  scenes:
+    reads:
+    - someone_home
+    - nobody_home
+    - home_unsensed
+    - day
+    - night
+    outcomes:
+    - done
+    - refused
+    - scene_lights
+    - scene_air
+    - scene_media
+    - suggest
+    - welcomed
+    events:
+    - left_home
+    - came_home
+    - dawn

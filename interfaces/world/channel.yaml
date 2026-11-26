@@ -20,3 +20,8 @@ receipts:
   via: none
 consumers:
 - social
+audiences:
+  map: channels
+  kinds: [public, group, private]
+  private_recipients: 1
+  scope: incarnation

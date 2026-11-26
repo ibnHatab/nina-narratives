@@ -1,0 +1,9 @@
+# Categorical reports with provenance
+
+For the metis-worlds maintainers. This proposal follows B01-C04-S02 (the changed explanation) and B01-C08-S02 (reported completion). A person's account can guide the next act while the underlying event remains unobserved. Today the board refuses an undeclared categorical variable such as call.deferral. The SITL logs these reports as contract edges.
+
+Let a workspace declare a port with a finite value vocabulary, key types, authorized reporters and permitted consumers. For a reminder, the key could be (person, task) and the values deferred or renewed. Register these variables before Board.Join. A report event carries event time, incarnation, principal, key, value, stable report ID and optional reference to the command or report it answers. Scope the key and ID to the incarnation and channel audience.
+
+At settle, expose the current *reported* value, its source and a freshness level to authorized consumers. Compare age against a declared freshness interval using event time. Expiry makes evidence stale. Absence supplies no negative observation. Preserve a separately sensed completion and a contradictory report as distinct evidence. A correction should name the earlier report. A duplicate ID with the same content is idempotent, and a conflicting reuse is an evidential finding. Report confidence and decay need independent calibration before deployment.
+
+A conformance fixture should deliver later, replay its duplicate, advance past expiry, and accept a fresh invitation. A second fixture should deliver completion to one private session and verify that another participant and incarnation cannot read it. Replay should reproduce all hashes, projections and findings. Existing edge-only consumers need a versioned migration so the same report cannot open two turns.

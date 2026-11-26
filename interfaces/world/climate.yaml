@@ -10,3 +10,28 @@ edges: []
 commands: {}
 receipts: {via: none}
 consumers: [comfort, air, situations]
+families:
+  comfort:
+    reads:
+    - running
+    - stopped
+    - heater_on
+    - heater_off
+    - cold_room
+    - comfy_room
+    - warm_room
+    - untracked
+    - humid_room
+    - fresh_room
+    - humidity_unknown
+    outcomes:
+    - advise_air
+    - advise_heater
+    - advise_open
+    - noted
+    - said
+    - refused
+    events:
+    - got_cold
+    - got_warm
+    - got_humid

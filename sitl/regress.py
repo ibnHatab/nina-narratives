@@ -41,7 +41,7 @@ def main():
     ap.add_argument('--update', action='store_true')
     a = ap.parse_args()
     base = json.loads(BASELINE.read_text()) if BASELINE.exists() else {}
-    now, report, failed = {}, [], False
+    now, report, failed, errors = {}, [], False, False
     for sc in scenarios(a.scenario):
         rel = str(sc.relative_to(ROOT))
         r = subprocess.run([str(ROOT / 'sitl/run.sh'), str(sc)], capture_output=True, text=True)
@@ -49,7 +49,7 @@ def main():
         summ = ROOT / 'sitl/runs' / out / 'summary.json' if out else None
         if summ is None or not summ.exists():
             report.append('ERROR  %s\n  %s' % (rel, (r.stderr or r.stdout).strip().splitlines()[-1:]))
-            failed = True
+            failed = errors = True
             continue
         e = essence(json.loads(summ.read_text()))
         now[rel] = e
@@ -68,13 +68,17 @@ def main():
         if not new and not gone and (e['commands'] != b['commands'] or e['world_hash'] != b['world_hash']):
             report.append('CHANGED %s  acts or world differ, same findings' % rel)
             failed = True
+        if not new and not gone and e['expect'] != b['expect']:
+            report.append('CHANGED %s  narrative expectation differs' % rel)
+            failed = True
         if not new and not gone and e == b:
             report.append('same   %s' % rel)
     print('\n'.join(report))
-    if a.update:
-        BASELINE.write_text(json.dumps(now, indent=1, sort_keys=True) + '\n')
+    if a.update and not errors:
+        merged = {**base, **now} if a.scenario else now
+        BASELINE.write_text(json.dumps(merged, indent=1, sort_keys=True) + '\n')
         print('baseline updated: %d scenarios' % len(now))
-    sys.exit(1 if failed and not a.update else 0)
+    sys.exit(1 if errors or (failed and not a.update) else 0)
 
 
 if __name__ == '__main__':
