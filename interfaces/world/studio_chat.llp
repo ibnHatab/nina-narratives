@@ -1,5 +1,8 @@
 catalog studio_chat 1.
-types (participant).
+types (encounter participant).
 namespace world_studio_chat produce (dyn story).
 pred community_role(participant) : world_studio_chat.
 pred agreed_social_scope(participant) : world_studio_chat.
+pred identity_guess(encounter,participant) : world_studio_chat.
+pred identity_correction(encounter,participant) : world_studio_chat.
+pred correction_allowed(encounter) : world_studio_chat.

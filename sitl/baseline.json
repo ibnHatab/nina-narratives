@@ -777,6 +777,16 @@
     [
      "visit"
     ]
+   ],
+   [
+    5,
+    "situations",
+    "correct_introduction",
+    [
+     "hall_visit",
+     "radu",
+     "andrei"
+    ]
    ]
   ],
   "commands": [
@@ -793,9 +803,21 @@
    [
     "introductions",
     false
+   ],
+   [
+    "incarnation-boundary",
+    true
+   ],
+   [
+    "correct_introduction",
+    true
    ]
   ],
   "findings": [
+   [
+    "incarnation-boundary",
+    2
+   ],
    [
     "introductions",
     4

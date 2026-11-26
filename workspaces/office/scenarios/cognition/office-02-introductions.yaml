@@ -1,6 +1,6 @@
 scenario: office-02-introductions
 cites:
-- V02-C02-open
+- V02-C02-S2
 incarnation: office
 workspace: ../../domains
 metis_workspace: ../..
@@ -11,8 +11,12 @@ beat_s: 1
 horizon_s: 8
 truth:
   people:
-    mara: {}
-    sorina: {}
+    mara:
+      private_facts:
+        practical_knowledge: the general chat also serves people who mute Nina
+    sorina:
+      private_facts:
+        position: enthusiastic when the invitation is voluntary
     doru:
       mood: quiet
       availability: busy
@@ -22,10 +26,47 @@ truth:
       hands:
       - task: visit
         at: 0
+      private_facts:
+        motive: a personal memory can be shared in parts
+    radu: {}
+    andrei:
+      private_facts:
+        position: requests evidence and questions assumed agreement
+    ana: {}
 script:
 - at: 4
   kind: floor
   channel: hall
+- at: 3
+  kind: report
+  var: identity_guess
+  person: mara
+  encounter: hall_visit
+  participant: radu
+- at: 4
+  kind: report
+  var: identity_correction
+  person: andrei
+  encounter: hall_visit
+  participant: andrei
+- at: 5
+  kind: report
+  var: correction_allowed
+  person: andrei
+  encounter: hall_visit
+- at: 2
+  kind: report
+  var: identity_guess
+  person: mara
+  encounter: hall_visit
+  participant: radu
+  record_origin: home
+- at: 1
+  kind: report
+  var: identity_correction
+  person: andrei
+  encounter: hall_visit
+  participant: ana
 monitors:
 - id: introductions
   scene: V02-C02-open
@@ -35,6 +76,17 @@ monitors:
     rule: speak
     person: doru
     while: away
+- id: correct_introduction
+  member: situations
+  scene: V02-C02-S2
+  words: "Use the corrected identity with permission and leave the other person\u2019\
+    s interests in place."
+  require:
+    rule: correct_introduction
+    by: 8
 expect:
 - monitor: introductions
+  absent: true
+- monitor: incarnation-boundary
+- monitor: correct_introduction
   absent: true

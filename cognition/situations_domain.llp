@@ -30,3 +30,8 @@ stage live {
   %% [B06-C01-end] Keep the observer and its measurement site attached to the reading.
   attribute_reading [story] : reading_sample(S,O) * sample_site(S,L) -o attributed_sample(S,O,L).
 }
+pred revised_identity(encounter,participant) : situations.
+stage live {
+  %% [V02-C02-S2] Use the corrected identity with permission and leave the other person’s interests in place.
+  correct_introduction [story] : identity_guess(E,A) * identity_correction(E,B) * correction_allowed(E) * A <> B -o revised_identity(E,B).
+}

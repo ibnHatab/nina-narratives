@@ -17,9 +17,33 @@ edges:
   args:
   - participant
   lifetime: consumed
+- pred: identity_guess(encounter,participant)
+  when:
+    kind: report
+    var: identity_guess
+  args:
+  - encounter
+  - participant
+  lifetime: consumed
+- pred: identity_correction(encounter,participant)
+  when:
+    kind: report
+    var: identity_correction
+  args:
+  - encounter
+  - participant
+  lifetime: consumed
+- pred: correction_allowed(encounter)
+  when:
+    kind: report
+    var: correction_allowed
+  args:
+  - encounter
+  lifetime: consumed
 commands: {}
 receipts:
   via: none
 consumers:
+- situations
 - social
 capability: studio_chat
