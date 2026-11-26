@@ -1,0 +1,4 @@
+program: days.llp
+display: Nina's household over several days
+voice: third
+clock: {beats: 1}
