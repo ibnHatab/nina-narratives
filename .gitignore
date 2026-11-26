@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 /workspaces/*/.metis/
 /workspaces/*/domains/build/
+sitl/semworld-step/semworld-step

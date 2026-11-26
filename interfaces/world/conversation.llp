@@ -1,0 +1,12 @@
+% conversation: the edge facts of the conversation contract (conversation.yaml). Declarations only. These were
+% candidate member crossings (cognition/iface/timing) in Task 1; they are a person's words, so they live here.
+catalog world_conversation 1.
+types (task channel).
+namespace world_conversation produce (dyn).
+pred floor : world_conversation.
+pred arrived(task) : world_conversation.
+pred later(task) : world_conversation.
+pred renewed(task) : world_conversation.
+pred completion_report(task) : world_conversation.
+pred addressed(channel) : world_conversation.
+pred uttered(task) : world_conversation.      % the receipt of say: it was spoken (not merely chosen)

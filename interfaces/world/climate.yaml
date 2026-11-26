@@ -1,0 +1,14 @@
+# climate: room temperature and humidity, Kalman-filtered by the semantic world (outliers beyond 4 sd refused).
+family: climate
+version: 1
+owner: world
+scope: [home]
+unavailable: unavailable_climate
+ports:
+  cold:  {world_port: cold,  keys: [room], levels: {chill: {at: [0.5, 0.9], names: [not_cold, maybe_cold, cold]}}}
+  warm:  {world_port: warm,  keys: [room], levels: {heat:  {at: [0.5, 0.9], names: [not_warm, maybe_warm, warm]}}}
+  humid: {world_port: humid, keys: [room], levels: {damp:  {at: [0.5, 0.9], names: [dry, maybe_humid, humid]}}}
+edges: []
+commands: {}
+receipts: {via: none}
+consumers: [comfort, air, situations]

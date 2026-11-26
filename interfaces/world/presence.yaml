@@ -1,0 +1,18 @@
+# presence: who is around, as the semantic world believes it. Presence is not availability and not consent
+# (notes/volume-02-setting.md); a member that wants to speak reads conversation.floor, not this.
+family: presence
+version: 1
+owner: world
+scope: [home, office]            # home: mmWave radar per room through HA; office: the hall's short-range sensor
+unavailable: unavailable_presence
+ports:
+  present:      {world_port: present,      keys: [room], levels: {presence: {at: [0.3, 0.7], names: [nobody, maybe_someone, someone]}}}
+  someone_home: {world_port: someone_home, keys: [],     levels: {household: {at: [0.3, 0.7], names: [nobody_home, unsure_home, someone_home]}}}
+edges:                           # asserted by the host for one beat, on the edge named, from the level change
+  - {pred: entered(room),  from: "present(R) crosses 0.7 upward"}
+  - {pred: came_home,      from: "someone_home crosses 0.7 upward"}
+  - {pred: left_home,      from: "someone_home crosses 0.3 downward"}
+commands: {}
+receipts: {via: none}
+freshness: {feed_down: forget}   # the radar's "off" decays only while the feed is up (semantic-world DESIGN §4)
+consumers: [lights, comfort, scenes, attention, social]

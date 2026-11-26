@@ -1,0 +1,8 @@
+% calendar: the edge facts of the calendar contract (calendar.yaml). Declarations only.
+catalog world_calendar 1.
+types (event task answer).
+namespace world_calendar produce (dyn).
+pred event_due(event) : world_calendar.
+pred rsvp(event, answer) : world_calendar.
+pred created(event) : world_calendar.         % the receipt: the adapter reported the event made
+pred unavailable_calendar : world_calendar.

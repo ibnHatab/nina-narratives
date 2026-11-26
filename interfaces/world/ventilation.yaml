@@ -1,0 +1,20 @@
+# ventilation: the recuperators, through Home Assistant's MCP server. Home only.
+family: ventilation
+version: 1
+owner: world
+scope: [home]
+unavailable: unavailable_ventilation
+ports:
+  unit_on:  {world_port: unit_on,      keys: [unit], levels: {power:   {at: [0.05, 0.95], names: ["off", unconfirmed, "on"]}}}
+  reach:    {world_port: reachable, keys: [unit], levels: {answers: {at: [0.5],        names: [silent, answering]}}}
+  out_cold: {world_port: out_cold, keys: [unit], levels: {outside: {at: [0.5],        names: [mild_out, cold_out]}}}
+  preset:   {world_port: preset,   keys: [unit, mode], one: mode}
+edges:
+  - {pred: unit_missing(unit), from: "reach(U) falls below 0.5"}
+commands:                        # adapter bindings: verify against the live tools/list of the HA MCP server
+  air_on:  {args: [unit], predicts: {var: power, value: "on"},  grace_s: 15, adapter: {mcp: {server: ha, tool: HassTurnOn,  args: {name: "{unit.entity}"}}}}
+  air_off: {args: [unit], predicts: {var: power, value: "off"}, grace_s: 15, adapter: {mcp: {server: ha, tool: HassTurnOff, args: {name: "{unit.entity}"}}}}
+  air_night: {args: [unit], predicts: {var: preset, value: night}, grace_s: 15, adapter: {mcp: {server: ha, tool: HassFanSetPreset, args: {name: "{unit.entity}", preset: night}}}}
+receipts: {via: ha_state}        # the world confirms a command by a reading; none within grace_s → world surprise
+freshness: {feed_down: forget}
+consumers: [air, comfort, scenes]

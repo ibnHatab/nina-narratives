@@ -1,0 +1,15 @@
+# self: the strain on the services Nina thinks and hears with (semantic-world home/self.go). Both incarnations;
+# each has its own entry "nina" in its own world: no record crosses incarnations.
+family: self
+version: 1
+owner: world
+scope: [home, office]
+unavailable: null                # always offered
+ports:
+  strain: {world_port: strain, keys: [source, kind], one: kind}   # source: task | voice | ears | search; kind: well busy tired offline
+edges: []
+commands: {}
+receipts: {via: none}
+inputs:                          # the events that feed it: an API error or a success after one, from the host
+  - {event: strain, fields: [id: source, value: kind, ref: error]}
+consumers: [self_model, persona, attention]
