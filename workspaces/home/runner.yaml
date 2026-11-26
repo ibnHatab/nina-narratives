@@ -1,0 +1,3 @@
+name: home-resident
+command: bash
+args: [simulations/resident/run.sh, "{python}"]
