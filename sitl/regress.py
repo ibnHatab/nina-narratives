@@ -28,8 +28,10 @@ def scenarios(args):
                   any(line.startswith('scenario:') for line in p.read_text().splitlines()))
 
 
-def essence(summary):
-    return {'commands': [[c['k'], c['member'], c['rule'], c['args']] for c in summary['commands']],
+def essence(summary, monitors, director):
+    members = {m.get("member") for m in monitors} - {director}
+    acts = [[a["k"], a["member"], a["rule"], a["args"]] for a in summary["acts"] if a["member"] in members]
+    return {'acts': acts, 'commands': [[c['k'], c['member'], c['rule'], c['args']] for c in summary['commands']],
             'findings': sorted([f.get('monitor') or f['slug'].rsplit('-', 1)[0], f['k1']] for f in summary['findings']),
             'expect': [[e.get('monitor') or e.get('key'), e['met']] for e in summary['expect']],
             'world_hash': summary['world_hash']}
@@ -51,7 +53,10 @@ def main():
             report.append('ERROR  %s\n  %s' % (rel, (r.stderr or r.stdout).strip().splitlines()[-1:]))
             failed = errors = True
             continue
-        e = essence(json.loads(summ.read_text()))
+        import yaml
+        scenario = yaml.safe_load(sc.read_text())
+        composition = yaml.safe_load((sc.parent / scenario["workspace"] / "composition.yaml").read_text())
+        e = essence(json.loads(summ.read_text()), scenario.get("monitors", []), composition["direct"])
         now[rel] = e
         b = base.get(rel)
         if b is None:
@@ -65,7 +70,7 @@ def main():
         if gone:
             report.append('GONE   %s  %s' % (rel, gone))
             failed = True
-        if not new and not gone and (e['commands'] != b['commands'] or e['world_hash'] != b['world_hash']):
+        if not new and not gone and (e['acts'] != b.get('acts') or e['commands'] != b['commands'] or e['world_hash'] != b['world_hash']):
             report.append('CHANGED %s  acts or world differ, same findings' % rel)
             failed = True
         if not new and not gone and e['expect'] != b['expect']:

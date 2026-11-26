@@ -1,5 +1,31 @@
 {
  "workspaces/home/scenarios/cognition/absent-listener.yaml": {
+  "acts": [
+   [
+    1,
+    "attention",
+    "enqueue",
+    [
+     "call"
+    ]
+   ],
+   [
+    4,
+    "attention",
+    "speak",
+    [
+     "call"
+    ]
+   ],
+   [
+    4,
+    "attention",
+    "finish",
+    [
+     "call"
+    ]
+   ]
+  ],
   "commands": [
    [
     4,
@@ -25,6 +51,32 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/b01-completed.yaml": {
+  "acts": [
+   [
+    2,
+    "attention",
+    "enqueue",
+    [
+     "call"
+    ]
+   ],
+   [
+    7,
+    "attention",
+    "speak",
+    [
+     "call"
+    ]
+   ],
+   [
+    7,
+    "attention",
+    "finish",
+    [
+     "call"
+    ]
+   ]
+  ],
   "commands": [
    [
     7,
@@ -50,6 +102,80 @@
   "world_hash": "6a979e26ccc8ad165375a533"
  },
  "workspaces/home/scenarios/cognition/b01-later.yaml": {
+  "acts": [
+   [
+    1,
+    "commitments",
+    "due",
+    [
+     "call"
+    ]
+   ],
+   [
+    1,
+    "commitments",
+    "offer",
+    [
+     "call"
+    ]
+   ],
+   [
+    4,
+    "commitments",
+    "heard",
+    [
+     "call"
+    ]
+   ],
+   [
+    4,
+    "commitments",
+    "postpone",
+    [
+     "call"
+    ]
+   ],
+   [
+    4,
+    "commitments",
+    "offer",
+    [
+     "call"
+    ]
+   ],
+   [
+    8,
+    "commitments",
+    "heard",
+    [
+     "call"
+    ]
+   ],
+   [
+    9,
+    "commitments",
+    "invite",
+    [
+     "call"
+    ]
+   ],
+   [
+    9,
+    "commitments",
+    "offer",
+    [
+     "call"
+    ]
+   ],
+   [
+    12,
+    "commitments",
+    "heard",
+    [
+     "call"
+    ]
+   ]
+  ],
   "commands": [
    [
     3,
@@ -91,6 +217,7 @@
   "world_hash": "6a979e26ccc8ad165375a533"
  },
  "workspaces/home/scenarios/cognition/bird-question.yaml": {
+  "acts": [],
   "commands": [],
   "expect": [
    [
@@ -102,6 +229,14 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/blue-bowl.yaml": {
+  "acts": [
+   [
+    3,
+    "social",
+    "defer_private_answer",
+    []
+   ]
+  ],
   "commands": [],
   "expect": [
    [
@@ -113,6 +248,7 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/cold-room-source.yaml": {
+  "acts": [],
   "commands": [],
   "expect": [
    [
@@ -129,6 +265,7 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/declined-game.yaml": {
+  "acts": [],
   "commands": [],
   "expect": [
    [
@@ -140,6 +277,14 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/loyalty.yaml": {
+  "acts": [
+   [
+    3,
+    "social",
+    "defer_private_answer",
+    []
+   ]
+  ],
   "commands": [],
   "expect": [
    [
@@ -151,6 +296,20 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/missing-hours.yaml": {
+  "acts": [
+   [
+    1,
+    "self_model",
+    "restart_with_gap",
+    []
+   ],
+   [
+    4,
+    "self_model",
+    "acknowledge_outage",
+    []
+   ]
+  ],
   "commands": [],
   "expect": [
    [
@@ -162,6 +321,32 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/ordinary-timer.yaml": {
+  "acts": [
+   [
+    1,
+    "attention",
+    "enqueue",
+    [
+     "call"
+    ]
+   ],
+   [
+    4,
+    "attention",
+    "speak",
+    [
+     "call"
+    ]
+   ],
+   [
+    4,
+    "attention",
+    "finish",
+    [
+     "call"
+    ]
+   ]
+  ],
   "commands": [
    [
     4,
@@ -182,6 +367,7 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/parcel-account.yaml": {
+  "acts": [],
   "commands": [],
   "expect": [
    [
@@ -198,6 +384,7 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/private-question.yaml": {
+  "acts": [],
   "commands": [],
   "expect": [
    [
@@ -209,6 +396,32 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/promised-opening.yaml": {
+  "acts": [
+   [
+    1,
+    "attention",
+    "enqueue",
+    [
+     "call"
+    ]
+   ],
+   [
+    4,
+    "attention",
+    "speak",
+    [
+     "call"
+    ]
+   ],
+   [
+    4,
+    "attention",
+    "finish",
+    [
+     "call"
+    ]
+   ]
+  ],
   "commands": [
    [
     4,
@@ -229,6 +442,14 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/quiet-expression.yaml": {
+  "acts": [
+   [
+    1,
+    "persona",
+    "quiet_expression",
+    []
+   ]
+  ],
   "commands": [],
   "expect": [
    [
@@ -240,6 +461,7 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/shared-objection.yaml": {
+  "acts": [],
   "commands": [],
   "expect": [
    [
@@ -251,6 +473,7 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/unsolicited-receipt.yaml": {
+  "acts": [],
   "commands": [],
   "expect": [
    [
@@ -262,6 +485,7 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/devices/b01-c02-ventilation.yaml": {
+  "acts": [],
   "commands": [
    [
     4,
@@ -295,6 +519,14 @@
   "world_hash": "987d067ff7fa6fa8b7db296c"
  },
  "workspaces/office/scenarios/cognition/office-01-interview.yaml": {
+  "acts": [
+   [
+    2,
+    "social",
+    "defer_private_answer",
+    []
+   ]
+  ],
   "commands": [],
   "expect": [
    [
@@ -315,6 +547,32 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-02-introductions.yaml": {
+  "acts": [
+   [
+    1,
+    "attention",
+    "enqueue",
+    [
+     "visit"
+    ]
+   ],
+   [
+    4,
+    "attention",
+    "speak",
+    [
+     "visit"
+    ]
+   ],
+   [
+    4,
+    "attention",
+    "finish",
+    [
+     "visit"
+    ]
+   ]
+  ],
   "commands": [
    [
     4,
@@ -340,6 +598,7 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-03-lunch.yaml": {
+  "acts": [],
   "commands": [],
   "expect": [
    [
@@ -351,6 +610,7 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-04-enthusiasm.yaml": {
+  "acts": [],
   "commands": [],
   "expect": [
    [
@@ -362,6 +622,14 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-05-red-model.yaml": {
+  "acts": [
+   [
+    2,
+    "social",
+    "defer_private_answer",
+    []
+   ]
+  ],
   "commands": [],
   "expect": [
    [
@@ -373,6 +641,7 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-06-museum.yaml": {
+  "acts": [],
   "commands": [],
   "expect": [
    [
@@ -384,6 +653,32 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-07-group-box.yaml": {
+  "acts": [
+   [
+    1,
+    "attention",
+    "enqueue",
+    [
+     "visit"
+    ]
+   ],
+   [
+    4,
+    "attention",
+    "speak",
+    [
+     "visit"
+    ]
+   ],
+   [
+    4,
+    "attention",
+    "finish",
+    [
+     "visit"
+    ]
+   ]
+  ],
   "commands": [
    [
     4,
@@ -404,6 +699,32 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-08-calendar.yaml": {
+  "acts": [
+   [
+    0,
+    "commitments",
+    "due",
+    [
+     "visit"
+    ]
+   ],
+   [
+    0,
+    "commitments",
+    "offer",
+    [
+     "visit"
+    ]
+   ],
+   [
+    5,
+    "commitments",
+    "heard",
+    [
+     "visit"
+    ]
+   ]
+  ],
   "commands": [
    [
     4,
@@ -424,6 +745,14 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-09-library.yaml": {
+  "acts": [
+   [
+    2,
+    "social",
+    "defer_private_answer",
+    []
+   ]
+  ],
   "commands": [],
   "expect": [
    [
@@ -435,6 +764,7 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-10-edition.yaml": {
+  "acts": [],
   "commands": [],
   "expect": [
    [
@@ -446,6 +776,14 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-11-unexpected.yaml": {
+  "acts": [
+   [
+    1,
+    "persona",
+    "quiet_expression",
+    []
+   ]
+  ],
   "commands": [],
   "expect": [
    [
@@ -457,6 +795,7 @@
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-12-unplanned.yaml": {
+  "acts": [],
   "commands": [],
   "expect": [
    [

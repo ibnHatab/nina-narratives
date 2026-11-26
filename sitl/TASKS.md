@@ -61,7 +61,7 @@ Review: the 29 scenarios match their baseline (the controller re-ran it), the fa
 - **Evidential findings.** Three T3 findings (absent-listener, cold-room-source, parcel-account) triage as evidential because the truth column is thin: a sharper record is needed, not a rule.
 - **The gate is blocked.** `pack_propose` refuses composition records at the baseline replay. The controller has asked the Metis agent what a composition trace needs; wait for its answer before changing the trace format.
 
-- [ ] R1 `regress.py` essence: add every fired rule of the members a scenario's monitors name, as `[k, member, rule, args]`, director bookkeeping excluded. Re-baseline once with this file's line explaining it, then show that a deliberately reordered firing in a scratch copy is reported CHANGED (do not commit the scratch).
+- [x] R1 `regress.py` essence: add every fired rule of the members a scenario's monitors name, as `[k, member, rule, args]`, director bookkeeping excluded. Re-baseline once with this file's line explaining it, then show that a deliberately reordered firing in a scratch copy is reported CHANGED (do not commit the scratch).
 - [ ] R2 truth: extend `truth.jsonl` to everything the person adapters and the monitors read (availability, away, audience/channel, evidence source and location, done/deferred). Re-triage the three evidential findings and record their kinds.
 - [ ] R3 formalize the ranked gaps **3–10** of `cognition/aspects/README.md` as new cognition rules (gaps 1–2 are the T2 cases and wait for the gate). Each gap gets:
   - scene-cited `%%` docs;
@@ -69,3 +69,5 @@ Review: the 29 scenarios match their baseline (the controller re-ran it), the fa
   - a scenario whose monitor would fail **without** the rule (show it: run the scenario with the rule hidden via `include … hiding`, record the finding, then with the rule).
   These are new formalizations derived from the text, not repairs of a finding: say so in the commit. Run regress after each one.
 - [ ] R4 the open office finding (`office-02-introductions`): triage it and write the case. No rule change without the gate.
+
+R1 re-baseline adds ordered firings of monitored members to each scenario essence. Existing commands, expectations and findings remain comparable.
