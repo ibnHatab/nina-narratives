@@ -71,3 +71,10 @@ Review: the 29 scenarios match their baseline (the controller re-ran it), the fa
 - [ ] R4 the open office finding (`office-02-introductions`): triage it and write the case. No rule change without the gate.
 
 R1 re-baseline adds ordered firings of monitored members to each scenario essence. Existing commands, expectations and findings remain comparable.
+- [ ] R5 unblock the gate (read `sitl/notes/gate-replay.md`, the Metis agent's answer):
+  1. `replay_check` on the `b01-completed` trace: record the first divergence and which input path it is (director forward vs. the loop's edges vs. `submit`);
+  2. change the loop so every outside input is either the member's own host tick output (with `pending()`) or a `Live.take(member, lines, by='world')` **between** ticks, never inside a tick; check that `nina_world.host.world()` does not re-queue lines Live has already applied;
+  3. `regress.py` must report only explained differences;
+  4. `replay_check` must pass;
+  5. then `pack_propose` both T2 cases and record the verdicts.
+  Do this after R1, before R3.
