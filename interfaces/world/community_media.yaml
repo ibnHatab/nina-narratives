@@ -19,9 +19,24 @@ edges:
   - asset
   - participant
   lifetime: consumed
+- pred: media_provider_unavailable(asset)
+  when:
+    kind: report
+    var: media_provider_unavailable
+  args:
+  - asset
+  lifetime: consumed
+- pred: approved_local_media(asset)
+  when:
+    kind: report
+    var: approved_local_media
+  args:
+  - asset
+  lifetime: consumed
 commands: {}
 receipts:
   via: none
 consumers:
+- attention
 - social
 capability: community_media

@@ -4,5 +4,5 @@ line: Book I attention
 voice: third
 clock: {beats: 1}
 shared: {reminder_offer: in, topic_offer: in, uttered: out}
-world: {in: [], out: [floor, completion_report, person_present, busy_listener, proposed_turn, prepared_prompt, discussion_opt_in, prompt_opening]}
+world: {in: [], out: [floor, completion_report, person_present, busy_listener, proposed_turn, prepared_prompt, discussion_opt_in, prompt_opening, media_provider_unavailable, approved_local_media]}
 host: nina_world.host:attention

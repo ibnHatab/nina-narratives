@@ -1,0 +1,5 @@
+catalog community_display 1.
+stage live {
+  %% [V02-C09-S3] Select the approved fallback only on a discovered community display.
+  select_approved_local_media [story] : media_provider_unavailable(A) * approved_local_media(A) -o selected_local_media(A).
+}

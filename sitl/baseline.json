@@ -1151,6 +1151,14 @@
     "social",
     "defer_private_answer",
     []
+   ],
+   [
+    4,
+    "attention",
+    "select_approved_local_media",
+    [
+     "cabinet_fallback"
+    ]
    ]
   ],
   "commands": [],
@@ -1158,9 +1166,22 @@
    [
     "library",
     true
+   ],
+   [
+    "incarnation-boundary",
+    true
+   ],
+   [
+    "select_approved_local_media",
+    true
    ]
   ],
-  "findings": [],
+  "findings": [
+   [
+    "incarnation-boundary",
+    2
+   ]
+  ],
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-10-edition.yaml": {
