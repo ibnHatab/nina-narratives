@@ -53,3 +53,19 @@ T5 — `1ccd14f`. All 29 event logs reproduced row by row, including findings. T
 - [x] `interfaces/proposals/report-port.md`: a semantic-world port for reported vars, so a person's words gain belief and freshness like readings. The world currently refuses `report` on an undeclared var ("no categorical call.deferral"), so these words travel as logged edges. Address it to metis-worlds and do not implement it upstream.
 
 Proposal — `1ccd14f`. Document reviewed against the current edge contract. No upstream implementation or calibration was run.
+
+## Round 2 (controller, after review of 997ce6d)
+
+Review: the 29 scenarios match their baseline (the controller re-ran it), the family units' rule bodies are unchanged, and the office members are thin instances. Gaps found in review:
+- **The essence is too coarse.** `regress.py` records only contract commands, so 17 scenarios show no acts even though their `require` monitors' rules fire. A regression in which rules fire, or in their order, goes unseen.
+- **Evidential findings.** Three T3 findings (absent-listener, cold-room-source, parcel-account) triage as evidential because the truth column is thin: a sharper record is needed, not a rule.
+- **The gate is blocked.** `pack_propose` refuses composition records at the baseline replay. The controller has asked the Metis agent what a composition trace needs; wait for its answer before changing the trace format.
+
+- [ ] R1 `regress.py` essence: add every fired rule of the members a scenario's monitors name, as `[k, member, rule, args]`, director bookkeeping excluded. Re-baseline once with this file's line explaining it, then show that a deliberately reordered firing in a scratch copy is reported CHANGED (do not commit the scratch).
+- [ ] R2 truth: extend `truth.jsonl` to everything the person adapters and the monitors read (availability, away, audience/channel, evidence source and location, done/deferred). Re-triage the three evidential findings and record their kinds.
+- [ ] R3 formalize the ranked gaps **3–10** of `cognition/aspects/README.md` as new cognition rules (gaps 1–2 are the T2 cases and wait for the gate). Each gap gets:
+  - scene-cited `%%` docs;
+  - new preds through `interfaces/members` or `interfaces/world` only;
+  - a scenario whose monitor would fail **without** the rule (show it: run the scenario with the rule hidden via `include … hiding`, record the finding, then with the rule).
+  These are new formalizations derived from the text, not repairs of a finding: say so in the commit. Run regress after each one.
+- [ ] R4 the open office finding (`office-02-introductions`): triage it and write the case. No rule change without the gate.
