@@ -2,3 +2,5 @@
 /.metis/
 __pycache__/
 *.pyc
+/workspaces/*/.metis/
+/workspaces/*/domains/build/

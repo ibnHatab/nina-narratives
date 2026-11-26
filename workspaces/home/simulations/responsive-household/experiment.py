@@ -17,7 +17,7 @@ from metis.trace import replay, restore_session, session_state
 from semantic_world.ports import sync_diff
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[1]
+ROOT = HERE.parents[3]
 SOURCE = HERE / 'household.llp'
 OUT = ROOT / 'evaluation/responsive-household'
 TASKS = ('call_one', 'dinner')
