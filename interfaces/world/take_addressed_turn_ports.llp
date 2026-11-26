@@ -1,0 +1,5 @@
+catalog take_addressed_turn_ports 1.
+types (channel).
+namespace take_addressed_turn_ports produce (story dyn).
+pred group_turn(channel) : take_addressed_turn_ports.
+pred nina_addressed(channel) : take_addressed_turn_ports.

@@ -94,3 +94,5 @@ R3 gap 7, B01-C08-S04, resume_after_gap. Hiding the rule produced the missing-ac
 R3 gap 8, B04-C01-end, keep_promised_notice. Hiding the rule produced the missing-act finding at beat 8 (seed 93). With the rule the deadline passed and the suite matched. No deployment run.
 
 R3 gap 9, B03-C04-end, retire_inquiry. Hiding the rule produced the missing-act finding at beat 8 (seed 93). With the rule the deadline passed and the suite matched. No deployment run.
+
+R3 gap 10, V02-C07-end, take_addressed_turn. Hiding the rule produced the missing-act finding at beat 8 (seed 93). With the rule the deadline passed and the suite matched. No deployment run.

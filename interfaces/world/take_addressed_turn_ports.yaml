@@ -1,0 +1,24 @@
+family: take_addressed_turn_ports
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: group_turn(channel)
+  when:
+    kind: report
+    var: group_turn
+  args:
+  - channel
+  lifetime: consumed
+- pred: nina_addressed(channel)
+  when:
+    kind: report
+    var: nina_addressed
+  args:
+  - channel
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- social

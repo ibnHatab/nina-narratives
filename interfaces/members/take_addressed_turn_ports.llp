@@ -1,0 +1,4 @@
+catalog take_addressed_turn_results 1.
+types (channel).
+namespace take_addressed_turn_results produce (story dyn).
+pred reply_due(channel) : take_addressed_turn_results.
