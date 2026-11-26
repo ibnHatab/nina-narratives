@@ -7,3 +7,4 @@ include "../../../../interfaces/members/reply_in_confidence_ports.llp".
 include "../../../../interfaces/world/take_addressed_turn_ports.llp".
 include "../../../../interfaces/members/take_addressed_turn_ports.llp".
 private_session(direct).
+include "../../../../interfaces/world/studio_chat.llp".

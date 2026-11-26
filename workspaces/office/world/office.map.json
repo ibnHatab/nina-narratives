@@ -35,5 +35,8 @@
         "doru"
       ]
     }
-  }
+  },
+  "capabilities": [
+    "studio_chat"
+  ]
 }

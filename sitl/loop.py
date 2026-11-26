@@ -74,11 +74,11 @@ def contracts(world_dir):
                 rules[rule] = (c, name, spec)
         for e in c.get('edges') or []:
             if isinstance(e, dict) and e.get('when'):
-                edges.append(dict(e, family=c['family'], consumers=c['consumers']))
+                edges.append(dict(e, family=c['family'], consumers=c['consumers'], capability=c.get('capability')))
     return rules, edges, families
 
 
-def edge_of(ev, edges):
+def edge_of(ev, edges, capabilities):
     """The contract edge a non-world event stands for, as (atom, lifetime), else None."""
     for e in edges:
         on = e['when']
@@ -89,6 +89,8 @@ def edge_of(ev, edges):
         pred = e['pred'].split('(')[0]
         args = [str(ev[field]) for field in e.get('args', ['id'] if '(' in e['pred'] else [])]
         atom = pred + ('(' + ','.join(args) + ')' if args else '')
+        if e['capability'] and e['capability'] not in capabilities:
+            return None
         return atom, e.get('lifetime', 'beat')
     return None
 
@@ -217,7 +219,7 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
                             evidence.setdefault(ev['issue'], []).append(dict(ev))
                     if ev['kind'] == 'floor':
                         channel = ev.get('channel', 'hall')
-                    hit = edge_of(ev, edge_specs)
+                    hit = edge_of(ev, edge_specs, m.get('capabilities', ()))
                     if hit is None:
                         raise ValueError('event %s matches no contract edge' % ev)
                     atom, _ = hit

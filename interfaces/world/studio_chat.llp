@@ -1,0 +1,5 @@
+catalog studio_chat 1.
+types (participant).
+namespace world_studio_chat produce (dyn story).
+pred community_role(participant) : world_studio_chat.
+pred agreed_social_scope(participant) : world_studio_chat.

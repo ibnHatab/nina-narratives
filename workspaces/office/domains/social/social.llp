@@ -8,3 +8,4 @@ include "../../../../interfaces/world/take_addressed_turn_ports.llp".
 include "../../../../interfaces/members/take_addressed_turn_ports.llp".
 private_session(sorina_dm).
 private_session(doru_dm).
+include "../../../../interfaces/world/studio_chat.llp".

@@ -719,6 +719,14 @@
     "social",
     "defer_private_answer",
     []
+   ],
+   [
+    4,
+    "social",
+    "honor_community_scope",
+    [
+     "mara"
+    ]
    ]
   ],
   "commands": [],
@@ -730,12 +738,16 @@
    [
     "incarnation-boundary",
     true
+   ],
+   [
+    "honor_community_scope",
+    true
    ]
   ],
   "findings": [
    [
     "incarnation-boundary",
-    5
+    2
    ]
   ],
   "world_hash": "4af5dabd212caa293b8745b3"

@@ -17,3 +17,8 @@ stage live {
   %% [V02-C07-end] A group turn addressed to Nina can be answered in its own channel.
   take_addressed_turn [story] : group_turn(C) * nina_addressed(C) -o reply_due(C).
 }
+pred social_scope_kept(participant) : social.
+stage live {
+  %% [V02-C01-S1] Agreement to a community remit grants authority within that remit.
+  honor_community_scope [story] : community_role(P) * $agreed_social_scope(P) -o social_scope_kept(P).
+}

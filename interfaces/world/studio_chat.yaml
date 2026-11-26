@@ -1,0 +1,25 @@
+family: studio_chat
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: community_role(participant)
+  when:
+    kind: report
+    var: community_role
+  args:
+  - participant
+  lifetime: consumed
+- pred: agreed_social_scope(participant)
+  when:
+    kind: report
+    var: agreed_social_scope
+  args:
+  - participant
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- social
+capability: studio_chat
