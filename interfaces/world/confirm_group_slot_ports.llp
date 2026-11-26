@@ -1,0 +1,5 @@
+catalog confirm_group_slot_ports 1.
+types (channel task).
+namespace confirm_group_slot_ports produce (story dyn).
+pred offered_slot(task,channel) : confirm_group_slot_ports.
+pred group_assent(task,channel) : confirm_group_slot_ports.

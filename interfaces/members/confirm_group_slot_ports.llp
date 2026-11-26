@@ -1,0 +1,4 @@
+catalog confirm_group_slot_results 1.
+types (channel task).
+namespace confirm_group_slot_results produce (story dyn).
+pred confirmed_slot(task,channel) : confirm_group_slot_results.

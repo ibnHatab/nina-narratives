@@ -3,6 +3,6 @@ display: commitments
 line: Book I commitments
 voice: third
 clock: {beats: 1}
-shared: {uttered: in, reminder_offer: out}
-world: {out: [arrived, later, renewed, completion_report], in: []}
-host: nina_world.host:commitments   # the runtime's world host (interfaces/README.md)
+shared: {reminder_offer: out, uttered: in}
+world: {in: [], out: [arrived, later, renewed, completion_report, offered_slot, group_assent]}
+host: nina_world.host:commitments

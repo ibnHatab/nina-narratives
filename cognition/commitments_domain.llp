@@ -30,3 +30,7 @@ stage live {
   %% Changed circumstances can prompt reconsideration while preserving the consented plan.
   reconsider [story] : $consented_plan(T,A) * changed_circumstances(T) -o reconsideration_offered(T).
 }
+stage live {
+  %% [V02-C08-end] Confirm the suggested group appointment after the group assents to that slot.
+  confirm_group_slot [story] : offered_slot(T,C) * group_assent(T,C) -o confirmed_slot(T,C).
+}

@@ -1,0 +1,26 @@
+family: confirm_group_slot_ports
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: offered_slot(task,channel)
+  when:
+    kind: report
+    var: offered_slot
+  args:
+  - task
+  - channel
+  lifetime: consumed
+- pred: group_assent(task,channel)
+  when:
+    kind: report
+    var: group_assent
+  args:
+  - task
+  - channel
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- commitments

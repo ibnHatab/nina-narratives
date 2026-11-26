@@ -264,6 +264,28 @@
   ],
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
+ "workspaces/home/scenarios/cognition/confirm_group_slot.yaml": {
+  "acts": [
+   [
+    2,
+    "commitments",
+    "confirm_group_slot",
+    [
+     "call",
+     "hall"
+    ]
+   ]
+  ],
+  "commands": [],
+  "expect": [
+   [
+    "confirm_group_slot",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
  "workspaces/home/scenarios/cognition/declined-game.yaml": {
   "acts": [],
   "commands": [],
