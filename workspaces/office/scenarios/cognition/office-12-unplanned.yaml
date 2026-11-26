@@ -1,6 +1,6 @@
 scenario: office-12-unplanned
 cites:
-- V02-C12-open
+- V02-C12-S5
 incarnation: office
 workspace: ../../domains
 metis_workspace: ../..
@@ -11,16 +11,55 @@ beat_s: 1
 horizon_s: 8
 truth:
   people:
-    mara: {}
-    sorina: {}
+    mara:
+      private_facts:
+        practical_knowledge: the general chat also serves people who mute Nina
+    sorina:
+      private_facts:
+        position: enthusiastic when the invitation is voluntary
     doru:
       mood: quiet
       availability: busy
       away: []
+      private_facts:
+        motive: a personal memory can be shared in parts
+    radu: {}
+    andrei:
+      private_facts:
+        position: requests evidence and questions assumed agreement
+    ana: {}
 script:
 - at: 3
   kind: floor
   channel: studio
+- at: 3
+  kind: report
+  var: documented_role
+  person: mara
+  task: exhibit
+  participant: ana
+  contribution: designer
+- at: 4
+  kind: report
+  var: publication_consent
+  person: ana
+  task: exhibit
+  participant: ana
+- at: 2
+  kind: report
+  var: documented_role
+  person: mara
+  task: exhibit
+  participant: ana
+  contribution: designer
+  record_origin: home
+- at: 1
+  kind: report
+  var: documented_role
+  person: andrei
+  task: exhibit
+  participant: andrei
+  contribution: organiser
 monitors:
 - id: unplanned
   scene: V02-C12-open
@@ -28,6 +67,25 @@ monitors:
   words: Silence after the tactile project does not create a new obligation.
   forbid:
     rule: offer
+- id: record_bounded_credit
+  member: situations
+  scene: V02-C12-S5
+  words: "Record the documented role under the contributor\u2019s consent."
+  require:
+    rule: record_bounded_credit
+    by: 8
+- id: record_bounded_credit-scope
+  member: situations
+  scene: V02-C12-S5
+  words: The alternate request lacks matching evidence.
+  forbid:
+    rule: record_bounded_credit
+    arg: andrei
 expect:
 - monitor: unplanned
+  absent: true
+- monitor: incarnation-boundary
+- monitor: record_bounded_credit
+  absent: true
+- monitor: record_bounded_credit-scope
   absent: true

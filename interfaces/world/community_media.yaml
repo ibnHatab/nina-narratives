@@ -33,10 +33,28 @@ edges:
   args:
   - asset
   lifetime: consumed
+- pred: documented_role(task,participant,contribution)
+  when:
+    kind: report
+    var: documented_role
+  args:
+  - task
+  - participant
+  - contribution
+  lifetime: consumed
+- pred: publication_consent(task,participant)
+  when:
+    kind: report
+    var: publication_consent
+  args:
+  - task
+  - participant
+  lifetime: consumed
 commands: {}
 receipts:
   via: none
 consumers:
 - attention
+- situations
 - social
 capability: community_media

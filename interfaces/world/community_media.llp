@@ -1,7 +1,9 @@
 catalog community_media 1.
-types (asset participant).
+types (asset contribution participant task).
 namespace world_community_media produce (dyn story).
 pred shared_component(asset,participant) : world_community_media.
 pred display_permission(asset,participant) : world_community_media.
 pred media_provider_unavailable(asset) : world_community_media.
 pred approved_local_media(asset) : world_community_media.
+pred documented_role(task,participant,contribution) : world_community_media.
+pred publication_consent(task,participant) : world_community_media.

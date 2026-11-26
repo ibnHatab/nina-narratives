@@ -40,3 +40,8 @@ stage live {
   %% [V02-C10-S2] Replace the credited source with the common origin and queue a correction.
   collapse_shared_provenance [story] : credited_evidence(R,A) * reported_common_origin(R,B) * A <> B -o credited_evidence(R,B) * correction_due(R).
 }
+pred credited_contribution(task,participant,contribution) : situations.
+stage live {
+  %% [V02-C12-S5] Record the documented role under the contributor’s consent.
+  record_bounded_credit [story] : documented_role(T,P,R) * $publication_consent(T,P) -o credited_contribution(T,P,R).
+}

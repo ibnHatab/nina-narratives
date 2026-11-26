@@ -5,4 +5,4 @@ voice: third
 clock: {beats: 1}
 shared: {}
 host: nina_world.host:situations
-world: {in: [], out: [discrepancy, explanation_report, clarification_opportunity, reading_sample, sample_site, identity_guess, identity_correction, correction_allowed, credited_evidence, reported_common_origin]}
+world: {in: [], out: [discrepancy, explanation_report, clarification_opportunity, reading_sample, sample_site, identity_guess, identity_correction, correction_allowed, credited_evidence, reported_common_origin, documented_role, publication_consent]}

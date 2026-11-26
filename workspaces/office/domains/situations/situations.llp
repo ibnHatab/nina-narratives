@@ -15,3 +15,4 @@ include "../../../../interfaces/world/attribute_reading_ports.llp".
 include "../../../../interfaces/members/attribute_reading_ports.llp".
 include "../../../../interfaces/world/studio_chat.llp".
 include "../../../../interfaces/world/public_search.llp".
+include "../../../../interfaces/world/community_media.llp".
