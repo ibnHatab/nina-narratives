@@ -15,3 +15,7 @@ stage live {
   %% [B01-C07-S01] "She revisited old conversations."
   reflect [story] : $graphite_expression * discretionary_attention * saved_conversations -o reflection_done.
 }
+stage live {
+  %% [B04-C01-end] Keep the promised notice when local expression turns quiet.
+  keep_promised_notice [story] : promised_notice(T) * notice_due(T) * $graphite_expression -o notice_ready(T).
+}

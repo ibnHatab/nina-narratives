@@ -1,0 +1,24 @@
+family: keep_promised_notice_ports
+version: 1
+owner: host
+ports: {}
+edges:
+- pred: promised_notice(task)
+  when:
+    kind: report
+    var: promised_notice
+  args:
+  - task
+  lifetime: consumed
+- pred: notice_due(task)
+  when:
+    kind: report
+    var: notice_due
+  args:
+  - task
+  lifetime: consumed
+commands: {}
+receipts:
+  via: none
+consumers:
+- persona

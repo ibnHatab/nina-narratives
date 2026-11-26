@@ -1,0 +1,5 @@
+catalog keep_promised_notice_ports 1.
+types (task).
+namespace keep_promised_notice_ports produce (story dyn).
+pred promised_notice(task) : keep_promised_notice_ports.
+pred notice_due(task) : keep_promised_notice_ports.

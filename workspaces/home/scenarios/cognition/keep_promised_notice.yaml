@@ -1,0 +1,47 @@
+scenario: keep_promised_notice
+cites:
+- B04-C01-end
+aspect: persona
+workspace: ../../domains
+metis_workspace: ../..
+metis_home: ../../../../cognition
+world_map: ../../world/home.map.json
+seed: 1
+beat_s: 1
+horizon_s: 8
+truth:
+  people:
+    host:
+      channels:
+      - hall
+      - direct
+    guest:
+      mood: quiet
+      channels:
+      - hall
+script:
+- at: 0
+  kind: report
+  var: quiet_period
+  person: host
+- at: 2
+  kind: report
+  person: host
+  var: promised_notice
+  task: call
+- at: 3
+  kind: report
+  person: host
+  var: notice_due
+  task: call
+monitors:
+- id: keep_promised_notice
+  scene: B04-C01-end
+  member: persona
+  words: Keep the promised notice when local expression turns quiet.
+  require:
+    rule: keep_promised_notice
+    by: 8
+expect:
+- monitor: keep_promised_notice
+  absent: true

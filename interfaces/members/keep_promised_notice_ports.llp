@@ -1,0 +1,4 @@
+catalog keep_promised_notice_results 1.
+types (task).
+namespace keep_promised_notice_results produce (story dyn).
+pred notice_ready(task) : keep_promised_notice_results.

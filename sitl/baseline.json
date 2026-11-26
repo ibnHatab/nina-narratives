@@ -342,6 +342,33 @@
   "findings": [],
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
+ "workspaces/home/scenarios/cognition/keep_promised_notice.yaml": {
+  "acts": [
+   [
+    0,
+    "persona",
+    "quiet_expression",
+    []
+   ],
+   [
+    3,
+    "persona",
+    "keep_promised_notice",
+    [
+     "call"
+    ]
+   ]
+  ],
+  "commands": [],
+  "expect": [
+   [
+    "keep_promised_notice",
+    true
+   ]
+  ],
+  "findings": [],
+  "world_hash": "c94b351d394a8c3b48ec8048"
+ },
  "workspaces/home/scenarios/cognition/loyalty.yaml": {
   "acts": [
    [

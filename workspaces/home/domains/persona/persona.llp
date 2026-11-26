@@ -3,3 +3,5 @@ include "persona_domain.llp".
 include "../capacity.llp".
 #init persona_continuity 1
 include "../../../../interfaces/world/temperament.llp".
+include "../../../../interfaces/world/keep_promised_notice_ports.llp".
+include "../../../../interfaces/members/keep_promised_notice_ports.llp".

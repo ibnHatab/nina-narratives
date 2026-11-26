@@ -4,5 +4,5 @@ line: Book I persona
 voice: third
 clock: {beats: 1}
 shared: {}
-host: nina_world.host:persona   # the runtime's world host (interfaces/README.md)
-world: {out: [quiet_period], in: []}
+host: nina_world.host:persona
+world: {in: [], out: [quiet_period, promised_notice, notice_due]}
