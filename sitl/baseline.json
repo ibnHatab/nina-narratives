@@ -1008,6 +1008,16 @@
     [
      "visit"
     ]
+   ],
+   [
+    5,
+    "social",
+    "reply_to_person_in_session",
+    [
+     "box_question",
+     "sorina",
+     "sorina_dm"
+    ]
    ]
   ],
   "commands": [
@@ -1024,9 +1034,26 @@
    [
     "group-box",
     true
+   ],
+   [
+    "incarnation-boundary",
+    true
+   ],
+   [
+    "reply_to_person_in_session",
+    true
+   ],
+   [
+    "reply_to_person_in_session-scope",
+    true
    ]
   ],
-  "findings": [],
+  "findings": [
+   [
+    "incarnation-boundary",
+    2
+   ]
+  ],
   "world_hash": "4af5dabd212caa293b8745b3"
  },
  "workspaces/office/scenarios/cognition/office-08-calendar.yaml": {

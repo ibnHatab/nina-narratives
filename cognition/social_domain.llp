@@ -27,3 +27,8 @@ stage live {
   %% [V02-C06-S4] Require permission from the contributor for that exact asset.
   authorize_component_display [story] : shared_component(A,P) * display_permission(A,P) -o displayable_component(A).
 }
+pred reply_destination(message,participant,channel) : social.
+stage live {
+  %% [V02-C07-S1] Bind an invited reply to the actual sender and session membership.
+  reply_to_person_in_session [story] : addressed_message(M,P,C) * $channel_member(P,C) * response_invited(M) -o reply_destination(M,P,C).
+}

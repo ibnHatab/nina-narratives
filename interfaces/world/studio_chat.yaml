@@ -61,6 +61,30 @@ edges:
   args:
   - channel
   lifetime: consumed
+- pred: addressed_message(message,participant,channel)
+  when:
+    kind: report
+    var: addressed_message
+  args:
+  - message
+  - participant
+  - channel
+  lifetime: consumed
+- pred: channel_member(participant,channel)
+  when:
+    kind: report
+    var: channel_member
+  args:
+  - participant
+  - channel
+  lifetime: consumed
+- pred: response_invited(message)
+  when:
+    kind: report
+    var: response_invited
+  args:
+  - message
+  lifetime: consumed
 commands: {}
 receipts:
   via: none

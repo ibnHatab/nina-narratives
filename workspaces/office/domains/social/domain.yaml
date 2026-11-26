@@ -5,4 +5,4 @@ voice: third
 clock: {beats: 1}
 shared: {}
 host: nina_world.host:social
-world: {in: [], out: [visitor_asks_about_resident, privacy_boundary, private_question, authorized_channel, group_turn, nina_addressed, community_role, agreed_social_scope, shared_component, display_permission]}
+world: {in: [], out: [visitor_asks_about_resident, privacy_boundary, private_question, authorized_channel, group_turn, nina_addressed, community_role, agreed_social_scope, shared_component, display_permission, addressed_message, channel_member, response_invited]}

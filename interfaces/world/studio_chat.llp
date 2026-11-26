@@ -1,5 +1,5 @@
 catalog studio_chat 1.
-types (channel encounter participant task).
+types (channel encounter message participant task).
 namespace world_studio_chat produce (dyn story).
 pred community_role(participant) : world_studio_chat.
 pred agreed_social_scope(participant) : world_studio_chat.
@@ -9,3 +9,6 @@ pred correction_allowed(encounter) : world_studio_chat.
 pred prepared_prompt(task) : world_studio_chat.
 pred discussion_opt_in(channel) : world_studio_chat.
 pred prompt_opening(channel) : world_studio_chat.
+pred addressed_message(message,participant,channel) : world_studio_chat.
+pred channel_member(participant,channel) : world_studio_chat.
+pred response_invited(message) : world_studio_chat.

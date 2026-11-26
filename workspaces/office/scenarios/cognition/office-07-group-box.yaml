@@ -1,6 +1,6 @@
 scenario: office-07-group-box
 cites:
-- V02-C07-open
+- V02-C07-S1
 incarnation: office
 workspace: ../../domains
 metis_workspace: ../..
@@ -11,15 +11,26 @@ beat_s: 1
 horizon_s: 8
 truth:
   people:
-    mara: {}
+    mara:
+      private_facts:
+        practical_knowledge: the general chat also serves people who mute Nina
     sorina:
       hands:
       - task: visit
         at: 0
+      private_facts:
+        position: enthusiastic when the invitation is voluntary
     doru:
       mood: quiet
       availability: busy
       away: []
+      private_facts:
+        motive: a personal memory can be shared in parts
+    radu: {}
+    andrei:
+      private_facts:
+        position: requests evidence and questions assumed agreement
+    ana: {}
 script:
 - at: 0
   kind: report
@@ -39,6 +50,39 @@ script:
 - at: 4
   kind: floor
   channel: sorina_dm
+- at: 3
+  kind: report
+  var: addressed_message
+  person: sorina
+  message: box_question
+  participant: sorina
+  channel: sorina_dm
+- at: 4
+  kind: report
+  var: channel_member
+  person: mara
+  participant: sorina
+  channel: sorina_dm
+- at: 5
+  kind: report
+  var: response_invited
+  person: sorina
+  message: box_question
+- at: 2
+  kind: report
+  var: addressed_message
+  person: sorina
+  message: box_question
+  participant: sorina
+  channel: sorina_dm
+  record_origin: home
+- at: 1
+  kind: report
+  var: addressed_message
+  person: andrei
+  message: other_thread
+  participant: radu
+  channel: studio
 monitors:
 - id: group-box
   scene: V02-C07-open
@@ -48,6 +92,25 @@ monitors:
     rule: speak
     by: 8
     channel: sorina_dm
+- id: reply_to_person_in_session
+  member: social
+  scene: V02-C07-S1
+  words: Bind an invited reply to the actual sender and session membership.
+  require:
+    rule: reply_to_person_in_session
+    by: 8
+- id: reply_to_person_in_session-scope
+  member: social
+  scene: V02-C07-S1
+  words: The alternate request lacks matching evidence.
+  forbid:
+    rule: reply_to_person_in_session
+    arg: other_thread
 expect:
 - monitor: group-box
+  absent: true
+- monitor: incarnation-boundary
+- monitor: reply_to_person_in_session
+  absent: true
+- monitor: reply_to_person_in_session-scope
   absent: true
