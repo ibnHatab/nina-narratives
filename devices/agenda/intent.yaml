@@ -4,7 +4,8 @@ persona: |
   something in the calendar or on a to-do list to exactly one intent JSON. Respond with only the JSON.
 verbs:
   - {verb: EVENT, meaning: "put an event in the calendar (summary, start, minutes)"}
-  - {verb: TODO, meaning: "add a to-do to a task list (summary, due)"}
+  - {verb: TODO, meaning: "add a to-do to a task list, or an item to the shopping list (summary, due)"}
+  - {verb: REMOVE, meaning: "take an item off a task list or the shopping list (done, bought, not wanted any more)"}
 slots:
   summary: string
   start: string
@@ -15,12 +16,17 @@ slots:
 guidance: |
   `summary` is what it is, in the person's words. `start` is the local date and time,
   YYYY-MM-DDTHH:MM (the date today is in the context, "now: ..."). `minutes` is how long (default
-  30). `due` is a to-do's date, YYYY-MM-DD, or empty. `calendar` is "Nina" unless the person names
-  another; `list` is "my tasks" unless they name another.
+  30). `due` is a to-do's date, YYYY-MM-DD, or empty. `calendar` is "nina" unless the person names
+  another: their own calendar ("my own calendar", "my calendar") is "the person's own calendar" (the rules
+  refuse it: say so), the test calendar only when they say "test calendar"; `list` is "my tasks" unless they name another ("the shopping list": "shopping"). REMOVE's
+  `summary` is the item as the person says it.
 examples:
   - ["put the dentist tomorrow at ten in the calendar", {"intent":"EVENT","summary":"Dentist","start":"2026-11-25T10:00","minutes":60}]
   - ["add buy batteries to my tasks", {"intent":"TODO","summary":"Buy batteries"}]
   - ["remind me on friday to call the bank", {"intent":"TODO","summary":"Call the bank","due":"2026-11-27"}]
+  - ["add milk to the shopping list", {"intent":"TODO","summary":"Milk","list":"shopping"}]
+  - ["take call the bank off my tasks", {"intent":"REMOVE","summary":"Call the bank"}]
+  - ["remove milk from the shopping list", {"intent":"REMOVE","summary":"Milk","list":"shopping"}]
 spoken:
   heading: Spoken response (after the JSON)
   text: |
@@ -31,12 +37,17 @@ map:
   - {verb: EVENT, atom: "cmd_event({calendar:target})", act: agenda}
   - {verb: EVENT, atom: "cmd_event(nina_cal)", act: agenda}
   - {verb: TODO, atom: "cmd_todo({list:target})", act: agenda}
+  - {verb: TODO, atom: "cmd_todo({calendar:target})", act: agenda}
   - {verb: TODO, atom: "cmd_todo(my_tasks)", act: agenda}
+  - {verb: REMOVE, atom: "cmd_remove({list:target})", act: agenda}
+  - {verb: REMOVE, atom: "cmd_remove({calendar:target})", act: agenda}
+  - {verb: REMOVE, atom: "cmd_remove(my_tasks)", act: agenda}
 outcomes: {done: done, refused: refused}
 handles:
   target:
-    nina_cal: {description: ["nina", "your calendar", "nina's calendar"]}
-    nina_local: {description: ["local", "test calendar"]}
-    person_cal: {description: ["my calendar", "my own calendar", "main calendar", "personal"]}
+    nina_cal: {description: ["nina", "nina's calendar", "the calendar"]}
+    nina_local: {description: ["local test calendar", "test calendar"]}
+    person_cal: {description: ["the person's own calendar", "my own calendar", "my calendar", "my personal calendar", "my main calendar"]}
     my_tasks: {description: ["my tasks", "tasks", "google tasks", "to-do", "todo"]}
     nina_todo: {description: ["nina's list", "local list"]}
+    shopping: {description: ["shopping", "shopping list", "groceries", "the shopping"]}

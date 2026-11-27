@@ -4,24 +4,31 @@ persona: |
   about a timer or a reminder to exactly one intent JSON. Respond with only the JSON.
 verbs:
   - {verb: SET, meaning: "a countdown: in some minutes, tell me (minutes, subject)"}
+  - {verb: ALARM, meaning: "an alarm at a clock time: wake me, or tell me, at seven thirty (at, subject)"}
   - {verb: REMIND, meaning: "a reminder for when I leave, go to bed or come back (occasion, subject)"}
-  - {verb: CANCEL, meaning: "cancel the timers and the reminders"}
-  - {verb: QUERY, meaning: "which timers and reminders are set"}
+  - {verb: CANCEL, meaning: "cancel the timers, the alarms and the reminders"}
+  - {verb: QUERY, meaning: "which timers, alarms and reminders are set"}
 slots:
   minutes: number
   subject: string
   occasion: string
+  at: string
 guidance: |
   `minutes` is the countdown in minutes (an hour is 60). `subject` is what it is for, in the
   person's words ("check the printer"). `occasion` is when the home goes away (leaving), to night
-  (going to bed) or back home (coming back).
+  (going to bed) or back home (coming back). `at` is an alarm's local clock time, HH:MM in 24 hours
+  ("seven thirty in the morning": 07:30), or YYYY-MM-DDTHH:MM for another day than today or tomorrow.
 examples:
   - ["remind me in twenty minutes to check the printer", {"intent":"SET","minutes":20,"subject":"check the printer"}]
   - ["set a timer for five minutes", {"intent":"SET","minutes":5,"subject":"the timer"}]
   - ["when I leave, remind me to take the keys", {"intent":"REMIND","occasion":"leaving","subject":"take the keys"}]
   - ["remind me at bedtime to charge the phone", {"intent":"REMIND","occasion":"going to bed","subject":"charge the phone"}]
+  - ["set an alarm for seven thirty tomorrow morning", {"intent":"ALARM","at":"07:30","subject":"the alarm"}]
+  - ["wake me up at six", {"intent":"ALARM","at":"06:00","subject":"wake up"}]
   - ["cancel my timers", {"intent":"CANCEL"}]
+  - ["cancel the alarm", {"intent":"CANCEL"}]
   - ["what timers do I have", {"intent":"QUERY"}]
+  - ["what alarms do I have", {"intent":"QUERY"}]
 spoken:
   heading: Spoken response (after the JSON)
   text: |
@@ -30,6 +37,7 @@ spoken:
     - ["set a timer for five minutes", {"intent":"SET","minutes":5,"subject":"the timer"}, "Five minutes, starting now."]
 map:
   - {verb: SET, atom: "cmd_timer", act: timers}
+  - {verb: ALARM, atom: "cmd_timer", act: timers}
   - {verb: REMIND, atom: "cmd_remind({occasion:scene})", act: timers}
   - {verb: CANCEL, atom: "cmd_timers_off", act: timers}
   - {verb: QUERY, atom: "cmd_timers_query", act: timers}

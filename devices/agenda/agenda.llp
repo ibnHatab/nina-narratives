@@ -11,7 +11,7 @@ stages (serve).
 include "../shared/home_world.llp".
 
 % the calendars and lists Nina knows (their entities are the host's: agenda.yaml in nina.yaml)
-type target {nina_cal nina_local person_cal my_tasks nina_todo}.
+type target {nina_cal nina_local person_cal my_tasks nina_todo shopping}.
 type agenda_act {agenda}.
 
 bwd writable(target).
@@ -21,20 +21,24 @@ writable(nina_cal).
 writable(nina_local).
 writable(my_tasks).
 writable(nina_todo).
+writable(shopping).
 calendar(nina_cal).
 calendar(nina_local).
 calendar(person_cal).
 tasklist(my_tasks).
 tasklist(nina_todo).
+tasklist(shopping).
 
 pred cmd_event(target) : home.       % an event (its summary, start and duration: the payload)
 pred cmd_todo(target) : home.        % a to-do (its summary and due date: the payload)
+pred cmd_remove(target) : home.      % an item off a list (its summary: the payload; 2026-11-26)
 pred failed(target) : home.          % the host: Home Assistant refused the write
 
 pred done(agenda_act) : home.
 pred refused(agenda_act) : home.
 pred put(target) : home.
 pred added(target) : home.
+pred removed(target) : home.
 
 stage serve {
   %% I put it on {C}.
@@ -47,6 +51,10 @@ stage serve {
   todo [dyn] : cmd_todo(L) * $writable(L) * $tasklist(L) -o added(L) * done(agenda).
   %% {L} is a calendar, not a task list.
   todo_cal [dyn] : cmd_todo(L) * $calendar(L) -o refused(agenda).
+  %% I take it off {L}.
+  remove [dyn] : cmd_remove(L) * $writable(L) * $tasklist(L) -o removed(L) * done(agenda).
+  %% {L} is a calendar: I take nothing off a calendar.
+  remove_cal [dyn] : cmd_remove(L) * $calendar(L) -o refused(agenda).
   %% It did not reach {C}: Home Assistant refused it.
   write_failed [dyn] : failed(C) -o ().
 }
