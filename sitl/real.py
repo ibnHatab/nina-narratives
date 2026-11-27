@@ -97,7 +97,7 @@ def tasks_finished(db):
         return 0, 0
 
 
-def run_one(sc_path, tag, sets=None):
+def run_one(sc_path, tag, sets=None, mcp=False):
     sc = yaml.safe_load(Path(sc_path).read_text())
     m_path = (Path(sc_path).parent / sc['world_map']).resolve()
     m = json.loads(m_path.read_text())
@@ -111,6 +111,21 @@ def run_one(sc_path, tag, sets=None):
     ha.ctl({'states': house.initial()})
     ha.ctl({'responses': house.responses()})
     extra = {'agenda': AGENDA}
+    gf = None
+    if mcp:   # Home Assistant only through MCP (the user, 2026-11-28): ha-sim's /mcp; the agenda and the weather direct
+        from gfake import GoogleFake
+        gf = GoogleFake(house, ha)
+        tok = run / 'gtoken.json'
+        tok.write_text(json.dumps({'client_id': 'sitl', 'client_secret': 'sitl', 'refresh_token': 'sitl'}))
+        os.chmod(tok, 0o600)
+        (run / 'token').write_text(TOKEN)
+        os.chmod(run / 'token', 0o600)
+        extra.update({
+            'hass': {'url': ha.url, 'token': str(run / 'token'), 'via': 'mcp', 'server': 'sitl'},
+            'mcp': [{'name': 'sitl', 'url': ha.url + '/mcp'}],
+            'services': {'agenda': 'google', 'google': {'token': str(tok), 'endpoint': gf.url,
+                                                        'calendars': {'calendar.sim_nina': "Nina's calendar", 'calendar.sim_person': 'My calendar'}},
+                         'weather': {'lat': 45.75, 'lon': 21.23, 'url': gf.url + '/metno'}}})
     sets = {k: yaml.safe_load(v) for k, v in (sets or {}).items()}   # true, 2, director: as YAML reads them
     nina = NP.Nina(ha.url, TOKEN, run, catalog=catalog_for(m_path, run), core_extra=extra, core_sets=sets)
     pump = Pump(ha, house)
@@ -146,11 +161,13 @@ def run_one(sc_path, tag, sets=None):
         nina.close()
         ha.close()
         log.close()
+        if gf:
+            gf.close()
     rec = {'scenario': sc['scenario'], 'path': str(sc_path), 'goal': sc.get('goal') or {}, 'turns': turns,
            'calls': ['%s.%s %s' % (c['domain'], c['service'], ' '.join(_ents(c))) for c in ha.calls],
            'call_data': [c for c in ha.calls],
            'states': house.states, 'lists': house.lists, 'events': house.events, 'effects': house.effects,
-           'stack': stack_commits(), 'sets': sets or {}}
+           'stack': stack_commits(), 'sets': sets or {}, 'mcp': mcp}
     (run / 'run.json').write_text(json.dumps(rec, indent=1, default=str))
     return run
 
@@ -379,6 +396,7 @@ def main():
     r.add_argument('-j', type=int, default=4)
     r.add_argument('--tag', default=time.strftime('%Y%m%d-%H%M%S'))
     r.add_argument('--set', action='append', default=[], help='a core config switch: home.route=director, cards=two')
+    r.add_argument('--mcp', action='store_true', help='Home Assistant only through MCP, the agenda and weather direct (fakes)')
     r.add_argument('scenarios', nargs='+')
     s = sub.add_parser('score')
     s.add_argument('runs', nargs='+')
@@ -392,7 +410,7 @@ def main():
     if a.cmd == 'run':
         with cf.ThreadPoolExecutor(a.j) as ex:
             sets = dict(x.split('=', 1) for x in a.set)
-            futs = {ex.submit(run_one, p, a.tag, sets): p for p in a.scenarios}
+            futs = {ex.submit(run_one, p, a.tag, sets, a.mcp): p for p in a.scenarios}
             for f in cf.as_completed(futs):
                 try:
                     print(json.dumps(score(f.result())), flush=True)

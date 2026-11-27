@@ -231,6 +231,7 @@ func main() {
 	}
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/websocket", s.ws)
+	mux.HandleFunc("/mcp", s.mcp) // ha-mcp's two tools Nina uses with hass.via mcp (acasa hass.MCP)
 	mux.HandleFunc("/api/", s.api)
 	go http.Serve(ln, mux)
 	s.emit(map[string]any{"ready": "http://" + ln.Addr().String()})
@@ -265,4 +266,79 @@ func main() {
 		s.mu.Unlock()
 		s.emit(map[string]any{"reply": n})
 	}
+}
+
+// mcp is ha-mcp as acasa's hass.MCP calls it (Streamable HTTP, JSON answers): ha_call_service, reported on
+// stdout as a REST call is (the loop's house answers it), and ha_get_state from the states held here.
+func (s *server) mcp(w http.ResponseWriter, r *http.Request) {
+	var msg struct {
+		ID     any            `json:"id"`
+		Method string         `json:"method"`
+		Params map[string]any `json:"params"`
+	}
+	if json.NewDecoder(r.Body).Decode(&msg) != nil {
+		http.Error(w, "not JSON-RPC", 400)
+		return
+	}
+	if msg.ID == nil { // a notification
+		w.WriteHeader(http.StatusAccepted)
+		return
+	}
+	w.Header().Set("Mcp-Session-Id", "sitl")
+	text := func(v any, isErr bool) map[string]any {
+		b, _ := json.Marshal(v)
+		return map[string]any{"content": []any{map[string]any{"type": "text", "text": string(b)}}, "isError": isErr}
+	}
+	var result any
+	switch msg.Method {
+	case "initialize":
+		result = map[string]any{"protocolVersion": "2025-03-26", "capabilities": map[string]any{"tools": map[string]any{}},
+			"serverInfo": map[string]any{"name": "ha-sim", "version": "1"}}
+	case "tools/list":
+		result = map[string]any{"tools": []any{
+			map[string]any{"name": "ha_call_service", "description": "a service call", "inputSchema": map[string]any{"type": "object"}},
+			map[string]any{"name": "ha_get_state", "description": "entities' states", "inputSchema": map[string]any{"type": "object"}}}}
+	case "tools/call":
+		name, _ := msg.Params["name"].(string)
+		args, _ := msg.Params["arguments"].(map[string]any)
+		switch name {
+		case "ha_call_service":
+			data, _ := args["data"].(map[string]any)
+			if data == nil {
+				data = map[string]any{}
+			}
+			if e, ok := args["entity_id"]; ok {
+				data["entity_id"] = e
+			}
+			s.emit(map[string]any{"call": map[string]any{"domain": args["domain"], "service": args["service"], "data": data, "response": false, "via": "mcp"}})
+			result = text(map[string]any{"success": true}, false)
+		case "ha_get_state":
+			var ids []string
+			switch e := args["entity_id"].(type) {
+			case string:
+				ids = []string{e}
+			case []any:
+				for _, x := range e {
+					if id, ok := x.(string); ok {
+						ids = append(ids, id)
+					}
+				}
+			}
+			s.mu.Lock()
+			sts := map[string]any{}
+			for _, id := range ids {
+				if st, ok := s.states[id]; ok {
+					sts[id] = map[string]any{"entity_id": st.EntityID, "state": st.State, "attributes": st.Attributes}
+				}
+			}
+			s.mu.Unlock()
+			result = text(map[string]any{"success": len(sts) > 0, "count": len(sts), "states": sts}, false)
+		default:
+			result = text(map[string]any{"success": false, "error": "no tool " + name}, true)
+		}
+	default:
+		writeJSON(w, map[string]any{"jsonrpc": "2.0", "id": msg.ID, "error": map[string]any{"code": -32601, "message": "no method " + msg.Method}})
+		return
+	}
+	writeJSON(w, map[string]any{"jsonrpc": "2.0", "id": msg.ID, "result": result})
 }
