@@ -1,0 +1,19 @@
+scenario: scene-away
+about: 'Leaving the flat: the away scene.'
+world_map: ../../../workspaces/home/world/home.map.json
+house:
+  states:
+  - entity_id: light.sim_living_lamp
+    state: 'on'
+    attributes: {}
+  - entity_id: media_player.sim_tv
+    state: 'on'
+    attributes: {}
+turns:
+- say: I'm leaving now, see you later.
+  want:
+    route: scenes
+goal:
+  states:
+    light.sim_living_lamp: 'off'
+    media_player.sim_tv: 'off'

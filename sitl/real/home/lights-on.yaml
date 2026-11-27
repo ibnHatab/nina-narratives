@@ -1,0 +1,14 @@
+scenario: lights-on
+about: 'One light, named: the voice routes to lights, the house obeys.'
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Turn on the living room light.
+  want:
+    route: lights
+    calls:
+    - light.turn_on light.sim_living_lamp
+goal:
+  states:
+    light.sim_living_lamp: 'on'
+  no_calls:
+  - light.turn_on light.sim_bedroom_lamp

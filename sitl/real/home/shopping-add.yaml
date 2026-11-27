@@ -1,0 +1,17 @@
+scenario: shopping-add
+about: 'An item onto the shopping list (281f825: it had gone to the tasks).'
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Add milk to the shopping list.
+  want:
+    route: agenda
+    calls:
+    - todo.add_item todo.shopping_list
+goal:
+  lists:
+    todo.shopping_list:
+      has:
+      - milk
+    todo.sim_my_tasks:
+      not:
+      - milk

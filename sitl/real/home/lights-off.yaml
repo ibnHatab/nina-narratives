@@ -1,0 +1,17 @@
+scenario: lights-off
+about: A light that is on, turned off.
+world_map: ../../../workspaces/home/world/home.map.json
+house:
+  states:
+  - entity_id: light.sim_bedroom_lamp
+    state: 'on'
+    attributes: {}
+turns:
+- say: Switch off the bedroom light please.
+  want:
+    route: lights
+    calls:
+    - light.turn_off light.sim_bedroom_lamp
+goal:
+  states:
+    light.sim_bedroom_lamp: 'off'

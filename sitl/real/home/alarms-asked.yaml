@@ -1,0 +1,13 @@
+scenario: alarms-asked
+about: Asking which alarms are set adds nothing to a list (c263f75).
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: What alarms do I have?
+  want:
+    no_calls:
+    - todo.add_item
+    - calendar.create_event
+goal:
+  no_calls:
+  - todo.add_item
+  - calendar.create_event

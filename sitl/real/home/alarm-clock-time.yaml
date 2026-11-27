@@ -1,0 +1,13 @@
+scenario: alarm-clock-time
+about: An alarm at a clock time is a timer, not the night scene (c263f75).
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Set an alarm for seven thirty tomorrow morning.
+  want:
+    route: timers
+goal:
+  no_calls:
+  - light.turn_off
+  - fan.set_preset_mode
+  - todo.add_item
+  - calendar.create_event

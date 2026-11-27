@@ -39,3 +39,5 @@ use (
 W
 export GOWORK="$STACK/go.work" GOFLAGS=-mod=readonly
 REPO_ROOT="$STACK" bash "$STACK/nina-live/scripts/persona-build.sh" | grep -v "^go: downloading"
+# bin/nina: acasa's cmd/nina since the redesign's step 1 (s-b478fe59), against the stack's checkouts
+[ -x "$STACK/acasa/live/build.sh" ] && REPO_ROOT="$STACK" FSTTM_LOCAL=1 bash "$STACK/acasa/live/build.sh" | grep -v "^go: downloading"

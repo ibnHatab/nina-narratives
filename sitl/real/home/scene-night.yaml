@@ -1,0 +1,21 @@
+scenario: scene-night
+about: 'Going to bed: the night scene through the director (lights out, the air quiet).'
+world_map: ../../../workspaces/home/world/home.map.json
+house:
+  states:
+  - entity_id: light.sim_living_lamp
+    state: 'on'
+    attributes: {}
+  - entity_id: fan.sim_bedroom_supply_fan
+    state: 'on'
+    attributes: {}
+  - entity_id: fan.sim_bedroom_extract_fan
+    state: 'on'
+    attributes: {}
+turns:
+- say: I'm going to bed, good night.
+  want:
+    route: scenes
+goal:
+  states:
+    light.sim_living_lamp: 'off'

@@ -1,0 +1,8 @@
+scenario: weather-read
+about: 'The forecast: tomorrow is cloudy after a rainy today.'
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: What's the weather going to be like tomorrow?
+goal:
+  said_any:
+  - cloud

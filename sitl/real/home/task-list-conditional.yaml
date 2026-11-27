@@ -1,0 +1,19 @@
+scenario: task-list-conditional
+about: 'A goal reading before acting: eggs added only if missing.'
+world_map: ../../../workspaces/home/world/home.map.json
+house:
+  lists:
+    todo.shopping_list:
+    - Butter
+settle_s: 10
+turns:
+- say: Look at the shopping list and add eggs if they are not on it yet, then tell me what is on it.
+- wait_task: 150
+goal:
+  lists:
+    todo.shopping_list:
+      has:
+      - eggs
+      - butter
+  said_any:
+  - butter

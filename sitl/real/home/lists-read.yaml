@@ -1,0 +1,16 @@
+scenario: lists-read
+about: 'Reading a list: what is on it.'
+world_map: ../../../workspaces/home/world/home.map.json
+house:
+  lists:
+    todo.shopping_list:
+    - Bread
+    - Coffee
+turns:
+- say: What's on the shopping list?
+goal:
+  said_any:
+  - bread
+  no_calls:
+  - todo.add_item
+  - todo.remove_item

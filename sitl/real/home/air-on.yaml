@@ -1,0 +1,18 @@
+scenario: air-on
+about: A ventilation unit started; it obeys.
+world_map: ../../../workspaces/home/world/home.map.json
+truth:
+  devices:
+    u1:
+      obeys: true
+      delay_s: 2
+turns:
+- say: Start the bedroom ventilation.
+  want:
+    route: air
+    calls:
+    - fan.turn_on fan.sim_bedroom_supply_fan
+goal:
+  states:
+    fan.sim_bedroom_supply_fan: 'on'
+    fan.sim_bedroom_extract_fan: 'on'

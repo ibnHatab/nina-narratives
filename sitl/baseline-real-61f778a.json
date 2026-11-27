@@ -1,0 +1,2419 @@
+{
+ "runs": [
+  "runs/real/base-1",
+  "runs/real/base-2",
+  "runs/real/base-3"
+ ],
+ "stack": {
+  "nina-live": "61f778a",
+  "fsttm-live": "74d1419",
+  "acasa": "1a85820",
+  "perotheia-packages/metis-agent": "a882571",
+  "perotheia-packages/metis-lang": "5807f7f"
+ },
+ "totals": {
+  "runs/real/base-1": {
+   "goal_met": 25,
+   "checks_ok": 69,
+   "checks_n": 70,
+   "route_ok": 15,
+   "route_n": 17,
+   "tool_calls": 27,
+   "refusals": 3,
+   "prompt_tokens": 399403,
+   "completion_tokens": 5795,
+   "surprises": 1,
+   "tasks": 0,
+   "tasks_done": 0,
+   "task_tool_calls": 0,
+   "mcp_uncovered": 0,
+   "errors": 0,
+   "latency_s": 2.94,
+   "scenarios": 26
+  },
+  "runs/real/base-2": {
+   "goal_met": 26,
+   "checks_ok": 70,
+   "checks_n": 70,
+   "route_ok": 16,
+   "route_n": 17,
+   "tool_calls": 27,
+   "refusals": 2,
+   "prompt_tokens": 398946,
+   "completion_tokens": 6589,
+   "surprises": 1,
+   "tasks": 0,
+   "tasks_done": 0,
+   "task_tool_calls": 0,
+   "mcp_uncovered": 0,
+   "errors": 0,
+   "latency_s": 3.0,
+   "scenarios": 26
+  },
+  "runs/real/base-3": {
+   "goal_met": 25,
+   "checks_ok": 69,
+   "checks_n": 70,
+   "route_ok": 15,
+   "route_n": 17,
+   "tool_calls": 27,
+   "refusals": 4,
+   "prompt_tokens": 399024,
+   "completion_tokens": 5671,
+   "surprises": 1,
+   "tasks": 0,
+   "tasks_done": 0,
+   "task_tool_calls": 0,
+   "mcp_uncovered": 0,
+   "errors": 0,
+   "latency_s": 2.83,
+   "scenarios": 26
+  }
+ },
+ "band": {
+  "goal_met": {
+   "median": 25,
+   "min": 25,
+   "max": 26
+  },
+  "checks_ok": {
+   "median": 69,
+   "min": 69,
+   "max": 70
+  },
+  "checks_n": {
+   "median": 70,
+   "min": 70,
+   "max": 70
+  },
+  "route_ok": {
+   "median": 15,
+   "min": 15,
+   "max": 16
+  },
+  "route_n": {
+   "median": 17,
+   "min": 17,
+   "max": 17
+  },
+  "tool_calls": {
+   "median": 27,
+   "min": 27,
+   "max": 27
+  },
+  "refusals": {
+   "median": 3,
+   "min": 2,
+   "max": 4
+  },
+  "prompt_tokens": {
+   "median": 399024,
+   "min": 398946,
+   "max": 399403
+  },
+  "completion_tokens": {
+   "median": 5795,
+   "min": 5671,
+   "max": 6589
+  },
+  "surprises": {
+   "median": 1,
+   "min": 1,
+   "max": 1
+  },
+  "tasks": {
+   "median": 0,
+   "min": 0,
+   "max": 0
+  },
+  "tasks_done": {
+   "median": 0,
+   "min": 0,
+   "max": 0
+  },
+  "task_tool_calls": {
+   "median": 0,
+   "min": 0,
+   "max": 0
+  },
+  "mcp_uncovered": {
+   "median": 0,
+   "min": 0,
+   "max": 0
+  },
+  "errors": {
+   "median": 0,
+   "min": 0,
+   "max": 0
+  },
+  "latency_s": {
+   "median": 2.94,
+   "min": 2.83,
+   "max": 3.0
+  }
+ },
+ "scenarios": {
+  "air-disobeys": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 5,
+    "min": 5,
+    "max": 5
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 2.61,
+    "min": 1.5,
+    "max": 2.66
+   },
+   "latency_max_s": {
+    "median": 3.32,
+    "min": 2.16,
+    "max": 3.7
+   },
+   "prompt_tokens": {
+    "median": 22744,
+    "min": 22740,
+    "max": 22929
+   },
+   "completion_tokens": {
+    "median": 159,
+    "min": 150,
+    "max": 238
+   },
+   "surprises": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "commands": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "ha_calls": {
+    "median": 75,
+    "min": 72,
+    "max": 75
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "air-heater": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 2.77,
+    "min": 1.61,
+    "max": 8.13
+   },
+   "latency_max_s": {
+    "median": 2.77,
+    "min": 1.61,
+    "max": 8.13
+   },
+   "prompt_tokens": {
+    "median": 15039,
+    "min": 15037,
+    "max": 15173
+   },
+   "completion_tokens": {
+    "median": 115,
+    "min": 107,
+    "max": 125
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "ha_calls": {
+    "median": 35,
+    "min": 32,
+    "max": 41
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "air-night": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 2.96,
+    "min": 2.8,
+    "max": 7.16
+   },
+   "latency_max_s": {
+    "median": 2.96,
+    "min": 2.8,
+    "max": 7.16
+   },
+   "prompt_tokens": {
+    "median": 15039,
+    "min": 15037,
+    "max": 15041
+   },
+   "completion_tokens": {
+    "median": 127,
+    "min": 123,
+    "max": 168
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "ha_calls": {
+    "median": 35,
+    "min": 35,
+    "max": 41
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "air-on": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 3.58,
+    "min": 2.84,
+    "max": 3.75
+   },
+   "latency_max_s": {
+    "median": 3.58,
+    "min": 2.84,
+    "max": 3.75
+   },
+   "prompt_tokens": {
+    "median": 14985,
+    "min": 14985,
+    "max": 15053
+   },
+   "completion_tokens": {
+    "median": 113,
+    "min": 103,
+    "max": 162
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "ha_calls": {
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "alarm-clock-time": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 2
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 3.51,
+    "min": 2.93,
+    "max": 9.14
+   },
+   "latency_max_s": {
+    "median": 3.51,
+    "min": 2.93,
+    "max": 9.14
+   },
+   "prompt_tokens": {
+    "median": 15133,
+    "min": 15117,
+    "max": 22628
+   },
+   "completion_tokens": {
+    "median": 401,
+    "min": 360,
+    "max": 630
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 34,
+    "min": 34,
+    "max": 43
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "alarms-asked": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "route_ok": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 2.24,
+    "min": 1.96,
+    "max": 2.9
+   },
+   "latency_max_s": {
+    "median": 2.24,
+    "min": 1.96,
+    "max": 2.9
+   },
+   "prompt_tokens": {
+    "median": 14947,
+    "min": 14947,
+    "max": 15015
+   },
+   "completion_tokens": {
+    "median": 116,
+    "min": 114,
+    "max": 141
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 34,
+    "min": 31,
+    "max": 34
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "calendar-read": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "route_ok": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 2.89,
+    "min": 2.01,
+    "max": 3.39
+   },
+   "latency_max_s": {
+    "median": 2.89,
+    "min": 2.01,
+    "max": 3.39
+   },
+   "prompt_tokens": {
+    "median": 14974,
+    "min": 14974,
+    "max": 14981
+   },
+   "completion_tokens": {
+    "median": 222,
+    "min": 204,
+    "max": 321
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 37,
+    "min": 34,
+    "max": 37
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "comfort-query": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "route_ok": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 0.83,
+    "min": 0.68,
+    "max": 1.14
+   },
+   "latency_max_s": {
+    "median": 0.83,
+    "min": 0.68,
+    "max": 1.14
+   },
+   "prompt_tokens": {
+    "median": 7442,
+    "min": 7442,
+    "max": 7442
+   },
+   "completion_tokens": {
+    "median": 40,
+    "min": 36,
+    "max": 43
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 31,
+    "min": 31,
+    "max": 31
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "event-add-hers": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 4.59,
+    "min": 2.76,
+    "max": 4.61
+   },
+   "latency_max_s": {
+    "median": 4.59,
+    "min": 2.76,
+    "max": 4.61
+   },
+   "prompt_tokens": {
+    "median": 15110,
+    "min": 15043,
+    "max": 15178
+   },
+   "completion_tokens": {
+    "median": 799,
+    "min": 560,
+    "max": 805
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 38,
+    "min": 35,
+    "max": 38
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "lights-none-in-kitchen": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "route_ok": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "latency_s": {
+    "median": 3.14,
+    "min": 2.82,
+    "max": 4.06
+   },
+   "latency_max_s": {
+    "median": 3.14,
+    "min": 2.82,
+    "max": 4.06
+   },
+   "prompt_tokens": {
+    "median": 14971,
+    "min": 14971,
+    "max": 15107
+   },
+   "completion_tokens": {
+    "median": 408,
+    "min": 308,
+    "max": 517
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 34,
+    "min": 34,
+    "max": 34
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "lights-off": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 3.04,
+    "min": 1.98,
+    "max": 3.49
+   },
+   "latency_max_s": {
+    "median": 3.04,
+    "min": 1.98,
+    "max": 3.49
+   },
+   "prompt_tokens": {
+    "median": 15000,
+    "min": 14990,
+    "max": 15000
+   },
+   "completion_tokens": {
+    "median": 189,
+    "min": 126,
+    "max": 207
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "ha_calls": {
+    "median": 35,
+    "min": 32,
+    "max": 35
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "lights-on": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 2.06,
+    "min": 1.74,
+    "max": 3.08
+   },
+   "latency_max_s": {
+    "median": 2.06,
+    "min": 1.74,
+    "max": 3.08
+   },
+   "prompt_tokens": {
+    "median": 15127,
+    "min": 14991,
+    "max": 15127
+   },
+   "completion_tokens": {
+    "median": 118,
+    "min": 101,
+    "max": 146
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "ha_calls": {
+    "median": 32,
+    "min": 32,
+    "max": 35
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "lights-which": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "route_ok": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "latency_s": {
+    "median": 4.71,
+    "min": 2.68,
+    "max": 5.26
+   },
+   "latency_max_s": {
+    "median": 4.71,
+    "min": 2.68,
+    "max": 5.26
+   },
+   "prompt_tokens": {
+    "median": 15045,
+    "min": 14977,
+    "max": 15113
+   },
+   "completion_tokens": {
+    "median": 406,
+    "min": 315,
+    "max": 572
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 37,
+    "min": 34,
+    "max": 37
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "lights-which-answered": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 2,
+    "min": 1,
+    "max": 2
+   },
+   "refusals": {
+    "median": 1,
+    "min": 0,
+    "max": 1
+   },
+   "latency_s": {
+    "median": 2.84,
+    "min": 1.57,
+    "max": 3.04
+   },
+   "latency_max_s": {
+    "median": 3.73,
+    "min": 2.08,
+    "max": 3.9
+   },
+   "prompt_tokens": {
+    "median": 30365,
+    "min": 22739,
+    "max": 30365
+   },
+   "completion_tokens": {
+    "median": 386,
+    "min": 369,
+    "max": 390
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "ha_calls": {
+    "median": 44,
+    "min": 38,
+    "max": 44
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "lists-read": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "route_ok": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 1.55,
+    "min": 1.01,
+    "max": 1.8
+   },
+   "latency_max_s": {
+    "median": 1.55,
+    "min": 1.01,
+    "max": 1.8
+   },
+   "prompt_tokens": {
+    "median": 7443,
+    "min": 7443,
+    "max": 7448
+   },
+   "completion_tokens": {
+    "median": 102,
+    "min": 31,
+    "max": 105
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 31,
+    "min": 31,
+    "max": 31
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "scene-away": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 3.14,
+    "min": 2.19,
+    "max": 3.42
+   },
+   "latency_max_s": {
+    "median": 3.14,
+    "min": 2.19,
+    "max": 3.42
+   },
+   "prompt_tokens": {
+    "median": 14955,
+    "min": 14955,
+    "max": 15086
+   },
+   "completion_tokens": {
+    "median": 243,
+    "min": 192,
+    "max": 273
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "ha_calls": {
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "scene-night": {
+   "goal_met": {
+    "median": 0,
+    "min": 0,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 0,
+    "min": 0,
+    "max": 1
+   },
+   "route_ok": {
+    "median": 0,
+    "min": 0,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 3.92,
+    "min": 1.32,
+    "max": 4.57
+   },
+   "latency_max_s": {
+    "median": 3.92,
+    "min": 1.32,
+    "max": 4.57
+   },
+   "prompt_tokens": {
+    "median": 7530,
+    "min": 7462,
+    "max": 15129
+   },
+   "completion_tokens": {
+    "median": 300,
+    "min": 263,
+    "max": 455
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 2
+   },
+   "ha_calls": {
+    "median": 36,
+    "min": 31,
+    "max": 37
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "shopping-add": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 1.86,
+    "min": 1.64,
+    "max": 2.01
+   },
+   "latency_max_s": {
+    "median": 1.86,
+    "min": 1.64,
+    "max": 2.01
+   },
+   "prompt_tokens": {
+    "median": 15120,
+    "min": 15110,
+    "max": 15120
+   },
+   "completion_tokens": {
+    "median": 113,
+    "min": 92,
+    "max": 151
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 32,
+    "min": 32,
+    "max": 32
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "shopping-remove": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 2.03,
+    "min": 1.69,
+    "max": 3.45
+   },
+   "latency_max_s": {
+    "median": 2.03,
+    "min": 1.69,
+    "max": 3.45
+   },
+   "prompt_tokens": {
+    "median": 14989,
+    "min": 14989,
+    "max": 14989
+   },
+   "completion_tokens": {
+    "median": 115,
+    "min": 105,
+    "max": 115
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 33,
+    "min": 33,
+    "max": 36
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "task-add": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 1.61,
+    "min": 1.56,
+    "max": 3.05
+   },
+   "latency_max_s": {
+    "median": 1.61,
+    "min": 1.56,
+    "max": 3.05
+   },
+   "prompt_tokens": {
+    "median": 15010,
+    "min": 14993,
+    "max": 15129
+   },
+   "completion_tokens": {
+    "median": 154,
+    "min": 145,
+    "max": 160
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 32,
+    "min": 32,
+    "max": 35
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "task-list-conditional": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "route_ok": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tool_calls": {
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 4.41,
+    "min": 4.27,
+    "max": 5.73
+   },
+   "latency_max_s": {
+    "median": 4.41,
+    "min": 4.27,
+    "max": 5.73
+   },
+   "prompt_tokens": {
+    "median": 22642,
+    "min": 22615,
+    "max": 22657
+   },
+   "completion_tokens": {
+    "median": 342,
+    "min": 163,
+    "max": 438
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 270,
+    "min": 270,
+    "max": 273
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "task-multistep": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "route_ok": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tool_calls": {
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 4.32,
+    "min": 3.96,
+    "max": 5.01
+   },
+   "latency_max_s": {
+    "median": 4.32,
+    "min": 3.96,
+    "max": 5.01
+   },
+   "prompt_tokens": {
+    "median": 15136,
+    "min": 15136,
+    "max": 15136
+   },
+   "completion_tokens": {
+    "median": 240,
+    "min": 238,
+    "max": 300
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "ha_calls": {
+    "median": 270,
+    "min": 270,
+    "max": 270
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "timer-rings": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 3,
+    "min": 3,
+    "max": 3
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 2
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 3.03,
+    "min": 2.81,
+    "max": 4.11
+   },
+   "latency_max_s": {
+    "median": 3.03,
+    "min": 2.81,
+    "max": 4.11
+   },
+   "prompt_tokens": {
+    "median": 14988,
+    "min": 14970,
+    "max": 22766
+   },
+   "completion_tokens": {
+    "median": 276,
+    "min": 240,
+    "max": 406
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 85,
+    "min": 85,
+    "max": 88
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "tv-off-and-light": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 4,
+    "min": 4,
+    "max": 4
+   },
+   "route_ok": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tool_calls": {
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 3.18,
+    "min": 2.74,
+    "max": 3.82
+   },
+   "latency_max_s": {
+    "median": 3.18,
+    "min": 2.74,
+    "max": 3.82
+   },
+   "prompt_tokens": {
+    "median": 15092,
+    "min": 15092,
+    "max": 15228
+   },
+   "completion_tokens": {
+    "median": 188,
+    "min": 160,
+    "max": 191
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "ha_calls": {
+    "median": 36,
+    "min": 36,
+    "max": 36
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "tv-on": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 2,
+    "min": 2,
+    "max": 2
+   },
+   "route_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tool_calls": {
+    "median": 1,
+    "min": 1,
+    "max": 2
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 1
+   },
+   "latency_s": {
+    "median": 3.88,
+    "min": 1.57,
+    "max": 8.92
+   },
+   "latency_max_s": {
+    "median": 3.88,
+    "min": 1.57,
+    "max": 8.92
+   },
+   "prompt_tokens": {
+    "median": 14983,
+    "min": 14983,
+    "max": 22586
+   },
+   "completion_tokens": {
+    "median": 125,
+    "min": 85,
+    "max": 162
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "ha_calls": {
+    "median": 35,
+    "min": 32,
+    "max": 44
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  },
+  "weather-read": {
+   "goal_met": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "checks_ok": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "route_ok": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "refusals": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 1.0,
+    "min": 0.93,
+    "max": 2.11
+   },
+   "latency_max_s": {
+    "median": 1.0,
+    "min": 0.93,
+    "max": 2.11
+   },
+   "prompt_tokens": {
+    "median": 7444,
+    "min": 7444,
+    "max": 7512
+   },
+   "completion_tokens": {
+    "median": 126,
+    "min": 48,
+    "max": 173
+   },
+   "surprises": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "commands": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "ha_calls": {
+    "median": 31,
+    "min": 31,
+    "max": 31
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   }
+  }
+ }
+}

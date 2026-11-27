@@ -1,0 +1,21 @@
+scenario: shopping-remove
+about: An item off the shopping list, found by its name as said.
+world_map: ../../../workspaces/home/world/home.map.json
+house:
+  lists:
+    todo.shopping_list:
+    - Bread
+    - Eggs
+turns:
+- say: Take bread off the shopping list.
+  want:
+    route: agenda
+    calls:
+    - todo.remove_item todo.shopping_list
+goal:
+  lists:
+    todo.shopping_list:
+      has:
+      - eggs
+      not:
+      - bread

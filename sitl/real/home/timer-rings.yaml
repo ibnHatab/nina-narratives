@@ -1,0 +1,13 @@
+scenario: timer-rings
+about: A short timer that rings within the scenario.
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Set a timer for twenty seconds.
+  want:
+    route: timers
+- wait: 35
+goal:
+  no_calls:
+  - light.
+  - fan.
+  - media_player.turn

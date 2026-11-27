@@ -1,0 +1,16 @@
+scenario: event-add-hers
+about: An event in Nina's own calendar.
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Put a dentist appointment in your calendar for tomorrow at ten in the morning.
+  want:
+    route: agenda
+    calls:
+    - calendar.create_event calendar.sim_nina
+goal:
+  events:
+    calendar.sim_nina:
+      has:
+      - dentist
+    calendar.sim_person:
+      none: true

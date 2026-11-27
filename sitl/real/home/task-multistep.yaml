@@ -1,0 +1,29 @@
+scenario: task-multistep
+about: 'A goal of several steps: a task checks, acts and answers.'
+world_map: ../../../workspaces/home/world/home.map.json
+house:
+  states:
+  - entity_id: fan.sim_bedroom_supply_fan
+    state: 'on'
+    attributes: {}
+  - entity_id: fan.sim_bedroom_extract_fan
+    state: 'on'
+    attributes: {}
+  - entity_id: sensor.sim_living_temperature
+    state: '22.0'
+    attributes:
+      unit_of_measurement: °C
+      device_class: temperature
+settle_s: 10
+turns:
+- say: Check whether the bedroom ventilation is running, and if it is, turn it off. Then tell me how warm the living room is.
+- wait_task: 150
+goal:
+  states:
+    fan.sim_bedroom_supply_fan: 'off'
+  said_any:
+  - '22'
+  - twenty-two
+  - twenty two
+  calls:
+  - fan.turn_off fan.sim_bedroom_supply_fan

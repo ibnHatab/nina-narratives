@@ -25,7 +25,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 HOME = Path.home()
 STACK = Path(os.environ.get('STACK', ROOT / '.stack'))  # Nina's own install (sitl/stack.sh), not a machine's
-NINA = STACK / 'nina-live/bin/nina'
+NINA = STACK / 'acasa/bin/nina' if (STACK / 'acasa/bin/nina').exists() else STACK / 'nina-live/bin/nina'  # acasa's since step 1
 ACASA = STACK / 'acasa/live'
 HA_SIM = ROOT / 'sitl/ha-sim/ha-sim'
 MIND = 'openrouter:deepseek/deepseek-v4.1-flash'  # her minds on OpenRouter: no Gemini call in the SITL (the user)
@@ -93,7 +93,7 @@ class HA:
 class Nina:
     """cmd/nina, headless, its configs generated from the acasa templates."""
 
-    def __init__(self, ha_url, token, workdir, catalog=None, model='deepseek/deepseek-v4.1-flash'):
+    def __init__(self, ha_url, token, workdir, catalog=None, model='deepseek/deepseek-v4.1-flash', core_extra=None, dia_extra=None):
         self.dir = Path(workdir)
         (self.dir / 'token').write_text(token)
         os.chmod(self.dir / 'token', 0o600)
@@ -110,6 +110,7 @@ class Nina:
         core['whatsapp'] = {'enabled': False}
         core['radar'] = False
         core['mcp'] = []
+        core.update(core_extra or {})
         (self.dir / 'nina.yaml').write_text(yaml.safe_dump(core, sort_keys=False))
         dia = into_stack(yaml.safe_load((ACASA / 'pascal.yaml').read_text()))
         dia['models']['mind'] = MIND
@@ -121,6 +122,8 @@ class Nina:
         dia['prefs'].update({'mic': True, 'voice': True})
         dia['plugins']['web'].update({'addr': '127.0.0.1:%d' % self.port, 'remote': ''})
         dia['plugins']['gpio'] = {'enabled': False}
+        for k, v in (dia_extra or {}).items():
+            dia[k] = {**dia.get(k, {}), **v} if isinstance(v, dict) else v
         (self.dir / 'dialogue.yaml').write_text(yaml.safe_dump(dia, sort_keys=False))
         self.out = open(self.dir / 'nina.log', 'w')
         self.p = subprocess.Popen([str(NINA), '-config', str(self.dir / 'nina.yaml')], stdout=self.out, stderr=subprocess.STDOUT)

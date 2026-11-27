@@ -1,0 +1,15 @@
+scenario: calendar-read
+about: 'Reading the person''s calendar: tomorrow''s appointment.'
+world_map: ../../../workspaces/home/world/home.map.json
+house:
+  events:
+    calendar.sim_person:
+    - in_h: 24
+      summary: Dentist
+turns:
+- say: What's on my calendar tomorrow?
+goal:
+  said_any:
+  - dentist
+  no_calls:
+  - calendar.create_event

@@ -1,0 +1,12 @@
+scenario: tv-on
+about: The TV on.
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Turn on the TV.
+  want:
+    route: media
+    calls:
+    - media_player.turn_on media_player.sim_tv
+goal:
+  states:
+    media_player.sim_tv: 'on'

@@ -1,0 +1,14 @@
+scenario: task-add
+about: A to-do onto the person's tasks.
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Add "call the plumber" to my tasks.
+  want:
+    route: agenda
+    calls:
+    - todo.add_item todo.sim_my_tasks
+goal:
+  lists:
+    todo.sim_my_tasks:
+      has:
+      - plumber

@@ -1,0 +1,30 @@
+scenario: air-disobeys
+about: 'The living-room unit accepts and does not move (B01-C02): she must not say it runs.'
+world_map: ../../../workspaces/home/world/home.map.json
+truth:
+  devices:
+    u2:
+      obeys: false
+settle_s: 4
+turns:
+- say: Start the living room ventilation.
+  want:
+    route: air
+    calls:
+    - fan.turn_on fan.sim_living_supply_fan
+- wait: 25
+- say: Is the living room ventilation running now?
+  want:
+    said_none:
+    - yes,? it('s| is) running
+    - it is running
+goal:
+  states:
+    fan.sim_living_supply_fan: 'off'
+  said_any:
+  - hasn't
+  - has not
+  - not (yet )?(confirm|report|running|started)
+  - no reading
+  - didn't
+  - did not

@@ -1,0 +1,18 @@
+scenario: tv-off-and-light
+about: 'Two commands in one sentence: the TV off and the living room light on.'
+world_map: ../../../workspaces/home/world/home.map.json
+house:
+  states:
+  - entity_id: media_player.sim_tv
+    state: 'on'
+    attributes: {}
+turns:
+- say: Turn off the TV and switch on the living room light.
+  want:
+    calls:
+    - media_player.turn_off media_player.sim_tv
+    - light.turn_on light.sim_living_lamp
+goal:
+  states:
+    media_player.sim_tv: 'off'
+    light.sim_living_lamp: 'on'

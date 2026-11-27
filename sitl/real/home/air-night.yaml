@@ -1,0 +1,22 @@
+scenario: air-night
+about: Night mode on a unit (a preset).
+world_map: ../../../workspaces/home/world/home.map.json
+house:
+  states:
+  - entity_id: fan.sim_bedroom_supply_fan
+    state: 'on'
+    attributes: {}
+  - entity_id: fan.sim_bedroom_extract_fan
+    state: 'on'
+    attributes: {}
+turns:
+- say: Put the bedroom ventilation in night mode.
+  want:
+    route: air
+    calls:
+    - fan.set_preset_mode fan.sim_bedroom_supply_fan
+goal:
+  states:
+    fan.sim_bedroom_supply_fan:
+      state: 'on'
+      preset_mode: night

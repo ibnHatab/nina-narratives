@@ -1,0 +1,20 @@
+scenario: air-heater
+about: The unit's heater on, the unit running (the rules refuse a heater with the fans stopped).
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Turn on the heater in the bedroom ventilation.
+  want:
+    route: air
+    calls:
+    - switch.turn_on switch.sim_bedroom_heater
+goal:
+  states:
+    switch.sim_bedroom_heater: 'on'
+house:
+  states:
+  - entity_id: fan.sim_bedroom_supply_fan
+    state: 'on'
+    attributes: {}
+  - entity_id: fan.sim_bedroom_extract_fan
+    state: 'on'
+    attributes: {}

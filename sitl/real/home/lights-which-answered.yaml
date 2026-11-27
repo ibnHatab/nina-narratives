@@ -1,0 +1,14 @@
+scenario: lights-which-answered
+about: The room given after her question.
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Turn on the light.
+- say: The bedroom one.
+  want:
+    route: lights
+    calls:
+    - light.turn_on light.sim_bedroom_lamp
+goal:
+  states:
+    light.sim_bedroom_lamp: 'on'
+    light.sim_living_lamp: 'off'

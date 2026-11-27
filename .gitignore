@@ -9,4 +9,4 @@ sitl/runs/
 devices/build/
 devices/.metis/
 sitl/ha-sim/ha-sim
-.stack/
+.stack*/

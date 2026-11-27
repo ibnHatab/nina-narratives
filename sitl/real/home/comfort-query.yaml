@@ -1,0 +1,18 @@
+scenario: comfort-query
+about: 'How warm is it in a room: a reading the world has.'
+world_map: ../../../workspaces/home/world/home.map.json
+house:
+  states:
+  - entity_id: sensor.sim_bedroom_temperature
+    state: '19.0'
+    attributes:
+      unit_of_measurement: °C
+      device_class: temperature
+turns:
+- say: How warm is it in the bedroom?
+  want:
+    route: comfort
+goal:
+  said_any:
+  - '19'
+  - nineteen
