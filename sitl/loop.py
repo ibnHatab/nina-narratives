@@ -174,6 +174,7 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
     script = sorted(script, key=lambda e: e['at'])
     pending = []                                   # (at, event): replies and receipts not yet due
     acts, surprises, findings, says = [], [], [], []
+    command_members = {}
     feed = RuntimeFeed(workspace, 'sitl', domain=comp.get('name', 'home'))
     feed.start()
     feed.run_started(run_id, 'traces/' + run_id, dict(scenario=sc['scenario'], seed=seed))
@@ -255,6 +256,11 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
                 for issue, reports in evidence.items():
                     things.append(dict(id=issue, role=issue, **{'class': 'issue', 'as': 'issue'}, reports=reports))
                 truth_log.write(json.dumps({'k': k, 'things': things}, sort_keys=True) + '\n')
+                for n, h in sorted(hosts.items()):        # input between ticks, replayable (R5)
+                    ag = live.agents.agents.get(n)
+                    dos = h.handed(dict(ag.repl.counts)) if ag is not None else []
+                    if dos and not live.take(n, dos, by='world'):
+                        raise RuntimeError('%s did not take its world lines at beat %d: %s' % (n, k, dos))
                 live.tick()
                 feed.tick(k)
                 for n, h in sorted(hosts.items()):
@@ -281,6 +287,7 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
                         pred, tool, targs = device_command(rule, family, spec, role, m)
                         ev = {'at': t, 'kind': 'command', 'id': role, 'var': pred['var'], 'value': pred['value'],
                               'ref': cid}
+                        command_members[f"{role}.{pred['var']}"] = n
                         surprises += [dict(s, k=k) for s in (world.send(ev).get('out') or {}).get('Surprises') or []]
                         h.hold[role] = t + float(spec['grace_s'])
                         answer, receipts = ha.call(tool, targs, t, cid, role)
@@ -297,7 +304,8 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
             world.close()
     for s in surprises:                                # the world's own surprises, as the workspace's records
         findings.append({'kind': 'violation', 'slug': 'world-%s-%d' % (s['key'], s['k']), 'k': s['k'], 'k0': s['k'],
-                         'k1': s['k'], 'words': 'world (%s): %s %s' % (s['kind'], s['key'], s['why']), 'world': s})
+                         'k1': s['k'], 'member': command_members.get(s['key'], comp['direct']),
+                         'words': 'world (%s): %s %s' % (s['kind'], s['key'], s['why']), 'world': s})
         feed.finding(findings[-1])
     with (out / 'events.jsonl').open('a') as log:
         log.write(json.dumps({'findings': findings, 'world_hash': final}, sort_keys=True) + '\n')

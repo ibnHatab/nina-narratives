@@ -9,7 +9,15 @@ adapter call.
 
     nina_world.host.REGISTRY[member]   the member's host, once Live has built it
 """
+import re
+
 REGISTRY = {}
+
+
+def canon(line):
+    """A do-line with its atom's arguments unspaced (the world writes 'p(a, b)'; a take reads '+atom [n]')."""
+    m = re.match(r'^([+-])(.*?\))(\s+\d+)?\s*$', line)
+    return m.group(1) + re.sub(r'\s+', '', m.group(2)) + (m.group(3) or '') if m else line
 
 
 class WorldHost:
@@ -56,14 +64,32 @@ class WorldHost:
                 dos.append('-%s %d' % (atom, have))
         return dos
 
-    def tick(self, counts):
-        self.beat += 1
+    def lines(self, counts):
+        """This beat's do-lines: last beat's one-beat tokens retracted, the projection's corrections, the world's
+        levels and edges, the composition's forwards. Consumed: the input is handed over once."""
         dos = ['-%s %d' % (a, n) for a, n in sorted(counts.items())
                if n and a.split('(')[0] in self.retract]
         dos += self._corrections(counts)
         dos += self.levels + ['+' + e for e in self.edges] + self.taken
         self.levels, self.edges, self.taken, self.changed = [], [], [], False
+        return [canon(d) for d in dos]
+
+    def handed(self, counts):
+        """The loop's face, between ticks (R5, sitl/notes/gate-replay.md): a member with input waiting gets it as a
+        take (Live.take by world) before the tick, which the trace records outside the tick and its replay serves
+        again; its beat then adds nothing. A member without input (a clock beat) keeps its lines at its tick."""
+        if not self.pending():
+            return []
+        dos = self.lines(counts)
+        self.handed_over = True
         return dos
+
+    def tick(self, counts):
+        self.beat += 1
+        if getattr(self, 'handed_over', False):
+            self.handed_over = False
+            return []
+        return self.lines(counts)
 
     def sync(self, counts):
         return self._corrections(counts)

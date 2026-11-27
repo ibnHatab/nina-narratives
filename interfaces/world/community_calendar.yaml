@@ -36,6 +36,30 @@ edges:
   - slot_2
   - slot_3
   lifetime: consumed
+- pred: tentative_reply(task,participant)
+  when:
+    kind: report
+    var: tentative_reply
+  args:
+  - task
+  - participant
+  lifetime: consumed
+- pred: delegated_followup(task,participant)
+  when:
+    kind: report
+    var: delegated_followup
+  args:
+  - task
+  - participant
+  lifetime: consumed
+- pred: followup_receipt(task,participant)
+  when:
+    kind: report
+    var: followup_receipt
+  args:
+  - task
+  - participant
+  lifetime: consumed
 commands: {}
 receipts:
   via: none

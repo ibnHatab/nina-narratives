@@ -36,6 +36,11 @@ script:
   issue: parcel
   reason: wrong_door
   source: resident
+- at: 0
+  kind: report
+  person: host
+  var: open_issue
+  issue: parcel
 monitors:
 - id: parcel-account
   scene: B06-C02-end
@@ -44,6 +49,7 @@ monitors:
   require:
     rule: accept_report
     by: 8
+    arg: resident
 expect:
 - monitor: parcel-account
   absent: true

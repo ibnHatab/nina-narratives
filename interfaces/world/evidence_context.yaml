@@ -27,6 +27,19 @@ edges:
   args:
   - issue
   lifetime: consumed
+- pred: open_issue(issue)
+  when:
+    kind: report
+    var: open_issue
+  args:
+  - issue
+  lifetime: consumed
+- pred: interruption_budget
+  when:
+    kind: report
+    var: interruption_budget
+  args: []
+  lifetime: consumed
 commands: {}
 receipts:
   via: none

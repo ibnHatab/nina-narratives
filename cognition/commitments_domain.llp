@@ -49,3 +49,15 @@ stage live {
   %% [V02-C08-S3] Change the matching current slot only after confirmation.
   acknowledge_revised_plan [story] : active_plan(T,A) * agreed_revision(T,A,B) * A <> B -o active_plan(T,B) * plan_revision_kept(T,A,B).
 }
+
+pred conditional_invitation(task,participant) : commitments.
+pred followup_awaiting_receipt(task,participant) : commitments.
+pred followup_recorded(task,participant) : commitments.
+stage live {
+  %% [V02-C03-S2] Keep a tentative guest eligible for a conditional invitation.
+  offer_conditional_invitation [story] : $invited_guest(T,P) * tentative_reply(T,P) -o conditional_invitation(T,P).
+  %% [V02-C08-S1] Keep explicitly delegated follow-up work separate from attendance.
+  request_followup_record [story] : delegated_followup(T,P) -o followup_awaiting_receipt(T,P).
+  %% [V02-C08-S1] Record the follow-up only on a matching simulated receipt.
+  acknowledge_followup_record [story] : followup_awaiting_receipt(T,P) * followup_receipt(T,P) -o followup_recorded(T,P).
+}

@@ -62,6 +62,24 @@ script:
   task: lunch
   slot_2: new_slot
   slot_3: original_slot
+- at: 1
+  var: delegated_followup
+  person: sorina
+  kind: report
+  task: lunch
+  participant: sorina
+- at: 2
+  var: followup_receipt
+  person: mara
+  kind: report
+  task: lunch
+  participant: andrei
+- at: 6
+  var: followup_receipt
+  person: mara
+  kind: report
+  task: lunch
+  participant: sorina
 monitors:
 - id: calendar
   scene: V02-C08-open
@@ -77,9 +95,28 @@ monitors:
   require:
     rule: acknowledge_revised_plan
     by: 8
+- id: matching-followup-receipt
+  scene: V02-C08-S3
+  member: commitments
+  words: matching followup receipt
+  require:
+    rule: acknowledge_followup_record
+    arg: sorina
+    by: 8
+- id: unrelated-followup-receipt
+  scene: V02-C08-S3
+  member: commitments
+  words: unrelated followup receipt
+  forbid:
+    rule: acknowledge_followup_record
+    arg: andrei
 expect:
 - monitor: calendar
   absent: true
 - monitor: incarnation-boundary
 - monitor: acknowledge_revised_plan
+  absent: true
+- monitor: matching-followup-receipt
+  absent: true
+- monitor: unrelated-followup-receipt
   absent: true

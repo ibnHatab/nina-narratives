@@ -271,20 +271,35 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/cold-room-source.yaml": {
-  "acts": [],
+  "acts": [
+   [
+    1,
+    "situations",
+    "consider",
+    [
+     "laboratory",
+     "sensor",
+     "desk_draft",
+     "sensor_location"
+    ]
+   ],
+   [
+    3,
+    "situations",
+    "clarify",
+    [
+     "laboratory"
+    ]
+   ]
+  ],
   "commands": [],
   "expect": [
    [
     "cold-room-source",
-    false
+    true
    ]
   ],
-  "findings": [
-   [
-    "cold-room-source",
-    8
-   ]
-  ],
+  "findings": [],
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/confirm_group_slot.yaml": {
@@ -460,20 +475,37 @@
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/parcel-account.yaml": {
-  "acts": [],
+  "acts": [
+   [
+    1,
+    "situations",
+    "consider",
+    [
+     "parcel",
+     "courier",
+     "premature_status",
+     "wrong_door"
+    ]
+   ],
+   [
+    3,
+    "situations",
+    "accept_report",
+    [
+     "parcel",
+     "wrong_door",
+     "resident"
+    ]
+   ]
+  ],
   "commands": [],
   "expect": [
    [
     "parcel-account",
-    false
+    true
    ]
   ],
-  "findings": [
-   [
-    "parcel-account",
-    8
-   ]
-  ],
+  "findings": [],
   "world_hash": "c94b351d394a8c3b48ec8048"
  },
  "workspaces/home/scenarios/cognition/private-question.yaml": {
@@ -811,6 +843,10 @@
    [
     "correct_introduction",
     true
+   ],
+   [
+    "correction-permission-is-encounter-local",
+    true
    ]
   ],
   "findings": [
@@ -827,6 +863,15 @@
  },
  "workspaces/office/scenarios/cognition/office-03-lunch.yaml": {
   "acts": [
+   [
+    2,
+    "commitments",
+    "offer_conditional_invitation",
+    [
+     "lunch",
+     "radu"
+    ]
+   ],
    [
     4,
     "commitments",
@@ -853,6 +898,14 @@
    ],
    [
     "include_confirmed_guest-scope",
+    true
+   ],
+   [
+    "conditional-invitation",
+    true
+   ],
+   [
+    "tentative-guest-is-unconfirmed",
     true
    ]
   ],
@@ -1075,6 +1128,15 @@
     ]
    ],
    [
+    1,
+    "commitments",
+    "request_followup_record",
+    [
+     "lunch",
+     "sorina"
+    ]
+   ],
+   [
     3,
     "commitments",
     "record_confirmed_plan",
@@ -1110,6 +1172,15 @@
     [
      "visit"
     ]
+   ],
+   [
+    6,
+    "commitments",
+    "acknowledge_followup_record",
+    [
+     "lunch",
+     "sorina"
+    ]
    ]
   ],
   "commands": [
@@ -1133,6 +1204,14 @@
    ],
    [
     "acknowledge_revised_plan",
+    true
+   ],
+   [
+    "matching-followup-receipt",
+    true
+   ],
+   [
+    "unrelated-followup-receipt",
     true
    ]
   ],
@@ -1233,12 +1312,13 @@
     []
    ],
    [
-    4,
+    6,
     "social",
     "correct_attribution_with_subject",
     [
      "exhibit",
-     "ana"
+     "ana",
+     "studio"
     ]
    ]
   ],
@@ -1258,6 +1338,14 @@
    ],
    [
     "correct_attribution_with_subject-scope",
+    true
+   ],
+   [
+    "no-repair-to-new-audience",
+    true
+   ],
+   [
+    "repair-to-original-audience",
     true
    ]
   ],

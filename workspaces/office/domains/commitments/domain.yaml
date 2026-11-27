@@ -4,5 +4,5 @@ line: Book I commitments
 voice: third
 clock: {beats: 1}
 shared: {reminder_offer: out, uttered: in}
-world: {in: [], out: [arrived, later, renewed, completion_report, offered_slot, group_assent, invited_guest, accepted_invite, observed_plan, agreed_revision]}
+world: {in: [], out: [arrived, later, renewed, completion_report, offered_slot, group_assent, invited_guest, accepted_invite, observed_plan, agreed_revision, tentative_reply, delegated_followup, followup_receipt]}
 host: nina_world.host:commitments
