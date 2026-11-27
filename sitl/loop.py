@@ -256,6 +256,11 @@ def run(scenario_path, seed=None, out_dir=None, *, scenario=None, storage=None):
                 for issue, reports in evidence.items():
                     things.append(dict(id=issue, role=issue, **{'class': 'issue', 'as': 'issue'}, reports=reports))
                 truth_log.write(json.dumps({'k': k, 'things': things}, sort_keys=True) + '\n')
+                for n, h in sorted(hosts.items()):        # input between ticks, replayable (R5)
+                    ag = live.agents.agents.get(n)
+                    dos = h.handed(dict(ag.repl.counts)) if ag is not None else []
+                    if dos and not live.take(n, dos, by='world'):
+                        raise RuntimeError('%s did not take its world lines at beat %d: %s' % (n, k, dos))
                 live.tick()
                 feed.tick(k)
                 for n, h in sorted(hosts.items()):
