@@ -112,3 +112,27 @@ W1. metis-agent: the world settled by the runtime's own ticker (metishome Settle
 W2. nina-live: her world ticker (home.world_beat) beside the rules' beat; the members' periods from their manifests.
 W3. metis-worlds home: the mode port; devices: scenes concludes the mode, the packages sweep on its level.
 W4. the merged workspace under `attention`: the cognition members, the report verbs and the task-slot ledger.
+
+## W3 progress and design (2026-11-28)
+
+Done: W1 (metis-agent rd-world-clock cebed18), W2 (nina-live rd-step3 ca5a59f: home.world_beat), the mode and mood
+ports (metis-worlds rd-mode e2dfb38: an event set, a Metis conclusion, refused on a sensed variable), the scenes'
+rules concluding them (metis-agent 063f6d0: scene_set, arrive, mood_set, mood_change → set home.mode / home.mood).
+
+The sweeps, as a level and a latch (not an edge): a package host gives level atoms as corrected readings every
+beat, so a rule that consumed the mode's atom would get it back and fire every beat. Each package keeps the mode it
+last swept for and fires once when the world's mode differs:
+
+    sweep_night [dyn] : $home_mode(yes, night) * swept(M) * other(M, night) -o swept(night) * sweep_off(l1) * sweep_off(l2).
+
+(`#init swept(home) 1`; `other/2` and the mode's types in shared/home_world.llp; the level in each manifest:
+`levels: {home_mode: {from: {belief: mode}, at: [0.5], names: [no, yes]}}`.) Idempotent, independent of the
+delivery's timing: the latch is the package's own state.
+
+Still to do in W3:
+- metis-agent's home host: home_mode and home_mood among the reads of lights, air, media (homeReads);
+- nina-live's own hosts (timers, music, glow) give the same level from the world (they read no board today: their
+  scene_timers, scene_music, mood_music, mood_glow came forwarded by the director);
+- devices: the fan files (gen_map.py SWEEPS for lights, air, media; timers, music, glow by hand) on the latch;
+  scenes no longer puts out scene_* / mood_*; iface/home.llp, the director's kinds and handles without them;
+- the gates: the narratives' regression, the real-Nina scene scenarios (night, away, the mood) against the baseline.
