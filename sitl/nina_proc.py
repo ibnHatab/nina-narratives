@@ -31,6 +31,13 @@ HA_SIM = ROOT / 'sitl/ha-sim/ha-sim'
 MIND = 'openrouter:deepseek/deepseek-v4.1-flash'  # her minds on OpenRouter: no Gemini call in the SITL (the user)
 
 
+CORE_SECTIONS = ('home', 'tasks', 'search', 'music')   # the core config's sections a --set may reach into
+
+
+def core_template():
+    return into_stack(yaml.safe_load((ACASA / 'nina.yaml').read_text()))
+
+
 def into_stack(v):
     """Every ~/repo/… path of the templates, into the stack."""
     if isinstance(v, dict):

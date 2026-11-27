@@ -94,7 +94,7 @@ def tasks_finished(db):
         return 0, 0
 
 
-def run_one(sc_path, tag):
+def run_one(sc_path, tag, sets=None):
     sc = yaml.safe_load(Path(sc_path).read_text())
     m_path = (Path(sc_path).parent / sc['world_map']).resolve()
     m = json.loads(m_path.read_text())
@@ -107,7 +107,16 @@ def run_one(sc_path, tag):
     ha = NP.HA(TOKEN, log)
     ha.ctl({'states': house.initial()})
     ha.ctl({'responses': house.responses()})
-    nina = NP.Nina(ha.url, TOKEN, run, catalog=catalog_for(m_path, run), core_extra={'agenda': AGENDA})
+    extra = {'agenda': AGENDA}
+    for k, v in (sets or {}).items():   # --set home.route=director: the core config's switches
+        d = extra
+        ks = k.split('.')
+        if ks[0] in NP.CORE_SECTIONS and ks[0] not in extra:
+            extra[ks[0]] = dict(NP.core_template().get(ks[0]) or {})
+        for x in ks[:-1]:
+            d = d.setdefault(x, {})
+        d[ks[-1]] = v
+    nina = NP.Nina(ha.url, TOKEN, run, catalog=catalog_for(m_path, run), core_extra=extra)
     pump = Pump(ha, house)
     pump.start()
     turns = []
@@ -145,7 +154,7 @@ def run_one(sc_path, tag):
            'calls': ['%s.%s %s' % (c['domain'], c['service'], ' '.join(_ents(c))) for c in ha.calls],
            'call_data': [c for c in ha.calls],
            'states': house.states, 'lists': house.lists, 'events': house.events, 'effects': house.effects,
-           'stack': stack_commits()}
+           'stack': stack_commits(), 'sets': sets or {}}
     (run / 'run.json').write_text(json.dumps(rec, indent=1, default=str))
     return run
 
@@ -188,10 +197,20 @@ def score(run):
     route_ok = route_n = 0
     turn_checks = turn_n = 0
     lat, tcalls, ptoks, ctoks, refused = [], [], [], [], 0
+    attended = None   # cards: two (the redesign's step 5): the card an attended call goes to
+    cards_of = {}
+    for at, d in tools:
+        n, a = d.get('name', ''), d.get('args') or {}
+        if n == 'director' and a.get('verb') == 'route' and a.get('to'):
+            attended = a['to']
+        elif n == 'attended':
+            attended = a.get('card') or attended
+            cards_of[id(d)] = attended
     for (t0, t1), turn in zip(spans, rec['turns']):
         w = turn.get('want') or {}
         ts = [d for at, d in tools if t0 <= at < t1]
-        homes = [d['name'][5:] for d in ts if d.get('name', '').startswith('home_')]
+        homes = [d['name'][5:] if d.get('name', '').startswith('home_') else cards_of.get(id(d)) for d in ts
+                 if d.get('name', '').startswith('home_') or (d.get('name') == 'attended' and cards_of.get(id(d)))]
         if 'route' in w:
             route_n += 1
             want = w['route']
@@ -363,6 +382,7 @@ def main():
     r = sub.add_parser('run')
     r.add_argument('-j', type=int, default=4)
     r.add_argument('--tag', default=time.strftime('%Y%m%d-%H%M%S'))
+    r.add_argument('--set', action='append', default=[], help='a core config switch: home.route=director, cards=two')
     r.add_argument('scenarios', nargs='+')
     s = sub.add_parser('score')
     s.add_argument('runs', nargs='+')
@@ -375,7 +395,8 @@ def main():
     a = ap.parse_args()
     if a.cmd == 'run':
         with cf.ThreadPoolExecutor(a.j) as ex:
-            futs = {ex.submit(run_one, p, a.tag): p for p in a.scenarios}
+            sets = dict(x.split('=', 1) for x in a.set)
+            futs = {ex.submit(run_one, p, a.tag, sets): p for p in a.scenarios}
             for f in cf.as_completed(futs):
                 try:
                     print(json.dumps(score(f.result())), flush=True)
