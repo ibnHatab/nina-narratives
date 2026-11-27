@@ -1,0 +1,54 @@
+# metis ground-wire artifact — catalog lights v1; GENERATED, do not edit.
+N 1 0
+B weight present
+E 0 -1 1 which_light_on ; c cmd_light_on(la) 1 ; o refused(on) 1
+E 0 -1 1 which_light_off ; c cmd_light_off(la) 1 ; o refused(off) 1
+E 0 -1 1 fan_home ; c scene_lights(home) 1
+E 0 -1 1 fan_night ; c scene_lights(night) 1 ; o sweep_off(l1) 1 sweep_off(l2) 1
+E 0 -1 1 fan_away ; c scene_lights(away) 1 ; o sweep_off(l1) 1 sweep_off(l2) 1
+E 0 -1 1 light_on[L=l1] ; c cmd_light_on(l1) 1 light_dark(l1) 1 ; o done(on) 1 light_lit(l1) 1 ; p light_ok(l1) 1
+E 0 -1 1 light_on[L=l2] ; c cmd_light_on(l2) 1 light_dark(l2) 1 ; o done(on) 1 light_lit(l2) 1 ; p light_ok(l2) 1
+E 0 -1 1 light_on[L=lx] ; c cmd_light_on(lx) 1 light_dark(lx) 1 ; o done(on) 1 light_lit(lx) 1 ; p light_ok(lx) 1
+E 0 -1 1 light_on[L=la] ; c cmd_light_on(la) 1 light_dark(la) 1 ; o done(on) 1 light_lit(la) 1 ; p light_ok(la) 1
+E 0 -1 1 on_already[L=l1] ; c cmd_light_on(l1) 1 ; o refused(on) 1 ; p light_lit(l1) 1
+E 0 -1 1 on_already[L=l2] ; c cmd_light_on(l2) 1 ; o refused(on) 1 ; p light_lit(l2) 1
+E 0 -1 1 on_already[L=lx] ; c cmd_light_on(lx) 1 ; o refused(on) 1 ; p light_lit(lx) 1
+E 0 -1 1 on_already[L=la] ; c cmd_light_on(la) 1 ; o refused(on) 1 ; p light_lit(la) 1
+E 0 -1 1 on_missing[L=l1] ; c cmd_light_on(l1) 1 ; o refused(on) 1 ; p light_dark(l1) 1 light_missing(l1) 1
+E 0 -1 1 on_missing[L=l2] ; c cmd_light_on(l2) 1 ; o refused(on) 1 ; p light_dark(l2) 1 light_missing(l2) 1
+E 0 -1 1 on_missing[L=lx] ; c cmd_light_on(lx) 1 ; o refused(on) 1 ; p light_dark(lx) 1 light_missing(lx) 1
+E 0 -1 1 on_missing[L=la] ; c cmd_light_on(la) 1 ; o refused(on) 1 ; p light_dark(la) 1 light_missing(la) 1
+E 0 -1 1 light_off[L=l1] ; c cmd_light_off(l1) 1 light_lit(l1) 1 ; o done(off) 1 light_dark(l1) 1 ; p light_ok(l1) 1
+E 0 -1 1 light_off[L=l2] ; c cmd_light_off(l2) 1 light_lit(l2) 1 ; o done(off) 1 light_dark(l2) 1 ; p light_ok(l2) 1
+E 0 -1 1 light_off[L=lx] ; c cmd_light_off(lx) 1 light_lit(lx) 1 ; o done(off) 1 light_dark(lx) 1 ; p light_ok(lx) 1
+E 0 -1 1 light_off[L=la] ; c cmd_light_off(la) 1 light_lit(la) 1 ; o done(off) 1 light_dark(la) 1 ; p light_ok(la) 1
+E 0 -1 1 off_already[L=l1] ; c cmd_light_off(l1) 1 ; o refused(off) 1 ; p light_dark(l1) 1
+E 0 -1 1 off_already[L=l2] ; c cmd_light_off(l2) 1 ; o refused(off) 1 ; p light_dark(l2) 1
+E 0 -1 1 off_already[L=lx] ; c cmd_light_off(lx) 1 ; o refused(off) 1 ; p light_dark(lx) 1
+E 0 -1 1 off_already[L=la] ; c cmd_light_off(la) 1 ; o refused(off) 1 ; p light_dark(la) 1
+E 0 -1 1 off_missing[L=l1] ; c cmd_light_off(l1) 1 ; o refused(off) 1 ; p light_lit(l1) 1 light_missing(l1) 1
+E 0 -1 1 off_missing[L=l2] ; c cmd_light_off(l2) 1 ; o refused(off) 1 ; p light_lit(l2) 1 light_missing(l2) 1
+E 0 -1 1 off_missing[L=lx] ; c cmd_light_off(lx) 1 ; o refused(off) 1 ; p light_lit(lx) 1 light_missing(lx) 1
+E 0 -1 1 off_missing[L=la] ; c cmd_light_off(la) 1 ; o refused(off) 1 ; p light_lit(la) 1 light_missing(la) 1
+E 0 -1 1 on_unknown ; c cmd_light_on(lx) 1 ; o refused(on) 1
+E 0 -1 1 off_unknown ; c cmd_light_off(lx) 1 ; o refused(off) 1
+E 0 -1 1 sweep_off[L=l1] ; c light_lit(l1) 1 sweep_off(l1) 1 ; o light_dark(l1) 1 switched(l1) 1 ; p light_ok(l1) 1
+E 0 -1 1 sweep_off[L=l2] ; c light_lit(l2) 1 sweep_off(l2) 1 ; o light_dark(l2) 1 switched(l2) 1 ; p light_ok(l2) 1
+E 0 -1 1 sweep_off[L=lx] ; c light_lit(lx) 1 sweep_off(lx) 1 ; o light_dark(lx) 1 switched(lx) 1 ; p light_ok(lx) 1
+E 0 -1 1 sweep_off[L=la] ; c light_lit(la) 1 sweep_off(la) 1 ; o light_dark(la) 1 switched(la) 1 ; p light_ok(la) 1
+E 0 -1 1 sweep_kept[L=l1] ; c sweep_off(l1) 1 ; o kept(l1) 1 ; p light_dark(l1) 1
+E 0 -1 1 sweep_kept[L=l2] ; c sweep_off(l2) 1 ; o kept(l2) 1 ; p light_dark(l2) 1
+E 0 -1 1 sweep_kept[L=lx] ; c sweep_off(lx) 1 ; o kept(lx) 1 ; p light_dark(lx) 1
+E 0 -1 1 sweep_kept[L=la] ; c sweep_off(la) 1 ; o kept(la) 1 ; p light_dark(la) 1
+E 0 -1 1 sweep_missed[L=l1] ; c sweep_off(l1) 1 ; o missed(l1) 1 ; p light_lit(l1) 1 light_missing(l1) 1
+E 0 -1 1 sweep_missed[L=l2] ; c sweep_off(l2) 1 ; o missed(l2) 1 ; p light_lit(l2) 1 light_missing(l2) 1
+E 0 -1 1 sweep_missed[L=lx] ; c sweep_off(lx) 1 ; o missed(lx) 1 ; p light_lit(lx) 1 light_missing(lx) 1
+E 0 -1 1 sweep_missed[L=la] ; c sweep_off(la) 1 ; o missed(la) 1 ; p light_lit(la) 1 light_missing(la) 1
+E 0 -1 1 vacant_off[R=r1,L=l2] ; c light_lit(l2) 1 ; o auto_off(l2) 1 light_dark(l2) 1 ; p light_ok(l2) 1 presence(nobody,r1) 1
+E 0 -1 1 vacant_off[R=r2,L=l1] ; c light_lit(l1) 1 ; o auto_off(l1) 1 light_dark(l1) 1 ; p light_ok(l1) 1 presence(nobody,r2) 1
+E 0 -1 1 welcome_dark[R=r1] ; c entered(r1) 1 ; o suggest_light(r1) 1 ; p night 1 room_unlit(r1) 1
+E 0 -1 1 welcome_dark[R=r2] ; c entered(r2) 1 ; o suggest_light(r2) 1 ; p night 1 room_unlit(r2) 1
+E 0 -1 1 welcome_dark[R=r4] ; c entered(r4) 1 ; o suggest_light(r4) 1 ; p night 1 room_unlit(r4) 1
+E 0 -1 1 welcome_dark[R=rx] ; c entered(rx) 1 ; o suggest_light(rx) 1 ; p night 1 room_unlit(rx) 1
+I light_dark(l1) 1 light_dark(l2) 1 light_ok(l1) 1 light_ok(l2) 1
+S 4

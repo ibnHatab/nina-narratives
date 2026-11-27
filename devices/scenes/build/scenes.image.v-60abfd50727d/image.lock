@@ -1,0 +1,41 @@
+{
+  "members": {
+    "scenes": {
+      "bundle": "acb47af50386",
+      "source": "dca4770f1ee64360968a3b485d4bde6c8ea2994d96f03381f467babbfe7df008",
+      "program": "d1450b977fae1e81c531f42674f80068c569afe0e4cbbc4e18c2fde984238858",
+      "host": "manifest",
+      "dir": {
+        "place": "dir",
+        "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/scenes"
+      },
+      "served": "/home/axadmin/repo/redesign/nina-live/catalog/domains/scenes/scenes.llp",
+      "includes": [
+        {
+          "name": "../shared/home_world.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/scenes/../shared/home_world.llp",
+          "key": "7008a84e6da26c23e9bf67b654c07587c7d7e3fa272377384c8abf7c6008c7ed"
+        },
+        {
+          "name": "home_map.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/scenes/../shared/home_map.llp",
+          "key": "19e157edfea4a1d0e00a32ace9666087a774ab99c1e9a032e43ff77f8fcb1037"
+        },
+        {
+          "name": "../iface/home.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/scenes/../iface/home.llp",
+          "key": "28417e67ede4121f5f9906451aad62e84aba3bf55a75f360d78279458ef237d8"
+        }
+      ]
+    }
+  },
+  "places": {
+    "root": "/home/axadmin/repo/redesign/nina-live/catalog/domains/scenes",
+    "std": "/home/axadmin/repo/redesign/metis-lang-rd/iface",
+    "home": null
+  },
+  "image": "60abfd50727de90b810352531a4d8ca26152581f5a592853d117c6c6024d436b"
+}

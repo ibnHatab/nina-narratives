@@ -16,6 +16,53 @@ other(night, home).
 other(night, away).
 other(away, home).
 other(away, night).
+% the home's mode and mood as the world holds them (a Metis conclusion of the scenes package: the mode and mood
+% ports, nina-live's redesign step 3): levels every package reads, each keeping its own latch of the last swept
+type sure {no yes}.
+type mood {calm cozy focus lively sleep wake none}.
+pred home_mode(sure, scene) : home.
+pred home_mood(sure, mood) : home.
+pred mode_b(scene) : home.        % the beliefs on the world's ports mode and mood (one key per value), quantised by the levels
+pred mood_b(mood) : home.
+bwd othermood(mood, mood).
+pred swept(scene) : home.          % a package's latch: the mode it last swept for
+pred moodseen(mood) : home.        % … the mood it last expressed
+othermood(calm, cozy).
+othermood(calm, focus).
+othermood(calm, lively).
+othermood(calm, sleep).
+othermood(calm, wake).
+othermood(cozy, calm).
+othermood(cozy, focus).
+othermood(cozy, lively).
+othermood(cozy, sleep).
+othermood(cozy, wake).
+othermood(focus, calm).
+othermood(focus, cozy).
+othermood(focus, lively).
+othermood(focus, sleep).
+othermood(focus, wake).
+othermood(lively, calm).
+othermood(lively, cozy).
+othermood(lively, focus).
+othermood(lively, sleep).
+othermood(lively, wake).
+othermood(sleep, calm).
+othermood(sleep, cozy).
+othermood(sleep, focus).
+othermood(sleep, lively).
+othermood(sleep, wake).
+othermood(wake, calm).
+othermood(wake, cozy).
+othermood(wake, focus).
+othermood(wake, lively).
+othermood(wake, sleep).
+othermood(none, calm).
+othermood(none, cozy).
+othermood(none, focus).
+othermood(none, lively).
+othermood(none, sleep).
+othermood(none, wake).
 
 % presence per room (the mmWave radar; not yet wired: unsensed)
 pred occupied(room) : home.

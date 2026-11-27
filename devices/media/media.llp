@@ -85,3 +85,5 @@ stage serve {
 #init ir_absent 1
 #query done(on)
 #steps 4
+% the latch of media_fan.llp: the home mode at the start
+#init swept(home) 1

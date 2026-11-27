@@ -1,0 +1,46 @@
+{
+  "format": "metis-image/1",
+  "name": "media",
+  "composition_key": null,
+  "toolchain": {
+    "metisc": "metisc",
+    "spec": [15, 16, 17]
+  },
+  "one_member": true,
+  "planner": null,
+  "director": null,
+  "members": [
+    {
+      "name": "media",
+      "role": "package",
+      "bundle": "members/media",
+      "bundle_key": "06652e8e6e31",
+      "wire_key": "2bdd2c22ee020ede4a29e5914c9e8252e8eaf3668fadcc05c71705f4b8ece4ef",
+      "source_key": "a7ca1a7f07e77279bc05e20b07aef1eac3e0e3ae1b782a1be273d587fba24a2d",
+      "program": "media.llp",
+      "extensions": [],
+      "host": {
+        "py": "nina_world.host:media",
+        "origin": "manifest"
+      },
+      "clock": {
+        "beats": "1",
+        "period": "1"
+      },
+      "shared": {
+        "scene_media": "in",
+        "ask_media": "in"
+      },
+      "display": "the media",
+      "line": "media: the TV on, off, louder, quieter; infrared devices by their remote's keys (the IR remote is not wired yet)",
+      "voice": "own"
+    }
+  ],
+  "ports": [],
+  "world": {
+    "out": [],
+    "in": []
+  },
+  "response": null,
+  "priority": []
+}

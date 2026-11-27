@@ -57,22 +57,26 @@ stage serve {
   %% The music stopped while ducked.
   unduck_idle [dyn] : $idle * ducked -o unducked.
 
-  % ── the director: a mood's wish (the atmosphere's) ──
+  % ── the home's mood, a level of the world (the scenes conclude it), expressed once per change (moodseen) ──
   %% For a {M} mood: {O}.
-  mood_play [dyn] : mood_music(M) * idle * $mood_pick(M, O) -o active(O) * engage(O) * moody(M).
+  mood_play [dyn] : $home_mood(yes, M) * moodseen(X) * othermood(X, M) * idle * $mood_pick(M, O) -o moodseen(M) * active(O) * engage(O) * moody(M).
   %% The mood turns {M}: {O}.
-  mood_switch [dyn] : mood_music(M) * active(A) * $mood_pick(M, O) -o active(O) * engage(O) * moody(M).
+  mood_switch [dyn] : $home_mood(yes, M) * moodseen(X) * othermood(X, M) * active(A) * $mood_pick(M, O) -o moodseen(M) * active(O) * engage(O) * moody(M).
 
-  % ── the director: a scene's wish ──
+  % ── the home's mode, a level of the world, swept once per change (swept) ──
   %% Good night: the music fades to a whisper.
-  night [dyn] : scene_music(night) * $active(O) -o whisper.
+  night [dyn] : $home_mode(yes, night) * swept(M) * other(M, night) * $active(O) -o swept(night) * whisper.
+  %% Good night; the music was not playing.
+  night_idle [dyn] : $home_mode(yes, night) * swept(M) * other(M, night) * $idle -o swept(night).
   %% Everyone is out: I stop the music.
-  away [dyn] : scene_music(away) * active(O) -o idle * release.
-  %% The scene changed; the music was not playing.
-  scene_quiet [dyn] : scene_music(S) * $idle -o ().
+  away [dyn] : $home_mode(yes, away) * swept(M) * other(M, away) * active(O) -o swept(away) * idle * release.
+  %% Everyone is out; the music was not playing.
+  away_idle [dyn] : $home_mode(yes, away) * swept(M) * other(M, away) * $idle -o swept(away).
   %% Welcome back: the music stays as it is.
-  scene_home [dyn] : scene_music(home) * $active(O) -o ().
+  scene_home [dyn] : $home_mode(yes, home) * swept(M) * other(M, home) -o swept(home).
 }
 
 #init idle 1
 #init unducked 1
+#init swept(home) 1
+#init moodseen(none) 1

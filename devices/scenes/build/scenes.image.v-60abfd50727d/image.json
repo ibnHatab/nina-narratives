@@ -1,0 +1,52 @@
+{
+  "format": "metis-image/1",
+  "name": "scenes",
+  "composition_key": null,
+  "toolchain": {
+    "metisc": "metisc",
+    "spec": [15, 16, 17]
+  },
+  "one_member": true,
+  "planner": null,
+  "director": null,
+  "members": [
+    {
+      "name": "scenes",
+      "role": "package",
+      "bundle": "members/scenes",
+      "bundle_key": "acb47af50386",
+      "wire_key": "d1450b977fae1e81c531f42674f80068c569afe0e4cbbc4e18c2fde984238858",
+      "source_key": "dca4770f1ee64360968a3b485d4bde6c8ea2994d96f03381f467babbfe7df008",
+      "program": "scenes.llp",
+      "extensions": [],
+      "host": {
+        "py": "nina_world.host:scenes",
+        "origin": "manifest"
+      },
+      "clock": {
+        "beats": "1",
+        "period": "1"
+      },
+      "shared": {
+        "scene_lights": "out",
+        "scene_air": "out",
+        "scene_media": "out",
+        "scene_timers": "out",
+        "scene_music": "out",
+        "mood_music": "out",
+        "mood_glow": "out",
+        "ask_scenes": "in"
+      },
+      "display": "the home",
+      "line": "scenes: the home's mode (home, night, away) at a word; away suggested when the home empties, the night's end at dawn",
+      "voice": "own"
+    }
+  ],
+  "ports": [],
+  "world": {
+    "out": [],
+    "in": []
+  },
+  "response": null,
+  "priority": []
+}

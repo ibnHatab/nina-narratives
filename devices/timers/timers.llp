@@ -5,7 +5,8 @@
 % or waiting), so two timers never share one; the host asserts due(T) when T's time has come, and
 % full when no slot is free, and retracts what lasts one beat (clearing, a scene's wish). One
 % stage: a cycle of stage links would spin. A reminder waits for a scene: the director routes scenes' wish
-% scene_timers(S) here (iface/home.llp), so "remind me when I leave" fires on the away mode.
+% the home's mode as the world holds it (home_mode, a level: the scenes conclude it), so "remind me when I leave"
+% fires while the mode is away (set while away already, at once).
 catalog timers 1.
 provenance text "timers: countdowns at a word, and reminders for when the home goes away, to night or back home" "2026-11-24".
 layers (dyn).
@@ -19,6 +20,7 @@ type timers_act {timers}.
 pred free(timer) : home.
 pred counting(timer) : home.
 pred waiting(timer, scene) : home.   % a reminder for when the home goes to its S mode
+pred ready(timer, scene) : home.     % … the home is in another mode now: it rings when the mode turns S
 pred due(timer) : home.              % the host: its time has come
 pred full : home.                    % the host: no slot is free
 pred held(timer) : home.             % the host, after a restart: a countdown it remembers
@@ -51,8 +53,10 @@ stage serve {
 
   %% Time's up: {T}.
   ring [dyn] : due(T) * counting(T) -o free(T) * rang(T).
+  %% The home is in another mode: the reminder rings when it turns {S}.
+  arm [dyn] : $home_mode(yes, X) * waiting(T, S) * other(X, S) -o ready(T, S).
   %% Reminder: {T}.
-  remind [dyn] : $scene_timers(S) * waiting(T, S) -o free(T) * rang(T).
+  remind [dyn] : $home_mode(yes, S) * ready(T, S) -o free(T) * rang(T).
 
   %% I cancel the timers and the reminders.
   cancel_all [dyn] : cmd_timers_off -o clearing * done(timers).
@@ -60,6 +64,8 @@ stage serve {
   cancel [dyn] : $clearing * counting(T) -o free(T) * cancelled(T).
   %% I cancel the reminder of {T}.
   cancel_reminder [dyn] : $clearing * waiting(T, S) -o free(T) * cancelled(T).
+  %% I cancel the reminder of {T}.
+  cancel_ready [dyn] : $clearing * ready(T, S) -o free(T) * cancelled(T).
   %% Here is what is set.
   query [dyn] : cmd_timers_query -o said(timers).
   %% {T} had already rung.

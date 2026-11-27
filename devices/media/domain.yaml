@@ -8,4 +8,6 @@ intent: {spec: intent.yaml}
 clock: {beats: 1, period: 1}
 records: records/
 commands: [tv_up, tv_down, tv_louder, tv_quieter, ir_send, sweep_tv]
-shared: {scene_media: in, ask_media: in}   # the home composition: a scene's wishes (iface/home.llp)
+shared: {ask_media: in}   # the home composition: a scene's wishes (iface/home.llp)
+beliefs: {mode_b: {port: mode, one: M}}
+levels: {home_mode: {from: {belief: mode}, at: [0.5], names: ["no", "yes"]}}   # the home's mode/mood from the world (the scenes conclude it)

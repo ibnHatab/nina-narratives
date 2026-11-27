@@ -8,4 +8,6 @@ intent: {spec: intent.yaml}
 clock: {beats: 1, period: 1}
 records: records/
 commands: [set, remind_set, ring, remind, cancel, cancel_reminder]
-shared: {scene_timers: in, ask_timers: in}   # the home composition: a scene's wish (iface/home.llp)
+shared: {ask_timers: in}   # the home composition: a scene's wish (iface/home.llp)
+beliefs: {mode_b: {port: mode, one: M}}
+levels: {home_mode: {from: {belief: mode}, at: [0.5], names: ["no", "yes"]}}   # the home's mode/mood from the world (the scenes conclude it)

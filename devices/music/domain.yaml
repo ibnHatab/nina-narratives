@@ -8,4 +8,6 @@ intent: {spec: intent.yaml}
 clock: {beats: 1, period: 1}
 records: records/
 commands: [play, switch, something, something_new, something_else, something_new_one, again, off, up, down, duck, unduck, night, away, mood_play, mood_switch]
-shared: {scene_music: in, mood_music: in, ask_music: in}   # the home composition: a scene's wish (iface/home.llp)
+shared: {ask_music: in}   # the home composition: a scene's wish (iface/home.llp)
+beliefs: {mode_b: {port: mode, one: M}, mood_b: {port: mood, one: M}}
+levels: {home_mode: {from: {belief: mode}, at: [0.5], names: ["no", "yes"]}, home_mood: {from: {belief: mood}, at: [0.5], names: ["no", "yes"]}}   # the home's mode/mood from the world (the scenes conclude it)

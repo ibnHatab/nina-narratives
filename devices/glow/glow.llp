@@ -34,9 +34,9 @@ stage serve {
   %% The bedroom light changes to {O}.
   reglow [dyn] : cmd_glow(O) * active(A) -o active(O) * engage(O) * ok.
   %% For a {M} mood: {O}.
-  mood_glow_on [dyn] : mood_glow(M) * idle * $mood_pick(M, O) -o active(O) * engage(O) * moody(M).
+  mood_glow_on [dyn] : $home_mood(yes, M) * moodseen(X) * othermood(X, M) * idle * $mood_pick(M, O) -o moodseen(M) * active(O) * engage(O) * moody(M).
   %% The mood turns {M}: {O}.
-  mood_glow_change [dyn] : mood_glow(M) * active(A) * $mood_pick(M, O) -o active(O) * engage(O) * moody(M).
+  mood_glow_change [dyn] : $home_mood(yes, M) * moodseen(X) * othermood(X, M) * active(A) * $mood_pick(M, O) -o moodseen(M) * active(O) * engage(O) * moody(M).
   %% My mood turns {M}, and the light with it: {O}.
   her_glow [dyn] : her_mood(M) * active(A) * $follows * $mood_pick(M, O) -o active(O) * engage(O) * moody(M).
   %% You chose this light: my mood stays in my voice.
@@ -54,3 +54,4 @@ stage serve {
 }
 
 #init idle 1
+#init moodseen(none) 1

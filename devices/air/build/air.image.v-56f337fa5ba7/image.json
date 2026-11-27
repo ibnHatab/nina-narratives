@@ -1,0 +1,70 @@
+{
+  "format": "metis-image/1",
+  "name": "air",
+  "composition_key": null,
+  "toolchain": {
+    "metisc": "metisc",
+    "spec": [15, 16, 17]
+  },
+  "one_member": true,
+  "planner": null,
+  "director": null,
+  "members": [
+    {
+      "name": "air",
+      "role": "package",
+      "bundle": "members/air",
+      "bundle_key": "4274fa11145f",
+      "wire_key": "3baabbf41b153315f19a88b9afb382b4aca1323888d85c95047b480015c8f7bb",
+      "source_key": "03d30cab75891d6795899155bf77482e66b42b849b0715194d072cb864cbbead",
+      "program": "air.llp",
+      "extensions": [],
+      "host": {
+        "py": "nina_world.host:air",
+        "origin": "manifest"
+      },
+      "clock": {
+        "beats": "1",
+        "period": "1"
+      },
+      "shared": {
+        "scene_air": "in",
+        "ask_air": "in"
+      },
+      "levels": {
+        "power": {
+          "from": {
+            "belief": "unit_on"
+          },
+          "at": ["0.05", "0.95"],
+          "names": ["off", "unconfirmed", "on"]
+        },
+        "outside": {
+          "from": {
+            "belief": "out_cold"
+          },
+          "at": ["0.5"],
+          "names": ["mild_out", "cold_out"]
+        }
+      },
+      "beliefs": {
+        "on_b": {
+          "port": "unit_on"
+        },
+        "out_cold_b": {
+          "port": "out_cold"
+        }
+      },
+      "display": "the ventilation",
+      "line": "the ventilation: the recuperators on, off, night or boost, the heater, winter mode, and advice when it turns cold outside",
+      "voice": "own"
+    }
+  ],
+  "ports": [],
+  "world": {
+    "out": [],
+    "in": []
+  },
+  "response": null,
+  "priority": []
+}

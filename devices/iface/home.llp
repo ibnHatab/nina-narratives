@@ -1,20 +1,12 @@
-% home — the home's crossing preds: a scene's wish, from the scenes package (the planner) to the packages
-% that carry it out (the timers: the reminders waiting for the mode), one kind each so the director routes it to its one handler. Declaration only.
+% home — the home's crossing preds: the person's intents to the cards, through the director (ask_<pkg>). A scene's
+% wishes are no longer crossings: the scenes package concludes the home's mode and mood into the world, which every
+% package reads as a level (shared/home_world.llp; nina-live's redesign, step 3). Declaration only.
 catalog home_iface 1.
 provenance text "the home's crossing preds: a scene's wish to the lights, the air and the media" "2026-11-24".
 types (scene).
-type mood {calm cozy focus lively sleep wake}.
 
 namespace home_iface produce (dyn).
 
-pred scene_lights(scene) : home_iface.
-pred scene_air(scene) : home_iface.
-pred scene_media(scene) : home_iface.
-pred scene_timers(scene) : home_iface.
-pred scene_music(scene) : home_iface.
-% a mood (the atmosphere's), one wish per domain that expresses it
-pred mood_music(mood) : home_iface.
-pred mood_glow(mood) : home_iface.
 % the person's intent to a card (nina-live's redesign, channel A, s-b478fe59): with the runtime's intent route on,
 % a call to a card arrives at the director as one of these; its forward serves the call into the card (the
 % runtime keeps the call itself: one at a time). No rule produces or consumes them.

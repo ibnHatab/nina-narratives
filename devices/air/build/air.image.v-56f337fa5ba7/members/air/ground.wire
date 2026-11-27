@@ -1,0 +1,227 @@
+# metis ground-wire artifact — catalog air v1; GENERATED, do not edit.
+N 1 0
+B weight out_cold
+B weight unit_on
+E 0 -1 1 which_air_on ; c cmd_air_on(ua) 1 ; o refused(on) 1
+E 0 -1 1 which_air_off ; c cmd_air_off(ua) 1 ; o refused(off) 1
+E 0 -1 1 which_air_night ; c cmd_air_night(ua) 1 ; o refused(night) 1
+E 0 -1 1 which_air_boost ; c cmd_air_boost(ua) 1 ; o refused(boost) 1
+E 0 -1 1 which_air_normal ; c cmd_air_normal(ua) 1 ; o refused(normal) 1
+E 0 -1 1 which_heater_on ; c cmd_heater_on(ua) 1 ; o refused(heat) 1
+E 0 -1 1 which_heater_off ; c cmd_heater_off(ua) 1 ; o refused(heat) 1
+E 0 -1 1 which_winter_on ; c cmd_winter_on(ua) 1 ; o refused(winter) 1
+E 0 -1 1 which_winter_off ; c cmd_winter_off(ua) 1 ; o refused(winter) 1
+E 0 -1 1 fan_home ; c scene_air(home) 1
+E 0 -1 1 fan_night ; c scene_air(night) 1 ; o sweep_air_night(u1) 1 sweep_air_night(u2) 1
+E 0 -1 1 fan_away ; c scene_air(away) 1 ; o sweep_air_off(u1) 1 sweep_air_off(u2) 1
+E 0 -1 1 air_on[U=u1] ; c cmd_air_on(u1) 1 ; o done(on) 1 ; p power(off,u1) 1 unit_ok(u1) 1
+E 0 -1 1 air_on[U=u2] ; c cmd_air_on(u2) 1 ; o done(on) 1 ; p power(off,u2) 1 unit_ok(u2) 1
+E 0 -1 1 air_on[U=ux] ; c cmd_air_on(ux) 1 ; o done(on) 1 ; p power(off,ux) 1 unit_ok(ux) 1
+E 0 -1 1 air_on[U=ua] ; c cmd_air_on(ua) 1 ; o done(on) 1 ; p power(off,ua) 1 unit_ok(ua) 1
+E 0 -1 1 on_already[U=u1] ; c cmd_air_on(u1) 1 ; o refused(on) 1 ; p power(on,u1) 1 unit_ok(u1) 1
+E 0 -1 1 on_already[U=u2] ; c cmd_air_on(u2) 1 ; o refused(on) 1 ; p power(on,u2) 1 unit_ok(u2) 1
+E 0 -1 1 on_already[U=ux] ; c cmd_air_on(ux) 1 ; o refused(on) 1 ; p power(on,ux) 1 unit_ok(ux) 1
+E 0 -1 1 on_already[U=ua] ; c cmd_air_on(ua) 1 ; o refused(on) 1 ; p power(on,ua) 1 unit_ok(ua) 1
+E 0 -1 1 on_unconfirmed[U=u1] ; c cmd_air_on(u1) 1 ; o refused(on) 1 ; p power(unconfirmed,u1) 1 unit_ok(u1) 1
+E 0 -1 1 on_unconfirmed[U=u2] ; c cmd_air_on(u2) 1 ; o refused(on) 1 ; p power(unconfirmed,u2) 1 unit_ok(u2) 1
+E 0 -1 1 on_unconfirmed[U=ux] ; c cmd_air_on(ux) 1 ; o refused(on) 1 ; p power(unconfirmed,ux) 1 unit_ok(ux) 1
+E 0 -1 1 on_unconfirmed[U=ua] ; c cmd_air_on(ua) 1 ; o refused(on) 1 ; p power(unconfirmed,ua) 1 unit_ok(ua) 1
+E 0 -1 1 on_missing[U=u1] ; c cmd_air_on(u1) 1 ; o refused(on) 1 ; p unit_missing(u1) 1
+E 0 -1 1 on_missing[U=u2] ; c cmd_air_on(u2) 1 ; o refused(on) 1 ; p unit_missing(u2) 1
+E 0 -1 1 on_missing[U=ux] ; c cmd_air_on(ux) 1 ; o refused(on) 1 ; p unit_missing(ux) 1
+E 0 -1 1 on_missing[U=ua] ; c cmd_air_on(ua) 1 ; o refused(on) 1 ; p unit_missing(ua) 1
+E 0 -1 1 air_off[U=u1] ; c cmd_air_off(u1) 1 heater_on(u1) 1 ; o done(off) 1 heater_off(u1) 1 ; p power(on,u1) 1 unit_ok(u1) 1
+E 0 -1 1 air_off[U=u2] ; c cmd_air_off(u2) 1 heater_on(u2) 1 ; o done(off) 1 heater_off(u2) 1 ; p power(on,u2) 1 unit_ok(u2) 1
+E 0 -1 1 air_off[U=ux] ; c cmd_air_off(ux) 1 heater_on(ux) 1 ; o done(off) 1 heater_off(ux) 1 ; p power(on,ux) 1 unit_ok(ux) 1
+E 0 -1 1 air_off[U=ua] ; c cmd_air_off(ua) 1 heater_on(ua) 1 ; o done(off) 1 heater_off(ua) 1 ; p power(on,ua) 1 unit_ok(ua) 1
+E 0 -1 1 air_off_cold[U=u1] ; c cmd_air_off(u1) 1 ; o done(off) 1 ; p heater_off(u1) 1 power(on,u1) 1 unit_ok(u1) 1
+E 0 -1 1 air_off_cold[U=u2] ; c cmd_air_off(u2) 1 ; o done(off) 1 ; p heater_off(u2) 1 power(on,u2) 1 unit_ok(u2) 1
+E 0 -1 1 air_off_cold[U=ux] ; c cmd_air_off(ux) 1 ; o done(off) 1 ; p heater_off(ux) 1 power(on,ux) 1 unit_ok(ux) 1
+E 0 -1 1 air_off_cold[U=ua] ; c cmd_air_off(ua) 1 ; o done(off) 1 ; p heater_off(ua) 1 power(on,ua) 1 unit_ok(ua) 1
+E 0 -1 1 off_already[U=u1] ; c cmd_air_off(u1) 1 ; o refused(off) 1 ; p power(off,u1) 1 unit_ok(u1) 1
+E 0 -1 1 off_already[U=u2] ; c cmd_air_off(u2) 1 ; o refused(off) 1 ; p power(off,u2) 1 unit_ok(u2) 1
+E 0 -1 1 off_already[U=ux] ; c cmd_air_off(ux) 1 ; o refused(off) 1 ; p power(off,ux) 1 unit_ok(ux) 1
+E 0 -1 1 off_already[U=ua] ; c cmd_air_off(ua) 1 ; o refused(off) 1 ; p power(off,ua) 1 unit_ok(ua) 1
+E 0 -1 1 off_unconfirmed[U=u1] ; c cmd_air_off(u1) 1 ; o refused(off) 1 ; p power(unconfirmed,u1) 1 unit_ok(u1) 1
+E 0 -1 1 off_unconfirmed[U=u2] ; c cmd_air_off(u2) 1 ; o refused(off) 1 ; p power(unconfirmed,u2) 1 unit_ok(u2) 1
+E 0 -1 1 off_unconfirmed[U=ux] ; c cmd_air_off(ux) 1 ; o refused(off) 1 ; p power(unconfirmed,ux) 1 unit_ok(ux) 1
+E 0 -1 1 off_unconfirmed[U=ua] ; c cmd_air_off(ua) 1 ; o refused(off) 1 ; p power(unconfirmed,ua) 1 unit_ok(ua) 1
+E 0 -1 1 off_missing[U=u1] ; c cmd_air_off(u1) 1 ; o refused(off) 1 ; p unit_missing(u1) 1
+E 0 -1 1 off_missing[U=u2] ; c cmd_air_off(u2) 1 ; o refused(off) 1 ; p unit_missing(u2) 1
+E 0 -1 1 off_missing[U=ux] ; c cmd_air_off(ux) 1 ; o refused(off) 1 ; p unit_missing(ux) 1
+E 0 -1 1 off_missing[U=ua] ; c cmd_air_off(ua) 1 ; o refused(off) 1 ; p unit_missing(ua) 1
+E 0 -1 1 on_unknown ; c cmd_air_on(ux) 1 ; o refused(on) 1
+E 0 -1 1 off_unknown ; c cmd_air_off(ux) 1 ; o refused(off) 1
+E 0 -1 1 other_unknown_n ; c cmd_air_night(ux) 1 ; o refused(night) 1
+E 0 -1 1 other_unknown_b ; c cmd_air_boost(ux) 1 ; o refused(boost) 1
+E 0 -1 1 other_unknown_m ; c cmd_air_normal(ux) 1 ; o refused(normal) 1
+E 0 -1 1 heat_unknown_on ; c cmd_heater_on(ux) 1 ; o refused(heat) 1
+E 0 -1 1 heat_unknown_off ; c cmd_heater_off(ux) 1 ; o refused(heat) 1
+E 0 -1 1 winter_unknown_on ; c cmd_winter_on(ux) 1 ; o refused(winter) 1
+E 0 -1 1 winter_unknown_off ; c cmd_winter_off(ux) 1 ; o refused(winter) 1
+E 0 -1 1 air_night[U=u1] ; c cmd_air_night(u1) 1 normal_mode(u1) 1 ; o done(night) 1 night_mode(u1) 1 ; p power(on,u1) 1 unit_ok(u1) 1
+E 0 -1 1 air_night[U=u2] ; c cmd_air_night(u2) 1 normal_mode(u2) 1 ; o done(night) 1 night_mode(u2) 1 ; p power(on,u2) 1 unit_ok(u2) 1
+E 0 -1 1 air_night[U=ux] ; c cmd_air_night(ux) 1 normal_mode(ux) 1 ; o done(night) 1 night_mode(ux) 1 ; p power(on,ux) 1 unit_ok(ux) 1
+E 0 -1 1 air_night[U=ua] ; c cmd_air_night(ua) 1 normal_mode(ua) 1 ; o done(night) 1 night_mode(ua) 1 ; p power(on,ua) 1 unit_ok(ua) 1
+E 0 -1 1 air_night_from_boost[U=u1] ; c boost_mode(u1) 1 cmd_air_night(u1) 1 ; o done(night) 1 night_mode(u1) 1 ; p power(on,u1) 1 unit_ok(u1) 1
+E 0 -1 1 air_night_from_boost[U=u2] ; c boost_mode(u2) 1 cmd_air_night(u2) 1 ; o done(night) 1 night_mode(u2) 1 ; p power(on,u2) 1 unit_ok(u2) 1
+E 0 -1 1 air_night_from_boost[U=ux] ; c boost_mode(ux) 1 cmd_air_night(ux) 1 ; o done(night) 1 night_mode(ux) 1 ; p power(on,ux) 1 unit_ok(ux) 1
+E 0 -1 1 air_night_from_boost[U=ua] ; c boost_mode(ua) 1 cmd_air_night(ua) 1 ; o done(night) 1 night_mode(ua) 1 ; p power(on,ua) 1 unit_ok(ua) 1
+E 0 -1 1 night_already[U=u1] ; c cmd_air_night(u1) 1 ; o refused(night) 1 ; p night_mode(u1) 1
+E 0 -1 1 night_already[U=u2] ; c cmd_air_night(u2) 1 ; o refused(night) 1 ; p night_mode(u2) 1
+E 0 -1 1 night_already[U=ux] ; c cmd_air_night(ux) 1 ; o refused(night) 1 ; p night_mode(ux) 1
+E 0 -1 1 night_already[U=ua] ; c cmd_air_night(ua) 1 ; o refused(night) 1 ; p night_mode(ua) 1
+E 0 -1 1 air_boost[U=u1] ; c cmd_air_boost(u1) 1 normal_mode(u1) 1 ; o boost_mode(u1) 1 done(boost) 1 ; p power(on,u1) 1 unit_ok(u1) 1
+E 0 -1 1 air_boost[U=u2] ; c cmd_air_boost(u2) 1 normal_mode(u2) 1 ; o boost_mode(u2) 1 done(boost) 1 ; p power(on,u2) 1 unit_ok(u2) 1
+E 0 -1 1 air_boost[U=ux] ; c cmd_air_boost(ux) 1 normal_mode(ux) 1 ; o boost_mode(ux) 1 done(boost) 1 ; p power(on,ux) 1 unit_ok(ux) 1
+E 0 -1 1 air_boost[U=ua] ; c cmd_air_boost(ua) 1 normal_mode(ua) 1 ; o boost_mode(ua) 1 done(boost) 1 ; p power(on,ua) 1 unit_ok(ua) 1
+E 0 -1 1 air_boost_from_night[U=u1] ; c cmd_air_boost(u1) 1 night_mode(u1) 1 ; o boost_mode(u1) 1 done(boost) 1 ; p power(on,u1) 1 unit_ok(u1) 1
+E 0 -1 1 air_boost_from_night[U=u2] ; c cmd_air_boost(u2) 1 night_mode(u2) 1 ; o boost_mode(u2) 1 done(boost) 1 ; p power(on,u2) 1 unit_ok(u2) 1
+E 0 -1 1 air_boost_from_night[U=ux] ; c cmd_air_boost(ux) 1 night_mode(ux) 1 ; o boost_mode(ux) 1 done(boost) 1 ; p power(on,ux) 1 unit_ok(ux) 1
+E 0 -1 1 air_boost_from_night[U=ua] ; c cmd_air_boost(ua) 1 night_mode(ua) 1 ; o boost_mode(ua) 1 done(boost) 1 ; p power(on,ua) 1 unit_ok(ua) 1
+E 0 -1 1 boost_already[U=u1] ; c cmd_air_boost(u1) 1 ; o refused(boost) 1 ; p boost_mode(u1) 1
+E 0 -1 1 boost_already[U=u2] ; c cmd_air_boost(u2) 1 ; o refused(boost) 1 ; p boost_mode(u2) 1
+E 0 -1 1 boost_already[U=ux] ; c cmd_air_boost(ux) 1 ; o refused(boost) 1 ; p boost_mode(ux) 1
+E 0 -1 1 boost_already[U=ua] ; c cmd_air_boost(ua) 1 ; o refused(boost) 1 ; p boost_mode(ua) 1
+E 0 -1 1 normal_from_night[U=u1] ; c cmd_air_normal(u1) 1 night_mode(u1) 1 ; o done(normal) 1 normal_mode(u1) 1 ; p unit_ok(u1) 1
+E 0 -1 1 normal_from_night[U=u2] ; c cmd_air_normal(u2) 1 night_mode(u2) 1 ; o done(normal) 1 normal_mode(u2) 1 ; p unit_ok(u2) 1
+E 0 -1 1 normal_from_night[U=ux] ; c cmd_air_normal(ux) 1 night_mode(ux) 1 ; o done(normal) 1 normal_mode(ux) 1 ; p unit_ok(ux) 1
+E 0 -1 1 normal_from_night[U=ua] ; c cmd_air_normal(ua) 1 night_mode(ua) 1 ; o done(normal) 1 normal_mode(ua) 1 ; p unit_ok(ua) 1
+E 0 -1 1 normal_from_boost[U=u1] ; c boost_mode(u1) 1 cmd_air_normal(u1) 1 ; o done(normal) 1 normal_mode(u1) 1 ; p unit_ok(u1) 1
+E 0 -1 1 normal_from_boost[U=u2] ; c boost_mode(u2) 1 cmd_air_normal(u2) 1 ; o done(normal) 1 normal_mode(u2) 1 ; p unit_ok(u2) 1
+E 0 -1 1 normal_from_boost[U=ux] ; c boost_mode(ux) 1 cmd_air_normal(ux) 1 ; o done(normal) 1 normal_mode(ux) 1 ; p unit_ok(ux) 1
+E 0 -1 1 normal_from_boost[U=ua] ; c boost_mode(ua) 1 cmd_air_normal(ua) 1 ; o done(normal) 1 normal_mode(ua) 1 ; p unit_ok(ua) 1
+E 0 -1 1 normal_already[U=u1] ; c cmd_air_normal(u1) 1 ; o refused(normal) 1 ; p normal_mode(u1) 1
+E 0 -1 1 normal_already[U=u2] ; c cmd_air_normal(u2) 1 ; o refused(normal) 1 ; p normal_mode(u2) 1
+E 0 -1 1 normal_already[U=ux] ; c cmd_air_normal(ux) 1 ; o refused(normal) 1 ; p normal_mode(ux) 1
+E 0 -1 1 normal_already[U=ua] ; c cmd_air_normal(ua) 1 ; o refused(normal) 1 ; p normal_mode(ua) 1
+E 0 -1 1 night_stopped[U=u1] ; c cmd_air_night(u1) 1 ; o refused(night) 1 ; p normal_mode(u1) 1 power(off,u1) 1 stopped(u1) 1
+E 0 -1 1 night_stopped[U=u2] ; c cmd_air_night(u2) 1 ; o refused(night) 1 ; p normal_mode(u2) 1 power(off,u2) 1 stopped(u2) 1
+E 0 -1 1 night_stopped[U=ux] ; c cmd_air_night(ux) 1 ; o refused(night) 1 ; p normal_mode(ux) 1 power(off,ux) 1 stopped(ux) 1
+E 0 -1 1 night_stopped[U=ua] ; c cmd_air_night(ua) 1 ; o refused(night) 1 ; p normal_mode(ua) 1 power(off,ua) 1 stopped(ua) 1
+E 0 -1 1 boost_stopped[U=u1] ; c cmd_air_boost(u1) 1 ; o refused(boost) 1 ; p normal_mode(u1) 1 power(off,u1) 1 stopped(u1) 1
+E 0 -1 1 boost_stopped[U=u2] ; c cmd_air_boost(u2) 1 ; o refused(boost) 1 ; p normal_mode(u2) 1 power(off,u2) 1 stopped(u2) 1
+E 0 -1 1 boost_stopped[U=ux] ; c cmd_air_boost(ux) 1 ; o refused(boost) 1 ; p normal_mode(ux) 1 power(off,ux) 1 stopped(ux) 1
+E 0 -1 1 boost_stopped[U=ua] ; c cmd_air_boost(ua) 1 ; o refused(boost) 1 ; p normal_mode(ua) 1 power(off,ua) 1 stopped(ua) 1
+E 0 -1 1 night_stopped_boost[U=u1] ; c cmd_air_night(u1) 1 ; o refused(night) 1 ; p boost_mode(u1) 1 power(off,u1) 1 stopped(u1) 1
+E 0 -1 1 night_stopped_boost[U=u2] ; c cmd_air_night(u2) 1 ; o refused(night) 1 ; p boost_mode(u2) 1 power(off,u2) 1 stopped(u2) 1
+E 0 -1 1 night_stopped_boost[U=ux] ; c cmd_air_night(ux) 1 ; o refused(night) 1 ; p boost_mode(ux) 1 power(off,ux) 1 stopped(ux) 1
+E 0 -1 1 night_stopped_boost[U=ua] ; c cmd_air_night(ua) 1 ; o refused(night) 1 ; p boost_mode(ua) 1 power(off,ua) 1 stopped(ua) 1
+E 0 -1 1 boost_stopped_night[U=u1] ; c cmd_air_boost(u1) 1 ; o refused(boost) 1 ; p night_mode(u1) 1 power(off,u1) 1 stopped(u1) 1
+E 0 -1 1 boost_stopped_night[U=u2] ; c cmd_air_boost(u2) 1 ; o refused(boost) 1 ; p night_mode(u2) 1 power(off,u2) 1 stopped(u2) 1
+E 0 -1 1 boost_stopped_night[U=ux] ; c cmd_air_boost(ux) 1 ; o refused(boost) 1 ; p night_mode(ux) 1 power(off,ux) 1 stopped(ux) 1
+E 0 -1 1 boost_stopped_night[U=ua] ; c cmd_air_boost(ua) 1 ; o refused(boost) 1 ; p night_mode(ua) 1 power(off,ua) 1 stopped(ua) 1
+E 0 -1 1 night_unconfirmed[U=u1] ; c cmd_air_night(u1) 1 ; o refused(night) 1 ; p normal_mode(u1) 1 power(unconfirmed,u1) 1
+E 0 -1 1 night_unconfirmed[U=u2] ; c cmd_air_night(u2) 1 ; o refused(night) 1 ; p normal_mode(u2) 1 power(unconfirmed,u2) 1
+E 0 -1 1 night_unconfirmed[U=ux] ; c cmd_air_night(ux) 1 ; o refused(night) 1 ; p normal_mode(ux) 1 power(unconfirmed,ux) 1
+E 0 -1 1 night_unconfirmed[U=ua] ; c cmd_air_night(ua) 1 ; o refused(night) 1 ; p normal_mode(ua) 1 power(unconfirmed,ua) 1
+E 0 -1 1 night_unconfirmed_boost[U=u1] ; c cmd_air_night(u1) 1 ; o refused(night) 1 ; p boost_mode(u1) 1 power(unconfirmed,u1) 1
+E 0 -1 1 night_unconfirmed_boost[U=u2] ; c cmd_air_night(u2) 1 ; o refused(night) 1 ; p boost_mode(u2) 1 power(unconfirmed,u2) 1
+E 0 -1 1 night_unconfirmed_boost[U=ux] ; c cmd_air_night(ux) 1 ; o refused(night) 1 ; p boost_mode(ux) 1 power(unconfirmed,ux) 1
+E 0 -1 1 night_unconfirmed_boost[U=ua] ; c cmd_air_night(ua) 1 ; o refused(night) 1 ; p boost_mode(ua) 1 power(unconfirmed,ua) 1
+E 0 -1 1 boost_unconfirmed[U=u1] ; c cmd_air_boost(u1) 1 ; o refused(boost) 1 ; p normal_mode(u1) 1 power(unconfirmed,u1) 1
+E 0 -1 1 boost_unconfirmed[U=u2] ; c cmd_air_boost(u2) 1 ; o refused(boost) 1 ; p normal_mode(u2) 1 power(unconfirmed,u2) 1
+E 0 -1 1 boost_unconfirmed[U=ux] ; c cmd_air_boost(ux) 1 ; o refused(boost) 1 ; p normal_mode(ux) 1 power(unconfirmed,ux) 1
+E 0 -1 1 boost_unconfirmed[U=ua] ; c cmd_air_boost(ua) 1 ; o refused(boost) 1 ; p normal_mode(ua) 1 power(unconfirmed,ua) 1
+E 0 -1 1 boost_unconfirmed_night[U=u1] ; c cmd_air_boost(u1) 1 ; o refused(boost) 1 ; p night_mode(u1) 1 power(unconfirmed,u1) 1
+E 0 -1 1 boost_unconfirmed_night[U=u2] ; c cmd_air_boost(u2) 1 ; o refused(boost) 1 ; p night_mode(u2) 1 power(unconfirmed,u2) 1
+E 0 -1 1 boost_unconfirmed_night[U=ux] ; c cmd_air_boost(ux) 1 ; o refused(boost) 1 ; p night_mode(ux) 1 power(unconfirmed,ux) 1
+E 0 -1 1 boost_unconfirmed_night[U=ua] ; c cmd_air_boost(ua) 1 ; o refused(boost) 1 ; p night_mode(ua) 1 power(unconfirmed,ua) 1
+E 0 -1 1 heater_up[U=u1] ; c cmd_heater_on(u1) 1 heater_off(u1) 1 ; o done(heat) 1 heater_on(u1) 1 ; p power(on,u1) 1 unit_ok(u1) 1
+E 0 -1 1 heater_up[U=u2] ; c cmd_heater_on(u2) 1 heater_off(u2) 1 ; o done(heat) 1 heater_on(u2) 1 ; p power(on,u2) 1 unit_ok(u2) 1
+E 0 -1 1 heater_up[U=ux] ; c cmd_heater_on(ux) 1 heater_off(ux) 1 ; o done(heat) 1 heater_on(ux) 1 ; p power(on,ux) 1 unit_ok(ux) 1
+E 0 -1 1 heater_up[U=ua] ; c cmd_heater_on(ua) 1 heater_off(ua) 1 ; o done(heat) 1 heater_on(ua) 1 ; p power(on,ua) 1 unit_ok(ua) 1
+E 0 -1 1 heater_already[U=u1] ; c cmd_heater_on(u1) 1 ; o refused(heat) 1 ; p heater_on(u1) 1
+E 0 -1 1 heater_already[U=u2] ; c cmd_heater_on(u2) 1 ; o refused(heat) 1 ; p heater_on(u2) 1
+E 0 -1 1 heater_already[U=ux] ; c cmd_heater_on(ux) 1 ; o refused(heat) 1 ; p heater_on(ux) 1
+E 0 -1 1 heater_already[U=ua] ; c cmd_heater_on(ua) 1 ; o refused(heat) 1 ; p heater_on(ua) 1
+E 0 -1 1 heater_stopped[U=u1] ; c cmd_heater_on(u1) 1 ; o refused(heat) 1 ; p heater_off(u1) 1 power(off,u1) 1 stopped(u1) 1
+E 0 -1 1 heater_stopped[U=u2] ; c cmd_heater_on(u2) 1 ; o refused(heat) 1 ; p heater_off(u2) 1 power(off,u2) 1 stopped(u2) 1
+E 0 -1 1 heater_stopped[U=ux] ; c cmd_heater_on(ux) 1 ; o refused(heat) 1 ; p heater_off(ux) 1 power(off,ux) 1 stopped(ux) 1
+E 0 -1 1 heater_stopped[U=ua] ; c cmd_heater_on(ua) 1 ; o refused(heat) 1 ; p heater_off(ua) 1 power(off,ua) 1 stopped(ua) 1
+E 0 -1 1 heater_unconfirmed[U=u1] ; c cmd_heater_on(u1) 1 ; o refused(heat) 1 ; p heater_off(u1) 1 power(unconfirmed,u1) 1
+E 0 -1 1 heater_unconfirmed[U=u2] ; c cmd_heater_on(u2) 1 ; o refused(heat) 1 ; p heater_off(u2) 1 power(unconfirmed,u2) 1
+E 0 -1 1 heater_unconfirmed[U=ux] ; c cmd_heater_on(ux) 1 ; o refused(heat) 1 ; p heater_off(ux) 1 power(unconfirmed,ux) 1
+E 0 -1 1 heater_unconfirmed[U=ua] ; c cmd_heater_on(ua) 1 ; o refused(heat) 1 ; p heater_off(ua) 1 power(unconfirmed,ua) 1
+E 0 -1 1 heater_down[U=u1] ; c cmd_heater_off(u1) 1 heater_on(u1) 1 ; o done(heat) 1 heater_off(u1) 1 ; p unit_ok(u1) 1
+E 0 -1 1 heater_down[U=u2] ; c cmd_heater_off(u2) 1 heater_on(u2) 1 ; o done(heat) 1 heater_off(u2) 1 ; p unit_ok(u2) 1
+E 0 -1 1 heater_down[U=ux] ; c cmd_heater_off(ux) 1 heater_on(ux) 1 ; o done(heat) 1 heater_off(ux) 1 ; p unit_ok(ux) 1
+E 0 -1 1 heater_down[U=ua] ; c cmd_heater_off(ua) 1 heater_on(ua) 1 ; o done(heat) 1 heater_off(ua) 1 ; p unit_ok(ua) 1
+E 0 -1 1 heater_off_already[U=u1] ; c cmd_heater_off(u1) 1 ; o refused(heat) 1 ; p heater_off(u1) 1
+E 0 -1 1 heater_off_already[U=u2] ; c cmd_heater_off(u2) 1 ; o refused(heat) 1 ; p heater_off(u2) 1
+E 0 -1 1 heater_off_already[U=ux] ; c cmd_heater_off(ux) 1 ; o refused(heat) 1 ; p heater_off(ux) 1
+E 0 -1 1 heater_off_already[U=ua] ; c cmd_heater_off(ua) 1 ; o refused(heat) 1 ; p heater_off(ua) 1
+E 0 -1 1 winter_up[U=u1] ; c cmd_winter_on(u1) 1 winter_off(u1) 1 ; o done(winter) 1 winter_on(u1) 1 ; p unit_ok(u1) 1
+E 0 -1 1 winter_up[U=u2] ; c cmd_winter_on(u2) 1 winter_off(u2) 1 ; o done(winter) 1 winter_on(u2) 1 ; p unit_ok(u2) 1
+E 0 -1 1 winter_up[U=ux] ; c cmd_winter_on(ux) 1 winter_off(ux) 1 ; o done(winter) 1 winter_on(ux) 1 ; p unit_ok(ux) 1
+E 0 -1 1 winter_up[U=ua] ; c cmd_winter_on(ua) 1 winter_off(ua) 1 ; o done(winter) 1 winter_on(ua) 1 ; p unit_ok(ua) 1
+E 0 -1 1 winter_already[U=u1] ; c cmd_winter_on(u1) 1 ; o refused(winter) 1 ; p winter_on(u1) 1
+E 0 -1 1 winter_already[U=u2] ; c cmd_winter_on(u2) 1 ; o refused(winter) 1 ; p winter_on(u2) 1
+E 0 -1 1 winter_already[U=ux] ; c cmd_winter_on(ux) 1 ; o refused(winter) 1 ; p winter_on(ux) 1
+E 0 -1 1 winter_already[U=ua] ; c cmd_winter_on(ua) 1 ; o refused(winter) 1 ; p winter_on(ua) 1
+E 0 -1 1 winter_down[U=u1] ; c cmd_winter_off(u1) 1 winter_on(u1) 1 ; o done(winter) 1 winter_off(u1) 1 ; p unit_ok(u1) 1
+E 0 -1 1 winter_down[U=u2] ; c cmd_winter_off(u2) 1 winter_on(u2) 1 ; o done(winter) 1 winter_off(u2) 1 ; p unit_ok(u2) 1
+E 0 -1 1 winter_down[U=ux] ; c cmd_winter_off(ux) 1 winter_on(ux) 1 ; o done(winter) 1 winter_off(ux) 1 ; p unit_ok(ux) 1
+E 0 -1 1 winter_down[U=ua] ; c cmd_winter_off(ua) 1 winter_on(ua) 1 ; o done(winter) 1 winter_off(ua) 1 ; p unit_ok(ua) 1
+E 0 -1 1 winter_off_already[U=u1] ; c cmd_winter_off(u1) 1 ; o refused(winter) 1 ; p winter_off(u1) 1
+E 0 -1 1 winter_off_already[U=u2] ; c cmd_winter_off(u2) 1 ; o refused(winter) 1 ; p winter_off(u2) 1
+E 0 -1 1 winter_off_already[U=ux] ; c cmd_winter_off(ux) 1 ; o refused(winter) 1 ; p winter_off(ux) 1
+E 0 -1 1 winter_off_already[U=ua] ; c cmd_winter_off(ua) 1 ; o refused(winter) 1 ; p winter_off(ua) 1
+E 0 -1 1 sweep_air_off[U=u1] ; c sweep_air_off(u1) 1 ; o switched(u1) 1 ; p heater_off(u1) 1 power(on,u1) 1 unit_ok(u1) 1
+E 0 -1 1 sweep_air_off[U=u2] ; c sweep_air_off(u2) 1 ; o switched(u2) 1 ; p heater_off(u2) 1 power(on,u2) 1 unit_ok(u2) 1
+E 0 -1 1 sweep_air_off[U=ux] ; c sweep_air_off(ux) 1 ; o switched(ux) 1 ; p heater_off(ux) 1 power(on,ux) 1 unit_ok(ux) 1
+E 0 -1 1 sweep_air_off[U=ua] ; c sweep_air_off(ua) 1 ; o switched(ua) 1 ; p heater_off(ua) 1 power(on,ua) 1 unit_ok(ua) 1
+E 0 -1 1 sweep_air_off_heat[U=u1] ; c heater_on(u1) 1 sweep_air_off(u1) 1 ; o heater_off(u1) 1 switched(u1) 1 ; p power(on,u1) 1 unit_ok(u1) 1
+E 0 -1 1 sweep_air_off_heat[U=u2] ; c heater_on(u2) 1 sweep_air_off(u2) 1 ; o heater_off(u2) 1 switched(u2) 1 ; p power(on,u2) 1 unit_ok(u2) 1
+E 0 -1 1 sweep_air_off_heat[U=ux] ; c heater_on(ux) 1 sweep_air_off(ux) 1 ; o heater_off(ux) 1 switched(ux) 1 ; p power(on,ux) 1 unit_ok(ux) 1
+E 0 -1 1 sweep_air_off_heat[U=ua] ; c heater_on(ua) 1 sweep_air_off(ua) 1 ; o heater_off(ua) 1 switched(ua) 1 ; p power(on,ua) 1 unit_ok(ua) 1
+E 0 -1 1 sweep_air_kept[U=u1] ; c sweep_air_off(u1) 1 ; o kept(u1) 1 ; p power(off,u1) 1
+E 0 -1 1 sweep_air_kept[U=u2] ; c sweep_air_off(u2) 1 ; o kept(u2) 1 ; p power(off,u2) 1
+E 0 -1 1 sweep_air_kept[U=ux] ; c sweep_air_off(ux) 1 ; o kept(ux) 1 ; p power(off,ux) 1
+E 0 -1 1 sweep_air_kept[U=ua] ; c sweep_air_off(ua) 1 ; o kept(ua) 1 ; p power(off,ua) 1
+E 0 -1 1 sweep_air_missed[U=u1] ; c sweep_air_off(u1) 1 ; o missed(u1) 1 ; p power(on,u1) 1 unit_missing(u1) 1
+E 0 -1 1 sweep_air_missed[U=u2] ; c sweep_air_off(u2) 1 ; o missed(u2) 1 ; p power(on,u2) 1 unit_missing(u2) 1
+E 0 -1 1 sweep_air_missed[U=ux] ; c sweep_air_off(ux) 1 ; o missed(ux) 1 ; p power(on,ux) 1 unit_missing(ux) 1
+E 0 -1 1 sweep_air_missed[U=ua] ; c sweep_air_off(ua) 1 ; o missed(ua) 1 ; p power(on,ua) 1 unit_missing(ua) 1
+E 0 -1 1 sweep_air_unconfirmed[U=u1] ; c sweep_air_off(u1) 1 ; o missed(u1) 1 ; p power(unconfirmed,u1) 1
+E 0 -1 1 sweep_air_unconfirmed[U=u2] ; c sweep_air_off(u2) 1 ; o missed(u2) 1 ; p power(unconfirmed,u2) 1
+E 0 -1 1 sweep_air_unconfirmed[U=ux] ; c sweep_air_off(ux) 1 ; o missed(ux) 1 ; p power(unconfirmed,ux) 1
+E 0 -1 1 sweep_air_unconfirmed[U=ua] ; c sweep_air_off(ua) 1 ; o missed(ua) 1 ; p power(unconfirmed,ua) 1
+E 0 -1 1 sweep_night[U=u1] ; c normal_mode(u1) 1 sweep_air_night(u1) 1 ; o night_mode(u1) 1 switched(u1) 1 ; p power(on,u1) 1 unit_ok(u1) 1
+E 0 -1 1 sweep_night[U=u2] ; c normal_mode(u2) 1 sweep_air_night(u2) 1 ; o night_mode(u2) 1 switched(u2) 1 ; p power(on,u2) 1 unit_ok(u2) 1
+E 0 -1 1 sweep_night[U=ux] ; c normal_mode(ux) 1 sweep_air_night(ux) 1 ; o night_mode(ux) 1 switched(ux) 1 ; p power(on,ux) 1 unit_ok(ux) 1
+E 0 -1 1 sweep_night[U=ua] ; c normal_mode(ua) 1 sweep_air_night(ua) 1 ; o night_mode(ua) 1 switched(ua) 1 ; p power(on,ua) 1 unit_ok(ua) 1
+E 0 -1 1 sweep_night_boost[U=u1] ; c boost_mode(u1) 1 sweep_air_night(u1) 1 ; o night_mode(u1) 1 switched(u1) 1 ; p power(on,u1) 1 unit_ok(u1) 1
+E 0 -1 1 sweep_night_boost[U=u2] ; c boost_mode(u2) 1 sweep_air_night(u2) 1 ; o night_mode(u2) 1 switched(u2) 1 ; p power(on,u2) 1 unit_ok(u2) 1
+E 0 -1 1 sweep_night_boost[U=ux] ; c boost_mode(ux) 1 sweep_air_night(ux) 1 ; o night_mode(ux) 1 switched(ux) 1 ; p power(on,ux) 1 unit_ok(ux) 1
+E 0 -1 1 sweep_night_boost[U=ua] ; c boost_mode(ua) 1 sweep_air_night(ua) 1 ; o night_mode(ua) 1 switched(ua) 1 ; p power(on,ua) 1 unit_ok(ua) 1
+E 0 -1 1 sweep_night_kept[U=u1] ; c sweep_air_night(u1) 1 ; o kept(u1) 1 ; p night_mode(u1) 1
+E 0 -1 1 sweep_night_kept[U=u2] ; c sweep_air_night(u2) 1 ; o kept(u2) 1 ; p night_mode(u2) 1
+E 0 -1 1 sweep_night_kept[U=ux] ; c sweep_air_night(ux) 1 ; o kept(ux) 1 ; p night_mode(ux) 1
+E 0 -1 1 sweep_night_kept[U=ua] ; c sweep_air_night(ua) 1 ; o kept(ua) 1 ; p night_mode(ua) 1
+E 0 -1 1 sweep_night_stopped[U=u1] ; c sweep_air_night(u1) 1 ; o kept(u1) 1 ; p normal_mode(u1) 1 power(off,u1) 1
+E 0 -1 1 sweep_night_stopped[U=u2] ; c sweep_air_night(u2) 1 ; o kept(u2) 1 ; p normal_mode(u2) 1 power(off,u2) 1
+E 0 -1 1 sweep_night_stopped[U=ux] ; c sweep_air_night(ux) 1 ; o kept(ux) 1 ; p normal_mode(ux) 1 power(off,ux) 1
+E 0 -1 1 sweep_night_stopped[U=ua] ; c sweep_air_night(ua) 1 ; o kept(ua) 1 ; p normal_mode(ua) 1 power(off,ua) 1
+E 0 -1 1 sweep_night_unconfirmed[U=u1] ; c sweep_air_night(u1) 1 ; o missed(u1) 1 ; p normal_mode(u1) 1 power(unconfirmed,u1) 1
+E 0 -1 1 sweep_night_unconfirmed[U=u2] ; c sweep_air_night(u2) 1 ; o missed(u2) 1 ; p normal_mode(u2) 1 power(unconfirmed,u2) 1
+E 0 -1 1 sweep_night_unconfirmed[U=ux] ; c sweep_air_night(ux) 1 ; o missed(ux) 1 ; p normal_mode(ux) 1 power(unconfirmed,ux) 1
+E 0 -1 1 sweep_night_unconfirmed[U=ua] ; c sweep_air_night(ua) 1 ; o missed(ua) 1 ; p normal_mode(ua) 1 power(unconfirmed,ua) 1
+E 0 -1 1 cold_advice[U=u1] ; c chilled(u1) 1 ; o advise_winter(u1) 1 ; p outside(cold_out,u1) 1 power(on,u1) 1 winter_off(u1) 1
+E 0 -1 1 cold_advice[U=u2] ; c chilled(u2) 1 ; o advise_winter(u2) 1 ; p outside(cold_out,u2) 1 power(on,u2) 1 winter_off(u2) 1
+E 0 -1 1 cold_advice[U=ux] ; c chilled(ux) 1 ; o advise_winter(ux) 1 ; p outside(cold_out,ux) 1 power(on,ux) 1 winter_off(ux) 1
+E 0 -1 1 cold_advice[U=ua] ; c chilled(ua) 1 ; o advise_winter(ua) 1 ; p outside(cold_out,ua) 1 power(on,ua) 1 winter_off(ua) 1
+E 0 -1 1 cold_winter[U=u1] ; c chilled(u1) 1 ; o noted(u1) 1 ; p outside(cold_out,u1) 1 power(on,u1) 1 winter_on(u1) 1
+E 0 -1 1 cold_winter[U=u2] ; c chilled(u2) 1 ; o noted(u2) 1 ; p outside(cold_out,u2) 1 power(on,u2) 1 winter_on(u2) 1
+E 0 -1 1 cold_winter[U=ux] ; c chilled(ux) 1 ; o noted(ux) 1 ; p outside(cold_out,ux) 1 power(on,ux) 1 winter_on(ux) 1
+E 0 -1 1 cold_winter[U=ua] ; c chilled(ua) 1 ; o noted(ua) 1 ; p outside(cold_out,ua) 1 power(on,ua) 1 winter_on(ua) 1
+E 0 -1 1 cold_stopped[U=u1] ; c chilled(u1) 1 ; o noted(u1) 1 ; p outside(cold_out,u1) 1 power(off,u1) 1
+E 0 -1 1 cold_stopped[U=u2] ; c chilled(u2) 1 ; o noted(u2) 1 ; p outside(cold_out,u2) 1 power(off,u2) 1
+E 0 -1 1 cold_stopped[U=ux] ; c chilled(ux) 1 ; o noted(ux) 1 ; p outside(cold_out,ux) 1 power(off,ux) 1
+E 0 -1 1 cold_stopped[U=ua] ; c chilled(ua) 1 ; o noted(ua) 1 ; p outside(cold_out,ua) 1 power(off,ua) 1
+E 0 -1 1 cold_unconfirmed[U=u1] ; c chilled(u1) 1 ; o noted(u1) 1 ; p outside(cold_out,u1) 1 power(unconfirmed,u1) 1
+E 0 -1 1 cold_unconfirmed[U=u2] ; c chilled(u2) 1 ; o noted(u2) 1 ; p outside(cold_out,u2) 1 power(unconfirmed,u2) 1
+E 0 -1 1 cold_unconfirmed[U=ux] ; c chilled(ux) 1 ; o noted(ux) 1 ; p outside(cold_out,ux) 1 power(unconfirmed,ux) 1
+E 0 -1 1 cold_unconfirmed[U=ua] ; c chilled(ua) 1 ; o noted(ua) 1 ; p outside(cold_out,ua) 1 power(unconfirmed,ua) 1
+I heater_off(u1) 1 heater_off(u2) 1 normal_mode(u1) 1 normal_mode(u2) 1 power(off,u1) 1 power(off,u2) 1 stopped(u1) 1 stopped(u2) 1 unit_ok(u1) 1 unit_ok(u2) 1 winter_off(u1) 1 winter_off(u2) 1
+S 4

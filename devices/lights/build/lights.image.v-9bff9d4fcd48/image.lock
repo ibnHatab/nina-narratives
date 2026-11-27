@@ -1,0 +1,53 @@
+{
+  "members": {
+    "lights": {
+      "bundle": "eea81943a56c",
+      "source": "e764841d3ce1e364b7e3dc1ec8efd86f508eb987f9af1d706e923ad33af6679e",
+      "program": "480e7f817879176075875568d2f9bb74ccf02e978cc73ef27e19b1a68e038595",
+      "host": "manifest",
+      "dir": {
+        "place": "dir",
+        "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/lights"
+      },
+      "served": "/home/axadmin/repo/redesign/nina-live/catalog/domains/lights/lights.llp",
+      "includes": [
+        {
+          "name": "../shared/home_world.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/lights/../shared/home_world.llp",
+          "key": "7008a84e6da26c23e9bf67b654c07587c7d7e3fa272377384c8abf7c6008c7ed"
+        },
+        {
+          "name": "home_map.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/lights/../shared/home_map.llp",
+          "key": "19e157edfea4a1d0e00a32ace9666087a774ab99c1e9a032e43ff77f8fcb1037"
+        },
+        {
+          "name": "../iface/home.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/lights/../iface/home.llp",
+          "key": "28417e67ede4121f5f9906451aad62e84aba3bf55a75f360d78279458ef237d8"
+        },
+        {
+          "name": "lights_which.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/lights/lights_which.llp",
+          "key": "f74ca9b143e6d2aa7e6d6406eb3660332222e0e1fa0cabacf387e2fc01b7eb43"
+        },
+        {
+          "name": "lights_fan.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/lights/lights_fan.llp",
+          "key": "dc4036f349a5d4aa5c157d0651076772b0314602771a625567bbbe4b211924c0"
+        }
+      ]
+    }
+  },
+  "places": {
+    "root": "/home/axadmin/repo/redesign/nina-live/catalog/domains/lights",
+    "std": "/home/axadmin/repo/redesign/metis-lang-rd/iface",
+    "home": null
+  },
+  "image": "9bff9d4fcd48a35d7aa1f3854a98d1bfc087308cbcd0e28cf4390d351ae8e293"
+}

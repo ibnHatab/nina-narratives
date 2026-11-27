@@ -31,11 +31,11 @@ pred cmd_mood(mood) : home.
 
 stage serve {
   %% The home turns {M}.
-  mood_set [dyn] : cmd_mood(M) * no_mood -o mood_now(M) * mood_music(M) * mood_glow(M) * done(scene).
+  mood_set [dyn] : cmd_mood(M) * no_mood -o mood_now(M) * done(scene).
   %% From {M0} to {M}.
-  mood_change [dyn] : cmd_mood(M) * mood_now(M0) -o mood_now(M) * mood_music(M) * mood_glow(M) * done(scene).
+  mood_change [dyn] : cmd_mood(M) * mood_now(M0) -o mood_now(M) * done(scene).
   %% I switch the home to its {S} mode.
-  scene_set [dyn] : cmd_scene(S) * mode(M) * other(M, S) -o mode(S) * scene_lights(S) * scene_air(S) * scene_media(S) * scene_timers(S) * scene_music(S) * done(scene).
+  scene_set [dyn] : cmd_scene(S) * mode(M) * other(M, S) -o mode(S) * done(scene).
   %% The home is already in its {S} mode.
   scene_already [dyn] : cmd_scene(S) * $mode(S) -o refused(scene).
 

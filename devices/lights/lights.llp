@@ -90,3 +90,5 @@ stage serve {
 #query done(on)
 #query refused(on)
 #steps 4
+% the latch of lights_fan.llp: the home mode at the start
+#init swept(home) 1

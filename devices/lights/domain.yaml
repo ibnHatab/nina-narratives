@@ -8,7 +8,7 @@ intent: {spec: intent.yaml}
 clock: {beats: 1, period: 1}
 records: records/
 # the semantic world (metis-worlds libs/semantic-world/go, served by metis-home): the beliefs the rules read, as levels (spec 16)
-beliefs: {present_b: {port: present}}
-levels: {presence: {from: {belief: present}, at: [0.3, 0.7], names: [nobody, maybe_someone, someone]}}
+beliefs: {present_b: {port: present}, mode_b: {port: mode, one: M}}
+levels: {presence: {from: {belief: present}, at: [0.3, 0.7], names: [nobody, maybe_someone, someone]}, home_mode: {from: {belief: mode}, at: [0.5], names: ["no", "yes"]}}
 commands: [light_on, light_off, sweep_off, vacant_off]
-shared: {scene_lights: in, ask_lights: in}   # the home composition: a scene's wishes (iface/home.llp)
+shared: {ask_lights: in}   # the home composition: a scene's wishes (iface/home.llp)

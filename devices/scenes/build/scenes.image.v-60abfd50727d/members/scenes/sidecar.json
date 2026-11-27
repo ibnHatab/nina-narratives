@@ -1,0 +1,1228 @@
+{
+ "format": "metis-sidecar/1",
+ "catalog": "scenes",
+ "key": "d1450b977fae1e81c531f42674f80068c569afe0e4cbbc4e18c2fde984238858",
+ "extensions": [],
+ "init": {
+  "mode(home)": 1,
+  "no_mood": 1
+ },
+ "steps": 4,
+ "stages": [
+  "serve"
+ ],
+ "events": [
+  {
+   "i": 0,
+   "canon": 9,
+   "name": "mood_set[M=calm]",
+   "rule": "mood_set",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The home turns {M}."
+  },
+  {
+   "i": 1,
+   "canon": 16,
+   "name": "mood_set[M=cozy]",
+   "rule": "mood_set",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The home turns {M}."
+  },
+  {
+   "i": 2,
+   "canon": 23,
+   "name": "mood_set[M=focus]",
+   "rule": "mood_set",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The home turns {M}."
+  },
+  {
+   "i": 3,
+   "canon": 30,
+   "name": "mood_set[M=lively]",
+   "rule": "mood_set",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The home turns {M}."
+  },
+  {
+   "i": 4,
+   "canon": 37,
+   "name": "mood_set[M=sleep]",
+   "rule": "mood_set",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The home turns {M}."
+  },
+  {
+   "i": 5,
+   "canon": 44,
+   "name": "mood_set[M=wake]",
+   "rule": "mood_set",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The home turns {M}."
+  },
+  {
+   "i": 6,
+   "canon": 3,
+   "name": "mood_change[M=calm,M0=calm]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 7,
+   "canon": 4,
+   "name": "mood_change[M=calm,M0=cozy]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 8,
+   "canon": 5,
+   "name": "mood_change[M=calm,M0=focus]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 9,
+   "canon": 6,
+   "name": "mood_change[M=calm,M0=lively]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 10,
+   "canon": 7,
+   "name": "mood_change[M=calm,M0=sleep]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 11,
+   "canon": 8,
+   "name": "mood_change[M=calm,M0=wake]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 12,
+   "canon": 10,
+   "name": "mood_change[M=cozy,M0=calm]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 13,
+   "canon": 11,
+   "name": "mood_change[M=cozy,M0=cozy]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 14,
+   "canon": 12,
+   "name": "mood_change[M=cozy,M0=focus]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 15,
+   "canon": 13,
+   "name": "mood_change[M=cozy,M0=lively]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 16,
+   "canon": 14,
+   "name": "mood_change[M=cozy,M0=sleep]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 17,
+   "canon": 15,
+   "name": "mood_change[M=cozy,M0=wake]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 18,
+   "canon": 17,
+   "name": "mood_change[M=focus,M0=calm]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 19,
+   "canon": 18,
+   "name": "mood_change[M=focus,M0=cozy]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 20,
+   "canon": 19,
+   "name": "mood_change[M=focus,M0=focus]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 21,
+   "canon": 20,
+   "name": "mood_change[M=focus,M0=lively]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 22,
+   "canon": 21,
+   "name": "mood_change[M=focus,M0=sleep]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 23,
+   "canon": 22,
+   "name": "mood_change[M=focus,M0=wake]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 24,
+   "canon": 24,
+   "name": "mood_change[M=lively,M0=calm]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 25,
+   "canon": 25,
+   "name": "mood_change[M=lively,M0=cozy]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 26,
+   "canon": 26,
+   "name": "mood_change[M=lively,M0=focus]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 27,
+   "canon": 27,
+   "name": "mood_change[M=lively,M0=lively]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 28,
+   "canon": 28,
+   "name": "mood_change[M=lively,M0=sleep]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 29,
+   "canon": 29,
+   "name": "mood_change[M=lively,M0=wake]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 30,
+   "canon": 31,
+   "name": "mood_change[M=sleep,M0=calm]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 31,
+   "canon": 32,
+   "name": "mood_change[M=sleep,M0=cozy]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 32,
+   "canon": 33,
+   "name": "mood_change[M=sleep,M0=focus]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 33,
+   "canon": 34,
+   "name": "mood_change[M=sleep,M0=lively]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 34,
+   "canon": 35,
+   "name": "mood_change[M=sleep,M0=sleep]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 35,
+   "canon": 36,
+   "name": "mood_change[M=sleep,M0=wake]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 36,
+   "canon": 38,
+   "name": "mood_change[M=wake,M0=calm]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 37,
+   "canon": 39,
+   "name": "mood_change[M=wake,M0=cozy]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 38,
+   "canon": 40,
+   "name": "mood_change[M=wake,M0=focus]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 39,
+   "canon": 41,
+   "name": "mood_change[M=wake,M0=lively]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 40,
+   "canon": 42,
+   "name": "mood_change[M=wake,M0=sleep]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 41,
+   "canon": 43,
+   "name": "mood_change[M=wake,M0=wake]",
+   "rule": "mood_change",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "From {M0} to {M}."
+  },
+  {
+   "i": 42,
+   "canon": 50,
+   "name": "scene_set[S=home,M=night]",
+   "rule": "scene_set",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I switch the home to its {S} mode."
+  },
+  {
+   "i": 43,
+   "canon": 49,
+   "name": "scene_set[S=home,M=away]",
+   "rule": "scene_set",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I switch the home to its {S} mode."
+  },
+  {
+   "i": 44,
+   "canon": 53,
+   "name": "scene_set[S=night,M=home]",
+   "rule": "scene_set",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I switch the home to its {S} mode."
+  },
+  {
+   "i": 45,
+   "canon": 52,
+   "name": "scene_set[S=night,M=away]",
+   "rule": "scene_set",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I switch the home to its {S} mode."
+  },
+  {
+   "i": 46,
+   "canon": 46,
+   "name": "scene_set[S=away,M=home]",
+   "rule": "scene_set",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I switch the home to its {S} mode."
+  },
+  {
+   "i": 47,
+   "canon": 47,
+   "name": "scene_set[S=away,M=night]",
+   "rule": "scene_set",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I switch the home to its {S} mode."
+  },
+  {
+   "i": 48,
+   "canon": 48,
+   "name": "scene_already[S=home]",
+   "rule": "scene_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The home is already in its {S} mode."
+  },
+  {
+   "i": 49,
+   "canon": 51,
+   "name": "scene_already[S=night]",
+   "rule": "scene_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The home is already in its {S} mode."
+  },
+  {
+   "i": 50,
+   "canon": 45,
+   "name": "scene_already[S=away]",
+   "rule": "scene_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The home is already in its {S} mode."
+  },
+  {
+   "i": 51,
+   "canon": 57,
+   "name": "suggest_away",
+   "rule": "suggest_away",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Nobody seems to be home: shall I set the home to away?"
+  },
+  {
+   "i": 52,
+   "canon": 59,
+   "name": "left_settled",
+   "rule": "left_settled",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Nobody is home, and the home is already set for it."
+  },
+  {
+   "i": 53,
+   "canon": 58,
+   "name": "suggest_away_night",
+   "rule": "suggest_away_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Nobody seems to be home, at night: shall I set the home to away?"
+  },
+  {
+   "i": 54,
+   "canon": 2,
+   "name": "arrive",
+   "rule": "arrive",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Welcome home: I set the home back from away."
+  },
+  {
+   "i": 55,
+   "canon": 0,
+   "name": "arrive_home",
+   "rule": "arrive_home",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Someone came home."
+  },
+  {
+   "i": 56,
+   "canon": 1,
+   "name": "arrive_night",
+   "rule": "arrive_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Someone came home at night."
+  },
+  {
+   "i": 57,
+   "canon": 54,
+   "name": "morning",
+   "rule": "morning",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The sun is up: shall I end the night?"
+  },
+  {
+   "i": 58,
+   "canon": 56,
+   "name": "morning_day",
+   "rule": "morning_day",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The sun is up."
+  },
+  {
+   "i": 59,
+   "canon": 55,
+   "name": "morning_away",
+   "rule": "morning_away",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The sun is up; the home is away."
+  }
+ ],
+ "cards": [
+  {
+   "name": "scenes",
+   "text": "scenes: home, night, away, set at a person's word; away suggested when the home empties, night left at dawn on a word; arriving home ends away",
+   "relation": "served",
+   "moves": [],
+   "effects": [],
+   "slots": [
+    "scenes_act"
+   ]
+  }
+ ],
+ "queries": [
+  "mode(night)"
+ ],
+ "script": [
+  {
+   "name": "scenes",
+   "relation": "served",
+   "text": "scenes: home, night, away, set at a person's word; away suggested when the home empties, night left at dawn on a word; arriving home ends away",
+   "clauses": [
+    {
+     "name": "mood_set",
+     "stage": "serve",
+     "doc": "The home turns {M}.",
+     "premises": [
+      {
+       "atom": "cmd_mood(M)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "no_mood",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "mood_now(M)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mood_music(M)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mood_glow(M)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(scene)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "mood_change",
+     "stage": "serve",
+     "doc": "From {M0} to {M}.",
+     "premises": [
+      {
+       "atom": "cmd_mood(M)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mood_now(M0)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "mood_now(M)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mood_music(M)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mood_glow(M)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(scene)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "scene_set",
+     "stage": "serve",
+     "doc": "I switch the home to its {S} mode.",
+     "premises": [
+      {
+       "atom": "cmd_scene(S)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mode(M)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "other(M,S)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "mode(S)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "scene_lights(S)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "scene_air(S)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "scene_media(S)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "scene_timers(S)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "scene_music(S)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(scene)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "scene_already",
+     "stage": "serve",
+     "doc": "The home is already in its {S} mode.",
+     "premises": [
+      {
+       "atom": "cmd_scene(S)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mode(S)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(scene)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "suggest_away",
+     "stage": "serve",
+     "doc": "Nobody seems to be home: shall I set the home to away?",
+     "premises": [
+      {
+       "atom": "left_home",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mode(home)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "suggest(away)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "left_settled",
+     "stage": "serve",
+     "doc": "Nobody is home, and the home is already set for it.",
+     "premises": [
+      {
+       "atom": "left_home",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mode(away)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "welcomed",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "suggest_away_night",
+     "stage": "serve",
+     "doc": "Nobody seems to be home, at night: shall I set the home to away?",
+     "premises": [
+      {
+       "atom": "left_home",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mode(night)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "suggest(away)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "arrive",
+     "stage": "serve",
+     "doc": "Welcome home: I set the home back from away.",
+     "premises": [
+      {
+       "atom": "came_home",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mode(away)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "mode(home)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "welcomed",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "arrive_home",
+     "stage": "serve",
+     "doc": "Someone came home.",
+     "premises": [
+      {
+       "atom": "came_home",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mode(home)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "welcomed",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "arrive_night",
+     "stage": "serve",
+     "doc": "Someone came home at night.",
+     "premises": [
+      {
+       "atom": "came_home",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mode(night)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "welcomed",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "morning",
+     "stage": "serve",
+     "doc": "The sun is up: shall I end the night?",
+     "premises": [
+      {
+       "atom": "dawn",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mode(night)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "suggest(home)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "morning_day",
+     "stage": "serve",
+     "doc": "The sun is up.",
+     "premises": [
+      {
+       "atom": "dawn",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mode(home)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "welcomed",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "morning_away",
+     "stage": "serve",
+     "doc": "The sun is up; the home is away.",
+     "premises": [
+      {
+       "atom": "dawn",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "mode(away)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "welcomed",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    }
+   ],
+   "atoms": [
+    {
+     "name": "occupied",
+     "doc": ""
+    },
+    {
+     "name": "empty",
+     "doc": ""
+    },
+    {
+     "name": "vacant",
+     "doc": ""
+    },
+    {
+     "name": "unsensed",
+     "doc": ""
+    },
+    {
+     "name": "someone_home",
+     "doc": ""
+    },
+    {
+     "name": "nobody_home",
+     "doc": ""
+    },
+    {
+     "name": "home_unsensed",
+     "doc": ""
+    },
+    {
+     "name": "day",
+     "doc": ""
+    },
+    {
+     "name": "night",
+     "doc": ""
+    },
+    {
+     "name": "running",
+     "doc": ""
+    },
+    {
+     "name": "stopped",
+     "doc": ""
+    },
+    {
+     "name": "heater_on",
+     "doc": ""
+    },
+    {
+     "name": "heater_off",
+     "doc": ""
+    },
+    {
+     "name": "unit_ok",
+     "doc": ""
+    },
+    {
+     "name": "unit_missing",
+     "doc": ""
+    },
+    {
+     "name": "on_b",
+     "doc": ""
+    },
+    {
+     "name": "power",
+     "doc": ""
+    },
+    {
+     "name": "entered",
+     "doc": ""
+    },
+    {
+     "name": "left_home",
+     "doc": ""
+    },
+    {
+     "name": "came_home",
+     "doc": ""
+    },
+    {
+     "name": "dawn",
+     "doc": ""
+    },
+    {
+     "name": "scene_lights",
+     "doc": ""
+    },
+    {
+     "name": "scene_air",
+     "doc": ""
+    },
+    {
+     "name": "scene_media",
+     "doc": ""
+    },
+    {
+     "name": "scene_timers",
+     "doc": ""
+    },
+    {
+     "name": "scene_music",
+     "doc": ""
+    },
+    {
+     "name": "mood_music",
+     "doc": ""
+    },
+    {
+     "name": "mood_glow",
+     "doc": ""
+    },
+    {
+     "name": "ask_lights",
+     "doc": ""
+    },
+    {
+     "name": "ask_air",
+     "doc": ""
+    },
+    {
+     "name": "ask_media",
+     "doc": ""
+    },
+    {
+     "name": "ask_comfort",
+     "doc": ""
+    },
+    {
+     "name": "ask_scenes",
+     "doc": ""
+    },
+    {
+     "name": "ask_timers",
+     "doc": ""
+    },
+    {
+     "name": "ask_agenda",
+     "doc": ""
+    },
+    {
+     "name": "ask_music",
+     "doc": ""
+    },
+    {
+     "name": "ask_habits",
+     "doc": ""
+    },
+    {
+     "name": "ask_glow",
+     "doc": ""
+    },
+    {
+     "name": "ask_temperament",
+     "doc": ""
+    },
+    {
+     "name": "ask_escalate",
+     "doc": ""
+    },
+    {
+     "name": "mode",
+     "doc": ""
+    },
+    {
+     "name": "cmd_scene",
+     "doc": ""
+    },
+    {
+     "name": "done",
+     "doc": ""
+    },
+    {
+     "name": "refused",
+     "doc": ""
+    },
+    {
+     "name": "suggest",
+     "doc": ""
+    },
+    {
+     "name": "welcomed",
+     "doc": ""
+    },
+    {
+     "name": "mood_now",
+     "doc": ""
+    },
+    {
+     "name": "no_mood",
+     "doc": ""
+    },
+    {
+     "name": "cmd_mood",
+     "doc": ""
+    }
+   ],
+   "missing": {
+    "clause_doc": [],
+    "atom_doc": [
+     "occupied",
+     "empty",
+     "vacant",
+     "unsensed",
+     "someone_home",
+     "nobody_home",
+     "home_unsensed",
+     "day",
+     "night",
+     "running",
+     "stopped",
+     "heater_on",
+     "heater_off",
+     "unit_ok",
+     "unit_missing",
+     "on_b",
+     "power",
+     "entered",
+     "left_home",
+     "came_home",
+     "dawn",
+     "scene_lights",
+     "scene_air",
+     "scene_media",
+     "scene_timers",
+     "scene_music",
+     "mood_music",
+     "mood_glow",
+     "ask_lights",
+     "ask_air",
+     "ask_media",
+     "ask_comfort",
+     "ask_scenes",
+     "ask_timers",
+     "ask_agenda",
+     "ask_music",
+     "ask_habits",
+     "ask_glow",
+     "ask_temperament",
+     "ask_escalate",
+     "mode",
+     "cmd_scene",
+     "done",
+     "refused",
+     "suggest",
+     "welcomed",
+     "mood_now",
+     "no_mood",
+     "cmd_mood"
+    ]
+   }
+  }
+ ],
+ "ir": null
+}

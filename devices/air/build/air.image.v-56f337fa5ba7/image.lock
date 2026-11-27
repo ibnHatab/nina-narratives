@@ -1,0 +1,53 @@
+{
+  "members": {
+    "air": {
+      "bundle": "4274fa11145f",
+      "source": "03d30cab75891d6795899155bf77482e66b42b849b0715194d072cb864cbbead",
+      "program": "3baabbf41b153315f19a88b9afb382b4aca1323888d85c95047b480015c8f7bb",
+      "host": "manifest",
+      "dir": {
+        "place": "dir",
+        "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/air"
+      },
+      "served": "/home/axadmin/repo/redesign/nina-live/catalog/domains/air/air.llp",
+      "includes": [
+        {
+          "name": "../shared/home_world.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/air/../shared/home_world.llp",
+          "key": "7008a84e6da26c23e9bf67b654c07587c7d7e3fa272377384c8abf7c6008c7ed"
+        },
+        {
+          "name": "home_map.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/air/../shared/home_map.llp",
+          "key": "19e157edfea4a1d0e00a32ace9666087a774ab99c1e9a032e43ff77f8fcb1037"
+        },
+        {
+          "name": "../iface/home.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/air/../iface/home.llp",
+          "key": "28417e67ede4121f5f9906451aad62e84aba3bf55a75f360d78279458ef237d8"
+        },
+        {
+          "name": "air_which.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/air/air_which.llp",
+          "key": "36b13ae64d5379457c06185d71a8e018c02ec69e7d2d958fae19b86064bfc32e"
+        },
+        {
+          "name": "air_fan.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/air/air_fan.llp",
+          "key": "ff33ce84fb4885efa064b6bdf86c10b94ca1202ab84a898866c4168c7c9583e5"
+        }
+      ]
+    }
+  },
+  "places": {
+    "root": "/home/axadmin/repo/redesign/nina-live/catalog/domains/air",
+    "std": "/home/axadmin/repo/redesign/metis-lang-rd/iface",
+    "home": null
+  },
+  "image": "56f337fa5ba70ed1939c03a4fbf5af37f9677cf1d664c0b2e7832a91aa3bac12"
+}

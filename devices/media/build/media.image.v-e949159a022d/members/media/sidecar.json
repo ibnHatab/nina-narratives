@@ -1,0 +1,1366 @@
+{
+ "format": "metis-sidecar/1",
+ "catalog": "media",
+ "key": "2bdd2c22ee020ede4a29e5914c9e8252e8eaf3668fadcc05c71705f4b8ece4ef",
+ "extensions": [],
+ "init": {
+  "tv_off(t1)": 1,
+  "tv_ok(t1)": 1,
+  "ir_absent": 1
+ },
+ "steps": 4,
+ "stages": [
+  "serve"
+ ],
+ "events": [
+  {
+   "i": 0,
+   "canon": 40,
+   "name": "fan_home",
+   "rule": "fan_home",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The home scene: nothing to do here."
+  },
+  {
+   "i": 1,
+   "canon": 41,
+   "name": "fan_night",
+   "rule": "fan_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The night scene: every device of mine gets its wish."
+  },
+  {
+   "i": 2,
+   "canon": 39,
+   "name": "fan_away",
+   "rule": "fan_away",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The away scene: every device of mine gets its wish."
+  },
+  {
+   "i": 3,
+   "canon": 29,
+   "name": "tv_up[T=t1]",
+   "rule": "tv_up",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {T} on."
+  },
+  {
+   "i": 4,
+   "canon": 33,
+   "name": "tv_up[T=tx]",
+   "rule": "tv_up",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {T} on."
+  },
+  {
+   "i": 5,
+   "canon": 28,
+   "name": "tv_on_already[T=t1]",
+   "rule": "tv_on_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{T} is already on."
+  },
+  {
+   "i": 6,
+   "canon": 32,
+   "name": "tv_on_already[T=tx]",
+   "rule": "tv_on_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{T} is already on."
+  },
+  {
+   "i": 7,
+   "canon": 27,
+   "name": "tv_on_missing[T=t1]",
+   "rule": "tv_on_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn {T} on: it does not answer."
+  },
+  {
+   "i": 8,
+   "canon": 31,
+   "name": "tv_on_missing[T=tx]",
+   "rule": "tv_on_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn {T} on: it does not answer."
+  },
+  {
+   "i": 9,
+   "canon": 22,
+   "name": "tv_down[T=t1]",
+   "rule": "tv_down",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {T} off."
+  },
+  {
+   "i": 10,
+   "canon": 26,
+   "name": "tv_down[T=tx]",
+   "rule": "tv_down",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {T} off."
+  },
+  {
+   "i": 11,
+   "canon": 21,
+   "name": "tv_off_already[T=t1]",
+   "rule": "tv_off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{T} is already off."
+  },
+  {
+   "i": 12,
+   "canon": 25,
+   "name": "tv_off_already[T=tx]",
+   "rule": "tv_off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{T} is already off."
+  },
+  {
+   "i": 13,
+   "canon": 20,
+   "name": "tv_off_missing[T=t1]",
+   "rule": "tv_off_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn {T} off: it does not answer."
+  },
+  {
+   "i": 14,
+   "canon": 24,
+   "name": "tv_off_missing[T=tx]",
+   "rule": "tv_off_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn {T} off: it does not answer."
+  },
+  {
+   "i": 15,
+   "canon": 15,
+   "name": "tv_louder[T=t1]",
+   "rule": "tv_louder",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {T} up."
+  },
+  {
+   "i": 16,
+   "canon": 17,
+   "name": "tv_louder[T=tx]",
+   "rule": "tv_louder",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {T} up."
+  },
+  {
+   "i": 17,
+   "canon": 34,
+   "name": "tv_quieter[T=t1]",
+   "rule": "tv_quieter",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {T} down."
+  },
+  {
+   "i": 18,
+   "canon": 36,
+   "name": "tv_quieter[T=tx]",
+   "rule": "tv_quieter",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {T} down."
+  },
+  {
+   "i": 19,
+   "canon": 16,
+   "name": "louder_off[T=t1]",
+   "rule": "louder_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{T} is off: there is no sound to change."
+  },
+  {
+   "i": 20,
+   "canon": 19,
+   "name": "louder_off[T=tx]",
+   "rule": "louder_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{T} is off: there is no sound to change."
+  },
+  {
+   "i": 21,
+   "canon": 35,
+   "name": "quieter_off[T=t1]",
+   "rule": "quieter_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{T} is off: there is no sound to change."
+  },
+  {
+   "i": 22,
+   "canon": 38,
+   "name": "quieter_off[T=tx]",
+   "rule": "quieter_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{T} is off: there is no sound to change."
+  },
+  {
+   "i": 23,
+   "canon": 30,
+   "name": "tv_on_unknown",
+   "rule": "tv_on_unknown",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such TV in this home."
+  },
+  {
+   "i": 24,
+   "canon": 23,
+   "name": "tv_off_unknown",
+   "rule": "tv_off_unknown",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such TV in this home."
+  },
+  {
+   "i": 25,
+   "canon": 11,
+   "name": "ir_unknown[K=power]",
+   "rule": "ir_unknown",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: no device I know answers to that remote."
+  },
+  {
+   "i": 26,
+   "canon": 14,
+   "name": "ir_unknown[K=up]",
+   "rule": "ir_unknown",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: no device I know answers to that remote."
+  },
+  {
+   "i": 27,
+   "canon": 8,
+   "name": "ir_unknown[K=down]",
+   "rule": "ir_unknown",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: no device I know answers to that remote."
+  },
+  {
+   "i": 28,
+   "canon": 18,
+   "name": "louder_unknown",
+   "rule": "louder_unknown",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such TV in this home."
+  },
+  {
+   "i": 29,
+   "canon": 37,
+   "name": "quieter_unknown",
+   "rule": "quieter_unknown",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such TV in this home."
+  },
+  {
+   "i": 30,
+   "canon": 2,
+   "name": "ir_send[D=ir1,K=power]",
+   "rule": "ir_send",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I press {K} on the remote of {D}."
+  },
+  {
+   "i": 31,
+   "canon": 4,
+   "name": "ir_send[D=ir1,K=up]",
+   "rule": "ir_send",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I press {K} on the remote of {D}."
+  },
+  {
+   "i": 32,
+   "canon": 0,
+   "name": "ir_send[D=ir1,K=down]",
+   "rule": "ir_send",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I press {K} on the remote of {D}."
+  },
+  {
+   "i": 33,
+   "canon": 9,
+   "name": "ir_send[D=irx,K=power]",
+   "rule": "ir_send",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I press {K} on the remote of {D}."
+  },
+  {
+   "i": 34,
+   "canon": 12,
+   "name": "ir_send[D=irx,K=up]",
+   "rule": "ir_send",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I press {K} on the remote of {D}."
+  },
+  {
+   "i": 35,
+   "canon": 6,
+   "name": "ir_send[D=irx,K=down]",
+   "rule": "ir_send",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I press {K} on the remote of {D}."
+  },
+  {
+   "i": 36,
+   "canon": 3,
+   "name": "ir_none[D=ir1,K=power]",
+   "rule": "ir_none",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't reach {D}: the infrared remote is not connected yet."
+  },
+  {
+   "i": 37,
+   "canon": 5,
+   "name": "ir_none[D=ir1,K=up]",
+   "rule": "ir_none",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't reach {D}: the infrared remote is not connected yet."
+  },
+  {
+   "i": 38,
+   "canon": 1,
+   "name": "ir_none[D=ir1,K=down]",
+   "rule": "ir_none",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't reach {D}: the infrared remote is not connected yet."
+  },
+  {
+   "i": 39,
+   "canon": 10,
+   "name": "ir_none[D=irx,K=power]",
+   "rule": "ir_none",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't reach {D}: the infrared remote is not connected yet."
+  },
+  {
+   "i": 40,
+   "canon": 13,
+   "name": "ir_none[D=irx,K=up]",
+   "rule": "ir_none",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't reach {D}: the infrared remote is not connected yet."
+  },
+  {
+   "i": 41,
+   "canon": 7,
+   "name": "ir_none[D=irx,K=down]",
+   "rule": "ir_none",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't reach {D}: the infrared remote is not connected yet."
+  },
+  {
+   "i": 42,
+   "canon": 44,
+   "name": "sweep_tv[T=t1]",
+   "rule": "sweep_tv",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {T} off for the scene."
+  },
+  {
+   "i": 43,
+   "canon": 47,
+   "name": "sweep_tv[T=tx]",
+   "rule": "sweep_tv",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {T} off for the scene."
+  },
+  {
+   "i": 44,
+   "canon": 42,
+   "name": "sweep_tv_kept[T=t1]",
+   "rule": "sweep_tv_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{T} was already off."
+  },
+  {
+   "i": 45,
+   "canon": 45,
+   "name": "sweep_tv_kept[T=tx]",
+   "rule": "sweep_tv_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{T} was already off."
+  },
+  {
+   "i": 46,
+   "canon": 43,
+   "name": "sweep_tv_missed[T=t1]",
+   "rule": "sweep_tv_missed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I could not turn {T} off: it does not answer."
+  },
+  {
+   "i": 47,
+   "canon": 46,
+   "name": "sweep_tv_missed[T=tx]",
+   "rule": "sweep_tv_missed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I could not turn {T} off: it does not answer."
+  }
+ ],
+ "cards": [
+  {
+   "name": "media",
+   "text": "media: the TV on, off, louder, quieter; infrared devices by their remote's keys; refusals naming the blocker",
+   "relation": "served",
+   "moves": [],
+   "effects": [],
+   "slots": [
+    "media_act",
+    "key"
+   ]
+  }
+ ],
+ "queries": [
+  "done(on)"
+ ],
+ "script": [
+  {
+   "name": "media",
+   "relation": "served",
+   "text": "media: the TV on, off, louder, quieter; infrared devices by their remote's keys; refusals naming the blocker",
+   "clauses": [
+    {
+     "name": "fan_home",
+     "stage": "serve",
+     "doc": "The home scene: nothing to do here.",
+     "premises": [
+      {
+       "atom": "scene_media(home)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [],
+     "target": null
+    },
+    {
+     "name": "fan_night",
+     "stage": "serve",
+     "doc": "The night scene: every device of mine gets its wish.",
+     "premises": [
+      {
+       "atom": "scene_media(night)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "sweep_tv_off(t1)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "fan_away",
+     "stage": "serve",
+     "doc": "The away scene: every device of mine gets its wish.",
+     "premises": [
+      {
+       "atom": "scene_media(away)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "sweep_tv_off(t1)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "tv_up",
+     "stage": "serve",
+     "doc": "I turn {T} on.",
+     "premises": [
+      {
+       "atom": "cmd_tv_on(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_off(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_ok(T)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "tv_on(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "tv_on_already",
+     "stage": "serve",
+     "doc": "{T} is already on.",
+     "premises": [
+      {
+       "atom": "cmd_tv_on(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_on(T)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "tv_on_missing",
+     "stage": "serve",
+     "doc": "I can't turn {T} on: it does not answer.",
+     "premises": [
+      {
+       "atom": "cmd_tv_on(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_off(T)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "tv_missing(T)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "tv_down",
+     "stage": "serve",
+     "doc": "I turn {T} off.",
+     "premises": [
+      {
+       "atom": "cmd_tv_off(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_on(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_ok(T)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "tv_off(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "tv_off_already",
+     "stage": "serve",
+     "doc": "{T} is already off.",
+     "premises": [
+      {
+       "atom": "cmd_tv_off(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_off(T)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "tv_off_missing",
+     "stage": "serve",
+     "doc": "I can't turn {T} off: it does not answer.",
+     "premises": [
+      {
+       "atom": "cmd_tv_off(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_on(T)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "tv_missing(T)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "tv_louder",
+     "stage": "serve",
+     "doc": "I turn {T} up.",
+     "premises": [
+      {
+       "atom": "cmd_tv_louder(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_on(T)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "tv_ok(T)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "done(volume)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "tv_quieter",
+     "stage": "serve",
+     "doc": "I turn {T} down.",
+     "premises": [
+      {
+       "atom": "cmd_tv_quieter(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_on(T)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "tv_ok(T)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "done(volume)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "louder_off",
+     "stage": "serve",
+     "doc": "{T} is off: there is no sound to change.",
+     "premises": [
+      {
+       "atom": "cmd_tv_louder(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_off(T)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(volume)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "quieter_off",
+     "stage": "serve",
+     "doc": "{T} is off: there is no sound to change.",
+     "premises": [
+      {
+       "atom": "cmd_tv_quieter(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_off(T)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(volume)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "tv_on_unknown",
+     "stage": "serve",
+     "doc": "I can't: there is no such TV in this home.",
+     "premises": [
+      {
+       "atom": "cmd_tv_on(tx)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "tv_off_unknown",
+     "stage": "serve",
+     "doc": "I can't: there is no such TV in this home.",
+     "premises": [
+      {
+       "atom": "cmd_tv_off(tx)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "ir_unknown",
+     "stage": "serve",
+     "doc": "I can't: no device I know answers to that remote.",
+     "premises": [
+      {
+       "atom": "cmd_ir(irx,K)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "ir_ready",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(ir)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "louder_unknown",
+     "stage": "serve",
+     "doc": "I can't: there is no such TV in this home.",
+     "premises": [
+      {
+       "atom": "cmd_tv_louder(tx)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(volume)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "quieter_unknown",
+     "stage": "serve",
+     "doc": "I can't: there is no such TV in this home.",
+     "premises": [
+      {
+       "atom": "cmd_tv_quieter(tx)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(volume)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "ir_send",
+     "stage": "serve",
+     "doc": "I press {K} on the remote of {D}.",
+     "premises": [
+      {
+       "atom": "cmd_ir(D,K)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "ir_ready",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "sent(D,K)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(ir)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "ir_none",
+     "stage": "serve",
+     "doc": "I can't reach {D}: the infrared remote is not connected yet.",
+     "premises": [
+      {
+       "atom": "cmd_ir(D,K)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "ir_absent",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(ir)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_tv",
+     "stage": "serve",
+     "doc": "I turn {T} off for the scene.",
+     "premises": [
+      {
+       "atom": "sweep_tv_off(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_on(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_ok(T)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "tv_off(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "switched(T)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_tv_kept",
+     "stage": "serve",
+     "doc": "{T} was already off.",
+     "premises": [
+      {
+       "atom": "sweep_tv_off(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_off(T)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "kept(T)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_tv_missed",
+     "stage": "serve",
+     "doc": "I could not turn {T} off: it does not answer.",
+     "premises": [
+      {
+       "atom": "sweep_tv_off(T)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "tv_on(T)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "tv_missing(T)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "missed(T)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    }
+   ],
+   "atoms": [
+    {
+     "name": "occupied",
+     "doc": ""
+    },
+    {
+     "name": "empty",
+     "doc": ""
+    },
+    {
+     "name": "vacant",
+     "doc": ""
+    },
+    {
+     "name": "unsensed",
+     "doc": ""
+    },
+    {
+     "name": "someone_home",
+     "doc": ""
+    },
+    {
+     "name": "nobody_home",
+     "doc": ""
+    },
+    {
+     "name": "home_unsensed",
+     "doc": ""
+    },
+    {
+     "name": "day",
+     "doc": ""
+    },
+    {
+     "name": "night",
+     "doc": ""
+    },
+    {
+     "name": "running",
+     "doc": ""
+    },
+    {
+     "name": "stopped",
+     "doc": ""
+    },
+    {
+     "name": "heater_on",
+     "doc": ""
+    },
+    {
+     "name": "heater_off",
+     "doc": ""
+    },
+    {
+     "name": "unit_ok",
+     "doc": ""
+    },
+    {
+     "name": "unit_missing",
+     "doc": ""
+    },
+    {
+     "name": "on_b",
+     "doc": ""
+    },
+    {
+     "name": "power",
+     "doc": ""
+    },
+    {
+     "name": "entered",
+     "doc": ""
+    },
+    {
+     "name": "left_home",
+     "doc": ""
+    },
+    {
+     "name": "came_home",
+     "doc": ""
+    },
+    {
+     "name": "dawn",
+     "doc": ""
+    },
+    {
+     "name": "scene_lights",
+     "doc": ""
+    },
+    {
+     "name": "scene_air",
+     "doc": ""
+    },
+    {
+     "name": "scene_media",
+     "doc": ""
+    },
+    {
+     "name": "scene_timers",
+     "doc": ""
+    },
+    {
+     "name": "scene_music",
+     "doc": ""
+    },
+    {
+     "name": "mood_music",
+     "doc": ""
+    },
+    {
+     "name": "mood_glow",
+     "doc": ""
+    },
+    {
+     "name": "ask_lights",
+     "doc": ""
+    },
+    {
+     "name": "ask_air",
+     "doc": ""
+    },
+    {
+     "name": "ask_media",
+     "doc": ""
+    },
+    {
+     "name": "ask_comfort",
+     "doc": ""
+    },
+    {
+     "name": "ask_scenes",
+     "doc": ""
+    },
+    {
+     "name": "ask_timers",
+     "doc": ""
+    },
+    {
+     "name": "ask_agenda",
+     "doc": ""
+    },
+    {
+     "name": "ask_music",
+     "doc": ""
+    },
+    {
+     "name": "ask_habits",
+     "doc": ""
+    },
+    {
+     "name": "ask_glow",
+     "doc": ""
+    },
+    {
+     "name": "ask_temperament",
+     "doc": ""
+    },
+    {
+     "name": "ask_escalate",
+     "doc": ""
+    },
+    {
+     "name": "tv_on",
+     "doc": ""
+    },
+    {
+     "name": "tv_off",
+     "doc": ""
+    },
+    {
+     "name": "tv_ok",
+     "doc": ""
+    },
+    {
+     "name": "tv_missing",
+     "doc": ""
+    },
+    {
+     "name": "ir_ready",
+     "doc": ""
+    },
+    {
+     "name": "ir_absent",
+     "doc": ""
+    },
+    {
+     "name": "cmd_tv_on",
+     "doc": ""
+    },
+    {
+     "name": "cmd_tv_off",
+     "doc": ""
+    },
+    {
+     "name": "cmd_tv_louder",
+     "doc": ""
+    },
+    {
+     "name": "cmd_tv_quieter",
+     "doc": ""
+    },
+    {
+     "name": "cmd_ir",
+     "doc": ""
+    },
+    {
+     "name": "sweep_tv_off",
+     "doc": ""
+    },
+    {
+     "name": "done",
+     "doc": ""
+    },
+    {
+     "name": "refused",
+     "doc": ""
+    },
+    {
+     "name": "switched",
+     "doc": ""
+    },
+    {
+     "name": "kept",
+     "doc": ""
+    },
+    {
+     "name": "missed",
+     "doc": ""
+    },
+    {
+     "name": "sent",
+     "doc": ""
+    }
+   ],
+   "missing": {
+    "clause_doc": [],
+    "atom_doc": [
+     "occupied",
+     "empty",
+     "vacant",
+     "unsensed",
+     "someone_home",
+     "nobody_home",
+     "home_unsensed",
+     "day",
+     "night",
+     "running",
+     "stopped",
+     "heater_on",
+     "heater_off",
+     "unit_ok",
+     "unit_missing",
+     "on_b",
+     "power",
+     "entered",
+     "left_home",
+     "came_home",
+     "dawn",
+     "scene_lights",
+     "scene_air",
+     "scene_media",
+     "scene_timers",
+     "scene_music",
+     "mood_music",
+     "mood_glow",
+     "ask_lights",
+     "ask_air",
+     "ask_media",
+     "ask_comfort",
+     "ask_scenes",
+     "ask_timers",
+     "ask_agenda",
+     "ask_music",
+     "ask_habits",
+     "ask_glow",
+     "ask_temperament",
+     "ask_escalate",
+     "tv_on",
+     "tv_off",
+     "tv_ok",
+     "tv_missing",
+     "ir_ready",
+     "ir_absent",
+     "cmd_tv_on",
+     "cmd_tv_off",
+     "cmd_tv_louder",
+     "cmd_tv_quieter",
+     "cmd_ir",
+     "sweep_tv_off",
+     "done",
+     "refused",
+     "switched",
+     "kept",
+     "missed",
+     "sent"
+    ]
+   }
+  }
+ ],
+ "ir": null
+}

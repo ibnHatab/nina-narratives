@@ -1,0 +1,68 @@
+# metis ground-wire artifact — catalog comfort v1; GENERATED, do not edit.
+N 1 0
+B weight cold
+B weight humid
+B weight unit_on
+B weight warm
+E 0 -1 1 ask_comfy[R=r1] ; c cmd_comfort(r1) 1 ; o said(comfort) 1 ; p chill(not_cold,r1) 1 heat(not_warm,r1) 1
+E 0 -1 1 ask_comfy[R=r2] ; c cmd_comfort(r2) 1 ; o said(comfort) 1 ; p chill(not_cold,r2) 1 heat(not_warm,r2) 1
+E 0 -1 1 ask_comfy[R=r4] ; c cmd_comfort(r4) 1 ; o said(comfort) 1 ; p chill(not_cold,r4) 1 heat(not_warm,r4) 1
+E 0 -1 1 ask_comfy[R=rx] ; c cmd_comfort(rx) 1 ; o said(comfort) 1 ; p chill(not_cold,rx) 1 heat(not_warm,rx) 1
+E 0 -1 1 ask_cold[R=r1] ; c cmd_comfort(r1) 1 ; o said(comfort) 1 ; p chill(cold,r1) 1
+E 0 -1 1 ask_cold[R=r2] ; c cmd_comfort(r2) 1 ; o said(comfort) 1 ; p chill(cold,r2) 1
+E 0 -1 1 ask_cold[R=r4] ; c cmd_comfort(r4) 1 ; o said(comfort) 1 ; p chill(cold,r4) 1
+E 0 -1 1 ask_cold[R=rx] ; c cmd_comfort(rx) 1 ; o said(comfort) 1 ; p chill(cold,rx) 1
+E 0 -1 1 ask_maybe_cold[R=r1] ; c cmd_comfort(r1) 1 ; o said(comfort) 1 ; p chill(maybe_cold,r1) 1
+E 0 -1 1 ask_maybe_cold[R=r2] ; c cmd_comfort(r2) 1 ; o said(comfort) 1 ; p chill(maybe_cold,r2) 1
+E 0 -1 1 ask_maybe_cold[R=r4] ; c cmd_comfort(r4) 1 ; o said(comfort) 1 ; p chill(maybe_cold,r4) 1
+E 0 -1 1 ask_maybe_cold[R=rx] ; c cmd_comfort(rx) 1 ; o said(comfort) 1 ; p chill(maybe_cold,rx) 1
+E 0 -1 1 ask_warm[R=r1] ; c cmd_comfort(r1) 1 ; o said(comfort) 1 ; p heat(warm,r1) 1
+E 0 -1 1 ask_warm[R=r2] ; c cmd_comfort(r2) 1 ; o said(comfort) 1 ; p heat(warm,r2) 1
+E 0 -1 1 ask_warm[R=r4] ; c cmd_comfort(r4) 1 ; o said(comfort) 1 ; p heat(warm,r4) 1
+E 0 -1 1 ask_warm[R=rx] ; c cmd_comfort(rx) 1 ; o said(comfort) 1 ; p heat(warm,rx) 1
+E 0 -1 1 ask_maybe_warm[R=r1] ; c cmd_comfort(r1) 1 ; o said(comfort) 1 ; p heat(maybe_warm,r1) 1
+E 0 -1 1 ask_maybe_warm[R=r2] ; c cmd_comfort(r2) 1 ; o said(comfort) 1 ; p heat(maybe_warm,r2) 1
+E 0 -1 1 ask_maybe_warm[R=r4] ; c cmd_comfort(r4) 1 ; o said(comfort) 1 ; p heat(maybe_warm,r4) 1
+E 0 -1 1 ask_maybe_warm[R=rx] ; c cmd_comfort(rx) 1 ; o said(comfort) 1 ; p heat(maybe_warm,rx) 1
+E 0 -1 1 ask_untracked[R=r1] ; c cmd_comfort(r1) 1 ; o refused(comfort) 1 ; p untracked(r1) 1
+E 0 -1 1 ask_untracked[R=r2] ; c cmd_comfort(r2) 1 ; o refused(comfort) 1 ; p untracked(r2) 1
+E 0 -1 1 ask_untracked[R=r4] ; c cmd_comfort(r4) 1 ; o refused(comfort) 1 ; p untracked(r4) 1
+E 0 -1 1 ask_untracked[R=rx] ; c cmd_comfort(rx) 1 ; o refused(comfort) 1 ; p untracked(rx) 1
+E 0 -1 1 ask_unknown ; c cmd_comfort(rx) 1 ; o refused(comfort) 1
+E 0 -1 1 warm_start[R=r1,U=u1] ; c got_warm(r1) 1 ; o advise_air(r1) 1 ; p heat(warm,r1) 1 power(off,u1) 1
+E 0 -1 1 warm_start[R=r2,U=u2] ; c got_warm(r2) 1 ; o advise_air(r2) 1 ; p heat(warm,r2) 1 power(off,u2) 1
+E 0 -1 1 warm_running[R=r1,U=u1] ; c got_warm(r1) 1 ; o noted(r1) 1 ; p heat(warm,r1) 1 power(on,u1) 1
+E 0 -1 1 warm_running[R=r2,U=u2] ; c got_warm(r2) 1 ; o noted(r2) 1 ; p heat(warm,r2) 1 power(on,u2) 1
+E 0 -1 1 warm_unconfirmed[R=r1,U=u1] ; c got_warm(r1) 1 ; o noted(r1) 1 ; p heat(warm,r1) 1 power(unconfirmed,u1) 1
+E 0 -1 1 warm_unconfirmed[R=r2,U=u2] ; c got_warm(r2) 1 ; o noted(r2) 1 ; p heat(warm,r2) 1 power(unconfirmed,u2) 1
+E 0 -1 1 warm_no_unit[R=r4] ; c got_warm(r4) 1 ; o advise_open(r4) 1 ; p heat(warm,r4) 1
+E 0 -1 1 warm_unsure[R=r1] ; c got_warm(r1) 1 ; o noted(r1) 1 ; p heat(maybe_warm,r1) 1
+E 0 -1 1 warm_unsure[R=r2] ; c got_warm(r2) 1 ; o noted(r2) 1 ; p heat(maybe_warm,r2) 1
+E 0 -1 1 warm_unsure[R=r4] ; c got_warm(r4) 1 ; o noted(r4) 1 ; p heat(maybe_warm,r4) 1
+E 0 -1 1 warm_unsure[R=rx] ; c got_warm(rx) 1 ; o noted(rx) 1 ; p heat(maybe_warm,rx) 1
+E 0 -1 1 cold_heat[R=r1,U=u1] ; c got_cold(r1) 1 ; o advise_heater(r1) 1 ; p chill(cold,r1) 1 heater_off(u1) 1 power(on,u1) 1
+E 0 -1 1 cold_heat[R=r2,U=u2] ; c got_cold(r2) 1 ; o advise_heater(r2) 1 ; p chill(cold,r2) 1 heater_off(u2) 1 power(on,u2) 1
+E 0 -1 1 cold_heating[R=r1,U=u1] ; c got_cold(r1) 1 ; o noted(r1) 1 ; p chill(cold,r1) 1 heater_on(u1) 1
+E 0 -1 1 cold_heating[R=r2,U=u2] ; c got_cold(r2) 1 ; o noted(r2) 1 ; p chill(cold,r2) 1 heater_on(u2) 1
+E 0 -1 1 cold_stopped[R=r1,U=u1] ; c got_cold(r1) 1 ; o noted(r1) 1 ; p chill(cold,r1) 1 heater_off(u1) 1 power(off,u1) 1
+E 0 -1 1 cold_stopped[R=r2,U=u2] ; c got_cold(r2) 1 ; o noted(r2) 1 ; p chill(cold,r2) 1 heater_off(u2) 1 power(off,u2) 1
+E 0 -1 1 cold_unconfirmed[R=r1,U=u1] ; c got_cold(r1) 1 ; o noted(r1) 1 ; p chill(cold,r1) 1 heater_off(u1) 1 power(unconfirmed,u1) 1
+E 0 -1 1 cold_unconfirmed[R=r2,U=u2] ; c got_cold(r2) 1 ; o noted(r2) 1 ; p chill(cold,r2) 1 heater_off(u2) 1 power(unconfirmed,u2) 1
+E 0 -1 1 cold_no_unit[R=r4] ; c got_cold(r4) 1 ; o noted(r4) 1 ; p chill(cold,r4) 1
+E 0 -1 1 cold_unsure[R=r1] ; c got_cold(r1) 1 ; o noted(r1) 1 ; p chill(maybe_cold,r1) 1
+E 0 -1 1 cold_unsure[R=r2] ; c got_cold(r2) 1 ; o noted(r2) 1 ; p chill(maybe_cold,r2) 1
+E 0 -1 1 cold_unsure[R=r4] ; c got_cold(r4) 1 ; o noted(r4) 1 ; p chill(maybe_cold,r4) 1
+E 0 -1 1 cold_unsure[R=rx] ; c got_cold(rx) 1 ; o noted(rx) 1 ; p chill(maybe_cold,rx) 1
+E 0 -1 1 humid_start[R=r1,U=u1] ; c got_humid(r1) 1 ; o advise_air(r1) 1 ; p damp(humid,r1) 1 power(off,u1) 1
+E 0 -1 1 humid_start[R=r2,U=u2] ; c got_humid(r2) 1 ; o advise_air(r2) 1 ; p damp(humid,r2) 1 power(off,u2) 1
+E 0 -1 1 humid_running[R=r1,U=u1] ; c got_humid(r1) 1 ; o noted(r1) 1 ; p damp(humid,r1) 1 power(on,u1) 1
+E 0 -1 1 humid_running[R=r2,U=u2] ; c got_humid(r2) 1 ; o noted(r2) 1 ; p damp(humid,r2) 1 power(on,u2) 1
+E 0 -1 1 humid_unconfirmed[R=r1,U=u1] ; c got_humid(r1) 1 ; o noted(r1) 1 ; p damp(humid,r1) 1 power(unconfirmed,u1) 1
+E 0 -1 1 humid_unconfirmed[R=r2,U=u2] ; c got_humid(r2) 1 ; o noted(r2) 1 ; p damp(humid,r2) 1 power(unconfirmed,u2) 1
+E 0 -1 1 humid_no_unit[R=r4] ; c got_humid(r4) 1 ; o advise_open(r4) 1 ; p damp(humid,r4) 1
+E 0 -1 1 humid_unsure[R=r1] ; c got_humid(r1) 1 ; o noted(r1) 1 ; p damp(maybe_humid,r1) 1
+E 0 -1 1 humid_unsure[R=r2] ; c got_humid(r2) 1 ; o noted(r2) 1 ; p damp(maybe_humid,r2) 1
+E 0 -1 1 humid_unsure[R=r4] ; c got_humid(r4) 1 ; o noted(r4) 1 ; p damp(maybe_humid,r4) 1
+E 0 -1 1 humid_unsure[R=rx] ; c got_humid(rx) 1 ; o noted(rx) 1 ; p damp(maybe_humid,rx) 1
+I heater_off(u1) 1 heater_off(u2) 1 power(off,u1) 1 power(off,u2) 1 stopped(u1) 1 stopped(u2) 1
+S 4

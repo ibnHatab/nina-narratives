@@ -8,4 +8,4 @@ intent: {spec: intent.yaml}
 clock: {beats: 1, period: 1}
 records: records/
 commands: [scene_set, arrive, mood_set, mood_change]
-shared: {scene_lights: out, scene_air: out, scene_media: out, scene_timers: out, scene_music: out, mood_music: out, mood_glow: out, ask_scenes: in}   # the home composition: a scene's wishes (iface/home.llp)
+shared: {ask_scenes: in}   # the home composition: a scene's wishes (iface/home.llp)

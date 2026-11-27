@@ -1,0 +1,1613 @@
+{
+ "format": "metis-sidecar/1",
+ "catalog": "comfort",
+ "key": "d08902485c110383dc24d95b4016870747b285e88ae5f8f2fffa3de716640b31",
+ "extensions": [],
+ "init": {
+  "stopped(u1)": 1,
+  "stopped(u2)": 1,
+  "power(off,u1)": 1,
+  "power(off,u2)": 1,
+  "heater_off(u1)": 1,
+  "heater_off(u2)": 1
+ },
+ "steps": 4,
+ "stages": [
+  "serve"
+ ],
+ "events": [
+  {
+   "i": 0,
+   "canon": 3,
+   "name": "ask_comfy[R=r1]",
+   "rule": "ask_comfy",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is comfortable."
+  },
+  {
+   "i": 1,
+   "canon": 9,
+   "name": "ask_comfy[R=r2]",
+   "rule": "ask_comfy",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is comfortable."
+  },
+  {
+   "i": 2,
+   "canon": 15,
+   "name": "ask_comfy[R=r4]",
+   "rule": "ask_comfy",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is comfortable."
+  },
+  {
+   "i": 3,
+   "canon": 22,
+   "name": "ask_comfy[R=rx]",
+   "rule": "ask_comfy",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is comfortable."
+  },
+  {
+   "i": 4,
+   "canon": 1,
+   "name": "ask_cold[R=r1]",
+   "rule": "ask_cold",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is cold."
+  },
+  {
+   "i": 5,
+   "canon": 7,
+   "name": "ask_cold[R=r2]",
+   "rule": "ask_cold",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is cold."
+  },
+  {
+   "i": 6,
+   "canon": 13,
+   "name": "ask_cold[R=r4]",
+   "rule": "ask_cold",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is cold."
+  },
+  {
+   "i": 7,
+   "canon": 20,
+   "name": "ask_cold[R=rx]",
+   "rule": "ask_cold",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is cold."
+  },
+  {
+   "i": 8,
+   "canon": 2,
+   "name": "ask_maybe_cold[R=r1]",
+   "rule": "ask_maybe_cold",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be cold: its thermometer's reading is borderline or old, so I am not sure."
+  },
+  {
+   "i": 9,
+   "canon": 8,
+   "name": "ask_maybe_cold[R=r2]",
+   "rule": "ask_maybe_cold",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be cold: its thermometer's reading is borderline or old, so I am not sure."
+  },
+  {
+   "i": 10,
+   "canon": 14,
+   "name": "ask_maybe_cold[R=r4]",
+   "rule": "ask_maybe_cold",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be cold: its thermometer's reading is borderline or old, so I am not sure."
+  },
+  {
+   "i": 11,
+   "canon": 21,
+   "name": "ask_maybe_cold[R=rx]",
+   "rule": "ask_maybe_cold",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be cold: its thermometer's reading is borderline or old, so I am not sure."
+  },
+  {
+   "i": 12,
+   "canon": 5,
+   "name": "ask_warm[R=r1]",
+   "rule": "ask_warm",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is warm."
+  },
+  {
+   "i": 13,
+   "canon": 11,
+   "name": "ask_warm[R=r2]",
+   "rule": "ask_warm",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is warm."
+  },
+  {
+   "i": 14,
+   "canon": 17,
+   "name": "ask_warm[R=r4]",
+   "rule": "ask_warm",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is warm."
+  },
+  {
+   "i": 15,
+   "canon": 24,
+   "name": "ask_warm[R=rx]",
+   "rule": "ask_warm",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is warm."
+  },
+  {
+   "i": 16,
+   "canon": 4,
+   "name": "ask_maybe_warm[R=r1]",
+   "rule": "ask_maybe_warm",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be warm: its thermometer's reading is borderline or old, so I am not sure."
+  },
+  {
+   "i": 17,
+   "canon": 10,
+   "name": "ask_maybe_warm[R=r2]",
+   "rule": "ask_maybe_warm",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be warm: its thermometer's reading is borderline or old, so I am not sure."
+  },
+  {
+   "i": 18,
+   "canon": 16,
+   "name": "ask_maybe_warm[R=r4]",
+   "rule": "ask_maybe_warm",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be warm: its thermometer's reading is borderline or old, so I am not sure."
+  },
+  {
+   "i": 19,
+   "canon": 23,
+   "name": "ask_maybe_warm[R=rx]",
+   "rule": "ask_maybe_warm",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be warm: its thermometer's reading is borderline or old, so I am not sure."
+  },
+  {
+   "i": 20,
+   "canon": 0,
+   "name": "ask_untracked[R=r1]",
+   "rule": "ask_untracked",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell: {R} has no thermometer, or its last reading is too old."
+  },
+  {
+   "i": 21,
+   "canon": 6,
+   "name": "ask_untracked[R=r2]",
+   "rule": "ask_untracked",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell: {R} has no thermometer, or its last reading is too old."
+  },
+  {
+   "i": 22,
+   "canon": 12,
+   "name": "ask_untracked[R=r4]",
+   "rule": "ask_untracked",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell: {R} has no thermometer, or its last reading is too old."
+  },
+  {
+   "i": 23,
+   "canon": 19,
+   "name": "ask_untracked[R=rx]",
+   "rule": "ask_untracked",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell: {R} has no thermometer, or its last reading is too old."
+  },
+  {
+   "i": 24,
+   "canon": 18,
+   "name": "ask_unknown",
+   "rule": "ask_unknown",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell: there is no such room in this home."
+  },
+  {
+   "i": 25,
+   "canon": 49,
+   "name": "warm_start[R=r1,U=u1]",
+   "rule": "warm_start",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting warm and its ventilation is stopped: shall I start it?"
+  },
+  {
+   "i": 26,
+   "canon": 53,
+   "name": "warm_start[R=r2,U=u2]",
+   "rule": "warm_start",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting warm and its ventilation is stopped: shall I start it?"
+  },
+  {
+   "i": 27,
+   "canon": 51,
+   "name": "warm_running[R=r1,U=u1]",
+   "rule": "warm_running",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting warm; its ventilation is already running."
+  },
+  {
+   "i": 28,
+   "canon": 55,
+   "name": "warm_running[R=r2,U=u2]",
+   "rule": "warm_running",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting warm; its ventilation is already running."
+  },
+  {
+   "i": 29,
+   "canon": 52,
+   "name": "warm_unconfirmed[R=r1,U=u1]",
+   "rule": "warm_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting warm; its ventilation has not confirmed its last switch, so I advise nothing yet."
+  },
+  {
+   "i": 30,
+   "canon": 56,
+   "name": "warm_unconfirmed[R=r2,U=u2]",
+   "rule": "warm_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting warm; its ventilation has not confirmed its last switch, so I advise nothing yet."
+  },
+  {
+   "i": 31,
+   "canon": 57,
+   "name": "warm_no_unit[R=r4]",
+   "rule": "warm_no_unit",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting warm and has no ventilation unit: opening a window would help."
+  },
+  {
+   "i": 32,
+   "canon": 50,
+   "name": "warm_unsure[R=r1]",
+   "rule": "warm_unsure",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be getting warm; the reading is borderline, so I advise nothing yet."
+  },
+  {
+   "i": 33,
+   "canon": 54,
+   "name": "warm_unsure[R=r2]",
+   "rule": "warm_unsure",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be getting warm; the reading is borderline, so I advise nothing yet."
+  },
+  {
+   "i": 34,
+   "canon": 58,
+   "name": "warm_unsure[R=r4]",
+   "rule": "warm_unsure",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be getting warm; the reading is borderline, so I advise nothing yet."
+  },
+  {
+   "i": 35,
+   "canon": 59,
+   "name": "warm_unsure[R=rx]",
+   "rule": "warm_unsure",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be getting warm; the reading is borderline, so I advise nothing yet."
+  },
+  {
+   "i": 36,
+   "canon": 25,
+   "name": "cold_heat[R=r1,U=u1]",
+   "rule": "cold_heat",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting cold and its ventilation runs without the heater: shall I turn the heater on?"
+  },
+  {
+   "i": 37,
+   "canon": 30,
+   "name": "cold_heat[R=r2,U=u2]",
+   "rule": "cold_heat",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting cold and its ventilation runs without the heater: shall I turn the heater on?"
+  },
+  {
+   "i": 38,
+   "canon": 28,
+   "name": "cold_heating[R=r1,U=u1]",
+   "rule": "cold_heating",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting cold; the heater is already on."
+  },
+  {
+   "i": 39,
+   "canon": 33,
+   "name": "cold_heating[R=r2,U=u2]",
+   "rule": "cold_heating",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting cold; the heater is already on."
+  },
+  {
+   "i": 40,
+   "canon": 26,
+   "name": "cold_stopped[R=r1,U=u1]",
+   "rule": "cold_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting cold; its ventilation is stopped."
+  },
+  {
+   "i": 41,
+   "canon": 31,
+   "name": "cold_stopped[R=r2,U=u2]",
+   "rule": "cold_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting cold; its ventilation is stopped."
+  },
+  {
+   "i": 42,
+   "canon": 27,
+   "name": "cold_unconfirmed[R=r1,U=u1]",
+   "rule": "cold_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting cold; its ventilation has not confirmed its last switch, so I advise nothing yet."
+  },
+  {
+   "i": 43,
+   "canon": 32,
+   "name": "cold_unconfirmed[R=r2,U=u2]",
+   "rule": "cold_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting cold; its ventilation has not confirmed its last switch, so I advise nothing yet."
+  },
+  {
+   "i": 44,
+   "canon": 35,
+   "name": "cold_no_unit[R=r4]",
+   "rule": "cold_no_unit",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting cold and has no ventilation unit."
+  },
+  {
+   "i": 45,
+   "canon": 29,
+   "name": "cold_unsure[R=r1]",
+   "rule": "cold_unsure",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be getting cold; the reading is borderline, so I advise nothing yet."
+  },
+  {
+   "i": 46,
+   "canon": 34,
+   "name": "cold_unsure[R=r2]",
+   "rule": "cold_unsure",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be getting cold; the reading is borderline, so I advise nothing yet."
+  },
+  {
+   "i": 47,
+   "canon": 36,
+   "name": "cold_unsure[R=r4]",
+   "rule": "cold_unsure",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be getting cold; the reading is borderline, so I advise nothing yet."
+  },
+  {
+   "i": 48,
+   "canon": 37,
+   "name": "cold_unsure[R=rx]",
+   "rule": "cold_unsure",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be getting cold; the reading is borderline, so I advise nothing yet."
+  },
+  {
+   "i": 49,
+   "canon": 38,
+   "name": "humid_start[R=r1,U=u1]",
+   "rule": "humid_start",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting humid and its ventilation is stopped: shall I start it?"
+  },
+  {
+   "i": 50,
+   "canon": 42,
+   "name": "humid_start[R=r2,U=u2]",
+   "rule": "humid_start",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting humid and its ventilation is stopped: shall I start it?"
+  },
+  {
+   "i": 51,
+   "canon": 39,
+   "name": "humid_running[R=r1,U=u1]",
+   "rule": "humid_running",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting humid; its ventilation is already running."
+  },
+  {
+   "i": 52,
+   "canon": 43,
+   "name": "humid_running[R=r2,U=u2]",
+   "rule": "humid_running",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting humid; its ventilation is already running."
+  },
+  {
+   "i": 53,
+   "canon": 40,
+   "name": "humid_unconfirmed[R=r1,U=u1]",
+   "rule": "humid_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting humid; its ventilation has not confirmed its last switch, so I advise nothing yet."
+  },
+  {
+   "i": 54,
+   "canon": 44,
+   "name": "humid_unconfirmed[R=r2,U=u2]",
+   "rule": "humid_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting humid; its ventilation has not confirmed its last switch, so I advise nothing yet."
+  },
+  {
+   "i": 55,
+   "canon": 46,
+   "name": "humid_no_unit[R=r4]",
+   "rule": "humid_no_unit",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} is getting humid and has no ventilation unit: opening a window would help."
+  },
+  {
+   "i": 56,
+   "canon": 41,
+   "name": "humid_unsure[R=r1]",
+   "rule": "humid_unsure",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be getting humid; the reading is borderline, so I advise nothing yet."
+  },
+  {
+   "i": 57,
+   "canon": 45,
+   "name": "humid_unsure[R=r2]",
+   "rule": "humid_unsure",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be getting humid; the reading is borderline, so I advise nothing yet."
+  },
+  {
+   "i": 58,
+   "canon": 47,
+   "name": "humid_unsure[R=r4]",
+   "rule": "humid_unsure",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be getting humid; the reading is borderline, so I advise nothing yet."
+  },
+  {
+   "i": 59,
+   "canon": 48,
+   "name": "humid_unsure[R=rx]",
+   "rule": "humid_unsure",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{R} may be getting humid; the reading is borderline, so I advise nothing yet."
+  }
+ ],
+ "cards": [
+  {
+   "name": "comfort",
+   "text": "comfort: a room turning cold, warm or humid, and what would help, from the thermometers and the ventilation units' state",
+   "relation": "served",
+   "moves": [],
+   "effects": [],
+   "slots": [
+    "comfort_act",
+    "chill_level",
+    "heat_level",
+    "damp_level"
+   ]
+  }
+ ],
+ "queries": [],
+ "script": [
+  {
+   "name": "comfort",
+   "relation": "served",
+   "text": "comfort: a room turning cold, warm or humid, and what would help, from the thermometers and the ventilation units' state",
+   "clauses": [
+    {
+     "name": "ask_comfy",
+     "stage": "serve",
+     "doc": "{R} is comfortable.",
+     "premises": [
+      {
+       "atom": "cmd_comfort(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "chill(not_cold,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "heat(not_warm,R)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "said(comfort)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "ask_cold",
+     "stage": "serve",
+     "doc": "{R} is cold.",
+     "premises": [
+      {
+       "atom": "cmd_comfort(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "chill(cold,R)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "said(comfort)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "ask_maybe_cold",
+     "stage": "serve",
+     "doc": "{R} may be cold: its thermometer's reading is borderline or old, so I am not sure.",
+     "premises": [
+      {
+       "atom": "cmd_comfort(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "chill(maybe_cold,R)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "said(comfort)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "ask_warm",
+     "stage": "serve",
+     "doc": "{R} is warm.",
+     "premises": [
+      {
+       "atom": "cmd_comfort(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "heat(warm,R)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "said(comfort)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "ask_maybe_warm",
+     "stage": "serve",
+     "doc": "{R} may be warm: its thermometer's reading is borderline or old, so I am not sure.",
+     "premises": [
+      {
+       "atom": "cmd_comfort(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "heat(maybe_warm,R)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "said(comfort)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "ask_untracked",
+     "stage": "serve",
+     "doc": "I can't tell: {R} has no thermometer, or its last reading is too old.",
+     "premises": [
+      {
+       "atom": "cmd_comfort(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "untracked(R)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(comfort)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "ask_unknown",
+     "stage": "serve",
+     "doc": "I can't tell: there is no such room in this home.",
+     "premises": [
+      {
+       "atom": "cmd_comfort(rx)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(comfort)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "warm_start",
+     "stage": "serve",
+     "doc": "{R} is getting warm and its ventilation is stopped: shall I start it?",
+     "premises": [
+      {
+       "atom": "got_warm(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "heat(warm,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_in(U,R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(off,U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "advise_air(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "warm_running",
+     "stage": "serve",
+     "doc": "{R} is getting warm; its ventilation is already running.",
+     "premises": [
+      {
+       "atom": "got_warm(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "heat(warm,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_in(U,R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "warm_unconfirmed",
+     "stage": "serve",
+     "doc": "{R} is getting warm; its ventilation has not confirmed its last switch, so I advise nothing yet.",
+     "premises": [
+      {
+       "atom": "got_warm(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "heat(warm,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_in(U,R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(unconfirmed,U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "warm_no_unit",
+     "stage": "serve",
+     "doc": "{R} is getting warm and has no ventilation unit: opening a window would help.",
+     "premises": [
+      {
+       "atom": "got_warm(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "heat(warm,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "no_unit(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "advise_open(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "warm_unsure",
+     "stage": "serve",
+     "doc": "{R} may be getting warm; the reading is borderline, so I advise nothing yet.",
+     "premises": [
+      {
+       "atom": "got_warm(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "heat(maybe_warm,R)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "cold_heat",
+     "stage": "serve",
+     "doc": "{R} is getting cold and its ventilation runs without the heater: shall I turn the heater on?",
+     "premises": [
+      {
+       "atom": "got_cold(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "chill(cold,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_in(U,R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "heater_off(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "advise_heater(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "cold_heating",
+     "stage": "serve",
+     "doc": "{R} is getting cold; the heater is already on.",
+     "premises": [
+      {
+       "atom": "got_cold(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "chill(cold,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_in(U,R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "heater_on(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "cold_stopped",
+     "stage": "serve",
+     "doc": "{R} is getting cold; its ventilation is stopped.",
+     "premises": [
+      {
+       "atom": "got_cold(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "chill(cold,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_in(U,R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(off,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "heater_off(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "cold_unconfirmed",
+     "stage": "serve",
+     "doc": "{R} is getting cold; its ventilation has not confirmed its last switch, so I advise nothing yet.",
+     "premises": [
+      {
+       "atom": "got_cold(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "chill(cold,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_in(U,R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(unconfirmed,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "heater_off(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "cold_no_unit",
+     "stage": "serve",
+     "doc": "{R} is getting cold and has no ventilation unit.",
+     "premises": [
+      {
+       "atom": "got_cold(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "chill(cold,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "no_unit(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "cold_unsure",
+     "stage": "serve",
+     "doc": "{R} may be getting cold; the reading is borderline, so I advise nothing yet.",
+     "premises": [
+      {
+       "atom": "got_cold(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "chill(maybe_cold,R)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "humid_start",
+     "stage": "serve",
+     "doc": "{R} is getting humid and its ventilation is stopped: shall I start it?",
+     "premises": [
+      {
+       "atom": "got_humid(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "damp(humid,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_in(U,R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(off,U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "advise_air(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "humid_running",
+     "stage": "serve",
+     "doc": "{R} is getting humid; its ventilation is already running.",
+     "premises": [
+      {
+       "atom": "got_humid(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "damp(humid,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_in(U,R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "humid_unconfirmed",
+     "stage": "serve",
+     "doc": "{R} is getting humid; its ventilation has not confirmed its last switch, so I advise nothing yet.",
+     "premises": [
+      {
+       "atom": "got_humid(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "damp(humid,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_in(U,R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(unconfirmed,U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "humid_no_unit",
+     "stage": "serve",
+     "doc": "{R} is getting humid and has no ventilation unit: opening a window would help.",
+     "premises": [
+      {
+       "atom": "got_humid(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "damp(humid,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "no_unit(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "advise_open(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "humid_unsure",
+     "stage": "serve",
+     "doc": "{R} may be getting humid; the reading is borderline, so I advise nothing yet.",
+     "premises": [
+      {
+       "atom": "got_humid(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "damp(maybe_humid,R)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    }
+   ],
+   "atoms": [
+    {
+     "name": "occupied",
+     "doc": ""
+    },
+    {
+     "name": "empty",
+     "doc": ""
+    },
+    {
+     "name": "vacant",
+     "doc": ""
+    },
+    {
+     "name": "unsensed",
+     "doc": ""
+    },
+    {
+     "name": "someone_home",
+     "doc": ""
+    },
+    {
+     "name": "nobody_home",
+     "doc": ""
+    },
+    {
+     "name": "home_unsensed",
+     "doc": ""
+    },
+    {
+     "name": "day",
+     "doc": ""
+    },
+    {
+     "name": "night",
+     "doc": ""
+    },
+    {
+     "name": "running",
+     "doc": ""
+    },
+    {
+     "name": "stopped",
+     "doc": ""
+    },
+    {
+     "name": "heater_on",
+     "doc": ""
+    },
+    {
+     "name": "heater_off",
+     "doc": ""
+    },
+    {
+     "name": "unit_ok",
+     "doc": ""
+    },
+    {
+     "name": "unit_missing",
+     "doc": ""
+    },
+    {
+     "name": "on_b",
+     "doc": ""
+    },
+    {
+     "name": "power",
+     "doc": ""
+    },
+    {
+     "name": "entered",
+     "doc": ""
+    },
+    {
+     "name": "left_home",
+     "doc": ""
+    },
+    {
+     "name": "came_home",
+     "doc": ""
+    },
+    {
+     "name": "dawn",
+     "doc": ""
+    },
+    {
+     "name": "scene_lights",
+     "doc": ""
+    },
+    {
+     "name": "scene_air",
+     "doc": ""
+    },
+    {
+     "name": "scene_media",
+     "doc": ""
+    },
+    {
+     "name": "scene_timers",
+     "doc": ""
+    },
+    {
+     "name": "scene_music",
+     "doc": ""
+    },
+    {
+     "name": "mood_music",
+     "doc": ""
+    },
+    {
+     "name": "mood_glow",
+     "doc": ""
+    },
+    {
+     "name": "ask_lights",
+     "doc": ""
+    },
+    {
+     "name": "ask_air",
+     "doc": ""
+    },
+    {
+     "name": "ask_media",
+     "doc": ""
+    },
+    {
+     "name": "ask_comfort",
+     "doc": ""
+    },
+    {
+     "name": "ask_scenes",
+     "doc": ""
+    },
+    {
+     "name": "ask_timers",
+     "doc": ""
+    },
+    {
+     "name": "ask_agenda",
+     "doc": ""
+    },
+    {
+     "name": "ask_music",
+     "doc": ""
+    },
+    {
+     "name": "ask_habits",
+     "doc": ""
+    },
+    {
+     "name": "ask_glow",
+     "doc": ""
+    },
+    {
+     "name": "ask_temperament",
+     "doc": ""
+    },
+    {
+     "name": "ask_escalate",
+     "doc": ""
+    },
+    {
+     "name": "cold_room",
+     "doc": ""
+    },
+    {
+     "name": "comfy_room",
+     "doc": ""
+    },
+    {
+     "name": "warm_room",
+     "doc": ""
+    },
+    {
+     "name": "untracked",
+     "doc": ""
+    },
+    {
+     "name": "humid_room",
+     "doc": ""
+    },
+    {
+     "name": "fresh_room",
+     "doc": ""
+    },
+    {
+     "name": "humidity_unknown",
+     "doc": ""
+    },
+    {
+     "name": "got_cold",
+     "doc": ""
+    },
+    {
+     "name": "got_warm",
+     "doc": ""
+    },
+    {
+     "name": "got_humid",
+     "doc": ""
+    },
+    {
+     "name": "cmd_comfort",
+     "doc": ""
+    },
+    {
+     "name": "said",
+     "doc": ""
+    },
+    {
+     "name": "refused",
+     "doc": ""
+    },
+    {
+     "name": "advise_air",
+     "doc": ""
+    },
+    {
+     "name": "advise_heater",
+     "doc": ""
+    },
+    {
+     "name": "advise_open",
+     "doc": ""
+    },
+    {
+     "name": "noted",
+     "doc": ""
+    },
+    {
+     "name": "cold_b",
+     "doc": ""
+    },
+    {
+     "name": "warm_b",
+     "doc": ""
+    },
+    {
+     "name": "humid_b",
+     "doc": ""
+    },
+    {
+     "name": "chill",
+     "doc": ""
+    },
+    {
+     "name": "heat",
+     "doc": ""
+    },
+    {
+     "name": "damp",
+     "doc": ""
+    }
+   ],
+   "missing": {
+    "clause_doc": [],
+    "atom_doc": [
+     "occupied",
+     "empty",
+     "vacant",
+     "unsensed",
+     "someone_home",
+     "nobody_home",
+     "home_unsensed",
+     "day",
+     "night",
+     "running",
+     "stopped",
+     "heater_on",
+     "heater_off",
+     "unit_ok",
+     "unit_missing",
+     "on_b",
+     "power",
+     "entered",
+     "left_home",
+     "came_home",
+     "dawn",
+     "scene_lights",
+     "scene_air",
+     "scene_media",
+     "scene_timers",
+     "scene_music",
+     "mood_music",
+     "mood_glow",
+     "ask_lights",
+     "ask_air",
+     "ask_media",
+     "ask_comfort",
+     "ask_scenes",
+     "ask_timers",
+     "ask_agenda",
+     "ask_music",
+     "ask_habits",
+     "ask_glow",
+     "ask_temperament",
+     "ask_escalate",
+     "cold_room",
+     "comfy_room",
+     "warm_room",
+     "untracked",
+     "humid_room",
+     "fresh_room",
+     "humidity_unknown",
+     "got_cold",
+     "got_warm",
+     "got_humid",
+     "cmd_comfort",
+     "said",
+     "refused",
+     "advise_air",
+     "advise_heater",
+     "advise_open",
+     "noted",
+     "cold_b",
+     "warm_b",
+     "humid_b",
+     "chill",
+     "heat",
+     "damp"
+    ]
+   }
+  }
+ ],
+ "ir": null
+}

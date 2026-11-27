@@ -1,0 +1,1267 @@
+{
+ "format": "metis-sidecar/1",
+ "catalog": "lights",
+ "key": "480e7f817879176075875568d2f9bb74ccf02e978cc73ef27e19b1a68e038595",
+ "extensions": [],
+ "init": {
+  "light_dark(l1)": 1,
+  "light_dark(l2)": 1,
+  "light_ok(l1)": 1,
+  "light_ok(l2)": 1
+ },
+ "steps": 4,
+ "stages": [
+  "serve"
+ ],
+ "events": [
+  {
+   "i": 0,
+   "canon": 20,
+   "name": "which_light_on",
+   "rule": "which_light_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell which light you mean: there is one in the living room and the bedroom. Which room?"
+  },
+  {
+   "i": 1,
+   "canon": 6,
+   "name": "which_light_off",
+   "rule": "which_light_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell which light you mean: there is one in the living room and the bedroom. Which room?"
+  },
+  {
+   "i": 2,
+   "canon": 39,
+   "name": "fan_home",
+   "rule": "fan_home",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The home scene: nothing to do here."
+  },
+  {
+   "i": 3,
+   "canon": 40,
+   "name": "fan_night",
+   "rule": "fan_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The night scene: every device of mine gets its wish."
+  },
+  {
+   "i": 4,
+   "canon": 38,
+   "name": "fan_away",
+   "rule": "fan_away",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The away scene: every device of mine gets its wish."
+  },
+  {
+   "i": 5,
+   "canon": 16,
+   "name": "light_on[L=l1]",
+   "rule": "light_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {L} on."
+  },
+  {
+   "i": 6,
+   "canon": 19,
+   "name": "light_on[L=l2]",
+   "rule": "light_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {L} on."
+  },
+  {
+   "i": 7,
+   "canon": 27,
+   "name": "light_on[L=lx]",
+   "rule": "light_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {L} on."
+  },
+  {
+   "i": 8,
+   "canon": 23,
+   "name": "light_on[L=la]",
+   "rule": "light_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {L} on."
+  },
+  {
+   "i": 9,
+   "canon": 15,
+   "name": "on_already[L=l1]",
+   "rule": "on_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{L} is already on."
+  },
+  {
+   "i": 10,
+   "canon": 18,
+   "name": "on_already[L=l2]",
+   "rule": "on_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{L} is already on."
+  },
+  {
+   "i": 11,
+   "canon": 26,
+   "name": "on_already[L=lx]",
+   "rule": "on_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{L} is already on."
+  },
+  {
+   "i": 12,
+   "canon": 22,
+   "name": "on_already[L=la]",
+   "rule": "on_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{L} is already on."
+  },
+  {
+   "i": 13,
+   "canon": 14,
+   "name": "on_missing[L=l1]",
+   "rule": "on_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn {L} on: it does not answer."
+  },
+  {
+   "i": 14,
+   "canon": 17,
+   "name": "on_missing[L=l2]",
+   "rule": "on_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn {L} on: it does not answer."
+  },
+  {
+   "i": 15,
+   "canon": 25,
+   "name": "on_missing[L=lx]",
+   "rule": "on_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn {L} on: it does not answer."
+  },
+  {
+   "i": 16,
+   "canon": 21,
+   "name": "on_missing[L=la]",
+   "rule": "on_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn {L} on: it does not answer."
+  },
+  {
+   "i": 17,
+   "canon": 2,
+   "name": "light_off[L=l1]",
+   "rule": "light_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {L} off."
+  },
+  {
+   "i": 18,
+   "canon": 5,
+   "name": "light_off[L=l2]",
+   "rule": "light_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {L} off."
+  },
+  {
+   "i": 19,
+   "canon": 13,
+   "name": "light_off[L=lx]",
+   "rule": "light_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {L} off."
+  },
+  {
+   "i": 20,
+   "canon": 9,
+   "name": "light_off[L=la]",
+   "rule": "light_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {L} off."
+  },
+  {
+   "i": 21,
+   "canon": 0,
+   "name": "off_already[L=l1]",
+   "rule": "off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{L} is already off."
+  },
+  {
+   "i": 22,
+   "canon": 3,
+   "name": "off_already[L=l2]",
+   "rule": "off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{L} is already off."
+  },
+  {
+   "i": 23,
+   "canon": 11,
+   "name": "off_already[L=lx]",
+   "rule": "off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{L} is already off."
+  },
+  {
+   "i": 24,
+   "canon": 7,
+   "name": "off_already[L=la]",
+   "rule": "off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{L} is already off."
+  },
+  {
+   "i": 25,
+   "canon": 1,
+   "name": "off_missing[L=l1]",
+   "rule": "off_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn {L} off: it does not answer."
+  },
+  {
+   "i": 26,
+   "canon": 4,
+   "name": "off_missing[L=l2]",
+   "rule": "off_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn {L} off: it does not answer."
+  },
+  {
+   "i": 27,
+   "canon": 12,
+   "name": "off_missing[L=lx]",
+   "rule": "off_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn {L} off: it does not answer."
+  },
+  {
+   "i": 28,
+   "canon": 8,
+   "name": "off_missing[L=la]",
+   "rule": "off_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn {L} off: it does not answer."
+  },
+  {
+   "i": 29,
+   "canon": 24,
+   "name": "on_unknown",
+   "rule": "on_unknown",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such light in this home."
+  },
+  {
+   "i": 30,
+   "canon": 10,
+   "name": "off_unknown",
+   "rule": "off_unknown",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such light in this home."
+  },
+  {
+   "i": 31,
+   "canon": 33,
+   "name": "sweep_off[L=l1]",
+   "rule": "sweep_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {L} off for the scene."
+  },
+  {
+   "i": 32,
+   "canon": 35,
+   "name": "sweep_off[L=l2]",
+   "rule": "sweep_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {L} off for the scene."
+  },
+  {
+   "i": 33,
+   "canon": 37,
+   "name": "sweep_off[L=lx]",
+   "rule": "sweep_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {L} off for the scene."
+  },
+  {
+   "i": 34,
+   "canon": 36,
+   "name": "sweep_off[L=la]",
+   "rule": "sweep_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn {L} off for the scene."
+  },
+  {
+   "i": 35,
+   "canon": 41,
+   "name": "sweep_kept[L=l1]",
+   "rule": "sweep_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{L} was already off."
+  },
+  {
+   "i": 36,
+   "canon": 43,
+   "name": "sweep_kept[L=l2]",
+   "rule": "sweep_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{L} was already off."
+  },
+  {
+   "i": 37,
+   "canon": 47,
+   "name": "sweep_kept[L=lx]",
+   "rule": "sweep_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{L} was already off."
+  },
+  {
+   "i": 38,
+   "canon": 45,
+   "name": "sweep_kept[L=la]",
+   "rule": "sweep_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{L} was already off."
+  },
+  {
+   "i": 39,
+   "canon": 42,
+   "name": "sweep_missed[L=l1]",
+   "rule": "sweep_missed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I could not turn {L} off: it does not answer."
+  },
+  {
+   "i": 40,
+   "canon": 44,
+   "name": "sweep_missed[L=l2]",
+   "rule": "sweep_missed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I could not turn {L} off: it does not answer."
+  },
+  {
+   "i": 41,
+   "canon": 48,
+   "name": "sweep_missed[L=lx]",
+   "rule": "sweep_missed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I could not turn {L} off: it does not answer."
+  },
+  {
+   "i": 42,
+   "canon": 46,
+   "name": "sweep_missed[L=la]",
+   "rule": "sweep_missed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I could not turn {L} off: it does not answer."
+  },
+  {
+   "i": 43,
+   "canon": 34,
+   "name": "vacant_off[R=r1,L=l2]",
+   "rule": "vacant_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Nobody has been in {R} for a while: I turn {L} off."
+  },
+  {
+   "i": 44,
+   "canon": 32,
+   "name": "vacant_off[R=r2,L=l1]",
+   "rule": "vacant_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Nobody has been in {R} for a while: I turn {L} off."
+  },
+  {
+   "i": 45,
+   "canon": 28,
+   "name": "welcome_dark[R=r1]",
+   "rule": "welcome_dark",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "You came into {R} and it is dark: shall I turn the light on?"
+  },
+  {
+   "i": 46,
+   "canon": 29,
+   "name": "welcome_dark[R=r2]",
+   "rule": "welcome_dark",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "You came into {R} and it is dark: shall I turn the light on?"
+  },
+  {
+   "i": 47,
+   "canon": 30,
+   "name": "welcome_dark[R=r4]",
+   "rule": "welcome_dark",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "You came into {R} and it is dark: shall I turn the light on?"
+  },
+  {
+   "i": 48,
+   "canon": 31,
+   "name": "welcome_dark[R=rx]",
+   "rule": "welcome_dark",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "You came into {R} and it is dark: shall I turn the light on?"
+  }
+ ],
+ "cards": [
+  {
+   "name": "lights",
+   "text": "lighting: a light on or off at a person's word or a scene; off when its room has been vacant a while; a light suggested on entering an unlit room at night",
+   "relation": "served",
+   "moves": [],
+   "effects": [],
+   "slots": [
+    "lights_act",
+    "presence_level"
+   ]
+  }
+ ],
+ "queries": [
+  "done(on)",
+  "refused(on)"
+ ],
+ "script": [
+  {
+   "name": "lights",
+   "relation": "served",
+   "text": "lighting: a light on or off at a person's word or a scene; off when its room has been vacant a while; a light suggested on entering an unlit room at night",
+   "clauses": [
+    {
+     "name": "which_light_on",
+     "stage": "serve",
+     "doc": "I can't tell which light you mean: there is one in the living room and the bedroom. Which room?",
+     "premises": [
+      {
+       "atom": "cmd_light_on(la)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "which_light_off",
+     "stage": "serve",
+     "doc": "I can't tell which light you mean: there is one in the living room and the bedroom. Which room?",
+     "premises": [
+      {
+       "atom": "cmd_light_off(la)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "fan_home",
+     "stage": "serve",
+     "doc": "The home scene: nothing to do here.",
+     "premises": [
+      {
+       "atom": "scene_lights(home)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [],
+     "target": null
+    },
+    {
+     "name": "fan_night",
+     "stage": "serve",
+     "doc": "The night scene: every device of mine gets its wish.",
+     "premises": [
+      {
+       "atom": "scene_lights(night)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "sweep_off(l1)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "sweep_off(l2)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "fan_away",
+     "stage": "serve",
+     "doc": "The away scene: every device of mine gets its wish.",
+     "premises": [
+      {
+       "atom": "scene_lights(away)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "sweep_off(l1)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "sweep_off(l2)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "light_on",
+     "stage": "serve",
+     "doc": "I turn {L} on.",
+     "premises": [
+      {
+       "atom": "cmd_light_on(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_dark(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_ok(L)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "light_lit(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "on_already",
+     "stage": "serve",
+     "doc": "{L} is already on.",
+     "premises": [
+      {
+       "atom": "cmd_light_on(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_lit(L)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "on_missing",
+     "stage": "serve",
+     "doc": "I can't turn {L} on: it does not answer.",
+     "premises": [
+      {
+       "atom": "cmd_light_on(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_dark(L)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "light_missing(L)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "light_off",
+     "stage": "serve",
+     "doc": "I turn {L} off.",
+     "premises": [
+      {
+       "atom": "cmd_light_off(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_lit(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_ok(L)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "light_dark(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "off_already",
+     "stage": "serve",
+     "doc": "{L} is already off.",
+     "premises": [
+      {
+       "atom": "cmd_light_off(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_dark(L)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "off_missing",
+     "stage": "serve",
+     "doc": "I can't turn {L} off: it does not answer.",
+     "premises": [
+      {
+       "atom": "cmd_light_off(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_lit(L)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "light_missing(L)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "on_unknown",
+     "stage": "serve",
+     "doc": "I can't: there is no such light in this home.",
+     "premises": [
+      {
+       "atom": "cmd_light_on(lx)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "off_unknown",
+     "stage": "serve",
+     "doc": "I can't: there is no such light in this home.",
+     "premises": [
+      {
+       "atom": "cmd_light_off(lx)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_off",
+     "stage": "serve",
+     "doc": "I turn {L} off for the scene.",
+     "premises": [
+      {
+       "atom": "sweep_off(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_lit(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_ok(L)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "light_dark(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "switched(L)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_kept",
+     "stage": "serve",
+     "doc": "{L} was already off.",
+     "premises": [
+      {
+       "atom": "sweep_off(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_dark(L)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "kept(L)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_missed",
+     "stage": "serve",
+     "doc": "I could not turn {L} off: it does not answer.",
+     "premises": [
+      {
+       "atom": "sweep_off(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_lit(L)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "light_missing(L)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "missed(L)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "vacant_off",
+     "stage": "serve",
+     "doc": "Nobody has been in {R} for a while: I turn {L} off.",
+     "premises": [
+      {
+       "atom": "presence(nobody,R)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "light_in(L,R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_lit(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "light_ok(L)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "light_dark(L)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "auto_off(L)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "welcome_dark",
+     "stage": "serve",
+     "doc": "You came into {R} and it is dark: shall I turn the light on?",
+     "premises": [
+      {
+       "atom": "entered(R)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "night",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "room_unlit(R)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "suggest_light(R)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    }
+   ],
+   "atoms": [
+    {
+     "name": "occupied",
+     "doc": ""
+    },
+    {
+     "name": "empty",
+     "doc": ""
+    },
+    {
+     "name": "vacant",
+     "doc": ""
+    },
+    {
+     "name": "unsensed",
+     "doc": ""
+    },
+    {
+     "name": "someone_home",
+     "doc": ""
+    },
+    {
+     "name": "nobody_home",
+     "doc": ""
+    },
+    {
+     "name": "home_unsensed",
+     "doc": ""
+    },
+    {
+     "name": "day",
+     "doc": ""
+    },
+    {
+     "name": "night",
+     "doc": ""
+    },
+    {
+     "name": "running",
+     "doc": ""
+    },
+    {
+     "name": "stopped",
+     "doc": ""
+    },
+    {
+     "name": "heater_on",
+     "doc": ""
+    },
+    {
+     "name": "heater_off",
+     "doc": ""
+    },
+    {
+     "name": "unit_ok",
+     "doc": ""
+    },
+    {
+     "name": "unit_missing",
+     "doc": ""
+    },
+    {
+     "name": "on_b",
+     "doc": ""
+    },
+    {
+     "name": "power",
+     "doc": ""
+    },
+    {
+     "name": "entered",
+     "doc": ""
+    },
+    {
+     "name": "left_home",
+     "doc": ""
+    },
+    {
+     "name": "came_home",
+     "doc": ""
+    },
+    {
+     "name": "dawn",
+     "doc": ""
+    },
+    {
+     "name": "scene_lights",
+     "doc": ""
+    },
+    {
+     "name": "scene_air",
+     "doc": ""
+    },
+    {
+     "name": "scene_media",
+     "doc": ""
+    },
+    {
+     "name": "scene_timers",
+     "doc": ""
+    },
+    {
+     "name": "scene_music",
+     "doc": ""
+    },
+    {
+     "name": "mood_music",
+     "doc": ""
+    },
+    {
+     "name": "mood_glow",
+     "doc": ""
+    },
+    {
+     "name": "ask_lights",
+     "doc": ""
+    },
+    {
+     "name": "ask_air",
+     "doc": ""
+    },
+    {
+     "name": "ask_media",
+     "doc": ""
+    },
+    {
+     "name": "ask_comfort",
+     "doc": ""
+    },
+    {
+     "name": "ask_scenes",
+     "doc": ""
+    },
+    {
+     "name": "ask_timers",
+     "doc": ""
+    },
+    {
+     "name": "ask_agenda",
+     "doc": ""
+    },
+    {
+     "name": "ask_music",
+     "doc": ""
+    },
+    {
+     "name": "ask_habits",
+     "doc": ""
+    },
+    {
+     "name": "ask_glow",
+     "doc": ""
+    },
+    {
+     "name": "ask_temperament",
+     "doc": ""
+    },
+    {
+     "name": "ask_escalate",
+     "doc": ""
+    },
+    {
+     "name": "light_lit",
+     "doc": ""
+    },
+    {
+     "name": "light_dark",
+     "doc": ""
+    },
+    {
+     "name": "light_ok",
+     "doc": ""
+    },
+    {
+     "name": "light_missing",
+     "doc": ""
+    },
+    {
+     "name": "room_lit",
+     "doc": ""
+    },
+    {
+     "name": "room_unlit",
+     "doc": ""
+    },
+    {
+     "name": "cmd_light_on",
+     "doc": ""
+    },
+    {
+     "name": "cmd_light_off",
+     "doc": ""
+    },
+    {
+     "name": "sweep_off",
+     "doc": ""
+    },
+    {
+     "name": "done",
+     "doc": ""
+    },
+    {
+     "name": "refused",
+     "doc": ""
+    },
+    {
+     "name": "switched",
+     "doc": ""
+    },
+    {
+     "name": "kept",
+     "doc": ""
+    },
+    {
+     "name": "missed",
+     "doc": ""
+    },
+    {
+     "name": "auto_off",
+     "doc": ""
+    },
+    {
+     "name": "suggest_light",
+     "doc": ""
+    },
+    {
+     "name": "present_b",
+     "doc": ""
+    },
+    {
+     "name": "presence",
+     "doc": ""
+    }
+   ],
+   "missing": {
+    "clause_doc": [],
+    "atom_doc": [
+     "occupied",
+     "empty",
+     "vacant",
+     "unsensed",
+     "someone_home",
+     "nobody_home",
+     "home_unsensed",
+     "day",
+     "night",
+     "running",
+     "stopped",
+     "heater_on",
+     "heater_off",
+     "unit_ok",
+     "unit_missing",
+     "on_b",
+     "power",
+     "entered",
+     "left_home",
+     "came_home",
+     "dawn",
+     "scene_lights",
+     "scene_air",
+     "scene_media",
+     "scene_timers",
+     "scene_music",
+     "mood_music",
+     "mood_glow",
+     "ask_lights",
+     "ask_air",
+     "ask_media",
+     "ask_comfort",
+     "ask_scenes",
+     "ask_timers",
+     "ask_agenda",
+     "ask_music",
+     "ask_habits",
+     "ask_glow",
+     "ask_temperament",
+     "ask_escalate",
+     "light_lit",
+     "light_dark",
+     "light_ok",
+     "light_missing",
+     "room_lit",
+     "room_unlit",
+     "cmd_light_on",
+     "cmd_light_off",
+     "sweep_off",
+     "done",
+     "refused",
+     "switched",
+     "kept",
+     "missed",
+     "auto_off",
+     "suggest_light",
+     "present_b",
+     "presence"
+    ]
+   }
+  }
+ ],
+ "ir": null
+}

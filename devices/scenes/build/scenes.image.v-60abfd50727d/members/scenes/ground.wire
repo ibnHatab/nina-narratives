@@ -1,0 +1,64 @@
+# metis ground-wire artifact — catalog scenes v1; GENERATED, do not edit.
+N 1 0
+E 0 -1 1 mood_set[M=calm] ; c cmd_mood(calm) 1 no_mood 1 ; o done(scene) 1 mood_glow(calm) 1 mood_music(calm) 1 mood_now(calm) 1
+E 0 -1 1 mood_set[M=cozy] ; c cmd_mood(cozy) 1 no_mood 1 ; o done(scene) 1 mood_glow(cozy) 1 mood_music(cozy) 1 mood_now(cozy) 1
+E 0 -1 1 mood_set[M=focus] ; c cmd_mood(focus) 1 no_mood 1 ; o done(scene) 1 mood_glow(focus) 1 mood_music(focus) 1 mood_now(focus) 1
+E 0 -1 1 mood_set[M=lively] ; c cmd_mood(lively) 1 no_mood 1 ; o done(scene) 1 mood_glow(lively) 1 mood_music(lively) 1 mood_now(lively) 1
+E 0 -1 1 mood_set[M=sleep] ; c cmd_mood(sleep) 1 no_mood 1 ; o done(scene) 1 mood_glow(sleep) 1 mood_music(sleep) 1 mood_now(sleep) 1
+E 0 -1 1 mood_set[M=wake] ; c cmd_mood(wake) 1 no_mood 1 ; o done(scene) 1 mood_glow(wake) 1 mood_music(wake) 1 mood_now(wake) 1
+E 0 -1 1 mood_change[M=calm,M0=calm] ; c cmd_mood(calm) 1 mood_now(calm) 1 ; o done(scene) 1 mood_glow(calm) 1 mood_music(calm) 1 mood_now(calm) 1
+E 0 -1 1 mood_change[M=calm,M0=cozy] ; c cmd_mood(calm) 1 mood_now(cozy) 1 ; o done(scene) 1 mood_glow(calm) 1 mood_music(calm) 1 mood_now(calm) 1
+E 0 -1 1 mood_change[M=calm,M0=focus] ; c cmd_mood(calm) 1 mood_now(focus) 1 ; o done(scene) 1 mood_glow(calm) 1 mood_music(calm) 1 mood_now(calm) 1
+E 0 -1 1 mood_change[M=calm,M0=lively] ; c cmd_mood(calm) 1 mood_now(lively) 1 ; o done(scene) 1 mood_glow(calm) 1 mood_music(calm) 1 mood_now(calm) 1
+E 0 -1 1 mood_change[M=calm,M0=sleep] ; c cmd_mood(calm) 1 mood_now(sleep) 1 ; o done(scene) 1 mood_glow(calm) 1 mood_music(calm) 1 mood_now(calm) 1
+E 0 -1 1 mood_change[M=calm,M0=wake] ; c cmd_mood(calm) 1 mood_now(wake) 1 ; o done(scene) 1 mood_glow(calm) 1 mood_music(calm) 1 mood_now(calm) 1
+E 0 -1 1 mood_change[M=cozy,M0=calm] ; c cmd_mood(cozy) 1 mood_now(calm) 1 ; o done(scene) 1 mood_glow(cozy) 1 mood_music(cozy) 1 mood_now(cozy) 1
+E 0 -1 1 mood_change[M=cozy,M0=cozy] ; c cmd_mood(cozy) 1 mood_now(cozy) 1 ; o done(scene) 1 mood_glow(cozy) 1 mood_music(cozy) 1 mood_now(cozy) 1
+E 0 -1 1 mood_change[M=cozy,M0=focus] ; c cmd_mood(cozy) 1 mood_now(focus) 1 ; o done(scene) 1 mood_glow(cozy) 1 mood_music(cozy) 1 mood_now(cozy) 1
+E 0 -1 1 mood_change[M=cozy,M0=lively] ; c cmd_mood(cozy) 1 mood_now(lively) 1 ; o done(scene) 1 mood_glow(cozy) 1 mood_music(cozy) 1 mood_now(cozy) 1
+E 0 -1 1 mood_change[M=cozy,M0=sleep] ; c cmd_mood(cozy) 1 mood_now(sleep) 1 ; o done(scene) 1 mood_glow(cozy) 1 mood_music(cozy) 1 mood_now(cozy) 1
+E 0 -1 1 mood_change[M=cozy,M0=wake] ; c cmd_mood(cozy) 1 mood_now(wake) 1 ; o done(scene) 1 mood_glow(cozy) 1 mood_music(cozy) 1 mood_now(cozy) 1
+E 0 -1 1 mood_change[M=focus,M0=calm] ; c cmd_mood(focus) 1 mood_now(calm) 1 ; o done(scene) 1 mood_glow(focus) 1 mood_music(focus) 1 mood_now(focus) 1
+E 0 -1 1 mood_change[M=focus,M0=cozy] ; c cmd_mood(focus) 1 mood_now(cozy) 1 ; o done(scene) 1 mood_glow(focus) 1 mood_music(focus) 1 mood_now(focus) 1
+E 0 -1 1 mood_change[M=focus,M0=focus] ; c cmd_mood(focus) 1 mood_now(focus) 1 ; o done(scene) 1 mood_glow(focus) 1 mood_music(focus) 1 mood_now(focus) 1
+E 0 -1 1 mood_change[M=focus,M0=lively] ; c cmd_mood(focus) 1 mood_now(lively) 1 ; o done(scene) 1 mood_glow(focus) 1 mood_music(focus) 1 mood_now(focus) 1
+E 0 -1 1 mood_change[M=focus,M0=sleep] ; c cmd_mood(focus) 1 mood_now(sleep) 1 ; o done(scene) 1 mood_glow(focus) 1 mood_music(focus) 1 mood_now(focus) 1
+E 0 -1 1 mood_change[M=focus,M0=wake] ; c cmd_mood(focus) 1 mood_now(wake) 1 ; o done(scene) 1 mood_glow(focus) 1 mood_music(focus) 1 mood_now(focus) 1
+E 0 -1 1 mood_change[M=lively,M0=calm] ; c cmd_mood(lively) 1 mood_now(calm) 1 ; o done(scene) 1 mood_glow(lively) 1 mood_music(lively) 1 mood_now(lively) 1
+E 0 -1 1 mood_change[M=lively,M0=cozy] ; c cmd_mood(lively) 1 mood_now(cozy) 1 ; o done(scene) 1 mood_glow(lively) 1 mood_music(lively) 1 mood_now(lively) 1
+E 0 -1 1 mood_change[M=lively,M0=focus] ; c cmd_mood(lively) 1 mood_now(focus) 1 ; o done(scene) 1 mood_glow(lively) 1 mood_music(lively) 1 mood_now(lively) 1
+E 0 -1 1 mood_change[M=lively,M0=lively] ; c cmd_mood(lively) 1 mood_now(lively) 1 ; o done(scene) 1 mood_glow(lively) 1 mood_music(lively) 1 mood_now(lively) 1
+E 0 -1 1 mood_change[M=lively,M0=sleep] ; c cmd_mood(lively) 1 mood_now(sleep) 1 ; o done(scene) 1 mood_glow(lively) 1 mood_music(lively) 1 mood_now(lively) 1
+E 0 -1 1 mood_change[M=lively,M0=wake] ; c cmd_mood(lively) 1 mood_now(wake) 1 ; o done(scene) 1 mood_glow(lively) 1 mood_music(lively) 1 mood_now(lively) 1
+E 0 -1 1 mood_change[M=sleep,M0=calm] ; c cmd_mood(sleep) 1 mood_now(calm) 1 ; o done(scene) 1 mood_glow(sleep) 1 mood_music(sleep) 1 mood_now(sleep) 1
+E 0 -1 1 mood_change[M=sleep,M0=cozy] ; c cmd_mood(sleep) 1 mood_now(cozy) 1 ; o done(scene) 1 mood_glow(sleep) 1 mood_music(sleep) 1 mood_now(sleep) 1
+E 0 -1 1 mood_change[M=sleep,M0=focus] ; c cmd_mood(sleep) 1 mood_now(focus) 1 ; o done(scene) 1 mood_glow(sleep) 1 mood_music(sleep) 1 mood_now(sleep) 1
+E 0 -1 1 mood_change[M=sleep,M0=lively] ; c cmd_mood(sleep) 1 mood_now(lively) 1 ; o done(scene) 1 mood_glow(sleep) 1 mood_music(sleep) 1 mood_now(sleep) 1
+E 0 -1 1 mood_change[M=sleep,M0=sleep] ; c cmd_mood(sleep) 1 mood_now(sleep) 1 ; o done(scene) 1 mood_glow(sleep) 1 mood_music(sleep) 1 mood_now(sleep) 1
+E 0 -1 1 mood_change[M=sleep,M0=wake] ; c cmd_mood(sleep) 1 mood_now(wake) 1 ; o done(scene) 1 mood_glow(sleep) 1 mood_music(sleep) 1 mood_now(sleep) 1
+E 0 -1 1 mood_change[M=wake,M0=calm] ; c cmd_mood(wake) 1 mood_now(calm) 1 ; o done(scene) 1 mood_glow(wake) 1 mood_music(wake) 1 mood_now(wake) 1
+E 0 -1 1 mood_change[M=wake,M0=cozy] ; c cmd_mood(wake) 1 mood_now(cozy) 1 ; o done(scene) 1 mood_glow(wake) 1 mood_music(wake) 1 mood_now(wake) 1
+E 0 -1 1 mood_change[M=wake,M0=focus] ; c cmd_mood(wake) 1 mood_now(focus) 1 ; o done(scene) 1 mood_glow(wake) 1 mood_music(wake) 1 mood_now(wake) 1
+E 0 -1 1 mood_change[M=wake,M0=lively] ; c cmd_mood(wake) 1 mood_now(lively) 1 ; o done(scene) 1 mood_glow(wake) 1 mood_music(wake) 1 mood_now(wake) 1
+E 0 -1 1 mood_change[M=wake,M0=sleep] ; c cmd_mood(wake) 1 mood_now(sleep) 1 ; o done(scene) 1 mood_glow(wake) 1 mood_music(wake) 1 mood_now(wake) 1
+E 0 -1 1 mood_change[M=wake,M0=wake] ; c cmd_mood(wake) 1 mood_now(wake) 1 ; o done(scene) 1 mood_glow(wake) 1 mood_music(wake) 1 mood_now(wake) 1
+E 0 -1 1 scene_set[S=home,M=night] ; c cmd_scene(home) 1 mode(night) 1 ; o done(scene) 1 mode(home) 1 scene_air(home) 1 scene_lights(home) 1 scene_media(home) 1 scene_music(home) 1 scene_timers(home) 1
+E 0 -1 1 scene_set[S=home,M=away] ; c cmd_scene(home) 1 mode(away) 1 ; o done(scene) 1 mode(home) 1 scene_air(home) 1 scene_lights(home) 1 scene_media(home) 1 scene_music(home) 1 scene_timers(home) 1
+E 0 -1 1 scene_set[S=night,M=home] ; c cmd_scene(night) 1 mode(home) 1 ; o done(scene) 1 mode(night) 1 scene_air(night) 1 scene_lights(night) 1 scene_media(night) 1 scene_music(night) 1 scene_timers(night) 1
+E 0 -1 1 scene_set[S=night,M=away] ; c cmd_scene(night) 1 mode(away) 1 ; o done(scene) 1 mode(night) 1 scene_air(night) 1 scene_lights(night) 1 scene_media(night) 1 scene_music(night) 1 scene_timers(night) 1
+E 0 -1 1 scene_set[S=away,M=home] ; c cmd_scene(away) 1 mode(home) 1 ; o done(scene) 1 mode(away) 1 scene_air(away) 1 scene_lights(away) 1 scene_media(away) 1 scene_music(away) 1 scene_timers(away) 1
+E 0 -1 1 scene_set[S=away,M=night] ; c cmd_scene(away) 1 mode(night) 1 ; o done(scene) 1 mode(away) 1 scene_air(away) 1 scene_lights(away) 1 scene_media(away) 1 scene_music(away) 1 scene_timers(away) 1
+E 0 -1 1 scene_already[S=home] ; c cmd_scene(home) 1 ; o refused(scene) 1 ; p mode(home) 1
+E 0 -1 1 scene_already[S=night] ; c cmd_scene(night) 1 ; o refused(scene) 1 ; p mode(night) 1
+E 0 -1 1 scene_already[S=away] ; c cmd_scene(away) 1 ; o refused(scene) 1 ; p mode(away) 1
+E 0 -1 1 suggest_away ; c left_home 1 ; o suggest(away) 1 ; p mode(home) 1
+E 0 -1 1 left_settled ; c left_home 1 ; o welcomed 1 ; p mode(away) 1
+E 0 -1 1 suggest_away_night ; c left_home 1 ; o suggest(away) 1 ; p mode(night) 1
+E 0 -1 1 arrive ; c came_home 1 mode(away) 1 ; o mode(home) 1 welcomed 1
+E 0 -1 1 arrive_home ; c came_home 1 ; o welcomed 1 ; p mode(home) 1
+E 0 -1 1 arrive_night ; c came_home 1 ; o welcomed 1 ; p mode(night) 1
+E 0 -1 1 morning ; c dawn 1 ; o suggest(home) 1 ; p mode(night) 1
+E 0 -1 1 morning_day ; c dawn 1 ; o welcomed 1 ; p mode(home) 1
+E 0 -1 1 morning_away ; c dawn 1 ; o welcomed 1 ; p mode(away) 1
+I mode(home) 1 no_mood 1
+S 4
