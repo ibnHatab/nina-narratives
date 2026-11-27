@@ -1,0 +1,32 @@
+% escalate — a goal for Nina's task runner (nina-live's redesign, step 6, s-b478fe59). The voice used to hand
+% an open-ended goal straight to the task runner (delegate); now its rules decide whether one starts: never
+% more than two at once, never more than the hour's budget, and never without a task runner. The goal rides
+% in the call's payload; the host (nina-live escalate/) gives the load each beat and starts the task when
+% the start rule fires.
+catalog escalate 1.
+provenance text "escalate: a goal the voice cannot do with one card, handed to the task runner when the rules allow" "2026-11-27".
+layers (dyn).
+stages (serve).
+include "../shared/home_world.llp".
+include "../iface/home.llp".   % the person's intent through the director (ask_escalate)
+
+type load {free busy full}.
+type escalate_act {escalate}.
+
+pred cmd_escalate(escalate_act) : home.   % a goal (the payload: its words)
+pred load(load) : home.       % the host: free; busy, two tasks running; full, the hour's budget spent or no task runner
+
+pred done(escalate_act) : home.
+pred refused(escalate_act) : home.
+
+stage serve {
+  %% I'm on it; the result will come as a note.
+  start [dyn] : cmd_escalate(escalate) * $load(free) -o done(escalate).
+  %% I'm already on two things: ask me again when one is done.
+  busy [dyn] : cmd_escalate(escalate) * $load(busy) -o refused(escalate).
+  %% I've taken on enough this hour: not another one now.
+  full [dyn] : cmd_escalate(escalate) * $load(full) -o refused(escalate).
+}
+
+% free until the host says otherwise: a call before the member's first beat finds its load
+#init load(free) 1

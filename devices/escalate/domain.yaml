@@ -1,0 +1,11 @@
+# Escalate: an open-ended goal handed to Nina's task runner when the rules allow (the redesign's step 6). The host is nina-live's (escalate/).
+display: the task runner
+line: "escalate: hand an open-ended goal to Nina's task runner (several steps, checking things in order, or what was said before); the result comes later as a note. Not for a single command another card does by itself"
+voice: line
+program: escalate.llp
+host: nina_world.host:escalate   # the runtime's world host (interfaces/README.md): SITL sitl/nina_world, nina-live its own
+intent: {spec: intent.yaml}
+clock: {beats: 1, period: 1}
+records: records/
+commands: [start]
+shared: {ask_escalate: in}   # the person's intent through the director (iface/home.llp)

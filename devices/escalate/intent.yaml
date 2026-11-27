@@ -1,0 +1,22 @@
+# Escalate's intent: a goal for the task runner (the redesign's step 6).
+persona: |
+  You are the voice of a personal assistant. The person is talking to YOU. Map a goal that takes several
+  steps to exactly one intent JSON. Respond with only the JSON.
+verbs:
+  - {verb: ESCALATE, meaning: "hand an open-ended goal to the task runner: several steps, checking things in order, or what was said before"}
+slots:
+  goal: string
+guidance: |
+  `goal` is the goal in the person's terms, complete (what to check, what to do, what to tell them).
+examples:
+  - ["check whether the bedroom fan runs, turn it off if it does, then tell me how warm the living room is", {"intent":"ESCALATE","goal":"check whether the bedroom ventilation runs, turn it off if it does, then say how warm the living room is"}]
+  - ["find out what is on the shopping list and add eggs if they are missing", {"intent":"ESCALATE","goal":"read the shopping list and add eggs if they are not on it"}]
+spoken:
+  heading: Spoken response (after the JSON)
+  text: |
+    After the JSON comes "Spoken response:" and one short sentence said out loud.
+  examples:
+    - ["find out what is on the shopping list and add eggs if they are missing", {"intent":"ESCALATE","goal":"read the shopping list and add eggs if they are not on it"}, "On it."]
+map:
+  - {verb: ESCALATE, atom: "cmd_escalate(escalate)", act: escalate}
+outcomes: {done: done, refused: refused}
