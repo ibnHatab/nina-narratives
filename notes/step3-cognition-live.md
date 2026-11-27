@@ -90,3 +90,25 @@ The work, revised:
    commands (say → her voice's note, uttered as the receipt), and the cognition composition opened beside the
    devices'.
 4. **the SITL**: the cognition scenarios through real Nina; the gate.
+
+## Decided (the user, 2026-11-28): match the catalogs, keep the parallel ticks
+
+Not two catalogs side by side: ONE catalog, its packages isolated and testable, assembled under ONE director.
+- **One planner, `attention`.** The scenes stop routing wishes through a planner: `scenes` concludes the home's
+  mode (night, away, home; the mood) into the world, offered as a board port; lights, air, media, music, glow read
+  the mode level from their own copy and sweep on its change. `scenes` becomes an ordinary specialist, its card a
+  person's goal (ask_scenes) like the others. A devices rule change: through the loop, the regression, the
+  real-Nina gate on the scene scenarios.
+- **The world on its own tick.** Today `HomeSem.Read` settles the world whenever a device view recomputes its
+  readings, so the settle follows the readers (and with members on different ticks it would settle more than
+  once a beat). The semantic world must settle on its own clock, independent of the rules and of the LLMs in the
+  loop (their latency never delays a world update); every member reads the last settled snapshot, wakes by the
+  board's change counters, on its own period (the devices every beat, the cognition slower). This is the board's
+  executor: common ports copied to each member, independent ticks, synchronized updates.
+
+The work, in this order:
+W1. metis-agent: the world settled by the runtime's own ticker (metishome Settle), the members' readings keyed by
+    the world's settle, not by each view's beat count.
+W2. nina-live: her world ticker (home.world_beat) beside the rules' beat; the members' periods from their manifests.
+W3. metis-worlds home: the mode port; devices: scenes concludes the mode, the packages sweep on its level.
+W4. the merged workspace under `attention`: the cognition members, the report verbs and the task-slot ledger.
