@@ -6,12 +6,10 @@ namespace situations produce (story).
 types (issue reason source).
 bwd alternatives(issue,reason,reason).
 pred observation_kept(issue,source) : situations.
-pred open_issue(issue) : situations.
 pred considering(issue) : situations.
 pred candidate(issue,reason) : situations.
 pred accepted_report(issue,reason,source) : situations.
 pred clarification_asked(issue) : situations.
-pred interruption_budget : situations.
 stage live {
   %% [B01-C02-S01, B01-C04-S01] "There were several possible explanations."
   %% Nina retains the observed discrepancy and considers two possible explanations; neither is established as true.
