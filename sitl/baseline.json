@@ -48,7 +48,7 @@
     4
    ]
   ],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/attribute_reading.yaml": {
   "acts": [
@@ -71,7 +71,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/b01-completed.yaml": {
   "acts": [
@@ -100,7 +100,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "6a979e26ccc8ad165375a533"
+  "world_hash": "bcabc9580d1914dc511f0f38"
  },
  "workspaces/home/scenarios/cognition/b01-later.yaml": {
   "acts": [
@@ -186,7 +186,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "6a979e26ccc8ad165375a533"
+  "world_hash": "bcabc9580d1914dc511f0f38"
  },
  "workspaces/home/scenarios/cognition/bird-question.yaml": {
   "acts": [],
@@ -198,7 +198,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/blue-bowl.yaml": {
   "acts": [
@@ -217,7 +217,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/cold-room-source.yaml": {
   "acts": [
@@ -249,7 +249,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/confirm_group_slot.yaml": {
   "acts": [
@@ -271,7 +271,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/declined-game.yaml": {
   "acts": [],
@@ -283,7 +283,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/hold_for_listener.yaml": {
   "acts": [
@@ -304,7 +304,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/keep_promised_notice.yaml": {
   "acts": [
@@ -331,7 +331,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/loyalty.yaml": {
   "acts": [
@@ -350,7 +350,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/missing-hours.yaml": {
   "acts": [
@@ -375,7 +375,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/ordinary-timer.yaml": {
   "acts": [
@@ -421,7 +421,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/parcel-account.yaml": {
   "acts": [
@@ -455,7 +455,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/private-question.yaml": {
   "acts": [],
@@ -467,7 +467,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/promised-opening.yaml": {
   "acts": [
@@ -513,7 +513,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/quiet-expression.yaml": {
   "acts": [
@@ -532,7 +532,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/reply_in_confidence.yaml": {
   "acts": [
@@ -558,7 +558,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/resume_after_gap.yaml": {
   "acts": [
@@ -591,7 +591,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/retire_inquiry.yaml": {
   "acts": [
@@ -612,7 +612,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/shared-objection.yaml": {
   "acts": [],
@@ -624,7 +624,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/take_addressed_turn.yaml": {
   "acts": [
@@ -645,7 +645,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/cognition/unsolicited-receipt.yaml": {
   "acts": [],
@@ -657,7 +657,7 @@
    ]
   ],
   "findings": [],
-  "world_hash": "c94b351d394a8c3b48ec8048"
+  "world_hash": "dde74f30863b197e553b75bf"
  },
  "workspaces/home/scenarios/devices/b01-c02-ventilation.yaml": {
   "acts": [],
@@ -691,7 +691,7 @@
     11
    ]
   ],
-  "world_hash": "987d067ff7fa6fa8b7db296c"
+  "world_hash": "590f4ec8cc677a14df6578fc"
  },
  "workspaces/office/scenarios/cognition/office-01-interview.yaml": {
   "acts": [
@@ -731,7 +731,7 @@
     2
    ]
   ],
-  "world_hash": "4af5dabd212caa293b8745b3"
+  "world_hash": "f5a9df594d39e0edafac5ec3"
  },
  "workspaces/office/scenarios/cognition/office-02-introductions.yaml": {
   "acts": [
@@ -808,7 +808,7 @@
     4
    ]
   ],
-  "world_hash": "4af5dabd212caa293b8745b3"
+  "world_hash": "f5a9df594d39e0edafac5ec3"
  },
  "workspaces/office/scenarios/cognition/office-03-lunch.yaml": {
   "acts": [
@@ -864,7 +864,7 @@
     2
    ]
   ],
-  "world_hash": "4af5dabd212caa293b8745b3"
+  "world_hash": "f5a9df594d39e0edafac5ec3"
  },
  "workspaces/office/scenarios/cognition/office-04-enthusiasm.yaml": {
   "acts": [
@@ -903,7 +903,7 @@
     2
    ]
   ],
-  "world_hash": "4af5dabd212caa293b8745b3"
+  "world_hash": "f5a9df594d39e0edafac5ec3"
  },
  "workspaces/office/scenarios/cognition/office-05-red-model.yaml": {
   "acts": [
@@ -944,7 +944,7 @@
     2
    ]
   ],
-  "world_hash": "4af5dabd212caa293b8745b3"
+  "world_hash": "f5a9df594d39e0edafac5ec3"
  },
  "workspaces/office/scenarios/cognition/office-06-museum.yaml": {
   "acts": [
@@ -983,7 +983,7 @@
     2
    ]
   ],
-  "world_hash": "4af5dabd212caa293b8745b3"
+  "world_hash": "f5a9df594d39e0edafac5ec3"
  },
  "workspaces/office/scenarios/cognition/office-07-group-box.yaml": {
   "acts": [
@@ -1056,7 +1056,7 @@
     2
    ]
   ],
-  "world_hash": "4af5dabd212caa293b8745b3"
+  "world_hash": "f5a9df594d39e0edafac5ec3"
  },
  "workspaces/office/scenarios/cognition/office-08-calendar.yaml": {
   "acts": [
@@ -1170,7 +1170,7 @@
     2
    ]
   ],
-  "world_hash": "4af5dabd212caa293b8745b3"
+  "world_hash": "f5a9df594d39e0edafac5ec3"
  },
  "workspaces/office/scenarios/cognition/office-09-library.yaml": {
   "acts": [
@@ -1210,7 +1210,7 @@
     2
    ]
   ],
-  "world_hash": "4af5dabd212caa293b8745b3"
+  "world_hash": "f5a9df594d39e0edafac5ec3"
  },
  "workspaces/office/scenarios/cognition/office-10-edition.yaml": {
   "acts": [
@@ -1250,7 +1250,7 @@
     2
    ]
   ],
-  "world_hash": "4af5dabd212caa293b8745b3"
+  "world_hash": "f5a9df594d39e0edafac5ec3"
  },
  "workspaces/office/scenarios/cognition/office-11-unexpected.yaml": {
   "acts": [
@@ -1304,7 +1304,7 @@
     2
    ]
   ],
-  "world_hash": "4af5dabd212caa293b8745b3"
+  "world_hash": "f5a9df594d39e0edafac5ec3"
  },
  "workspaces/office/scenarios/cognition/office-12-unplanned.yaml": {
   "acts": [
@@ -1344,6 +1344,6 @@
     2
    ]
   ],
-  "world_hash": "4af5dabd212caa293b8745b3"
+  "world_hash": "f5a9df594d39e0edafac5ec3"
  }
 }

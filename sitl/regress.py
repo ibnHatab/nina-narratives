@@ -71,7 +71,8 @@ def main():
             report.append('GONE   %s  %s' % (rel, gone))
             failed = True
         if not new and not gone and (e['acts'] != b.get('acts') or e['commands'] != b['commands'] or e['world_hash'] != b['world_hash']):
-            report.append('CHANGED %s  acts or world differ, same findings' % rel)
+            diff = [k for k in ('acts', 'commands', 'world_hash') if e[k] != b.get(k)]
+            report.append('CHANGED %s  %s differ, same findings' % (rel, '+'.join(diff)))
             failed = True
         if not new and not gone and e['expect'] != b['expect']:
             report.append('CHANGED %s  narrative expectation differs' % rel)
