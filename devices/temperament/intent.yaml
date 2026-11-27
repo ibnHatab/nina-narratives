@@ -31,9 +31,9 @@ spoken:
   examples:
     - ["be a bit more playful", {"intent":"MOOD","mood":"playful"}, "Playful it is."]
 map:
-  - {verb: MOMENT, atom: "cmd_moment({moment:moment})", act: persona}
-  - {verb: MOOD, atom: "cmd_wish({mood:temper})", act: persona}
-  - {verb: YOURSELF, atom: "cmd_natural", act: persona}
+  - {verb: MOMENT, atom: "cmd_moment({moment:moment})", act: temperament}
+  - {verb: MOOD, atom: "cmd_wish({mood:temper})", act: temperament}
+  - {verb: YOURSELF, atom: "cmd_natural", act: temperament}
 outcomes: {done: done, refused: refused}
 handles:
   moment:

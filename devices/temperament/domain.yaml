@@ -1,0 +1,11 @@
+# Temperament (was persona, renamed for the narratives' persona member, 2026-11-28): the moments that set Nina's temperament aside (emergency → calm, distress → gentle, technical → focus; the person's own wish). The host is nina-live's (persona/host.go): it holds the mood on her temperament.
+display: her temperament
+line: "temperament: the moments that set Nina's temperament aside, and your wishes for her mood"
+voice: line
+program: temperament.llp
+host: nina_world.host:temperament   # the runtime's world host (interfaces/README.md): SITL sitl/nina_world, nina-live its own
+intent: {spec: intent.yaml}
+clock: {beats: 1, period: 1}
+records: records/
+commands: [steady, steady_again, steady_wished, relax, relax_wished, relax_free, wish, wish_held, wish_again, natural, natural_wished, natural_free, lapse, lapse_wished]
+shared: {ask_temperament: in}   # the person's intent through the director (iface/home.llp)

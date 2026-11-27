@@ -5,14 +5,14 @@
 % technical problem or a debate focused; casual talk, or "be yourself", lets it go. The voice says
 % what the moment is (the tool), the rules decide, the host holds the mood and lifts it when it
 % expires. Her mood is an accent: these rules never touch what she does, only how she speaks.
-catalog persona 1.
-provenance text "persona: the moments that set Nina's temperament aside" "2026-11-24".
+catalog temperament 1.
+provenance text "temperament (was persona): the moments that set Nina's temperament aside" "2026-11-24".
 layers (dyn).
 stages (serve).
 include "../shared/home_world.llp".
-include "../iface/home.llp".   % the person's intent through the director (ask_persona)
+include "../iface/home.llp".   % the person's intent through the director (ask_temperament)
 
-type persona_act {persona}.
+type temperament_act {temperament}.
 type temper {calm wake focus lively cozy playful evening sleep}.
 type moment {emergency warning distress technical debate casual}.
 
@@ -32,34 +32,34 @@ pred free : home.                 % her own temperament speaks
 pred held(temper) : home.         % a mood the moment holds
 pred wished(temper) : home.       % a mood the person asked for (casual talk keeps it)
 pred expired : home.              % the host: the mood's time is up
-pred done(persona_act) : home.
-pred refused(persona_act) : home.
+pred done(temperament_act) : home.
+pred refused(temperament_act) : home.
 
 stage serve {
   %% This calls for {T}: my mood can wait.
-  steady [dyn] : cmd_moment(K) * $steadies(K, T) * free -o held(T) * done(persona).
+  steady [dyn] : cmd_moment(K) * $steadies(K, T) * free -o held(T) * done(temperament).
   %% Still a moment for {T}.
-  steady_again [dyn] : cmd_moment(K) * $steadies(K, T) * held(A) -o held(T) * done(persona).
+  steady_again [dyn] : cmd_moment(K) * $steadies(K, T) * held(A) -o held(T) * done(temperament).
   %% This calls for {T}, whatever mood you asked of me.
-  steady_wished [dyn] : cmd_moment(K) * $steadies(K, T) * wished(A) -o held(T) * done(persona).
+  steady_wished [dyn] : cmd_moment(K) * $steadies(K, T) * wished(A) -o held(T) * done(temperament).
   %% The moment has passed: back to my own temperament.
-  relax [dyn] : cmd_moment(K) * $natural(K) * held(A) -o free * done(persona).
+  relax [dyn] : cmd_moment(K) * $natural(K) * held(A) -o free * done(temperament).
   %% You asked me for {A}: I keep it.
-  relax_wished [dyn] : cmd_moment(K) * $natural(K) * $wished(A) -o done(persona).
+  relax_wished [dyn] : cmd_moment(K) * $natural(K) * $wished(A) -o done(temperament).
   %% Nothing to set aside: I'm myself.
-  relax_free [dyn] : cmd_moment(K) * $natural(K) * $free -o done(persona).
+  relax_free [dyn] : cmd_moment(K) * $natural(K) * $free -o done(temperament).
   %% As you like: {T}.
-  wish [dyn] : cmd_wish(T) * free -o wished(T) * done(persona).
+  wish [dyn] : cmd_wish(T) * free -o wished(T) * done(temperament).
   %% As you like: {T} instead.
-  wish_held [dyn] : cmd_wish(T) * held(A) -o wished(T) * done(persona).
+  wish_held [dyn] : cmd_wish(T) * held(A) -o wished(T) * done(temperament).
   %% As you like: {T} instead.
-  wish_again [dyn] : cmd_wish(T) * wished(A) -o wished(T) * done(persona).
+  wish_again [dyn] : cmd_wish(T) * wished(A) -o wished(T) * done(temperament).
   %% Myself again.
-  natural [dyn] : cmd_natural * held(A) -o free * done(persona).
+  natural [dyn] : cmd_natural * held(A) -o free * done(temperament).
   %% Myself again.
-  natural_wished [dyn] : cmd_natural * wished(A) -o free * done(persona).
+  natural_wished [dyn] : cmd_natural * wished(A) -o free * done(temperament).
   %% I am myself already.
-  natural_free [dyn] : cmd_natural * $free -o done(persona).
+  natural_free [dyn] : cmd_natural * $free -o done(temperament).
   %% That moment is over: back to my own temperament.
   lapse [dyn] : expired * held(A) -o free.
   %% The mood you asked for has run its time: back to my own temperament.

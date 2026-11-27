@@ -27,7 +27,7 @@ repeatable(music).
 repeatable(glow).
 once(agenda).
 once(habits).
-once(persona).     % a moment of the conversation is not repeated
+once(temperament).     % a moment of the conversation is not repeated
 
 pred cmd_repeat : home.          % "again" (the person's words: the payload)
 pred cmd_usual : home.           % "the usual"

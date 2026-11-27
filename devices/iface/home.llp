@@ -28,5 +28,5 @@ pred ask_agenda : home_iface.
 pred ask_music : home_iface.
 pred ask_habits : home_iface.
 pred ask_glow : home_iface.
-pred ask_persona : home_iface.
+pred ask_temperament : home_iface.
 pred ask_escalate : home_iface.

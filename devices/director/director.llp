@@ -6,9 +6,9 @@ catalog director 1.
 provenance text "the home's director: a scene's wishes to the lights, the air and the media" "2026-11-24".
 include "../director_domain.llp".
 
-type domain {lights air media comfort scenes timers agenda music habits glow persona escalate}.
+type domain {lights air media comfort scenes timers agenda music habits glow temperament escalate}.
 type kind {scene_lights scene_air scene_media scene_timers scene_music mood_music mood_glow
-  ask_lights ask_air ask_media ask_comfort ask_scenes ask_timers ask_agenda ask_music ask_habits ask_glow ask_persona ask_escalate}.
+  ask_lights ask_air ask_media ask_comfort ask_scenes ask_timers ask_agenda ask_music ask_habits ask_glow ask_temperament ask_escalate}.
 
 specialist(lights).
 specialist(air).
@@ -19,7 +19,7 @@ specialist(agenda).
 specialist(music).
 specialist(habits).
 specialist(glow).
-specialist(persona).
+specialist(temperament).
 specialist(escalate).
 planner(scenes).
 % the person's intents, one kind per card (iface/home.llp): the director wakes and forwards them; its
@@ -34,7 +34,7 @@ handles(agenda, ask_agenda).
 handles(music, ask_music).
 handles(habits, ask_habits).
 handles(glow, ask_glow).
-handles(persona, ask_persona).
+handles(temperament, ask_temperament).
 handles(escalate, ask_escalate).
 handles(lights, scene_lights).
 handles(air, scene_air).
@@ -56,5 +56,5 @@ handles(glow, mood_glow).
 #init inactive(music) 1
 #init inactive(habits) 1
 #init inactive(glow) 1
-#init inactive(persona) 1
+#init inactive(temperament) 1
 #init inactive(escalate) 1
