@@ -7,14 +7,14 @@ type source {resident sensor courier}.
 alternatives(ventilation,device_fault,manual_override).
 alternatives(appointment,forgotten,cancelled).
 alternatives(pantry,stale_inventory,consumed).
-include "../../../../interfaces/world/evidence_context.llp".
+include "interfaces/world/evidence_context.llp".
 alternatives(laboratory,desk_draft,sensor_location).
 alternatives(parcel,premature_status,wrong_door).
 type observer {thermometer}.
 type sample {reading_one}.
 type site {shelf}.
-include "../../../../interfaces/world/attribute_reading_ports.llp".
-include "../../../../interfaces/members/attribute_reading_ports.llp".
-include "../../../../interfaces/world/studio_chat.llp".
-include "../../../../interfaces/world/public_search.llp".
-include "../../../../interfaces/world/community_media.llp".
+include "interfaces/world/attribute_reading_ports.llp".
+include "interfaces/members/attribute_reading_ports.llp".
+include "interfaces/world/studio_chat.llp".
+include "interfaces/world/public_search.llp".
+include "interfaces/world/community_media.llp".

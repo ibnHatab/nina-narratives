@@ -1,14 +1,14 @@
 catalog attention 1.
 include "attention_domain.llp".
-include "../../../../interfaces/members/reminders.llp".
-include "../../../../interfaces/world/conversation.llp".
-include "../../../../interfaces/members/research.llp".
+include "interfaces/members/reminders.llp".
+include "interfaces/world/conversation.llp".
+include "interfaces/members/research.llp".
 include "../capacity.llp".
 #init available 1
 type listener {guest}.
-include "../../../../interfaces/world/hold_for_listener_ports.llp".
-include "../../../../interfaces/members/hold_for_listener_ports.llp".
-include "../../../../interfaces/world/studio_chat.llp".
-include "../../../../interfaces/world/community_media.llp".
+include "interfaces/world/hold_for_listener_ports.llp".
+include "interfaces/members/hold_for_listener_ports.llp".
+include "interfaces/world/studio_chat.llp".
+include "interfaces/world/community_media.llp".
 pred selected_local_media(asset) : attention.
 include "community_display.llp".

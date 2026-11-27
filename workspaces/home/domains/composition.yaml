@@ -1,6 +1,6 @@
 name: home
 capacity: capacity.llp
-interfaces: [../../../interfaces/members/reminders.llp, ../../../interfaces/members/research.llp]
+interfaces: [interfaces/members/reminders.llp, interfaces/members/research.llp]
 specialists: [situations, commitments, attention, social, curiosity, self_model, persona]
 direct: home_director
 planner: attention

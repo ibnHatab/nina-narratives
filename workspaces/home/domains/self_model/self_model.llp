@@ -1,6 +1,6 @@
 catalog self_model 1.
 include "self_model_domain.llp".
 include "../capacity.llp".
-include "../../../../interfaces/world/continuity.llp".
-include "../../../../interfaces/world/resume_after_gap_ports.llp".
-include "../../../../interfaces/members/resume_after_gap_ports.llp".
+include "interfaces/world/continuity.llp".
+include "interfaces/world/resume_after_gap_ports.llp".
+include "interfaces/members/resume_after_gap_ports.llp".

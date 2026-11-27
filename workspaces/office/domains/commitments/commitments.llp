@@ -1,8 +1,8 @@
 catalog commitments 1.
 include "commitments_domain.llp".
-include "../../../../interfaces/members/reminders.llp".
-include "../../../../interfaces/world/conversation.llp".
+include "interfaces/members/reminders.llp".
+include "interfaces/world/conversation.llp".
 include "../capacity.llp".
-include "../../../../interfaces/world/confirm_group_slot_ports.llp".
-include "../../../../interfaces/members/confirm_group_slot_ports.llp".
-include "../../../../interfaces/world/community_calendar.llp".
+include "interfaces/world/confirm_group_slot_ports.llp".
+include "interfaces/members/confirm_group_slot_ports.llp".
+include "interfaces/world/community_calendar.llp".

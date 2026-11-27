@@ -1,8 +1,8 @@
 catalog curiosity 1.
 include "curiosity_domain.llp".
-include "../../../../interfaces/members/research.llp".
+include "interfaces/members/research.llp".
 include "../capacity.llp".
-include "../../../../interfaces/world/research_context.llp".
-include "../../../../interfaces/world/retire_inquiry_ports.llp".
-include "../../../../interfaces/members/retire_inquiry_ports.llp".
-include "../../../../interfaces/world/public_search.llp".
+include "interfaces/world/research_context.llp".
+include "interfaces/world/retire_inquiry_ports.llp".
+include "interfaces/members/retire_inquiry_ports.llp".
+include "interfaces/world/public_search.llp".
