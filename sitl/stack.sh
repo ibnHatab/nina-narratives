@@ -25,6 +25,7 @@ clone() { # url dir default-branch
 clone git@github.com:ibnHatab/nina-live.git nina-live main
 clone git@github.com:ibnHatab/fsttm-live.git fsttm-live main
 clone git@github.com:ibnHatab/acasa.git acasa main
+clone git@github.com:ibnHatab/nina-narratives.git nina-narratives main   # her rules: nina-live catalog/domains links into it (the redesign's step 2)
 clone git@github.com:metis-lang-dev/metis-lang.git perotheia-packages/metis-lang master
 clone git@github.com:metis-lang-dev/metis-loop.git perotheia-packages/metis-loop master
 clone git@github.com:metis-lang-dev/metis-agent.git perotheia-packages/metis-agent main
@@ -38,6 +39,7 @@ use (
 )
 W
 export GOWORK="$STACK/go.work" GOFLAGS=-mod=readonly
+[ -n "${REF_METIS_LANG:-}" ] && rm -f "$STACK/perotheia-packages/metis-lang/src/metisc"   # a metis-lang branch: its own metisc
 REPO_ROOT="$STACK" bash "$STACK/nina-live/scripts/persona-build.sh" | grep -v "^go: downloading"
 # bin/nina: acasa's cmd/nina since the redesign's step 1 (s-b478fe59), against the stack's checkouts
 [ -x "$STACK/acasa/live/build.sh" ] && REPO_ROOT="$STACK" FSTTM_LOCAL=1 bash "$STACK/acasa/live/build.sh" | grep -v "^go: downloading"
