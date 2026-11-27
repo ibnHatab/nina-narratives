@@ -1,6 +1,7 @@
 """Nina in the loop (sitl/NINA-IN-THE-LOOP.md, phase 1): nina-live's cmd/nina, headless, against ha-sim.
 
-    nina_proc.py smoke            the house's lights from nina-live's map, "turn on the living room light"
+    nina_proc.py smoke            the radio and the shopping list on a fake house
+    nina_proc.py run SCENARIO...  a scenario of words and house states (kinds say/ha_state), its truth the house
 
 Nina runs as deployed (her core, composition image, semantic world, hosts, task runner, panel) with her edges
 simulated: ha-sim is Home Assistant (its truth: this loop's), her words are typed through her panel, no
@@ -222,5 +223,107 @@ def smoke():
         log.close()
 
 
+SUPPORTED = {'say', 'ha_state'}   # a scenario of the cognition atoms (report, floor, hands) waits for phase 2
+
+
+def catalog_for(sc_path, sc, run):
+    """nina-live's catalog (the stack's), its home map the scenario's: her domains and image as deployed."""
+    import shutil
+    cat = run / 'catalog'
+    shutil.copytree(STACK / 'nina-live/catalog', cat, symlinks=True, ignore=shutil.ignore_patterns('.metis'))
+    shutil.copy(Path(sc_path).parent / sc['world_map'], cat / 'world/home.map.json')
+    return cat
+
+
+def bridge(call, m):
+    """A service call as HomeAssistantSim's tool: (tool, args, role) or None (no device of the map)."""
+    svc = (call['domain'], call['service'])
+    ents = (call.get('data') or {}).get('entity_id') or []
+    ents = ents if isinstance(ents, list) else [ents]
+    tool = {'turn_on': 'HassTurnOn', 'turn_off': 'HassTurnOff', 'set_preset_mode': 'HassFanSetPresetMode'}.get(svc[1])
+    if not tool or not ents:
+        return None
+    role = None
+    for r, u in (m.get('units') or {}).items():
+        if any(e.split('.', 1)[-1].startswith(u['prefix']) for e in ents):
+            role = r
+    for r, l in (m.get('lights') or {}).items():
+        if l.get('entity') in ents:
+            role = r
+    args = {'name': ents}
+    if tool == 'HassFanSetPresetMode':
+        args['preset_mode'] = call['data'].get('preset_mode')
+    return tool, args, role
+
+
+def run_scenario(sc_path):
+    from mcp_sim import HomeAssistantSim, discovery
+    sc = yaml.safe_load(Path(sc_path).read_text())
+    kinds = {e['kind'] for e in sc.get('script') or []}
+    if kinds - SUPPORTED or (sc.get('truth') or {}).get('people'):
+        return {'scenario': sc['scenario'], 'skipped': 'cognition atoms %s: phase 2 (the narratives\' members in cmd/nina)' % sorted(kinds - SUPPORTED or {'people'})}
+    run = Path(tempfile.mkdtemp(prefix='nina-sitl-%s-' % sc['scenario']))
+    m = json.loads((Path(sc_path).parent / sc['world_map']).read_text())
+    truth = HomeAssistantSim((sc.get('truth') or {}).get('devices'))
+    log = open(run / 'trace.jsonl', 'w')
+    ha = HA('sitl-token', log)
+    ha.ctl({'states': [e['ha'] for e in discovery(m, 0.0)]})
+    nina = Nina(ha.url, 'sitl-token', run, catalog=catalog_for(sc_path, sc, run))
+    out = {'scenario': sc['scenario'], 'run': str(run), 'turns': [], 'receipts': []}
+    due = []                                       # (at, state): the house's replies, by scenario time
+    seen = 0
+    try:
+        time.sleep(5)
+        t0 = time.time()
+        script = sorted(sc.get('script') or [], key=lambda e: e['at'])
+        horizon = float(sc.get('horizon_s', 60))
+        while True:
+            now = time.time() - t0
+            with ha.cv:
+                calls = ha.calls[seen:]
+                seen = len(ha.calls)
+            for c in calls:                        # what she told the house: the truth answers
+                b = bridge(c, m)
+                if b:
+                    _, receipts = truth.call(b[0], b[1], now, 'sitl', b[2])
+                    due += receipts
+                    out['receipts'].append({'at': round(now, 1), 'call': '%s.%s' % (c['domain'], c['service']),
+                                            'entities': b[1]['name'], 'role': b[2], 'moves': bool(receipts)})
+            for at, st in [x for x in due if x[0] <= now]:
+                ha.ctl({'set': st})
+            due = [x for x in due if x[0] > now]
+            if script and script[0]['at'] <= now:
+                e = script.pop(0)
+                if e['kind'] == 'ha_state':
+                    ha.ctl({'set': e['ha']})
+                elif e['kind'] == 'say':
+                    c0 = len(ha.calls)
+                    evs = nina.say(e['words'])
+                    out['turns'].append({'at': e['at'], 'said': e['words'],
+                                         'tools': [(x.get('name'), x.get('args')) for x in evs if x.get('ev') == 'tool'],
+                                         'ha_calls': ['%s.%s %s' % (c['domain'], c['service'], (c.get('data') or {}).get('entity_id'))
+                                                      for c in ha.calls[c0:]],
+                                         'she_said': [x.get('said') for x in evs if x.get('ev') == 'reply_done']})
+                continue
+            if not script and now >= horizon:
+                break
+            time.sleep(0.2)
+        evs = nina.say('Is the living room ventilation running?') if sc['scenario'] == 'b01-c02-ventilation' else []
+        if evs:
+            out['probe'] = {'said': 'Is the living room ventilation running?',
+                            'she_said': [x.get('said') for x in evs if x.get('ev') == 'reply_done']}
+        out['surprises'] = [e for _, e in nina.events if 'surpris' in json.dumps(e).lower()][:10]
+    finally:
+        nina.close()
+        ha.close()
+        log.close()
+    return out
+
+
 if __name__ == '__main__':
-    {'smoke': smoke}[sys.argv[1] if len(sys.argv) > 1 else 'smoke']()
+    cmd = sys.argv[1] if len(sys.argv) > 1 else 'smoke'
+    if cmd == 'run':
+        for p in sys.argv[2:]:
+            print(json.dumps(run_scenario(p), indent=1, default=str), flush=True)
+    else:
+        {'smoke': smoke}[cmd]()
