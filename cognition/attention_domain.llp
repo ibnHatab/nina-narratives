@@ -29,3 +29,8 @@ stage live {
   %% [V02-C04-S2] Use an opt-in discussion channel with an actual opening.
   offer_in_opted_channel [story] : prepared_prompt(T) * $discussion_opt_in(C) * prompt_opening(C) -o eligible_prompt(T,C).
 }
+
+stage live {
+  %% B01-C08-S02. Remove a pending reminder when its completion is reported.
+  withdraw [story] : pending(T) * completion_report(T) -o ().
+}

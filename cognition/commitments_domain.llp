@@ -19,8 +19,6 @@ stage live {
   heard [story] : ledger(T,queued) * uttered(T) -o ledger(T,spoken).
   %% B01-C08-S02. A completion report closes the matching commitment.
   close [story] : ledger(T,S) * completion_report(T) -o ledger(T,closed).
-  %% Historical household-days interpretation of a request to try later.
-  postpone [story] : ledger(T,spoken) * later(T) -o ledger(T,ready).
   %% B01-C01-S03. A fresh explicit invitation can also renew the reminder.
   invite [story] : ledger(T,spoken) * renewed(T) -o ledger(T,ready).
   %% [B01-C06-S02] "Do it."
@@ -60,4 +58,9 @@ stage live {
   request_followup_record [story] : delegated_followup(T,P) -o followup_awaiting_receipt(T,P).
   %% [V02-C08-S1] Record the follow-up only on a matching simulated receipt.
   acknowledge_followup_record [story] : followup_awaiting_receipt(T,P) * followup_receipt(T,P) -o followup_recorded(T,P).
+}
+
+stage live {
+  %% B01-C01-S03. Keep the reminder spoken until a fresh invitation arrives.
+  postpone [story] : ledger(T,spoken) * later(T) -o ledger(T,spoken).
 }
