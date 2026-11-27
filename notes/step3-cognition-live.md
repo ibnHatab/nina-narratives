@@ -66,3 +66,27 @@ The options:
    in Metis's terms, but a hierarchy neither catalog has been formalized or gated in.
 3. Rewrite one half's routing so it needs no planner (e.g., scene wishes as person-goal kinds): a rule change
    in a gated catalog, through the loop.
+
+## The way (the user, 2026-11-28): one board, two directors
+
+The runtime already has the executor: the semantic world's Board (metis-worlds semworld/ports.go, spec 15's
+blackboard). Ports are offered by the world's adapters; each member that joins reads its own copy of each port it
+names (`Lines(member)`), wakes on its own clock or on a change it did not make (`Wake`), and every member sees
+the same boundary (`Settle`, once a beat). Membership is not one composition's. So:
+- the devices and the cognition keep their directors and planners (scenes, attention): each half's routing is
+  its own, certified by its own gates;
+- every member of both halves joins the ONE board of her one world: what they share (presence, the rooms, the
+  units, and now the person's words) are ports, copied to each reader, synchronized at Settle;
+- the person's words become **report ports** (interfaces/proposals/report-port.md): categorical variables with a
+  finite vocabulary, keys (person, task), reporters and consumers, freshness by event time, stable report ids.
+  The voice's report verbs write report events; the board settles them; the cognition members wake on them as
+  the devices wake on readings. The SITL's contract edges for these become ports (a versioned migration).
+
+The work, revised:
+1. **metis-worlds**: report ports on the Board (the proposal, with its two conformance fixtures).
+2. **metis-agent metishome**: several compositions on one board (each its own tick and director; one beat, one
+   Settle), members of all joined before the first beat.
+3. **nina-live**: the report verbs and the task-slot ledger (report events into her world), the cognition's
+   commands (say → her voice's note, uttered as the receipt), and the cognition composition opened beside the
+   devices'.
+4. **the SITL**: the cognition scenarios through real Nina; the gate.
