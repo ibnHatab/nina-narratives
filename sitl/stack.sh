@@ -37,6 +37,8 @@ use (
 	./fsttm-live
 	./acasa
 )
+
+replace github.com/metis-lang-dev/metis-worlds/libs/semantic-world/go v0.0.0-00010101000000-000000000000 => github.com/metis-lang-dev/metis-worlds/libs/semantic-world/go $(awk '$1=="github.com/metis-lang-dev/metis-worlds/libs/semantic-world/go" {print $2}' "$STACK/nina-live/go.mod" | head -1)
 W
 export GOWORK="$STACK/go.work" GOFLAGS=-mod=readonly
 [ -n "${REF_METIS_LANG:-}" ] && rm -f "$STACK/perotheia-packages/metis-lang/src/metisc"   # a metis-lang branch: its own metisc
