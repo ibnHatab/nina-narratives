@@ -45,3 +45,24 @@ C. **the report verbs** (the director's card) and the slot ledger.
 D. **the SITL**: `nina_proc.py` translates the cognition scenarios (report/floor/hands) into words and states
    for real Nina (phase 2 of `sitl/NINA-IN-THE-LOOP.md`); the 36 scenarios join the real-Nina set.
 E. **the switch**: `home.root`'s domains link → `workspaces/live/domains` per role; gate against the baseline.
+
+## Finding (2026-11-28): one director cannot hold both halves
+
+metisc derives a specialist's handles from what it consumes that no specialist produces: a kind a specialist
+puts out is a result, and only the planner takes results (`src/link.ml`, `handles_s`). The devices need `scenes`
+as their planner (its `scene_*` wishes reach lights, air, media). The cognition needs `attention` as its planner
+(`commitments` puts out `reminder_offer`, which only the planner takes). One composition has one planner:
+- `scenes` the planner → `reminder_offer` is a specialist's result, routed to no one: the reminders break;
+- `attention` the planner → `scene_*` are a specialist's results: the scenes break.
+So step A's "one composition under one director" (P1) does not hold as planned.
+
+The options:
+1. **Two compositions in one Nina** (recommended): the devices' and the cognition's, each with its own director
+   and planner, each certified by its own gates, coupled only through the world contracts (the cognition reads
+   the device world's families and the conversation's edges; its `say` becomes her voice's note). This is what
+   the SITL already does: the cognition runs under `home_director` with the devices as its world. The runtime
+   change is metishome serving two compositions (two ticks on one beat).
+2. **A director tree** (metis-lang's `director_tree_domain`): one top director over two sub-directors. Cleaner
+   in Metis's terms, but a hierarchy neither catalog has been formalized or gated in.
+3. Rewrite one half's routing so it needs no planner (e.g., scene wishes as person-goal kinds): a rule change
+   in a gated catalog, through the loop.
