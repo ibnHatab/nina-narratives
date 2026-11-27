@@ -5,3 +5,6 @@ pred invited_guest(task,participant) : world_community_calendar.
 pred accepted_invite(task,participant) : world_community_calendar.
 pred observed_plan(task,slot) : world_community_calendar.
 pred agreed_revision(task,slot,slot) : world_community_calendar.
+pred tentative_reply(task,participant) : world_community_calendar.
+pred delegated_followup(task,participant) : world_community_calendar.
+pred followup_receipt(task,participant) : world_community_calendar.

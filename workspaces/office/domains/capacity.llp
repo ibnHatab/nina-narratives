@@ -3,7 +3,7 @@ type task {visit lunch exhibit}.
 type domain {situations commitments attention social curiosity self_model persona}.
 type plan {original simple}.
 type channel {hall studio sorina_dm doru_dm}.
-type encounter {hall_visit}.
+type encounter {hall_visit second_visit}.
 type message {box_question other_thread}.
 type participant {mara sorina doru radu andrei ana}.
 type slot {original_slot new_slot}.

@@ -101,6 +101,22 @@ edges:
   - task
   - participant
   lifetime: consumed
+- pred: original_credit_audience(task,channel)
+  when:
+    kind: report
+    var: original_credit_audience
+  args:
+  - task
+  - channel
+  lifetime: consumed
+- pred: approved_repair_audience(task,channel)
+  when:
+    kind: report
+    var: approved_repair_audience
+  args:
+  - task
+  - channel
+  lifetime: consumed
 commands: {}
 receipts:
   via: none

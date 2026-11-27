@@ -60,6 +60,18 @@ script:
   person: andrei
   task: lunch
   participant: andrei
+- at: 1
+  var: invited_guest
+  person: mara
+  kind: report
+  task: lunch
+  participant: radu
+- at: 2
+  var: tentative_reply
+  person: radu
+  kind: report
+  task: lunch
+  participant: radu
 monitors:
 - id: lunch
   scene: V02-C03-open
@@ -81,6 +93,21 @@ monitors:
   forbid:
     rule: include_confirmed_guest
     arg: andrei
+- id: conditional-invitation
+  scene: V02-C03-S2
+  member: commitments
+  words: conditional invitation
+  require:
+    rule: offer_conditional_invitation
+    arg: radu
+    by: 8
+- id: tentative-guest-is-unconfirmed
+  scene: V02-C03-S2
+  member: commitments
+  words: tentative guest is unconfirmed
+  forbid:
+    rule: include_confirmed_guest
+    arg: radu
 expect:
 - monitor: lunch
   absent: true
@@ -88,4 +115,8 @@ expect:
 - monitor: include_confirmed_guest
   absent: true
 - monitor: include_confirmed_guest-scope
+  absent: true
+- monitor: conditional-invitation
+  absent: true
+- monitor: tentative-guest-is-unconfirmed
   absent: true

@@ -811,6 +811,10 @@
    [
     "correct_introduction",
     true
+   ],
+   [
+    "correction-permission-is-encounter-local",
+    true
    ]
   ],
   "findings": [
@@ -827,6 +831,15 @@
  },
  "workspaces/office/scenarios/cognition/office-03-lunch.yaml": {
   "acts": [
+   [
+    2,
+    "commitments",
+    "offer_conditional_invitation",
+    [
+     "lunch",
+     "radu"
+    ]
+   ],
    [
     4,
     "commitments",
@@ -853,6 +866,14 @@
    ],
    [
     "include_confirmed_guest-scope",
+    true
+   ],
+   [
+    "conditional-invitation",
+    true
+   ],
+   [
+    "tentative-guest-is-unconfirmed",
     true
    ]
   ],
@@ -1075,6 +1096,15 @@
     ]
    ],
    [
+    1,
+    "commitments",
+    "request_followup_record",
+    [
+     "lunch",
+     "sorina"
+    ]
+   ],
+   [
     3,
     "commitments",
     "record_confirmed_plan",
@@ -1110,6 +1140,15 @@
     [
      "visit"
     ]
+   ],
+   [
+    6,
+    "commitments",
+    "acknowledge_followup_record",
+    [
+     "lunch",
+     "sorina"
+    ]
    ]
   ],
   "commands": [
@@ -1133,6 +1172,14 @@
    ],
    [
     "acknowledge_revised_plan",
+    true
+   ],
+   [
+    "matching-followup-receipt",
+    true
+   ],
+   [
+    "unrelated-followup-receipt",
     true
    ]
   ],
@@ -1233,12 +1280,13 @@
     []
    ],
    [
-    4,
+    6,
     "social",
     "correct_attribution_with_subject",
     [
      "exhibit",
-     "ana"
+     "ana",
+     "studio"
     ]
    ]
   ],
@@ -1258,6 +1306,14 @@
    ],
    [
     "correct_attribution_with_subject-scope",
+    true
+   ],
+   [
+    "no-repair-to-new-audience",
+    true
+   ],
+   [
+    "repair-to-original-audience",
     true
    ]
   ],

@@ -67,6 +67,18 @@ script:
   person: andrei
   encounter: hall_visit
   participant: ana
+- at: 6
+  var: identity_guess
+  person: mara
+  kind: report
+  encounter: second_visit
+  participant: radu
+- at: 7
+  var: identity_correction
+  person: andrei
+  kind: report
+  encounter: second_visit
+  participant: andrei
 monitors:
 - id: introductions
   scene: V02-C02-open
@@ -84,9 +96,18 @@ monitors:
   require:
     rule: correct_introduction
     by: 8
+- id: correction-permission-is-encounter-local
+  scene: V02-C02-S2
+  member: situations
+  words: correction permission is encounter local
+  forbid:
+    rule: correct_introduction
+    arg: second_visit
 expect:
 - monitor: introductions
   absent: true
 - monitor: incarnation-boundary
 - monitor: correct_introduction
+  absent: true
+- monitor: correction-permission-is-encounter-local
   absent: true

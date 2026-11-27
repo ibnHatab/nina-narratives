@@ -32,8 +32,8 @@ stage live {
   %% [V02-C07-S1] Bind an invited reply to the actual sender and session membership.
   reply_to_person_in_session [story] : addressed_message(M,P,C) * $channel_member(P,C) * response_invited(M) -o reply_destination(M,P,C).
 }
-pred credit_repair(task,participant) : social.
+pred credit_repair(task,participant,channel) : social.
 stage live {
   %% [V02-C11-S4] Make the repair track the affected person’s approved credit.
-  correct_attribution_with_subject [story] : attribution_challenged(T,P) * approved_credit(T,P) -o credit_repair(T,P).
+  correct_attribution_with_subject [story] : attribution_challenged(T,P) * approved_credit(T,P) * $original_credit_audience(T,C) * approved_repair_audience(T,C) -o credit_repair(T,P,C).
 }

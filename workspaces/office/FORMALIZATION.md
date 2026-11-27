@@ -8,11 +8,13 @@ The fixtures supply explicit reports for consent, membership, source lineage and
 
 The fictional discovery map enables `studio_chat`, `community_calendar`, `public_search` and `community_media`. The adapter contract retains the separate calendar event and task commands. Volume II exercises plan and consent reports. Task writes and their receipts remain untested.
 
-### Editorial questions
+### Editorial decisions and verification
 
-- When an introduction corrects Nina's guess, does consent authorize only that encounter or a durable identity association?
-- Should someone who says “perhaps” receive a conditional invitation without appearing in the confirmed list?
-- If a corrected publication has travelled beyond the original channel, how far does Nina's responsibility for repair extend?
+- Chapter II. Permission applies to the encounter. The second recognition exchange holds the same people and supplies no new permission. The correction must stay silent there.
+- Chapters III and VIII. A tentative guest can receive a conditional invitation and remains outside the confirmed plan. Explicitly delegated follow-up and a matching simulated receipt are separate from attendance and from changes to the calendar.
+- Chapter XI. Nina corrects the approved account for the original audience. A wider correction requires its own authorization. The fixture offers a mismatched audience first and checks that no correction goes there.
+
+These checks cover competing evidence in the SIL. They use simulated reports and receipts. Live authorization, deletion propagation and external service behavior remain outside this catalog verification.
 
 First extraction from manuscript revision `77af431`. Scene identifiers refer to the exchanges named by the observations below. In chapters with explicit scene breaks the suffix follows their order. In the opening installment it indexes the selected exchanges, with the setup preceding a selected later exchange counted as S1. Hypotheses and hidden truth guide fixtures. They do not grant the member knowledge.
 

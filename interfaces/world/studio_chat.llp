@@ -14,3 +14,5 @@ pred channel_member(participant,channel) : world_studio_chat.
 pred response_invited(message) : world_studio_chat.
 pred attribution_challenged(task,participant) : world_studio_chat.
 pred approved_credit(task,participant) : world_studio_chat.
+pred original_credit_audience(task,channel) : world_studio_chat.
+pred approved_repair_audience(task,channel) : world_studio_chat.

@@ -61,6 +61,24 @@ script:
   person: andrei
   task: exhibit
   participant: andrei
+- at: 1
+  var: original_credit_audience
+  person: mara
+  kind: report
+  task: exhibit
+  channel: studio
+- at: 2
+  var: approved_repair_audience
+  person: ana
+  kind: report
+  task: exhibit
+  channel: hall
+- at: 6
+  var: approved_repair_audience
+  person: ana
+  kind: report
+  task: exhibit
+  channel: studio
 monitors:
 - id: unexpected
   scene: V02-C11-open
@@ -83,6 +101,21 @@ monitors:
   forbid:
     rule: correct_attribution_with_subject
     arg: andrei
+- id: no-repair-to-new-audience
+  scene: V02-C11-S4
+  member: social
+  words: no repair to new audience
+  forbid:
+    rule: correct_attribution_with_subject
+    arg: hall
+- id: repair-to-original-audience
+  scene: V02-C11-S4
+  member: social
+  words: repair to original audience
+  require:
+    rule: correct_attribution_with_subject
+    arg: studio
+    by: 8
 expect:
 - monitor: unexpected
   absent: true
@@ -90,4 +123,8 @@ expect:
 - monitor: correct_attribution_with_subject
   absent: true
 - monitor: correct_attribution_with_subject-scope
+  absent: true
+- monitor: no-repair-to-new-audience
+  absent: true
+- monitor: repair-to-original-audience
   absent: true
