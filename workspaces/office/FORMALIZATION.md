@@ -1,12 +1,10 @@
 # Volume II formalization
 
-Twelve chapter mechanisms run in the office SITL. Eleven are shared with home. Chapter IX uses an office attention extension for the community display. Each chapter's positive monitor failed with its rule hidden and passed when enabled. The full suite matched 37 baselines. Home's results matched at every chapter checkpoint.
+### Verification and dispositions
 
-The office fixtures deliberately submit one home-origin report each. The boundary rejects all twelve before delivery. The existing Chapter II reminder spoken while Doru is absent remains a finding. Correcting an introduction exercises a different decision from delivering a reminder. No new behavioral findings appeared in the enabled Volume II arms.
+The twelve chapter mechanisms run in the office SIL. Eleven are shared with home and Chapter IX uses an office-only display include. All 37 baselines match after the scoped editorial checks and the two repaired Book VI fixtures. The office rejected each of the twelve injected foreign reports. The device control produced a recorded probabilistic finding when ventilation supplied no receipt.
 
-The fixtures supply explicit reports for consent, membership, source lineage and media approval. Authentication, revocation, real adapter receipts, and responses to concurrent changes remain unvalidated. These decisions do not publish, edit a calendar or fetch media. Hidden motives are available to the evaluation harness.
-
-The fictional discovery map enables `studio_chat`, `community_calendar`, `public_search` and `community_media`. The adapter contract retains the separate calendar event and task commands. Volume II exercises plan and consent reports. Task writes and their receipts remain untested.
+This pass closed 65 surprise records. The boundary probes and device control passed as designed. Two findings were resolved by supplying the evidence their fixtures had omitted. The actual absent-recipient behaviour remains visible, as do the two Book I reminder defects. Their proposed changes were refused. The absent-recipient cases lack an observed recipient on the offer, and the Book I gate diverges on the baseline at beat one. See [written dispositions](research/SIL-RULINGS.md) for record IDs and reasons.
 
 ### Editorial decisions and verification
 
