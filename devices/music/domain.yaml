@@ -8,4 +8,4 @@ intent: {spec: intent.yaml}
 clock: {beats: 1, period: 1}
 records: records/
 commands: [play, switch, something, something_new, something_else, something_new_one, again, off, up, down, duck, unduck, night, away, mood_play, mood_switch]
-shared: {scene_music: in, mood_music: in}   # the home composition: a scene's wish (iface/home.llp)
+shared: {scene_music: in, mood_music: in, ask_music: in}   # the home composition: a scene's wish (iface/home.llp)

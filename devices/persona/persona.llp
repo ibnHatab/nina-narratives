@@ -10,6 +10,7 @@ provenance text "persona: the moments that set Nina's temperament aside" "2026-1
 layers (dyn).
 stages (serve).
 include "../shared/home_world.llp".
+include "../iface/home.llp".   % the person's intent through the director (ask_persona)
 
 type persona_act {persona}.
 type temper {calm wake focus lively cozy playful evening sleep}.

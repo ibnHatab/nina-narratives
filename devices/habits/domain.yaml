@@ -8,3 +8,4 @@ intent: {spec: intent.yaml}
 clock: {beats: 1, period: 1}
 records: records/
 commands: [repeat, usual, replay_it]
+shared: {ask_habits: in}   # the person's intent through the director (iface/home.llp)

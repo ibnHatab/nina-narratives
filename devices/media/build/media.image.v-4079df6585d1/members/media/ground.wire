@@ -1,0 +1,52 @@
+# metis ground-wire artifact — catalog media v1; GENERATED, do not edit.
+N 1 0
+E 0 -1 1 fan_home ; c scene_media(home) 1
+E 0 -1 1 fan_night ; c scene_media(night) 1 ; o sweep_tv_off(t1) 1
+E 0 -1 1 fan_away ; c scene_media(away) 1 ; o sweep_tv_off(t1) 1
+E 0 -1 1 tv_up[T=t1] ; c cmd_tv_on(t1) 1 tv_off(t1) 1 ; o done(on) 1 tv_on(t1) 1 ; p tv_ok(t1) 1
+E 0 -1 1 tv_up[T=tx] ; c cmd_tv_on(tx) 1 tv_off(tx) 1 ; o done(on) 1 tv_on(tx) 1 ; p tv_ok(tx) 1
+E 0 -1 1 tv_on_already[T=t1] ; c cmd_tv_on(t1) 1 ; o refused(on) 1 ; p tv_on(t1) 1
+E 0 -1 1 tv_on_already[T=tx] ; c cmd_tv_on(tx) 1 ; o refused(on) 1 ; p tv_on(tx) 1
+E 0 -1 1 tv_on_missing[T=t1] ; c cmd_tv_on(t1) 1 ; o refused(on) 1 ; p tv_missing(t1) 1 tv_off(t1) 1
+E 0 -1 1 tv_on_missing[T=tx] ; c cmd_tv_on(tx) 1 ; o refused(on) 1 ; p tv_missing(tx) 1 tv_off(tx) 1
+E 0 -1 1 tv_down[T=t1] ; c cmd_tv_off(t1) 1 tv_on(t1) 1 ; o done(off) 1 tv_off(t1) 1 ; p tv_ok(t1) 1
+E 0 -1 1 tv_down[T=tx] ; c cmd_tv_off(tx) 1 tv_on(tx) 1 ; o done(off) 1 tv_off(tx) 1 ; p tv_ok(tx) 1
+E 0 -1 1 tv_off_already[T=t1] ; c cmd_tv_off(t1) 1 ; o refused(off) 1 ; p tv_off(t1) 1
+E 0 -1 1 tv_off_already[T=tx] ; c cmd_tv_off(tx) 1 ; o refused(off) 1 ; p tv_off(tx) 1
+E 0 -1 1 tv_off_missing[T=t1] ; c cmd_tv_off(t1) 1 ; o refused(off) 1 ; p tv_missing(t1) 1 tv_on(t1) 1
+E 0 -1 1 tv_off_missing[T=tx] ; c cmd_tv_off(tx) 1 ; o refused(off) 1 ; p tv_missing(tx) 1 tv_on(tx) 1
+E 0 -1 1 tv_louder[T=t1] ; c cmd_tv_louder(t1) 1 ; o done(volume) 1 ; p tv_ok(t1) 1 tv_on(t1) 1
+E 0 -1 1 tv_louder[T=tx] ; c cmd_tv_louder(tx) 1 ; o done(volume) 1 ; p tv_ok(tx) 1 tv_on(tx) 1
+E 0 -1 1 tv_quieter[T=t1] ; c cmd_tv_quieter(t1) 1 ; o done(volume) 1 ; p tv_ok(t1) 1 tv_on(t1) 1
+E 0 -1 1 tv_quieter[T=tx] ; c cmd_tv_quieter(tx) 1 ; o done(volume) 1 ; p tv_ok(tx) 1 tv_on(tx) 1
+E 0 -1 1 louder_off[T=t1] ; c cmd_tv_louder(t1) 1 ; o refused(volume) 1 ; p tv_off(t1) 1
+E 0 -1 1 louder_off[T=tx] ; c cmd_tv_louder(tx) 1 ; o refused(volume) 1 ; p tv_off(tx) 1
+E 0 -1 1 quieter_off[T=t1] ; c cmd_tv_quieter(t1) 1 ; o refused(volume) 1 ; p tv_off(t1) 1
+E 0 -1 1 quieter_off[T=tx] ; c cmd_tv_quieter(tx) 1 ; o refused(volume) 1 ; p tv_off(tx) 1
+E 0 -1 1 tv_on_unknown ; c cmd_tv_on(tx) 1 ; o refused(on) 1
+E 0 -1 1 tv_off_unknown ; c cmd_tv_off(tx) 1 ; o refused(off) 1
+E 0 -1 1 ir_unknown[K=power] ; c cmd_ir(irx,power) 1 ; o refused(ir) 1 ; p ir_ready 1
+E 0 -1 1 ir_unknown[K=up] ; c cmd_ir(irx,up) 1 ; o refused(ir) 1 ; p ir_ready 1
+E 0 -1 1 ir_unknown[K=down] ; c cmd_ir(irx,down) 1 ; o refused(ir) 1 ; p ir_ready 1
+E 0 -1 1 louder_unknown ; c cmd_tv_louder(tx) 1 ; o refused(volume) 1
+E 0 -1 1 quieter_unknown ; c cmd_tv_quieter(tx) 1 ; o refused(volume) 1
+E 0 -1 1 ir_send[D=ir1,K=power] ; c cmd_ir(ir1,power) 1 ; o done(ir) 1 sent(ir1,power) 1 ; p ir_ready 1
+E 0 -1 1 ir_send[D=ir1,K=up] ; c cmd_ir(ir1,up) 1 ; o done(ir) 1 sent(ir1,up) 1 ; p ir_ready 1
+E 0 -1 1 ir_send[D=ir1,K=down] ; c cmd_ir(ir1,down) 1 ; o done(ir) 1 sent(ir1,down) 1 ; p ir_ready 1
+E 0 -1 1 ir_send[D=irx,K=power] ; c cmd_ir(irx,power) 1 ; o done(ir) 1 sent(irx,power) 1 ; p ir_ready 1
+E 0 -1 1 ir_send[D=irx,K=up] ; c cmd_ir(irx,up) 1 ; o done(ir) 1 sent(irx,up) 1 ; p ir_ready 1
+E 0 -1 1 ir_send[D=irx,K=down] ; c cmd_ir(irx,down) 1 ; o done(ir) 1 sent(irx,down) 1 ; p ir_ready 1
+E 0 -1 1 ir_none[D=ir1,K=power] ; c cmd_ir(ir1,power) 1 ; o refused(ir) 1 ; p ir_absent 1
+E 0 -1 1 ir_none[D=ir1,K=up] ; c cmd_ir(ir1,up) 1 ; o refused(ir) 1 ; p ir_absent 1
+E 0 -1 1 ir_none[D=ir1,K=down] ; c cmd_ir(ir1,down) 1 ; o refused(ir) 1 ; p ir_absent 1
+E 0 -1 1 ir_none[D=irx,K=power] ; c cmd_ir(irx,power) 1 ; o refused(ir) 1 ; p ir_absent 1
+E 0 -1 1 ir_none[D=irx,K=up] ; c cmd_ir(irx,up) 1 ; o refused(ir) 1 ; p ir_absent 1
+E 0 -1 1 ir_none[D=irx,K=down] ; c cmd_ir(irx,down) 1 ; o refused(ir) 1 ; p ir_absent 1
+E 0 -1 1 sweep_tv[T=t1] ; c sweep_tv_off(t1) 1 tv_on(t1) 1 ; o switched(t1) 1 tv_off(t1) 1 ; p tv_ok(t1) 1
+E 0 -1 1 sweep_tv[T=tx] ; c sweep_tv_off(tx) 1 tv_on(tx) 1 ; o switched(tx) 1 tv_off(tx) 1 ; p tv_ok(tx) 1
+E 0 -1 1 sweep_tv_kept[T=t1] ; c sweep_tv_off(t1) 1 ; o kept(t1) 1 ; p tv_off(t1) 1
+E 0 -1 1 sweep_tv_kept[T=tx] ; c sweep_tv_off(tx) 1 ; o kept(tx) 1 ; p tv_off(tx) 1
+E 0 -1 1 sweep_tv_missed[T=t1] ; c sweep_tv_off(t1) 1 ; o missed(t1) 1 ; p tv_missing(t1) 1 tv_on(t1) 1
+E 0 -1 1 sweep_tv_missed[T=tx] ; c sweep_tv_off(tx) 1 ; o missed(tx) 1 ; p tv_missing(tx) 1 tv_on(tx) 1
+I ir_absent 1 tv_off(t1) 1 tv_ok(t1) 1
+S 4

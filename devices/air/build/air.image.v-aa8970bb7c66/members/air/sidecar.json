@@ -1,0 +1,4412 @@
+{
+ "format": "metis-sidecar/1",
+ "catalog": "air",
+ "key": "3baabbf41b153315f19a88b9afb382b4aca1323888d85c95047b480015c8f7bb",
+ "extensions": [],
+ "init": {
+  "stopped(u1)": 1,
+  "stopped(u2)": 1,
+  "power(off,u1)": 1,
+  "power(off,u2)": 1,
+  "normal_mode(u1)": 1,
+  "normal_mode(u2)": 1,
+  "heater_off(u1)": 1,
+  "heater_off(u2)": 1,
+  "winter_off(u1)": 1,
+  "winter_off(u2)": 1,
+  "unit_ok(u1)": 1,
+  "unit_ok(u2)": 1
+ },
+ "steps": 4,
+ "stages": [
+  "serve"
+ ],
+ "events": [
+  {
+   "i": 0,
+   "canon": 125,
+   "name": "which_air_on",
+   "rule": "which_air_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?"
+  },
+  {
+   "i": 1,
+   "canon": 105,
+   "name": "which_air_off",
+   "rule": "which_air_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?"
+  },
+  {
+   "i": 2,
+   "canon": 70,
+   "name": "which_air_night",
+   "rule": "which_air_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?"
+  },
+  {
+   "i": 3,
+   "canon": 42,
+   "name": "which_air_boost",
+   "rule": "which_air_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?"
+  },
+  {
+   "i": 4,
+   "canon": 88,
+   "name": "which_air_normal",
+   "rule": "which_air_normal",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?"
+  },
+  {
+   "i": 5,
+   "canon": 152,
+   "name": "which_heater_on",
+   "rule": "which_heater_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?"
+  },
+  {
+   "i": 6,
+   "canon": 138,
+   "name": "which_heater_off",
+   "rule": "which_heater_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?"
+  },
+  {
+   "i": 7,
+   "canon": 176,
+   "name": "which_winter_on",
+   "rule": "which_winter_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?"
+  },
+  {
+   "i": 8,
+   "canon": 166,
+   "name": "which_winter_off",
+   "rule": "which_winter_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?"
+  },
+  {
+   "i": 9,
+   "canon": 191,
+   "name": "fan_home",
+   "rule": "fan_home",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The home scene: nothing to do here."
+  },
+  {
+   "i": 10,
+   "canon": 192,
+   "name": "fan_night",
+   "rule": "fan_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The night scene: every device of mine gets its wish."
+  },
+  {
+   "i": 11,
+   "canon": 190,
+   "name": "fan_away",
+   "rule": "fan_away",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The away scene: every device of mine gets its wish."
+  },
+  {
+   "i": 12,
+   "canon": 116,
+   "name": "air_on[U=u1]",
+   "rule": "air_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I start {U}."
+  },
+  {
+   "i": 13,
+   "canon": 120,
+   "name": "air_on[U=u2]",
+   "rule": "air_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I start {U}."
+  },
+  {
+   "i": 14,
+   "canon": 129,
+   "name": "air_on[U=ux]",
+   "rule": "air_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I start {U}."
+  },
+  {
+   "i": 15,
+   "canon": 124,
+   "name": "air_on[U=ua]",
+   "rule": "air_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I start {U}."
+  },
+  {
+   "i": 16,
+   "canon": 117,
+   "name": "on_already[U=u1]",
+   "rule": "on_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already running."
+  },
+  {
+   "i": 17,
+   "canon": 121,
+   "name": "on_already[U=u2]",
+   "rule": "on_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already running."
+  },
+  {
+   "i": 18,
+   "canon": 131,
+   "name": "on_already[U=ux]",
+   "rule": "on_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already running."
+  },
+  {
+   "i": 19,
+   "canon": 126,
+   "name": "on_already[U=ua]",
+   "rule": "on_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already running."
+  },
+  {
+   "i": 20,
+   "canon": 118,
+   "name": "on_unconfirmed[U=u1]",
+   "rule": "on_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Not yet: {U} has not confirmed its last switch. Ask me again in a moment."
+  },
+  {
+   "i": 21,
+   "canon": 122,
+   "name": "on_unconfirmed[U=u2]",
+   "rule": "on_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Not yet: {U} has not confirmed its last switch. Ask me again in a moment."
+  },
+  {
+   "i": 22,
+   "canon": 132,
+   "name": "on_unconfirmed[U=ux]",
+   "rule": "on_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Not yet: {U} has not confirmed its last switch. Ask me again in a moment."
+  },
+  {
+   "i": 23,
+   "canon": 127,
+   "name": "on_unconfirmed[U=ua]",
+   "rule": "on_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Not yet: {U} has not confirmed its last switch. Ask me again in a moment."
+  },
+  {
+   "i": 24,
+   "canon": 119,
+   "name": "on_missing[U=u1]",
+   "rule": "on_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't start {U}: it does not answer."
+  },
+  {
+   "i": 25,
+   "canon": 123,
+   "name": "on_missing[U=u2]",
+   "rule": "on_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't start {U}: it does not answer."
+  },
+  {
+   "i": 26,
+   "canon": 133,
+   "name": "on_missing[U=ux]",
+   "rule": "on_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't start {U}: it does not answer."
+  },
+  {
+   "i": 27,
+   "canon": 128,
+   "name": "on_missing[U=ua]",
+   "rule": "on_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't start {U}: it does not answer."
+  },
+  {
+   "i": 28,
+   "canon": 98,
+   "name": "air_off[U=u1]",
+   "rule": "air_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U}; its heater goes off with it."
+  },
+  {
+   "i": 29,
+   "canon": 103,
+   "name": "air_off[U=u2]",
+   "rule": "air_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U}; its heater goes off with it."
+  },
+  {
+   "i": 30,
+   "canon": 115,
+   "name": "air_off[U=ux]",
+   "rule": "air_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U}; its heater goes off with it."
+  },
+  {
+   "i": 31,
+   "canon": 109,
+   "name": "air_off[U=ua]",
+   "rule": "air_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U}; its heater goes off with it."
+  },
+  {
+   "i": 32,
+   "canon": 94,
+   "name": "air_off_cold[U=u1]",
+   "rule": "air_off_cold",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U}."
+  },
+  {
+   "i": 33,
+   "canon": 99,
+   "name": "air_off_cold[U=u2]",
+   "rule": "air_off_cold",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U}."
+  },
+  {
+   "i": 34,
+   "canon": 110,
+   "name": "air_off_cold[U=ux]",
+   "rule": "air_off_cold",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U}."
+  },
+  {
+   "i": 35,
+   "canon": 104,
+   "name": "air_off_cold[U=ua]",
+   "rule": "air_off_cold",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U}."
+  },
+  {
+   "i": 36,
+   "canon": 95,
+   "name": "off_already[U=u1]",
+   "rule": "off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already stopped."
+  },
+  {
+   "i": 37,
+   "canon": 100,
+   "name": "off_already[U=u2]",
+   "rule": "off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already stopped."
+  },
+  {
+   "i": 38,
+   "canon": 112,
+   "name": "off_already[U=ux]",
+   "rule": "off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already stopped."
+  },
+  {
+   "i": 39,
+   "canon": 106,
+   "name": "off_already[U=ua]",
+   "rule": "off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already stopped."
+  },
+  {
+   "i": 40,
+   "canon": 96,
+   "name": "off_unconfirmed[U=u1]",
+   "rule": "off_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Not yet: {U} has not confirmed its last switch. Ask me again in a moment."
+  },
+  {
+   "i": 41,
+   "canon": 101,
+   "name": "off_unconfirmed[U=u2]",
+   "rule": "off_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Not yet: {U} has not confirmed its last switch. Ask me again in a moment."
+  },
+  {
+   "i": 42,
+   "canon": 113,
+   "name": "off_unconfirmed[U=ux]",
+   "rule": "off_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Not yet: {U} has not confirmed its last switch. Ask me again in a moment."
+  },
+  {
+   "i": 43,
+   "canon": 107,
+   "name": "off_unconfirmed[U=ua]",
+   "rule": "off_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "Not yet: {U} has not confirmed its last switch. Ask me again in a moment."
+  },
+  {
+   "i": 44,
+   "canon": 97,
+   "name": "off_missing[U=u1]",
+   "rule": "off_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't stop {U}: it does not answer."
+  },
+  {
+   "i": 45,
+   "canon": 102,
+   "name": "off_missing[U=u2]",
+   "rule": "off_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't stop {U}: it does not answer."
+  },
+  {
+   "i": 46,
+   "canon": 114,
+   "name": "off_missing[U=ux]",
+   "rule": "off_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't stop {U}: it does not answer."
+  },
+  {
+   "i": 47,
+   "canon": 108,
+   "name": "off_missing[U=ua]",
+   "rule": "off_missing",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't stop {U}: it does not answer."
+  },
+  {
+   "i": 48,
+   "canon": 130,
+   "name": "on_unknown",
+   "rule": "on_unknown",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such ventilation unit in this home."
+  },
+  {
+   "i": 49,
+   "canon": 111,
+   "name": "off_unknown",
+   "rule": "off_unknown",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such ventilation unit in this home."
+  },
+  {
+   "i": 50,
+   "canon": 77,
+   "name": "other_unknown_n",
+   "rule": "other_unknown_n",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such ventilation unit in this home."
+  },
+  {
+   "i": 51,
+   "canon": 50,
+   "name": "other_unknown_b",
+   "rule": "other_unknown_b",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such ventilation unit in this home."
+  },
+  {
+   "i": 52,
+   "canon": 91,
+   "name": "other_unknown_m",
+   "rule": "other_unknown_m",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such ventilation unit in this home."
+  },
+  {
+   "i": 53,
+   "canon": 157,
+   "name": "heat_unknown_on",
+   "rule": "heat_unknown_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such ventilation unit in this home."
+  },
+  {
+   "i": 54,
+   "canon": 141,
+   "name": "heat_unknown_off",
+   "rule": "heat_unknown_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such ventilation unit in this home."
+  },
+  {
+   "i": 55,
+   "canon": 179,
+   "name": "winter_unknown_on",
+   "rule": "winter_unknown_on",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such ventilation unit in this home."
+  },
+  {
+   "i": 56,
+   "canon": 169,
+   "name": "winter_unknown_off",
+   "rule": "winter_unknown_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't: there is no such ventilation unit in this home."
+  },
+  {
+   "i": 57,
+   "canon": 63,
+   "name": "air_night[U=u1]",
+   "rule": "air_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} to night mode: quiet and slow."
+  },
+  {
+   "i": 58,
+   "canon": 69,
+   "name": "air_night[U=u2]",
+   "rule": "air_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} to night mode: quiet and slow."
+  },
+  {
+   "i": 59,
+   "canon": 83,
+   "name": "air_night[U=ux]",
+   "rule": "air_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} to night mode: quiet and slow."
+  },
+  {
+   "i": 60,
+   "canon": 76,
+   "name": "air_night[U=ua]",
+   "rule": "air_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} to night mode: quiet and slow."
+  },
+  {
+   "i": 61,
+   "canon": 0,
+   "name": "air_night_from_boost[U=u1]",
+   "rule": "air_night_from_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} from boost to night mode."
+  },
+  {
+   "i": 62,
+   "canon": 3,
+   "name": "air_night_from_boost[U=u2]",
+   "rule": "air_night_from_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} from boost to night mode."
+  },
+  {
+   "i": 63,
+   "canon": 9,
+   "name": "air_night_from_boost[U=ux]",
+   "rule": "air_night_from_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} from boost to night mode."
+  },
+  {
+   "i": 64,
+   "canon": 6,
+   "name": "air_night_from_boost[U=ua]",
+   "rule": "air_night_from_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} from boost to night mode."
+  },
+  {
+   "i": 65,
+   "canon": 60,
+   "name": "night_already[U=u1]",
+   "rule": "night_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already in night mode."
+  },
+  {
+   "i": 66,
+   "canon": 66,
+   "name": "night_already[U=u2]",
+   "rule": "night_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already in night mode."
+  },
+  {
+   "i": 67,
+   "canon": 80,
+   "name": "night_already[U=ux]",
+   "rule": "night_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already in night mode."
+  },
+  {
+   "i": 68,
+   "canon": 73,
+   "name": "night_already[U=ua]",
+   "rule": "night_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already in night mode."
+  },
+  {
+   "i": 69,
+   "canon": 34,
+   "name": "air_boost[U=u1]",
+   "rule": "air_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I boost {U} for a while."
+  },
+  {
+   "i": 70,
+   "canon": 41,
+   "name": "air_boost[U=u2]",
+   "rule": "air_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I boost {U} for a while."
+  },
+  {
+   "i": 71,
+   "canon": 57,
+   "name": "air_boost[U=ux]",
+   "rule": "air_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I boost {U} for a while."
+  },
+  {
+   "i": 72,
+   "canon": 49,
+   "name": "air_boost[U=ua]",
+   "rule": "air_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I boost {U} for a while."
+  },
+  {
+   "i": 73,
+   "canon": 33,
+   "name": "air_boost_from_night[U=u1]",
+   "rule": "air_boost_from_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I boost {U} out of night mode."
+  },
+  {
+   "i": 74,
+   "canon": 40,
+   "name": "air_boost_from_night[U=u2]",
+   "rule": "air_boost_from_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I boost {U} out of night mode."
+  },
+  {
+   "i": 75,
+   "canon": 56,
+   "name": "air_boost_from_night[U=ux]",
+   "rule": "air_boost_from_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I boost {U} out of night mode."
+  },
+  {
+   "i": 76,
+   "canon": 48,
+   "name": "air_boost_from_night[U=ua]",
+   "rule": "air_boost_from_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I boost {U} out of night mode."
+  },
+  {
+   "i": 77,
+   "canon": 28,
+   "name": "boost_already[U=u1]",
+   "rule": "boost_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already on boost."
+  },
+  {
+   "i": 78,
+   "canon": 35,
+   "name": "boost_already[U=u2]",
+   "rule": "boost_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already on boost."
+  },
+  {
+   "i": 79,
+   "canon": 51,
+   "name": "boost_already[U=ux]",
+   "rule": "boost_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already on boost."
+  },
+  {
+   "i": 80,
+   "canon": 43,
+   "name": "boost_already[U=ua]",
+   "rule": "boost_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already on boost."
+  },
+  {
+   "i": 81,
+   "canon": 85,
+   "name": "normal_from_night[U=u1]",
+   "rule": "normal_from_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I take {U} out of night mode."
+  },
+  {
+   "i": 82,
+   "canon": 87,
+   "name": "normal_from_night[U=u2]",
+   "rule": "normal_from_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I take {U} out of night mode."
+  },
+  {
+   "i": 83,
+   "canon": 93,
+   "name": "normal_from_night[U=ux]",
+   "rule": "normal_from_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I take {U} out of night mode."
+  },
+  {
+   "i": 84,
+   "canon": 90,
+   "name": "normal_from_night[U=ua]",
+   "rule": "normal_from_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I take {U} out of night mode."
+  },
+  {
+   "i": 85,
+   "canon": 1,
+   "name": "normal_from_boost[U=u1]",
+   "rule": "normal_from_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I take {U} off boost."
+  },
+  {
+   "i": 86,
+   "canon": 4,
+   "name": "normal_from_boost[U=u2]",
+   "rule": "normal_from_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I take {U} off boost."
+  },
+  {
+   "i": 87,
+   "canon": 10,
+   "name": "normal_from_boost[U=ux]",
+   "rule": "normal_from_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I take {U} off boost."
+  },
+  {
+   "i": 88,
+   "canon": 7,
+   "name": "normal_from_boost[U=ua]",
+   "rule": "normal_from_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I take {U} off boost."
+  },
+  {
+   "i": 89,
+   "canon": 84,
+   "name": "normal_already[U=u1]",
+   "rule": "normal_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already at its normal speed."
+  },
+  {
+   "i": 90,
+   "canon": 86,
+   "name": "normal_already[U=u2]",
+   "rule": "normal_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already at its normal speed."
+  },
+  {
+   "i": 91,
+   "canon": 92,
+   "name": "normal_already[U=ux]",
+   "rule": "normal_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already at its normal speed."
+  },
+  {
+   "i": 92,
+   "canon": 89,
+   "name": "normal_already[U=ua]",
+   "rule": "normal_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already at its normal speed."
+  },
+  {
+   "i": 93,
+   "canon": 61,
+   "name": "night_stopped[U=u1]",
+   "rule": "night_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode: {U} is stopped. Start it first."
+  },
+  {
+   "i": 94,
+   "canon": 67,
+   "name": "night_stopped[U=u2]",
+   "rule": "night_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode: {U} is stopped. Start it first."
+  },
+  {
+   "i": 95,
+   "canon": 81,
+   "name": "night_stopped[U=ux]",
+   "rule": "night_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode: {U} is stopped. Start it first."
+  },
+  {
+   "i": 96,
+   "canon": 74,
+   "name": "night_stopped[U=ua]",
+   "rule": "night_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode: {U} is stopped. Start it first."
+  },
+  {
+   "i": 97,
+   "canon": 31,
+   "name": "boost_stopped[U=u1]",
+   "rule": "boost_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost: {U} is stopped. Start it first."
+  },
+  {
+   "i": 98,
+   "canon": 38,
+   "name": "boost_stopped[U=u2]",
+   "rule": "boost_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost: {U} is stopped. Start it first."
+  },
+  {
+   "i": 99,
+   "canon": 54,
+   "name": "boost_stopped[U=ux]",
+   "rule": "boost_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost: {U} is stopped. Start it first."
+  },
+  {
+   "i": 100,
+   "canon": 46,
+   "name": "boost_stopped[U=ua]",
+   "rule": "boost_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost: {U} is stopped. Start it first."
+  },
+  {
+   "i": 101,
+   "canon": 58,
+   "name": "night_stopped_boost[U=u1]",
+   "rule": "night_stopped_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode: {U} is stopped. Start it first."
+  },
+  {
+   "i": 102,
+   "canon": 64,
+   "name": "night_stopped_boost[U=u2]",
+   "rule": "night_stopped_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode: {U} is stopped. Start it first."
+  },
+  {
+   "i": 103,
+   "canon": 78,
+   "name": "night_stopped_boost[U=ux]",
+   "rule": "night_stopped_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode: {U} is stopped. Start it first."
+  },
+  {
+   "i": 104,
+   "canon": 71,
+   "name": "night_stopped_boost[U=ua]",
+   "rule": "night_stopped_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode: {U} is stopped. Start it first."
+  },
+  {
+   "i": 105,
+   "canon": 29,
+   "name": "boost_stopped_night[U=u1]",
+   "rule": "boost_stopped_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost: {U} is stopped. Start it first."
+  },
+  {
+   "i": 106,
+   "canon": 36,
+   "name": "boost_stopped_night[U=u2]",
+   "rule": "boost_stopped_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost: {U} is stopped. Start it first."
+  },
+  {
+   "i": 107,
+   "canon": 52,
+   "name": "boost_stopped_night[U=ux]",
+   "rule": "boost_stopped_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost: {U} is stopped. Start it first."
+  },
+  {
+   "i": 108,
+   "canon": 44,
+   "name": "boost_stopped_night[U=ua]",
+   "rule": "boost_stopped_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost: {U} is stopped. Start it first."
+  },
+  {
+   "i": 109,
+   "canon": 62,
+   "name": "night_unconfirmed[U=u1]",
+   "rule": "night_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 110,
+   "canon": 68,
+   "name": "night_unconfirmed[U=u2]",
+   "rule": "night_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 111,
+   "canon": 82,
+   "name": "night_unconfirmed[U=ux]",
+   "rule": "night_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 112,
+   "canon": 75,
+   "name": "night_unconfirmed[U=ua]",
+   "rule": "night_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 113,
+   "canon": 59,
+   "name": "night_unconfirmed_boost[U=u1]",
+   "rule": "night_unconfirmed_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 114,
+   "canon": 65,
+   "name": "night_unconfirmed_boost[U=u2]",
+   "rule": "night_unconfirmed_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 115,
+   "canon": 79,
+   "name": "night_unconfirmed_boost[U=ux]",
+   "rule": "night_unconfirmed_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 116,
+   "canon": 72,
+   "name": "night_unconfirmed_boost[U=ua]",
+   "rule": "night_unconfirmed_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't set night mode yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 117,
+   "canon": 32,
+   "name": "boost_unconfirmed[U=u1]",
+   "rule": "boost_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 118,
+   "canon": 39,
+   "name": "boost_unconfirmed[U=u2]",
+   "rule": "boost_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 119,
+   "canon": 55,
+   "name": "boost_unconfirmed[U=ux]",
+   "rule": "boost_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 120,
+   "canon": 47,
+   "name": "boost_unconfirmed[U=ua]",
+   "rule": "boost_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 121,
+   "canon": 30,
+   "name": "boost_unconfirmed_night[U=u1]",
+   "rule": "boost_unconfirmed_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 122,
+   "canon": 37,
+   "name": "boost_unconfirmed_night[U=u2]",
+   "rule": "boost_unconfirmed_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 123,
+   "canon": 53,
+   "name": "boost_unconfirmed_night[U=ux]",
+   "rule": "boost_unconfirmed_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 124,
+   "canon": 45,
+   "name": "boost_unconfirmed_night[U=ua]",
+   "rule": "boost_unconfirmed_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't boost yet: {U} has not confirmed whether it runs. Ask me again in a moment."
+  },
+  {
+   "i": 125,
+   "canon": 147,
+   "name": "heater_up[U=u1]",
+   "rule": "heater_up",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn on the heater of {U}."
+  },
+  {
+   "i": 126,
+   "canon": 151,
+   "name": "heater_up[U=u2]",
+   "rule": "heater_up",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn on the heater of {U}."
+  },
+  {
+   "i": 127,
+   "canon": 161,
+   "name": "heater_up[U=ux]",
+   "rule": "heater_up",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn on the heater of {U}."
+  },
+  {
+   "i": 128,
+   "canon": 156,
+   "name": "heater_up[U=ua]",
+   "rule": "heater_up",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn on the heater of {U}."
+  },
+  {
+   "i": 129,
+   "canon": 146,
+   "name": "heater_already[U=u1]",
+   "rule": "heater_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The heater of {U} is already on."
+  },
+  {
+   "i": 130,
+   "canon": 150,
+   "name": "heater_already[U=u2]",
+   "rule": "heater_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The heater of {U} is already on."
+  },
+  {
+   "i": 131,
+   "canon": 160,
+   "name": "heater_already[U=ux]",
+   "rule": "heater_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The heater of {U} is already on."
+  },
+  {
+   "i": 132,
+   "canon": 155,
+   "name": "heater_already[U=ua]",
+   "rule": "heater_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The heater of {U} is already on."
+  },
+  {
+   "i": 133,
+   "canon": 144,
+   "name": "heater_stopped[U=u1]",
+   "rule": "heater_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't heat with {U} stopped: the heater only runs with the fans. Start it first."
+  },
+  {
+   "i": 134,
+   "canon": 148,
+   "name": "heater_stopped[U=u2]",
+   "rule": "heater_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't heat with {U} stopped: the heater only runs with the fans. Start it first."
+  },
+  {
+   "i": 135,
+   "canon": 158,
+   "name": "heater_stopped[U=ux]",
+   "rule": "heater_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't heat with {U} stopped: the heater only runs with the fans. Start it first."
+  },
+  {
+   "i": 136,
+   "canon": 153,
+   "name": "heater_stopped[U=ua]",
+   "rule": "heater_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't heat with {U} stopped: the heater only runs with the fans. Start it first."
+  },
+  {
+   "i": 137,
+   "canon": 145,
+   "name": "heater_unconfirmed[U=u1]",
+   "rule": "heater_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn the heater on yet: {U} has not confirmed whether its fans run. Ask me again in a moment."
+  },
+  {
+   "i": 138,
+   "canon": 149,
+   "name": "heater_unconfirmed[U=u2]",
+   "rule": "heater_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn the heater on yet: {U} has not confirmed whether its fans run. Ask me again in a moment."
+  },
+  {
+   "i": 139,
+   "canon": 159,
+   "name": "heater_unconfirmed[U=ux]",
+   "rule": "heater_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn the heater on yet: {U} has not confirmed whether its fans run. Ask me again in a moment."
+  },
+  {
+   "i": 140,
+   "canon": 154,
+   "name": "heater_unconfirmed[U=ua]",
+   "rule": "heater_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I can't turn the heater on yet: {U} has not confirmed whether its fans run. Ask me again in a moment."
+  },
+  {
+   "i": 141,
+   "canon": 135,
+   "name": "heater_down[U=u1]",
+   "rule": "heater_down",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn off the heater of {U}."
+  },
+  {
+   "i": 142,
+   "canon": 137,
+   "name": "heater_down[U=u2]",
+   "rule": "heater_down",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn off the heater of {U}."
+  },
+  {
+   "i": 143,
+   "canon": 143,
+   "name": "heater_down[U=ux]",
+   "rule": "heater_down",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn off the heater of {U}."
+  },
+  {
+   "i": 144,
+   "canon": 140,
+   "name": "heater_down[U=ua]",
+   "rule": "heater_down",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I turn off the heater of {U}."
+  },
+  {
+   "i": 145,
+   "canon": 134,
+   "name": "heater_off_already[U=u1]",
+   "rule": "heater_off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The heater of {U} is already off."
+  },
+  {
+   "i": 146,
+   "canon": 136,
+   "name": "heater_off_already[U=u2]",
+   "rule": "heater_off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The heater of {U} is already off."
+  },
+  {
+   "i": 147,
+   "canon": 142,
+   "name": "heater_off_already[U=ux]",
+   "rule": "heater_off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The heater of {U} is already off."
+  },
+  {
+   "i": 148,
+   "canon": 139,
+   "name": "heater_off_already[U=ua]",
+   "rule": "heater_off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "The heater of {U} is already off."
+  },
+  {
+   "i": 149,
+   "canon": 173,
+   "name": "winter_up[U=u1]",
+   "rule": "winter_up",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I put {U} in winter mode."
+  },
+  {
+   "i": 150,
+   "canon": 175,
+   "name": "winter_up[U=u2]",
+   "rule": "winter_up",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I put {U} in winter mode."
+  },
+  {
+   "i": 151,
+   "canon": 181,
+   "name": "winter_up[U=ux]",
+   "rule": "winter_up",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I put {U} in winter mode."
+  },
+  {
+   "i": 152,
+   "canon": 178,
+   "name": "winter_up[U=ua]",
+   "rule": "winter_up",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I put {U} in winter mode."
+  },
+  {
+   "i": 153,
+   "canon": 172,
+   "name": "winter_already[U=u1]",
+   "rule": "winter_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already in winter mode."
+  },
+  {
+   "i": 154,
+   "canon": 174,
+   "name": "winter_already[U=u2]",
+   "rule": "winter_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already in winter mode."
+  },
+  {
+   "i": 155,
+   "canon": 180,
+   "name": "winter_already[U=ux]",
+   "rule": "winter_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already in winter mode."
+  },
+  {
+   "i": 156,
+   "canon": 177,
+   "name": "winter_already[U=ua]",
+   "rule": "winter_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already in winter mode."
+  },
+  {
+   "i": 157,
+   "canon": 163,
+   "name": "winter_down[U=u1]",
+   "rule": "winter_down",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I take {U} out of winter mode."
+  },
+  {
+   "i": 158,
+   "canon": 165,
+   "name": "winter_down[U=u2]",
+   "rule": "winter_down",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I take {U} out of winter mode."
+  },
+  {
+   "i": 159,
+   "canon": 171,
+   "name": "winter_down[U=ux]",
+   "rule": "winter_down",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I take {U} out of winter mode."
+  },
+  {
+   "i": 160,
+   "canon": 168,
+   "name": "winter_down[U=ua]",
+   "rule": "winter_down",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I take {U} out of winter mode."
+  },
+  {
+   "i": 161,
+   "canon": 162,
+   "name": "winter_off_already[U=u1]",
+   "rule": "winter_off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is not in winter mode."
+  },
+  {
+   "i": 162,
+   "canon": 164,
+   "name": "winter_off_already[U=u2]",
+   "rule": "winter_off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is not in winter mode."
+  },
+  {
+   "i": 163,
+   "canon": 170,
+   "name": "winter_off_already[U=ux]",
+   "rule": "winter_off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is not in winter mode."
+  },
+  {
+   "i": 164,
+   "canon": 167,
+   "name": "winter_off_already[U=ua]",
+   "rule": "winter_off_already",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is not in winter mode."
+  },
+  {
+   "i": 165,
+   "canon": 208,
+   "name": "sweep_air_off[U=u1]",
+   "rule": "sweep_air_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U} for the scene."
+  },
+  {
+   "i": 166,
+   "canon": 212,
+   "name": "sweep_air_off[U=u2]",
+   "rule": "sweep_air_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U} for the scene."
+  },
+  {
+   "i": 167,
+   "canon": 220,
+   "name": "sweep_air_off[U=ux]",
+   "rule": "sweep_air_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U} for the scene."
+  },
+  {
+   "i": 168,
+   "canon": 216,
+   "name": "sweep_air_off[U=ua]",
+   "rule": "sweep_air_off",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U} for the scene."
+  },
+  {
+   "i": 169,
+   "canon": 182,
+   "name": "sweep_air_off_heat[U=u1]",
+   "rule": "sweep_air_off_heat",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U} and its heater for the scene."
+  },
+  {
+   "i": 170,
+   "canon": 183,
+   "name": "sweep_air_off_heat[U=u2]",
+   "rule": "sweep_air_off_heat",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U} and its heater for the scene."
+  },
+  {
+   "i": 171,
+   "canon": 185,
+   "name": "sweep_air_off_heat[U=ux]",
+   "rule": "sweep_air_off_heat",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U} and its heater for the scene."
+  },
+  {
+   "i": 172,
+   "canon": 184,
+   "name": "sweep_air_off_heat[U=ua]",
+   "rule": "sweep_air_off_heat",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I stop {U} and its heater for the scene."
+  },
+  {
+   "i": 173,
+   "canon": 205,
+   "name": "sweep_air_kept[U=u1]",
+   "rule": "sweep_air_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} was already stopped."
+  },
+  {
+   "i": 174,
+   "canon": 209,
+   "name": "sweep_air_kept[U=u2]",
+   "rule": "sweep_air_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} was already stopped."
+  },
+  {
+   "i": 175,
+   "canon": 217,
+   "name": "sweep_air_kept[U=ux]",
+   "rule": "sweep_air_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} was already stopped."
+  },
+  {
+   "i": 176,
+   "canon": 213,
+   "name": "sweep_air_kept[U=ua]",
+   "rule": "sweep_air_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} was already stopped."
+  },
+  {
+   "i": 177,
+   "canon": 206,
+   "name": "sweep_air_missed[U=u1]",
+   "rule": "sweep_air_missed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I could not stop {U}: it does not answer."
+  },
+  {
+   "i": 178,
+   "canon": 210,
+   "name": "sweep_air_missed[U=u2]",
+   "rule": "sweep_air_missed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I could not stop {U}: it does not answer."
+  },
+  {
+   "i": 179,
+   "canon": 218,
+   "name": "sweep_air_missed[U=ux]",
+   "rule": "sweep_air_missed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I could not stop {U}: it does not answer."
+  },
+  {
+   "i": 180,
+   "canon": 214,
+   "name": "sweep_air_missed[U=ua]",
+   "rule": "sweep_air_missed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I could not stop {U}: it does not answer."
+  },
+  {
+   "i": 181,
+   "canon": 207,
+   "name": "sweep_air_unconfirmed[U=u1]",
+   "rule": "sweep_air_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I leave {U} for the scene: it has not confirmed its last switch yet."
+  },
+  {
+   "i": 182,
+   "canon": 211,
+   "name": "sweep_air_unconfirmed[U=u2]",
+   "rule": "sweep_air_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I leave {U} for the scene: it has not confirmed its last switch yet."
+  },
+  {
+   "i": 183,
+   "canon": 219,
+   "name": "sweep_air_unconfirmed[U=ux]",
+   "rule": "sweep_air_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I leave {U} for the scene: it has not confirmed its last switch yet."
+  },
+  {
+   "i": 184,
+   "canon": 215,
+   "name": "sweep_air_unconfirmed[U=ua]",
+   "rule": "sweep_air_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I leave {U} for the scene: it has not confirmed its last switch yet."
+  },
+  {
+   "i": 185,
+   "canon": 186,
+   "name": "sweep_night[U=u1]",
+   "rule": "sweep_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} to night mode for the night."
+  },
+  {
+   "i": 186,
+   "canon": 187,
+   "name": "sweep_night[U=u2]",
+   "rule": "sweep_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} to night mode for the night."
+  },
+  {
+   "i": 187,
+   "canon": 189,
+   "name": "sweep_night[U=ux]",
+   "rule": "sweep_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} to night mode for the night."
+  },
+  {
+   "i": 188,
+   "canon": 188,
+   "name": "sweep_night[U=ua]",
+   "rule": "sweep_night",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} to night mode for the night."
+  },
+  {
+   "i": 189,
+   "canon": 2,
+   "name": "sweep_night_boost[U=u1]",
+   "rule": "sweep_night_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} from boost to night mode for the night."
+  },
+  {
+   "i": 190,
+   "canon": 5,
+   "name": "sweep_night_boost[U=u2]",
+   "rule": "sweep_night_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} from boost to night mode for the night."
+  },
+  {
+   "i": 191,
+   "canon": 11,
+   "name": "sweep_night_boost[U=ux]",
+   "rule": "sweep_night_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} from boost to night mode for the night."
+  },
+  {
+   "i": 192,
+   "canon": 8,
+   "name": "sweep_night_boost[U=ua]",
+   "rule": "sweep_night_boost",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I set {U} from boost to night mode for the night."
+  },
+  {
+   "i": 193,
+   "canon": 193,
+   "name": "sweep_night_kept[U=u1]",
+   "rule": "sweep_night_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already quiet for the night."
+  },
+  {
+   "i": 194,
+   "canon": 196,
+   "name": "sweep_night_kept[U=u2]",
+   "rule": "sweep_night_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already quiet for the night."
+  },
+  {
+   "i": 195,
+   "canon": 202,
+   "name": "sweep_night_kept[U=ux]",
+   "rule": "sweep_night_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already quiet for the night."
+  },
+  {
+   "i": 196,
+   "canon": 199,
+   "name": "sweep_night_kept[U=ua]",
+   "rule": "sweep_night_kept",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is already quiet for the night."
+  },
+  {
+   "i": 197,
+   "canon": 194,
+   "name": "sweep_night_stopped[U=u1]",
+   "rule": "sweep_night_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is stopped: nothing to quiet for the night."
+  },
+  {
+   "i": 198,
+   "canon": 197,
+   "name": "sweep_night_stopped[U=u2]",
+   "rule": "sweep_night_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is stopped: nothing to quiet for the night."
+  },
+  {
+   "i": 199,
+   "canon": 203,
+   "name": "sweep_night_stopped[U=ux]",
+   "rule": "sweep_night_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is stopped: nothing to quiet for the night."
+  },
+  {
+   "i": 200,
+   "canon": 200,
+   "name": "sweep_night_stopped[U=ua]",
+   "rule": "sweep_night_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "{U} is stopped: nothing to quiet for the night."
+  },
+  {
+   "i": 201,
+   "canon": 195,
+   "name": "sweep_night_unconfirmed[U=u1]",
+   "rule": "sweep_night_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I leave {U} for the night: it has not confirmed its last switch yet."
+  },
+  {
+   "i": 202,
+   "canon": 198,
+   "name": "sweep_night_unconfirmed[U=u2]",
+   "rule": "sweep_night_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I leave {U} for the night: it has not confirmed its last switch yet."
+  },
+  {
+   "i": 203,
+   "canon": 204,
+   "name": "sweep_night_unconfirmed[U=ux]",
+   "rule": "sweep_night_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I leave {U} for the night: it has not confirmed its last switch yet."
+  },
+  {
+   "i": 204,
+   "canon": 201,
+   "name": "sweep_night_unconfirmed[U=ua]",
+   "rule": "sweep_night_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "I leave {U} for the night: it has not confirmed its last switch yet."
+  },
+  {
+   "i": 205,
+   "canon": 12,
+   "name": "cold_advice[U=u1]",
+   "rule": "cold_advice",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside and {U} is bringing it in without winter mode: shall I switch winter mode on?"
+  },
+  {
+   "i": 206,
+   "canon": 16,
+   "name": "cold_advice[U=u2]",
+   "rule": "cold_advice",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside and {U} is bringing it in without winter mode: shall I switch winter mode on?"
+  },
+  {
+   "i": 207,
+   "canon": 24,
+   "name": "cold_advice[U=ux]",
+   "rule": "cold_advice",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside and {U} is bringing it in without winter mode: shall I switch winter mode on?"
+  },
+  {
+   "i": 208,
+   "canon": 20,
+   "name": "cold_advice[U=ua]",
+   "rule": "cold_advice",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside and {U} is bringing it in without winter mode: shall I switch winter mode on?"
+  },
+  {
+   "i": 209,
+   "canon": 14,
+   "name": "cold_winter[U=u1]",
+   "rule": "cold_winter",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside; {U} is already in winter mode."
+  },
+  {
+   "i": 210,
+   "canon": 18,
+   "name": "cold_winter[U=u2]",
+   "rule": "cold_winter",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside; {U} is already in winter mode."
+  },
+  {
+   "i": 211,
+   "canon": 26,
+   "name": "cold_winter[U=ux]",
+   "rule": "cold_winter",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside; {U} is already in winter mode."
+  },
+  {
+   "i": 212,
+   "canon": 22,
+   "name": "cold_winter[U=ua]",
+   "rule": "cold_winter",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside; {U} is already in winter mode."
+  },
+  {
+   "i": 213,
+   "canon": 13,
+   "name": "cold_stopped[U=u1]",
+   "rule": "cold_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside; {U} is stopped, so nothing comes in."
+  },
+  {
+   "i": 214,
+   "canon": 17,
+   "name": "cold_stopped[U=u2]",
+   "rule": "cold_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside; {U} is stopped, so nothing comes in."
+  },
+  {
+   "i": 215,
+   "canon": 25,
+   "name": "cold_stopped[U=ux]",
+   "rule": "cold_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside; {U} is stopped, so nothing comes in."
+  },
+  {
+   "i": 216,
+   "canon": 21,
+   "name": "cold_stopped[U=ua]",
+   "rule": "cold_stopped",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside; {U} is stopped, so nothing comes in."
+  },
+  {
+   "i": 217,
+   "canon": 15,
+   "name": "cold_unconfirmed[U=u1]",
+   "rule": "cold_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside; {U} has not confirmed whether it runs, so I say no more yet."
+  },
+  {
+   "i": 218,
+   "canon": 19,
+   "name": "cold_unconfirmed[U=u2]",
+   "rule": "cold_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside; {U} has not confirmed whether it runs, so I say no more yet."
+  },
+  {
+   "i": 219,
+   "canon": 27,
+   "name": "cold_unconfirmed[U=ux]",
+   "rule": "cold_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside; {U} has not confirmed whether it runs, so I say no more yet."
+  },
+  {
+   "i": 220,
+   "canon": 23,
+   "name": "cold_unconfirmed[U=ua]",
+   "rule": "cold_unconfirmed",
+   "kind": "clause",
+   "stage": "serve",
+   "line": "It turned cold outside; {U} has not confirmed whether it runs, so I say no more yet."
+  }
+ ],
+ "cards": [
+  {
+   "name": "air",
+   "text": "ventilation: the recuperators on, off, night or boost, the heater, winter mode; refusals naming the blocker; advice when the outside turns cold",
+   "relation": "served",
+   "moves": [],
+   "effects": [],
+   "slots": [
+    "air_act",
+    "outside_level"
+   ]
+  }
+ ],
+ "queries": [
+  "done(on)"
+ ],
+ "script": [
+  {
+   "name": "air",
+   "relation": "served",
+   "text": "ventilation: the recuperators on, off, night or boost, the heater, winter mode; refusals naming the blocker; advice when the outside turns cold",
+   "clauses": [
+    {
+     "name": "which_air_on",
+     "stage": "serve",
+     "doc": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?",
+     "premises": [
+      {
+       "atom": "cmd_air_on(ua)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "which_air_off",
+     "stage": "serve",
+     "doc": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?",
+     "premises": [
+      {
+       "atom": "cmd_air_off(ua)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "which_air_night",
+     "stage": "serve",
+     "doc": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?",
+     "premises": [
+      {
+       "atom": "cmd_air_night(ua)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(night)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "which_air_boost",
+     "stage": "serve",
+     "doc": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?",
+     "premises": [
+      {
+       "atom": "cmd_air_boost(ua)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(boost)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "which_air_normal",
+     "stage": "serve",
+     "doc": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?",
+     "premises": [
+      {
+       "atom": "cmd_air_normal(ua)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(normal)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "which_heater_on",
+     "stage": "serve",
+     "doc": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?",
+     "premises": [
+      {
+       "atom": "cmd_heater_on(ua)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(heat)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "which_heater_off",
+     "stage": "serve",
+     "doc": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?",
+     "premises": [
+      {
+       "atom": "cmd_heater_off(ua)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(heat)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "which_winter_on",
+     "stage": "serve",
+     "doc": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?",
+     "premises": [
+      {
+       "atom": "cmd_winter_on(ua)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(winter)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "which_winter_off",
+     "stage": "serve",
+     "doc": "I can't tell which ventilation unit you mean: there is one in the bedroom and the living room. Which room?",
+     "premises": [
+      {
+       "atom": "cmd_winter_off(ua)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(winter)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "fan_home",
+     "stage": "serve",
+     "doc": "The home scene: nothing to do here.",
+     "premises": [
+      {
+       "atom": "scene_air(home)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [],
+     "target": null
+    },
+    {
+     "name": "fan_night",
+     "stage": "serve",
+     "doc": "The night scene: every device of mine gets its wish.",
+     "premises": [
+      {
+       "atom": "scene_air(night)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "sweep_air_night(u1)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "sweep_air_night(u2)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "fan_away",
+     "stage": "serve",
+     "doc": "The away scene: every device of mine gets its wish.",
+     "premises": [
+      {
+       "atom": "scene_air(away)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "sweep_air_off(u1)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "sweep_air_off(u2)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "air_on",
+     "stage": "serve",
+     "doc": "I start {U}.",
+     "premises": [
+      {
+       "atom": "cmd_air_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(off,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "done(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "on_already",
+     "stage": "serve",
+     "doc": "{U} is already running.",
+     "premises": [
+      {
+       "atom": "cmd_air_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "on_unconfirmed",
+     "stage": "serve",
+     "doc": "Not yet: {U} has not confirmed its last switch. Ask me again in a moment.",
+     "premises": [
+      {
+       "atom": "cmd_air_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(unconfirmed,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "on_missing",
+     "stage": "serve",
+     "doc": "I can't start {U}: it does not answer.",
+     "premises": [
+      {
+       "atom": "cmd_air_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_missing(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "air_off",
+     "stage": "serve",
+     "doc": "I stop {U}; its heater goes off with it.",
+     "premises": [
+      {
+       "atom": "cmd_air_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "heater_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "heater_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "air_off_cold",
+     "stage": "serve",
+     "doc": "I stop {U}.",
+     "premises": [
+      {
+       "atom": "cmd_air_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "heater_off(U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "done(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "off_already",
+     "stage": "serve",
+     "doc": "{U} is already stopped.",
+     "premises": [
+      {
+       "atom": "cmd_air_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(off,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "off_unconfirmed",
+     "stage": "serve",
+     "doc": "Not yet: {U} has not confirmed its last switch. Ask me again in a moment.",
+     "premises": [
+      {
+       "atom": "cmd_air_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(unconfirmed,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "off_missing",
+     "stage": "serve",
+     "doc": "I can't stop {U}: it does not answer.",
+     "premises": [
+      {
+       "atom": "cmd_air_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_missing(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "on_unknown",
+     "stage": "serve",
+     "doc": "I can't: there is no such ventilation unit in this home.",
+     "premises": [
+      {
+       "atom": "cmd_air_on(ux)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(on)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "off_unknown",
+     "stage": "serve",
+     "doc": "I can't: there is no such ventilation unit in this home.",
+     "premises": [
+      {
+       "atom": "cmd_air_off(ux)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(off)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "other_unknown_n",
+     "stage": "serve",
+     "doc": "I can't: there is no such ventilation unit in this home.",
+     "premises": [
+      {
+       "atom": "cmd_air_night(ux)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(night)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "other_unknown_b",
+     "stage": "serve",
+     "doc": "I can't: there is no such ventilation unit in this home.",
+     "premises": [
+      {
+       "atom": "cmd_air_boost(ux)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(boost)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "other_unknown_m",
+     "stage": "serve",
+     "doc": "I can't: there is no such ventilation unit in this home.",
+     "premises": [
+      {
+       "atom": "cmd_air_normal(ux)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(normal)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "heat_unknown_on",
+     "stage": "serve",
+     "doc": "I can't: there is no such ventilation unit in this home.",
+     "premises": [
+      {
+       "atom": "cmd_heater_on(ux)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(heat)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "heat_unknown_off",
+     "stage": "serve",
+     "doc": "I can't: there is no such ventilation unit in this home.",
+     "premises": [
+      {
+       "atom": "cmd_heater_off(ux)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(heat)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "winter_unknown_on",
+     "stage": "serve",
+     "doc": "I can't: there is no such ventilation unit in this home.",
+     "premises": [
+      {
+       "atom": "cmd_winter_on(ux)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(winter)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "winter_unknown_off",
+     "stage": "serve",
+     "doc": "I can't: there is no such ventilation unit in this home.",
+     "premises": [
+      {
+       "atom": "cmd_winter_off(ux)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(winter)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "air_night",
+     "stage": "serve",
+     "doc": "I set {U} to night mode: quiet and slow.",
+     "premises": [
+      {
+       "atom": "cmd_air_night(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "normal_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "night_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(night)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "air_night_from_boost",
+     "stage": "serve",
+     "doc": "I set {U} from boost to night mode.",
+     "premises": [
+      {
+       "atom": "cmd_air_night(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "boost_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "night_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(night)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "night_already",
+     "stage": "serve",
+     "doc": "{U} is already in night mode.",
+     "premises": [
+      {
+       "atom": "cmd_air_night(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "night_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(night)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "air_boost",
+     "stage": "serve",
+     "doc": "I boost {U} for a while.",
+     "premises": [
+      {
+       "atom": "cmd_air_boost(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "normal_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "boost_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(boost)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "air_boost_from_night",
+     "stage": "serve",
+     "doc": "I boost {U} out of night mode.",
+     "premises": [
+      {
+       "atom": "cmd_air_boost(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "night_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "boost_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(boost)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "boost_already",
+     "stage": "serve",
+     "doc": "{U} is already on boost.",
+     "premises": [
+      {
+       "atom": "cmd_air_boost(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "boost_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(boost)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "normal_from_night",
+     "stage": "serve",
+     "doc": "I take {U} out of night mode.",
+     "premises": [
+      {
+       "atom": "cmd_air_normal(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "night_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "normal_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(normal)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "normal_from_boost",
+     "stage": "serve",
+     "doc": "I take {U} off boost.",
+     "premises": [
+      {
+       "atom": "cmd_air_normal(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "boost_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "normal_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(normal)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "normal_already",
+     "stage": "serve",
+     "doc": "{U} is already at its normal speed.",
+     "premises": [
+      {
+       "atom": "cmd_air_normal(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "normal_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(normal)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "night_stopped",
+     "stage": "serve",
+     "doc": "I can't set night mode: {U} is stopped. Start it first.",
+     "premises": [
+      {
+       "atom": "cmd_air_night(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(off,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "stopped(U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "normal_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(night)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "boost_stopped",
+     "stage": "serve",
+     "doc": "I can't boost: {U} is stopped. Start it first.",
+     "premises": [
+      {
+       "atom": "cmd_air_boost(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(off,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "stopped(U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "normal_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(boost)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "night_stopped_boost",
+     "stage": "serve",
+     "doc": "I can't set night mode: {U} is stopped. Start it first.",
+     "premises": [
+      {
+       "atom": "cmd_air_night(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(off,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "stopped(U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "boost_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(night)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "boost_stopped_night",
+     "stage": "serve",
+     "doc": "I can't boost: {U} is stopped. Start it first.",
+     "premises": [
+      {
+       "atom": "cmd_air_boost(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(off,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "stopped(U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "night_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(boost)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "night_unconfirmed",
+     "stage": "serve",
+     "doc": "I can't set night mode yet: {U} has not confirmed whether it runs. Ask me again in a moment.",
+     "premises": [
+      {
+       "atom": "cmd_air_night(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(unconfirmed,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "normal_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(night)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "night_unconfirmed_boost",
+     "stage": "serve",
+     "doc": "I can't set night mode yet: {U} has not confirmed whether it runs. Ask me again in a moment.",
+     "premises": [
+      {
+       "atom": "cmd_air_night(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(unconfirmed,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "boost_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(night)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "boost_unconfirmed",
+     "stage": "serve",
+     "doc": "I can't boost yet: {U} has not confirmed whether it runs. Ask me again in a moment.",
+     "premises": [
+      {
+       "atom": "cmd_air_boost(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(unconfirmed,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "normal_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(boost)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "boost_unconfirmed_night",
+     "stage": "serve",
+     "doc": "I can't boost yet: {U} has not confirmed whether it runs. Ask me again in a moment.",
+     "premises": [
+      {
+       "atom": "cmd_air_boost(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(unconfirmed,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "night_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(boost)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "heater_up",
+     "stage": "serve",
+     "doc": "I turn on the heater of {U}.",
+     "premises": [
+      {
+       "atom": "cmd_heater_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "heater_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "heater_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(heat)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "heater_already",
+     "stage": "serve",
+     "doc": "The heater of {U} is already on.",
+     "premises": [
+      {
+       "atom": "cmd_heater_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "heater_on(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(heat)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "heater_stopped",
+     "stage": "serve",
+     "doc": "I can't heat with {U} stopped: the heater only runs with the fans. Start it first.",
+     "premises": [
+      {
+       "atom": "cmd_heater_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(off,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "stopped(U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "heater_off(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(heat)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "heater_unconfirmed",
+     "stage": "serve",
+     "doc": "I can't turn the heater on yet: {U} has not confirmed whether its fans run. Ask me again in a moment.",
+     "premises": [
+      {
+       "atom": "cmd_heater_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(unconfirmed,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "heater_off(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(heat)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "heater_down",
+     "stage": "serve",
+     "doc": "I turn off the heater of {U}.",
+     "premises": [
+      {
+       "atom": "cmd_heater_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "heater_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "heater_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(heat)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "heater_off_already",
+     "stage": "serve",
+     "doc": "The heater of {U} is already off.",
+     "premises": [
+      {
+       "atom": "cmd_heater_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "heater_off(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(heat)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "winter_up",
+     "stage": "serve",
+     "doc": "I put {U} in winter mode.",
+     "premises": [
+      {
+       "atom": "cmd_winter_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "winter_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "winter_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(winter)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "winter_already",
+     "stage": "serve",
+     "doc": "{U} is already in winter mode.",
+     "premises": [
+      {
+       "atom": "cmd_winter_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "winter_on(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(winter)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "winter_down",
+     "stage": "serve",
+     "doc": "I take {U} out of winter mode.",
+     "premises": [
+      {
+       "atom": "cmd_winter_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "winter_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "winter_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "done(winter)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "winter_off_already",
+     "stage": "serve",
+     "doc": "{U} is not in winter mode.",
+     "premises": [
+      {
+       "atom": "cmd_winter_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "winter_off(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "refused(winter)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_air_off",
+     "stage": "serve",
+     "doc": "I stop {U} for the scene.",
+     "premises": [
+      {
+       "atom": "sweep_air_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "heater_off(U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "switched(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_air_off_heat",
+     "stage": "serve",
+     "doc": "I stop {U} and its heater for the scene.",
+     "premises": [
+      {
+       "atom": "sweep_air_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "heater_on(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "heater_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "switched(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_air_kept",
+     "stage": "serve",
+     "doc": "{U} was already stopped.",
+     "premises": [
+      {
+       "atom": "sweep_air_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(off,U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "kept(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_air_missed",
+     "stage": "serve",
+     "doc": "I could not stop {U}: it does not answer.",
+     "premises": [
+      {
+       "atom": "sweep_air_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "unit_missing(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "missed(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_air_unconfirmed",
+     "stage": "serve",
+     "doc": "I leave {U} for the scene: it has not confirmed its last switch yet.",
+     "premises": [
+      {
+       "atom": "sweep_air_off(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(unconfirmed,U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "missed(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_night",
+     "stage": "serve",
+     "doc": "I set {U} to night mode for the night.",
+     "premises": [
+      {
+       "atom": "sweep_air_night(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "normal_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "night_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "switched(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_night_boost",
+     "stage": "serve",
+     "doc": "I set {U} from boost to night mode for the night.",
+     "premises": [
+      {
+       "atom": "sweep_air_night(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "boost_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "unit_ok(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "night_mode(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "switched(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_night_kept",
+     "stage": "serve",
+     "doc": "{U} is already quiet for the night.",
+     "premises": [
+      {
+       "atom": "sweep_air_night(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "night_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "kept(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_night_stopped",
+     "stage": "serve",
+     "doc": "{U} is stopped: nothing to quiet for the night.",
+     "premises": [
+      {
+       "atom": "sweep_air_night(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(off,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "normal_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "kept(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "sweep_night_unconfirmed",
+     "stage": "serve",
+     "doc": "I leave {U} for the night: it has not confirmed its last switch yet.",
+     "premises": [
+      {
+       "atom": "sweep_air_night(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "power(unconfirmed,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "normal_mode(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "missed(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "cold_advice",
+     "stage": "serve",
+     "doc": "It turned cold outside and {U} is bringing it in without winter mode: shall I switch winter mode on?",
+     "premises": [
+      {
+       "atom": "chilled(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "outside(cold_out,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "winter_off(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "advise_winter(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "cold_winter",
+     "stage": "serve",
+     "doc": "It turned cold outside; {U} is already in winter mode.",
+     "premises": [
+      {
+       "atom": "chilled(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "outside(cold_out,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "power(on,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "winter_on(U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "cold_stopped",
+     "stage": "serve",
+     "doc": "It turned cold outside; {U} is stopped, so nothing comes in.",
+     "premises": [
+      {
+       "atom": "chilled(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "outside(cold_out,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "power(off,U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    },
+    {
+     "name": "cold_unconfirmed",
+     "stage": "serve",
+     "doc": "It turned cold outside; {U} has not confirmed whether it runs, so I say no more yet.",
+     "premises": [
+      {
+       "atom": "chilled(U)",
+       "n": 1,
+       "kept": false
+      },
+      {
+       "atom": "outside(cold_out,U)",
+       "n": 1,
+       "kept": true
+      },
+      {
+       "atom": "power(unconfirmed,U)",
+       "n": 1,
+       "kept": true
+      }
+     ],
+     "effects": [
+      {
+       "atom": "noted(U)",
+       "n": 1,
+       "kept": false
+      }
+     ],
+     "target": null
+    }
+   ],
+   "atoms": [
+    {
+     "name": "occupied",
+     "doc": ""
+    },
+    {
+     "name": "empty",
+     "doc": ""
+    },
+    {
+     "name": "vacant",
+     "doc": ""
+    },
+    {
+     "name": "unsensed",
+     "doc": ""
+    },
+    {
+     "name": "someone_home",
+     "doc": ""
+    },
+    {
+     "name": "nobody_home",
+     "doc": ""
+    },
+    {
+     "name": "home_unsensed",
+     "doc": ""
+    },
+    {
+     "name": "day",
+     "doc": ""
+    },
+    {
+     "name": "night",
+     "doc": ""
+    },
+    {
+     "name": "running",
+     "doc": ""
+    },
+    {
+     "name": "stopped",
+     "doc": ""
+    },
+    {
+     "name": "heater_on",
+     "doc": ""
+    },
+    {
+     "name": "heater_off",
+     "doc": ""
+    },
+    {
+     "name": "unit_ok",
+     "doc": ""
+    },
+    {
+     "name": "unit_missing",
+     "doc": ""
+    },
+    {
+     "name": "on_b",
+     "doc": ""
+    },
+    {
+     "name": "power",
+     "doc": ""
+    },
+    {
+     "name": "entered",
+     "doc": ""
+    },
+    {
+     "name": "left_home",
+     "doc": ""
+    },
+    {
+     "name": "came_home",
+     "doc": ""
+    },
+    {
+     "name": "dawn",
+     "doc": ""
+    },
+    {
+     "name": "scene_lights",
+     "doc": ""
+    },
+    {
+     "name": "scene_air",
+     "doc": ""
+    },
+    {
+     "name": "scene_media",
+     "doc": ""
+    },
+    {
+     "name": "scene_timers",
+     "doc": ""
+    },
+    {
+     "name": "scene_music",
+     "doc": ""
+    },
+    {
+     "name": "mood_music",
+     "doc": ""
+    },
+    {
+     "name": "mood_glow",
+     "doc": ""
+    },
+    {
+     "name": "ask_lights",
+     "doc": ""
+    },
+    {
+     "name": "ask_air",
+     "doc": ""
+    },
+    {
+     "name": "ask_media",
+     "doc": ""
+    },
+    {
+     "name": "ask_comfort",
+     "doc": ""
+    },
+    {
+     "name": "ask_scenes",
+     "doc": ""
+    },
+    {
+     "name": "ask_timers",
+     "doc": ""
+    },
+    {
+     "name": "ask_agenda",
+     "doc": ""
+    },
+    {
+     "name": "ask_music",
+     "doc": ""
+    },
+    {
+     "name": "ask_habits",
+     "doc": ""
+    },
+    {
+     "name": "ask_glow",
+     "doc": ""
+    },
+    {
+     "name": "ask_persona",
+     "doc": ""
+    },
+    {
+     "name": "normal_mode",
+     "doc": ""
+    },
+    {
+     "name": "night_mode",
+     "doc": ""
+    },
+    {
+     "name": "boost_mode",
+     "doc": ""
+    },
+    {
+     "name": "winter_on",
+     "doc": ""
+    },
+    {
+     "name": "winter_off",
+     "doc": ""
+    },
+    {
+     "name": "cold_out",
+     "doc": ""
+    },
+    {
+     "name": "mild_out",
+     "doc": ""
+    },
+    {
+     "name": "out_unknown",
+     "doc": ""
+    },
+    {
+     "name": "chilled",
+     "doc": ""
+    },
+    {
+     "name": "out_cold_b",
+     "doc": ""
+    },
+    {
+     "name": "outside",
+     "doc": ""
+    },
+    {
+     "name": "cmd_air_on",
+     "doc": ""
+    },
+    {
+     "name": "cmd_air_off",
+     "doc": ""
+    },
+    {
+     "name": "cmd_air_night",
+     "doc": ""
+    },
+    {
+     "name": "cmd_air_boost",
+     "doc": ""
+    },
+    {
+     "name": "cmd_air_normal",
+     "doc": ""
+    },
+    {
+     "name": "cmd_heater_on",
+     "doc": ""
+    },
+    {
+     "name": "cmd_heater_off",
+     "doc": ""
+    },
+    {
+     "name": "cmd_winter_on",
+     "doc": ""
+    },
+    {
+     "name": "cmd_winter_off",
+     "doc": ""
+    },
+    {
+     "name": "sweep_air_off",
+     "doc": ""
+    },
+    {
+     "name": "sweep_air_night",
+     "doc": ""
+    },
+    {
+     "name": "done",
+     "doc": ""
+    },
+    {
+     "name": "refused",
+     "doc": ""
+    },
+    {
+     "name": "switched",
+     "doc": ""
+    },
+    {
+     "name": "kept",
+     "doc": ""
+    },
+    {
+     "name": "missed",
+     "doc": ""
+    },
+    {
+     "name": "advise_winter",
+     "doc": ""
+    },
+    {
+     "name": "noted",
+     "doc": ""
+    }
+   ],
+   "missing": {
+    "clause_doc": [],
+    "atom_doc": [
+     "occupied",
+     "empty",
+     "vacant",
+     "unsensed",
+     "someone_home",
+     "nobody_home",
+     "home_unsensed",
+     "day",
+     "night",
+     "running",
+     "stopped",
+     "heater_on",
+     "heater_off",
+     "unit_ok",
+     "unit_missing",
+     "on_b",
+     "power",
+     "entered",
+     "left_home",
+     "came_home",
+     "dawn",
+     "scene_lights",
+     "scene_air",
+     "scene_media",
+     "scene_timers",
+     "scene_music",
+     "mood_music",
+     "mood_glow",
+     "ask_lights",
+     "ask_air",
+     "ask_media",
+     "ask_comfort",
+     "ask_scenes",
+     "ask_timers",
+     "ask_agenda",
+     "ask_music",
+     "ask_habits",
+     "ask_glow",
+     "ask_persona",
+     "normal_mode",
+     "night_mode",
+     "boost_mode",
+     "winter_on",
+     "winter_off",
+     "cold_out",
+     "mild_out",
+     "out_unknown",
+     "chilled",
+     "out_cold_b",
+     "outside",
+     "cmd_air_on",
+     "cmd_air_off",
+     "cmd_air_night",
+     "cmd_air_boost",
+     "cmd_air_normal",
+     "cmd_heater_on",
+     "cmd_heater_off",
+     "cmd_winter_on",
+     "cmd_winter_off",
+     "sweep_air_off",
+     "sweep_air_night",
+     "done",
+     "refused",
+     "switched",
+     "kept",
+     "missed",
+     "advise_winter",
+     "noted"
+    ]
+   }
+  }
+ ],
+ "ir": null
+}

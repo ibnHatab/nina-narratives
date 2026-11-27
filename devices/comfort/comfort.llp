@@ -11,6 +11,7 @@ provenance text "comfort: a room turning cold, warm or humid, and what would hel
 layers (dyn).
 stages (serve).
 include "../shared/home_world.llp".
+include "../iface/home.llp".   % the person's intent through the director (ask_comfort)
 
 pred cold_room(room) : home.
 pred comfy_room(room) : home.

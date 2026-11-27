@@ -8,4 +8,4 @@ intent: {spec: intent.yaml}
 clock: {beats: 1, period: 1}
 records: records/
 commands: [set, remind_set, ring, remind, cancel, cancel_reminder]
-shared: {scene_timers: in}   # the home composition: a scene's wish (iface/home.llp)
+shared: {scene_timers: in, ask_timers: in}   # the home composition: a scene's wish (iface/home.llp)

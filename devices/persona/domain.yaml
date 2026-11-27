@@ -8,3 +8,4 @@ intent: {spec: intent.yaml}
 clock: {beats: 1, period: 1}
 records: records/
 commands: [steady, steady_again, steady_wished, relax, relax_wished, relax_free, wish, wish_held, wish_again, natural, natural_wished, natural_free, lapse, lapse_wished]
+shared: {ask_persona: in}   # the person's intent through the director (iface/home.llp)

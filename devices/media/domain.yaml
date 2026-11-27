@@ -8,4 +8,4 @@ intent: {spec: intent.yaml}
 clock: {beats: 1, period: 1}
 records: records/
 commands: [tv_up, tv_down, tv_louder, tv_quieter, ir_send, sweep_tv]
-shared: {scene_media: in}   # the home composition: a scene's wishes (iface/home.llp)
+shared: {scene_media: in, ask_media: in}   # the home composition: a scene's wishes (iface/home.llp)

@@ -1,0 +1,89 @@
+{
+  "format": "metis-image/1",
+  "name": "comfort",
+  "composition_key": null,
+  "toolchain": {
+    "metisc": "metisc",
+    "spec": [15, 16, 17]
+  },
+  "one_member": true,
+  "planner": null,
+  "director": null,
+  "members": [
+    {
+      "name": "comfort",
+      "role": "package",
+      "bundle": "members/comfort",
+      "bundle_key": "55bc05d77cf4",
+      "wire_key": "d08902485c110383dc24d95b4016870747b285e88ae5f8f2fffa3de716640b31",
+      "source_key": "50aad71a39327473930739aa2055877b6ceebb8d00d24180dc961b434cbfd7b3",
+      "program": "comfort.llp",
+      "extensions": [],
+      "host": {
+        "py": "nina_world.host:comfort",
+        "origin": "manifest"
+      },
+      "clock": {
+        "beats": "1",
+        "period": "1"
+      },
+      "shared": {
+        "ask_comfort": "in"
+      },
+      "levels": {
+        "chill": {
+          "from": {
+            "belief": "cold"
+          },
+          "at": ["0.5", "0.9"],
+          "names": ["not_cold", "maybe_cold", "cold"]
+        },
+        "heat": {
+          "from": {
+            "belief": "warm"
+          },
+          "at": ["0.5", "0.9"],
+          "names": ["not_warm", "maybe_warm", "warm"]
+        },
+        "damp": {
+          "from": {
+            "belief": "humid"
+          },
+          "at": ["0.5", "0.9"],
+          "names": ["dry", "maybe_humid", "humid"]
+        },
+        "power": {
+          "from": {
+            "belief": "unit_on"
+          },
+          "at": ["0.05", "0.95"],
+          "names": ["off", "unconfirmed", "on"]
+        }
+      },
+      "beliefs": {
+        "cold_b": {
+          "port": "cold"
+        },
+        "warm_b": {
+          "port": "warm"
+        },
+        "humid_b": {
+          "port": "humid"
+        },
+        "on_b": {
+          "port": "unit_on"
+        }
+      },
+      "display": "the comfort advice",
+      "line": "comfort: a room turning cold, warm or humid, and what would help",
+      "voice": "third"
+    }
+  ],
+  "ports": [],
+  "world": {
+    "out": [],
+    "in": []
+  },
+  "response": null,
+  "priority": []
+}

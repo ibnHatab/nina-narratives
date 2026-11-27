@@ -1,0 +1,60 @@
+{
+  "format": "metis-image/1",
+  "name": "lights",
+  "composition_key": null,
+  "toolchain": {
+    "metisc": "metisc",
+    "spec": [15, 16, 17]
+  },
+  "one_member": true,
+  "planner": null,
+  "director": null,
+  "members": [
+    {
+      "name": "lights",
+      "role": "package",
+      "bundle": "members/lights",
+      "bundle_key": "3ea37927549b",
+      "wire_key": "480e7f817879176075875568d2f9bb74ccf02e978cc73ef27e19b1a68e038595",
+      "source_key": "9dfffcca56ef5f59dc04648e1079154c1f9e96dbf5a763eb7148f1005dbd76f0",
+      "program": "lights.llp",
+      "extensions": [],
+      "host": {
+        "py": "nina_world.host:lights",
+        "origin": "manifest"
+      },
+      "clock": {
+        "beats": "1",
+        "period": "1"
+      },
+      "shared": {
+        "scene_lights": "in",
+        "ask_lights": "in"
+      },
+      "levels": {
+        "presence": {
+          "from": {
+            "belief": "present"
+          },
+          "at": ["0.3", "0.7"],
+          "names": ["nobody", "maybe_someone", "someone"]
+        }
+      },
+      "beliefs": {
+        "present_b": {
+          "port": "present"
+        }
+      },
+      "display": "the lights",
+      "line": "the lights: on and off at a word or a scene, off in a room left vacant, a light offered on entering a dark room at night",
+      "voice": "own"
+    }
+  ],
+  "ports": [],
+  "world": {
+    "out": [],
+    "in": []
+  },
+  "response": null,
+  "priority": []
+}

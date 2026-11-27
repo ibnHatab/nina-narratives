@@ -8,4 +8,5 @@ specialists: [lights, air, media, comfort, scenes, timers, agenda, music, habits
 direct: director
 planner: scenes
 response: 2
-world: {out: [], in: []}
+world: {out: [ask_lights, ask_air, ask_media, ask_comfort, ask_scenes, ask_timers, ask_agenda, ask_music, ask_habits, ask_glow, ask_persona], in: []}   # from outside: the person's intents (the runtime's intent route)
+person: [ask_lights, ask_air, ask_media, ask_comfort, ask_scenes, ask_timers, ask_agenda, ask_music, ask_habits, ask_glow, ask_persona]   # those of world.out that are the person's goals to a card: routed by the director

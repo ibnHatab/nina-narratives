@@ -11,4 +11,4 @@ records: records/
 beliefs: {present_b: {port: present}}
 levels: {presence: {from: {belief: present}, at: [0.3, 0.7], names: [nobody, maybe_someone, someone]}}
 commands: [light_on, light_off, sweep_off, vacant_off]
-shared: {scene_lights: in}   # the home composition: a scene's wishes (iface/home.llp)
+shared: {scene_lights: in, ask_lights: in}   # the home composition: a scene's wishes (iface/home.llp)

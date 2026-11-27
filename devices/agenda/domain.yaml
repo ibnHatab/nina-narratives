@@ -8,3 +8,4 @@ intent: {spec: intent.yaml}
 clock: {beats: 1, period: 1}
 records: records/
 commands: [event, todo, remove]
+shared: {ask_agenda: in}   # the person's intent through the director (iface/home.llp)

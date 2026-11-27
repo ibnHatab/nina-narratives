@@ -8,4 +8,4 @@ intent: {spec: intent.yaml}
 clock: {beats: 1, period: 1}
 records: records/
 commands: [glow, reglow, something, something_new, something_else, something_new_one, again, off, up, down, mood_glow_on, mood_glow_change, her_glow, her_yours, her_off]
-shared: {mood_glow: in}   # the home composition: a mood's wish (iface/home.llp)
+shared: {mood_glow: in, ask_glow: in}   # the home composition: a mood's wish (iface/home.llp)

@@ -9,6 +9,7 @@ provenance text "agenda: Nina's events on her own calendar and her to-dos on the
 layers (dyn).
 stages (serve).
 include "../shared/home_world.llp".
+include "../iface/home.llp".   % the person's intent through the director (ask_agenda)
 
 % the calendars and lists Nina knows (their entities are the host's: agenda.yaml in nina.yaml)
 type target {nina_cal nina_local person_cal my_tasks nina_todo shopping}.

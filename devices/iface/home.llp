@@ -15,3 +15,17 @@ pred scene_music(scene) : home_iface.
 % a mood (the atmosphere's), one wish per domain that expresses it
 pred mood_music(mood) : home_iface.
 pred mood_glow(mood) : home_iface.
+% the person's intent to a card (nina-live's redesign, channel A, s-b478fe59): with the runtime's intent route on,
+% a call to a card arrives at the director as one of these; its forward serves the call into the card (the
+% runtime keeps the call itself: one at a time). No rule produces or consumes them.
+pred ask_lights : home_iface.
+pred ask_air : home_iface.
+pred ask_media : home_iface.
+pred ask_comfort : home_iface.
+pred ask_scenes : home_iface.
+pred ask_timers : home_iface.
+pred ask_agenda : home_iface.
+pred ask_music : home_iface.
+pred ask_habits : home_iface.
+pred ask_glow : home_iface.
+pred ask_persona : home_iface.

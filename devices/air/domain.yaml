@@ -11,4 +11,4 @@ records: records/
 beliefs: {on_b: {port: unit_on}, out_cold_b: {port: out_cold}}
 levels: {power: {from: {belief: unit_on}, at: [0.05, 0.95], names: ["off", unconfirmed, "on"]}, outside: {from: {belief: out_cold}, at: [0.5], names: [mild_out, cold_out]}}
 commands: [air_on, air_off, air_night, air_boost, normal_from, heater_up, heater_down, winter_up, winter_down, sweep_air_off, sweep_night]
-shared: {scene_air: in}   # the home composition: a scene's wishes (iface/home.llp)
+shared: {scene_air: in, ask_air: in}   # the home composition: a scene's wishes (iface/home.llp)

@@ -1,0 +1,41 @@
+{
+  "members": {
+    "comfort": {
+      "bundle": "55bc05d77cf4",
+      "source": "50aad71a39327473930739aa2055877b6ceebb8d00d24180dc961b434cbfd7b3",
+      "program": "d08902485c110383dc24d95b4016870747b285e88ae5f8f2fffa3de716640b31",
+      "host": "manifest",
+      "dir": {
+        "place": "dir",
+        "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/comfort"
+      },
+      "served": "/home/axadmin/repo/redesign/nina-live/catalog/domains/comfort/comfort.llp",
+      "includes": [
+        {
+          "name": "../shared/home_world.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/comfort/../shared/home_world.llp",
+          "key": "7008a84e6da26c23e9bf67b654c07587c7d7e3fa272377384c8abf7c6008c7ed"
+        },
+        {
+          "name": "home_map.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/comfort/../shared/home_map.llp",
+          "key": "6c51490f3c2d163b43611ce31f9daa0a8664addde74f11fb48a17f9591c094a8"
+        },
+        {
+          "name": "../iface/home.llp",
+          "place": "dir",
+          "path": "/home/axadmin/repo/redesign/nina-live/catalog/domains/comfort/../iface/home.llp",
+          "key": "e33882fc3350d6b743e1024380f217b063389c960687307db88d4a141be91571"
+        }
+      ]
+    }
+  },
+  "places": {
+    "root": "/home/axadmin/repo/redesign/nina-live/catalog/domains/comfort",
+    "std": "/home/axadmin/repo/redesign/metis-lang-rd/iface",
+    "home": null
+  },
+  "image": "732ca4ce31d989eb45e8f7038873675f4f30a41df54ee5a6753d2f3c89a89254"
+}

@@ -11,6 +11,7 @@ provenance text "habits: again and the usual, in any domain, from the history of
 layers (dyn).
 stages (serve).
 include "../shared/home_world.llp".
+include "../iface/home.llp".   % the person's intent through the director (ask_habits)
 
 type habits_act {habits}.
 
