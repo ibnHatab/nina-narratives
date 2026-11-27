@@ -8,3 +8,4 @@ sitl/semworld-step/semworld-step
 sitl/runs/
 devices/build/
 devices/.metis/
+sitl/ha-sim/ha-sim
