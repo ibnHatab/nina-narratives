@@ -136,3 +136,21 @@ Still to do in W3:
 - devices: the fan files (gen_map.py SWEEPS for lights, air, media; timers, music, glow by hand) on the latch;
   scenes no longer puts out scene_* / mood_*; iface/home.llp, the director's kinds and handles without them;
 - the gates: the narratives' regression, the real-Nina scene scenarios (night, away, the mood) against the baseline.
+
+## W3 done (2026-11-28)
+metis-worlds rd-mode 69a76c6, metis-agent rd-world-clock f93d83c, nina-live rd-step3 ae6af90, narratives rd-step3
+a1c9f3c + e7f0b2e. The night scene sweeps lights, air, media, music through the world's mode; the timers' reminders
+ring on the change into their mode; core suites green (plain, route, world clock 300 ms); regress: 37 world-hash-only
+changes, acts and findings the same, baseline re-recorded.
+
+## W5 (the user, 2026-11-28): the timers in the semantic world, a schedule for anything time-sensitive
+- A **schedule** in the world: entries one-shot or periodic (a cron-like spec), written as a conclusion (like the
+  mode), rebuilt from her log after a restart; due on the world's own clock (W1), at its settle, as a port every
+  package may read (once per change, like the mode): an alarm never waits for an LLM.
+- **timers** becomes the schedule's card (set, remind, alarm, list, cancel, repeat), its rules deciding what is set.
+- **Routines** are rules: a trigger (a due entry, or a world condition) and actions as goals to the cards through
+  the director (ask_music PLAY, ask_lights ON): "wake me at 8, music, light on". Each action is judged by its
+  package's rules (refused with a reason, a surprise when a device does not obey).
+- **Her own wake-ups**: a due entry she owns wakes the member that set it (a promise of the cognition's).
+- nina-live core.routines() (on its beat today) folds into it.
+After W4 (the cognition's members need the one planner first).
