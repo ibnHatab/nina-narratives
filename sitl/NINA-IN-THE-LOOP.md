@@ -26,6 +26,16 @@ way she turns a person's words into tool calls (System 1). Surprises found today
 4. **Models**: her task runner on DeepSeek Flash through OpenRouter (`tasks.fallback` / chain; the key in
    `~/.config/nina/openrouter.env`, text models only). No Gemini Live in the SITL: headless.
 
+## The stack and the minds (2026-11-27, the user)
+
+- **An install of her own**: `sitl/stack.sh` clones nina-live, fsttm-live, acasa and the metis packages under
+  `.stack/` (gitignored), one `go.work` (the stack's fsttm-live and acasa, not the released pins: a change is
+  tested before it is released), built as a Pi builds her (`persona-build.sh`). `nina_proc.py` points every
+  `~/repo/…` path of the acasa templates into the stack: no machine's binary, catalog, config or log is used.
+- **No Gemini**: the dialogue's mind is fsttm-live's `live.TextMind` (`models.mind: openrouter:deepseek/
+  deepseek-v4.1-flash`, `models.mind_key`): her text turns and the same tools as the Live voice, no audio; her
+  task runner on the same model. The transcriber runs on audio only, and there is none.
+
 ## Phases
 
 ### Phase 1: nina-live's own catalog, headless, against a fake Home Assistant

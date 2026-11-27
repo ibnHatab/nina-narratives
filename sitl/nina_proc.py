@@ -23,9 +23,22 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 HOME = Path.home()
-NINA = HOME / 'repo/nina-live/bin/nina'
-ACASA = HOME / 'repo/acasa/live'
+STACK = Path(os.environ.get('STACK', ROOT / '.stack'))  # Nina's own install (sitl/stack.sh), not a machine's
+NINA = STACK / 'nina-live/bin/nina'
+ACASA = STACK / 'acasa/live'
 HA_SIM = ROOT / 'sitl/ha-sim/ha-sim'
+MIND = 'openrouter:deepseek/deepseek-v4.1-flash'  # her minds on OpenRouter: no Gemini call in the SITL (the user)
+
+
+def into_stack(v):
+    """Every ~/repo/… path of the templates, into the stack."""
+    if isinstance(v, dict):
+        return {k: into_stack(x) for k, x in v.items()}
+    if isinstance(v, list):
+        return [into_stack(x) for x in v]
+    if isinstance(v, str) and v.startswith('~/repo/'):
+        return str(STACK / v[len('~/repo/'):])
+    return v
 
 
 def free_port():
@@ -84,7 +97,7 @@ class Nina:
         (self.dir / 'token').write_text(token)
         os.chmod(self.dir / 'token', 0o600)
         self.port = free_port()
-        core = yaml.safe_load((ACASA / 'nina.yaml').read_text())
+        core = into_stack(yaml.safe_load((ACASA / 'nina.yaml').read_text()))
         core['log'] = str(self.dir / 'nina.db')
         if catalog:
             core['home']['root'] = str(catalog)
@@ -97,7 +110,9 @@ class Nina:
         core['radar'] = False
         core['mcp'] = []
         (self.dir / 'nina.yaml').write_text(yaml.safe_dump(core, sort_keys=False))
-        dia = yaml.safe_load((ACASA / 'pascal.yaml').read_text())
+        dia = into_stack(yaml.safe_load((ACASA / 'pascal.yaml').read_text()))
+        dia['models']['mind'] = MIND
+        dia['models']['mind_key'] = str(HOME / '.config/nina/openrouter.env')
         dia['audio'].update({'device': 'none', 'channels': 1, 'speech': 0, 'ref': -1, 'out': 'null'})
         dia['dialog']['wake'] = {'mode': 'cloud'}
         dia['dialog']['start_asleep'] = False
