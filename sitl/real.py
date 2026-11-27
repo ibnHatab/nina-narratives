@@ -78,8 +78,11 @@ class Pump(threading.Thread):
 
 def catalog_for(ws_map, run):
     cat = run / 'catalog'
-    shutil.copytree(NP.STACK / 'nina-live/catalog', cat, symlinks=True, ignore=shutil.ignore_patterns('.metis'))
+    # domains is a link into nina-narratives since the redesign's step 2: copied through it
+    shutil.copytree(NP.STACK / 'nina-live/catalog', cat, symlinks=False, ignore=shutil.ignore_patterns('.metis'))
     shutil.copy(ws_map, cat / 'world/home.map.json')
+    if not (cat / 'domains/composition.yaml').exists():   # a dangling domains link (no nina-narratives beside it)
+        raise RuntimeError('the catalog has no domains: is nina-narratives cloned in the stack? (%s)' % NP.STACK)
     return cat
 
 
@@ -108,15 +111,8 @@ def run_one(sc_path, tag, sets=None):
     ha.ctl({'states': house.initial()})
     ha.ctl({'responses': house.responses()})
     extra = {'agenda': AGENDA}
-    for k, v in (sets or {}).items():   # --set home.route=director: the core config's switches
-        d = extra
-        ks = k.split('.')
-        if ks[0] in NP.CORE_SECTIONS and ks[0] not in extra:
-            extra[ks[0]] = dict(NP.core_template().get(ks[0]) or {})
-        for x in ks[:-1]:
-            d = d.setdefault(x, {})
-        d[ks[-1]] = v
-    nina = NP.Nina(ha.url, TOKEN, run, catalog=catalog_for(m_path, run), core_extra=extra)
+    sets = {k: yaml.safe_load(v) for k, v in (sets or {}).items()}   # true, 2, director: as YAML reads them
+    nina = NP.Nina(ha.url, TOKEN, run, catalog=catalog_for(m_path, run), core_extra=extra, core_sets=sets)
     pump = Pump(ha, house)
     pump.start()
     turns = []

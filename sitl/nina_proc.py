@@ -31,13 +31,6 @@ HA_SIM = ROOT / 'sitl/ha-sim/ha-sim'
 MIND = 'openrouter:deepseek/deepseek-v4.1-flash'  # her minds on OpenRouter: no Gemini call in the SITL (the user)
 
 
-CORE_SECTIONS = ('home', 'tasks', 'search', 'music')   # the core config's sections a --set may reach into
-
-
-def core_template():
-    return into_stack(yaml.safe_load((ACASA / 'nina.yaml').read_text()))
-
-
 def into_stack(v):
     """Every ~/repo/… path of the templates, into the stack."""
     if isinstance(v, dict):
@@ -100,7 +93,8 @@ class HA:
 class Nina:
     """cmd/nina, headless, its configs generated from the acasa templates."""
 
-    def __init__(self, ha_url, token, workdir, catalog=None, model='deepseek/deepseek-v4.1-flash', core_extra=None, dia_extra=None):
+    def __init__(self, ha_url, token, workdir, catalog=None, model='deepseek/deepseek-v4.1-flash', core_extra=None, dia_extra=None,
+                 core_sets=None):
         self.dir = Path(workdir)
         (self.dir / 'token').write_text(token)
         os.chmod(self.dir / 'token', 0o600)
@@ -118,6 +112,12 @@ class Nina:
         core['radar'] = False
         core['mcp'] = []
         core.update(core_extra or {})
+        for k, v in (core_sets or {}).items():   # a switch: home.route=director sets that one key, after the rest
+            d = core
+            ks = k.split('.')
+            for x in ks[:-1]:
+                d = d.setdefault(x, {})
+            d[ks[-1]] = v
         (self.dir / 'nina.yaml').write_text(yaml.safe_dump(core, sort_keys=False))
         dia = into_stack(yaml.safe_load((ACASA / 'pascal.yaml').read_text()))
         dia['models']['mind'] = MIND
