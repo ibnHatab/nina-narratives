@@ -1,0 +1,71 @@
+# The catalog's certification, level 1 (the user, 2026-11-28): no LLM and no Nina in the loop, so it runs on
+# every push for nothing. sitl/certify.sh: the deployed images against their goldens, the composition and
+# the semantic world on every scenario against the baseline (sitl/regress.py), the SITL's tests; its
+# certificate is the run's artifact. Real Nina in the loop (sitl/real.py, the models) is the acceptance at a
+# release tag, on Pascal, not here.
+name: catalog
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: catalog-${{ github.ref }}
+  cancel-in-progress: true
+
+# The tools the catalog is certified with: a bump is a change to review (its goldens and baseline with it).
+env:
+  METIS_LANG: e6b115099fc25d498d597e88fa3a482aa9136a48
+  METISPY: 51609ca694cf0a30e02241b2daa7bdf9ce9f8c29
+  METIS_CATALOG: 7eb6e7d9382b43f38a2867f62577adb1d44bc936
+  METIS_LOOP: 7013647c3ef47c65dfd03b9d6942c0bae3d2ce58
+  METIS_WORLDS: fba410a1759dfd0f3666436b5240ea574e334df2
+  METIS_AGENT: a8825713c227de5f1a04d6f8a826bb07b127734e
+
+jobs:
+  certify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {path: nina-narratives}
+      - uses: actions/checkout@v4
+        with: {repository: metis-lang-dev/metis-lang, ref: '${{ env.METIS_LANG }}', path: perotheia-packages/metis-lang}
+      - uses: actions/checkout@v4
+        with: {repository: metis-lang-dev/metispy, ref: '${{ env.METISPY }}', path: perotheia-packages/metispy}
+      - uses: actions/checkout@v4
+        with: {repository: metis-lang-dev/metis-catalog, ref: '${{ env.METIS_CATALOG }}', path: perotheia-packages/metis-catalog}
+      - uses: actions/checkout@v4
+        with: {repository: metis-lang-dev/metis-loop, ref: '${{ env.METIS_LOOP }}', path: perotheia-packages/metis-loop}
+      - uses: actions/checkout@v4
+        with: {repository: metis-lang-dev/metis-worlds, ref: '${{ env.METIS_WORLDS }}', path: perotheia-packages/metis-worlds}
+      - uses: actions/checkout@v4
+        with: {repository: metis-lang-dev/metis-agent, ref: '${{ env.METIS_AGENT }}', path: perotheia-packages/metis-agent}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - uses: actions/setup-go@v5
+        with: {go-version-file: nina-narratives/sitl/semworld-step/go.mod, cache: false}
+      - name: metisc (OCaml, stdlib only)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ocaml-nox
+          make -s -C perotheia-packages/metis-lang/src metisc
+      - name: metis-agent's Python (the loop's: no model libraries)
+        run: |
+          python -m venv venv
+          venv/bin/pip install -q PyYAML==6.0.3 pytest==9.1.1 numpy==2.5.4 aiohttp==3.14.5
+          for p in metispy metis-catalog metis-loop/sdk metis-worlds/libs/semantic-world metis-agent/py; do
+            venv/bin/pip install -q --no-deps -e "perotheia-packages/$p"
+          done
+      - name: certify (sitl/certify.sh)
+        env:
+          METISC: ${{ github.workspace }}/perotheia-packages/metis-lang/src/metisc
+          METIS_PY: ${{ github.workspace }}/venv/bin/python
+        run: bash nina-narratives/sitl/certify.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: catalog-certificate, path: nina-narratives/sitl/runs/certificate.json, if-no-files-found: ignore}
