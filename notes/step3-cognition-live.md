@@ -154,3 +154,30 @@ changes, acts and findings the same, baseline re-recorded.
 - **Her own wake-ups**: a due entry she owns wakes the member that set it (a promise of the cognition's).
 - nina-live core.routines() (on its beat today) folds into it.
 After W4 (the cognition's members need the one planner first).
+
+## W4 (2026-11-28): the one catalog in real Nina
+
+- **narratives `workspaces/live/domains`** (rd-w4 5502d06): the device packages and the cognition members linked
+  in, one director, the planner `attention`. Its own: the capacity (the cognition's types, tasks as slots
+  `k1..k8`: `t1` is a TV handle), the map (`shared/home_map.llp`, nina-live's gen_map.py writes the domain type
+  of all 19 members from the composition), the director (ask_<pkg> to the cards, reminder_offer and topic_offer
+  to attention, uttered to commitments, the status ages). metisc resolves includes lexically: a linked package's
+  `../` siblings are the live workspace's. image `live v-f180fbe694a3`.
+- **nina-live `cognition`** (rd-w4): the world host of `nina_world.host` in Go. The contracts beside the catalog
+  (`interfaces/world/*.yaml`) give the edges, each member's `world.out` what it takes; one-beat edges retracted
+  the beat after, consumed ones kept for a rule. The report verbs are the voice's `keep_in_mind` (KEEP, AGAIN,
+  LATER, DONE + the person's words; the ledger slot → words in the log). The floor is a conversation's start
+  (her wake from sleep), so what she keeps is said when they next talk. `say` (attention's speak) is an
+  important NOTE: she says it on a free floor after her reply. The commitments' `close` releases the slot and
+  sweeps its atoms from every member (a closed ledger entry, an unused completion report) before it is kept
+  again. The cognition's rule lines stay in the log (their citations are bookkeeping, not her context).
+- **metis-agent** (rd-w4 bbe70bf): metishome's hosted forwards `Pending`, so a member that beats on change
+  (commitments and attention share kinds) beats when its host holds an edge.
+- **the SITL** (sitl-nina 1b95c00): `real.py --live` (the live workspace copied and built in the run), a `do:`
+  turn (sleep), per-turn checks on the cognition's own say (`kept_said`, `kept_said_none`), on all her replies in
+  the turn (`spoke_any`), and false reports (`tools_none: [keep_in_mind]`); `sitl/real/live/*`.
+
+Measured on the way: the voice logs `wake` for every typed line (the floor must open only from sleep); the
+model took "not now, remind me again next time" as LATER (in the books: kept, not brought up again) until the
+verbs were worded by what the person says. The rest of the cognition's edges (visitors, research, channels) have
+no live source yet: dormant, their members load and tick.
