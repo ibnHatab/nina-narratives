@@ -155,6 +155,35 @@ changes, acts and findings the same, baseline re-recorded.
 - nina-live core.routines() (on its beat today) folds into it.
 After W4 (the cognition's members need the one planner first).
 
+### W5 built (2026-11-28)
+
+- **The schedule is the world's** (metis-worlds rd-w5 f1091e4, `semworld/schedule.go`):
+  - A member sets an entry for one of its handles (owner and slot): one-shot at a time, or periodic, by a cron
+    spec in local time or by a period.
+  - The world fires it at its settle and hands each firing to its owner once (`Out.Due`).
+  - It is part of the fold, the hash and the snapshot, and `RestoreTaste` keeps it on a changed map.
+  - A due time is an edge, not a level port: a periodic entry that fired and moved on before its reader beat would
+    be lost as a level.
+- **timers** (narratives rd-w5 3b92f60, nina-live rd-w5):
+  - Its times are the world's entries; the host asserts `due(T)` for each firing.
+  - New: ones that come back (REPEAT: a clock time on some days, or every n minutes).
+  - A restart sets again what the world does not hold, so a countdown that ended while she was down rings at once.
+- **Her routines:** the character's routines are daily entries (owner `routine`). `core.routines()`, a
+  minute-equality check on the beat, is gone; a firing asks the scenes, through the director with the intent route.
+- **A ring is said:** each ring is an urgent NOTE, said on the next free floor, awake or asleep, never over the
+  person.
+- **The SITL** (sitl-w5): a `log` goal and `sitl/real/w5`: rings once and is said, rings while she is asleep, comes
+  back every minute until cancelled, weekdays at seven, one alarm not repeated. Smoke: 5 of 5.
+
+Found on the way: on main a ring was the rules' info line, filtered while she was awake. She said "I'll say when",
+then nothing.
+
+Not done:
+- Routines the person makes ("wake me at 8, music, light on") as rules: today the timers ring, and a routine's
+  actions are the character's mood only.
+- A cognition member's own wake-ups: the API is there (`world.Schedule(owner)`; the core's `due` routes by
+  owner), but no cognition edge uses it yet; the natural one is `arrived` at a time.
+
 ## W4 (2026-11-28): the one catalog in real Nina
 
 - **narratives `workspaces/live/domains`** (rd-w4 5502d06): the device packages and the cognition members linked
