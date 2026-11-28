@@ -30,10 +30,11 @@ IMAGES="devices workspaces/live/domains"
 for d in $IMAGES; do
   want=$(cat "$ROOT/$d/image.golden")
   rm -rf "$ROOT/$d/build"
-  got=$(cd "$ROOT/$d" && METIS_HOME="$ROOT" "$METISC" build . 2>&1 | sed -n 's/^image [a-z0-9_-]* v-\([0-9a-f]*\).*/\1/p' | head -1)
+  out=$(cd "$ROOT/$d" && METIS_HOME="$ROOT" "$METISC" build . 2>&1) || true
+  got=$(sed -n 's/^image [a-z0-9_-]* v-\([0-9a-f]*\).*/\1/p' <<<"$out" | head -1)
   rm -rf "$ROOT/$d/build"
   ok=true
-  [ "$got" = "$want" ] || { ok=false; fail=1; }
+  [ "$got" = "$want" ] || { ok=false; fail=1; grep -iE "error" <<<"$out" | head -5; }
   echo "image  $d  golden $want  built ${got:-none}  $([ $ok = true ] && echo ok || echo FAIL)"
   printf '{"dir":"%s","golden":"%s","built":"%s","ok":%s}\n' "$d" "$want" "$got" "$ok" >> "$W/images"
 done
