@@ -50,15 +50,30 @@ CAT=$(mktemp)
 OUT=$CAT METISC="$STACK/perotheia-packages/metis-lang/src/metisc" METIS_PY="$P" bash "$STACK/nina-narratives/sitl/certify.sh" > "$CAT.log" 2>&1 || {
   tail -5 "$CAT.log"; echo "release: the catalog is not certified" >&2; exit 1; }
 
+# unreached: a run whose mind could not be reached (the network, the provider, the credit: "no such host",
+# "requires more credits") tested the infrastructure, not her (Pascal's DNS, 2026-11-28 18:2x)
+unreached() { find "sitl/runs/real/$1" -name nina.db -exec sqlite3 {} "select data from events where kind='mind_error'" \; 2>/dev/null |
+  grep -ciE 'no such host|connection refused|network is unreachable|i/o timeout|tls handshake|requires more credits|502 bad gateway' || true; }
+# suite TAG ARGS…: one suite of a round, run again once (its runs set aside) when its mind was not reached
+suite() { local tag=$1; shift
+  "$P" sitl/real.py run --tag "$tag" "$@" > /dev/null 2>&1
+  local n; n=$(unreached "$tag")
+  if [ "${n:-0}" -gt 0 ]; then
+    echo "  $tag: her mind unreached $n times (the network or the provider): run again" | tee -a "$STACK.reruns"
+    mv "sitl/runs/real/$tag" "sitl/runs/real/$tag.unreached-$(date +%H%M%S)"
+    "$P" sitl/real.py run --tag "$tag" "$@" > /dev/null 2>&1
+  fi; }
+: > "$STACK.reruns"
+
 echo "== 3. the acceptance (level 3): $ROUNDS rounds"
 dirs=()
 need=1.0   # a round's cost, learnt from the last one (x1.25): no round starts that the money would cut short
 for i in $(seq 1 "$ROUNDS"); do
   l=$(left)
   python3 -c "import sys; sys.exit(0 if float('$l') >= float('$need') else 1)" || { echo "release: stopped before round $i, \$$l left, a round needs \$$need" >&2; exit 2; }
-  "$P" sitl/real.py run -j 4 --tag "rel-$TAG-$i" sitl/real/home/*.yaml > /dev/null 2>&1
-  "$P" sitl/real.py run -j 3 --tag "rel-$TAG-times-$i" sitl/real/w5/*.yaml > /dev/null 2>&1
-  "$P" sitl/real.py run -j 3 --tag "rel-$TAG-live-$i" --live --set home.world_beat=300ms sitl/real/live/*.yaml > /dev/null 2>&1
+  suite "rel-$TAG-$i" -j 4 sitl/real/home/*.yaml
+  suite "rel-$TAG-times-$i" -j 3 sitl/real/w5/*.yaml
+  suite "rel-$TAG-live-$i" -j 3 --live --set home.world_beat=300ms sitl/real/live/*.yaml
   dirs+=("sitl/runs/real/rel-$TAG-$i")
   e=$(left); c=$(python3 -c "print(round(float('$l') - float('$e'), 2))")
   need=$(python3 -c "print(round(max(1.0, 1.25 * $c), 2))")
@@ -120,7 +135,8 @@ catalog = json.load(open(cat))
 cert = {'tag': tag, 'certified': catalog['certified'] and verdict == 'pass', 'mind': mind, 'refs': refs, 'catalog': catalog,
         'acceptance': {'rounds': rounds, 'band': band, 'against': Path(prev).stem if prev else None,
                        'gate': rows, 'verdict': verdict, 'scenarios': {k: {'checks': '%d/%d' % (v[0], v[1]), 'runs_all_pass': '%d/%d' % (v[2], rounds)} for k, v in sorted(per.items())}},
-        'spent_usd': round(float(before) - float(after), 2)}
+        'spent_usd': round(float(before) - float(after), 2),
+        'reruns': [l.strip() for l in open(stack + '.reruns')] if Path(stack + '.reruns').exists() else []}
 json.dump(cert, open(out, 'w'), indent=1)
 print('\n'.join(rows) or '(the first release: its band is the next one\'s)')
 for k, v in sorted(per.items()):
