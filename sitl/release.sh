@@ -46,14 +46,17 @@ OUT=$CAT METISC="$STACK/perotheia-packages/metis-lang/src/metisc" METIS_PY="$P" 
 
 echo "== 3. the acceptance (level 3): $ROUNDS rounds"
 dirs=()
+need=1.0   # a round's cost, learnt from the last one (x1.25): no round starts that the money would cut short
 for i in $(seq 1 "$ROUNDS"); do
   l=$(left)
-  python3 -c "import sys; sys.exit(0 if float('$l') >= 1.0 else 1)" || { echo "release: stopped before round $i, \$$l left" >&2; exit 2; }
+  python3 -c "import sys; sys.exit(0 if float('$l') >= float('$need') else 1)" || { echo "release: stopped before round $i, \$$l left, a round needs \$$need" >&2; exit 2; }
   "$P" sitl/real.py run -j 4 --tag "rel-$TAG-$i" sitl/real/home/*.yaml > /dev/null 2>&1
   "$P" sitl/real.py run -j 3 --tag "rel-$TAG-times-$i" sitl/real/w5/*.yaml > /dev/null 2>&1
   "$P" sitl/real.py run -j 3 --tag "rel-$TAG-live-$i" --live --set home.world_beat=300ms sitl/real/live/*.yaml > /dev/null 2>&1
   dirs+=("sitl/runs/real/rel-$TAG-$i")
-  echo "round $i done $(date +%H:%M), \$$(left) left"
+  e=$(left); c=$(python3 -c "print(round(float('$l') - float('$e'), 2))")
+  need=$(python3 -c "print(round(max(1.0, 1.25 * $c), 2))")
+  echo "round $i done $(date +%H:%M), \$$e left (it cost \$$c)"
 done
 after=$(left)
 
