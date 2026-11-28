@@ -1,0 +1,7 @@
+# director — Nina's one director (the redesign's W4): the person's goals to the cards, the cognition's offers to its
+# planner attention, the utterance receipts to the commitments
+display: the director
+line: "the director: the person's goals to the cards, the cognition's offers to attention"
+voice: line
+program: director.llp
+clock: {beats: 1}

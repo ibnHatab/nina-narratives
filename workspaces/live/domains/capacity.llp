@@ -1,0 +1,16 @@
+catalog live_capacity 1.
+% the live workspace's capacity (the redesign's W4, notes/step3-cognition-live.md): the devices and the cognition
+% under one director, the planner attention. The cognition's types as its home workspace names them, but its tasks
+% are slots (k1..k8): a slot's words are the host's ledger, as the agenda keeps an event's summary outside the rules.
+type task {k1 k2 k3 k4 k5 k6 k7 k8}.
+include "shared/home_map.llp".   % the home's map and the members (the domain type): generated, nina-live world/gen_map.py
+type plan {original simple}.
+type channel {hall direct group}.
+type encounter {home_visit}.
+type message {home_question}.
+type participant {resident visitor}.
+type slot {first_slot revised_slot}.
+type reference {public_link}.
+type source_record {local_report original_report}.
+type asset {personal_photo}.
+type contribution {contributor}.
