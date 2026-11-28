@@ -1,6 +1,6 @@
 # Timers and reminders: countdowns and alarms at a word, ones that come back, and reminders for when the home changes its mode. The host is nina-live's (timers/).
 display: the timers
-line: "timers: countdowns and alarms at a word (an alarm at a clock time), ones that come back (every day, on weekdays, every so many minutes), and reminders for when the home goes away, to night or back home"
+line: "timers: countdowns and alarms, ones that come back, and reminders for when the home goes away, to night or back home"
 voice: line
 program: timers.llp
 host: nina_world.host:timers   # the runtime's world host (interfaces/README.md): SITL sitl/nina_world, nina-live its own
