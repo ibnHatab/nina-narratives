@@ -131,6 +131,11 @@ refs = {}
 for d in sorted(Path(stack).glob('*/.git')) + sorted(Path(stack).glob('perotheia-packages/*/.git')):
     repo = d.parent
     refs[str(repo.relative_to(stack))] = subprocess.run(['git', '-C', str(repo), 'rev-parse', 'HEAD'], capture_output=True, text=True).stdout.strip()
+# what Nina is built from in Go: nina-live's module pins (metis-agent is the pin, not the stack's checkout)
+for l in open(Path(stack) / 'nina-live' / 'go.mod'):
+    f = l.split()
+    if len(f) >= 2 and f[0].startswith('github.com/metis-lang-dev/'):
+        refs['go.mod ' + f[0].split('/', 2)[2]] = f[1]
 catalog = json.load(open(cat))
 cert = {'tag': tag, 'certified': catalog['certified'] and verdict == 'pass', 'mind': mind, 'refs': refs, 'catalog': catalog,
         'acceptance': {'rounds': rounds, 'band': band, 'against': Path(prev).stem if prev else None,
