@@ -19,13 +19,14 @@ concurrency:
   cancel-in-progress: true
 
 # The tools the catalog is certified with: a bump is a change to review (its goldens and baseline with it).
+# PIN_ names: metisc and metis-agent read METIS_* themselves (METIS_CATALOG is the catalog root).
 env:
-  METIS_LANG: e6b115099fc25d498d597e88fa3a482aa9136a48
-  METISPY: 51609ca694cf0a30e02241b2daa7bdf9ce9f8c29
-  METIS_CATALOG: 7eb6e7d9382b43f38a2867f62577adb1d44bc936
-  METIS_LOOP: 7013647c3ef47c65dfd03b9d6942c0bae3d2ce58
-  METIS_WORLDS: fba410a1759dfd0f3666436b5240ea574e334df2
-  METIS_AGENT: a8825713c227de5f1a04d6f8a826bb07b127734e
+  PIN_METIS_LANG: e6b115099fc25d498d597e88fa3a482aa9136a48
+  PIN_METISPY: 51609ca694cf0a30e02241b2daa7bdf9ce9f8c29
+  PIN_METIS_CATALOG: 7eb6e7d9382b43f38a2867f62577adb1d44bc936
+  PIN_METIS_LOOP: 7013647c3ef47c65dfd03b9d6942c0bae3d2ce58
+  PIN_METIS_WORLDS: fba410a1759dfd0f3666436b5240ea574e334df2
+  PIN_METIS_AGENT: a8825713c227de5f1a04d6f8a826bb07b127734e
 
 jobs:
   certify:
@@ -35,17 +36,17 @@ jobs:
       - uses: actions/checkout@v4
         with: {path: nina-narratives}
       - uses: actions/checkout@v4
-        with: {repository: metis-lang-dev/metis-lang, ref: '${{ env.METIS_LANG }}', path: perotheia-packages/metis-lang}
+        with: {repository: metis-lang-dev/metis-lang, ref: '${{ env.PIN_METIS_LANG }}', path: perotheia-packages/metis-lang}
       - uses: actions/checkout@v4
-        with: {repository: metis-lang-dev/metispy, ref: '${{ env.METISPY }}', path: perotheia-packages/metispy}
+        with: {repository: metis-lang-dev/metispy, ref: '${{ env.PIN_METISPY }}', path: perotheia-packages/metispy}
       - uses: actions/checkout@v4
-        with: {repository: metis-lang-dev/metis-catalog, ref: '${{ env.METIS_CATALOG }}', path: perotheia-packages/metis-catalog}
+        with: {repository: metis-lang-dev/metis-catalog, ref: '${{ env.PIN_METIS_CATALOG }}', path: perotheia-packages/metis-catalog}
       - uses: actions/checkout@v4
-        with: {repository: metis-lang-dev/metis-loop, ref: '${{ env.METIS_LOOP }}', path: perotheia-packages/metis-loop}
+        with: {repository: metis-lang-dev/metis-loop, ref: '${{ env.PIN_METIS_LOOP }}', path: perotheia-packages/metis-loop}
       - uses: actions/checkout@v4
-        with: {repository: metis-lang-dev/metis-worlds, ref: '${{ env.METIS_WORLDS }}', path: perotheia-packages/metis-worlds}
+        with: {repository: metis-lang-dev/metis-worlds, ref: '${{ env.PIN_METIS_WORLDS }}', path: perotheia-packages/metis-worlds}
       - uses: actions/checkout@v4
-        with: {repository: metis-lang-dev/metis-agent, ref: '${{ env.METIS_AGENT }}', path: perotheia-packages/metis-agent}
+        with: {repository: metis-lang-dev/metis-agent, ref: '${{ env.PIN_METIS_AGENT }}', path: perotheia-packages/metis-agent}
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - uses: actions/setup-go@v5
