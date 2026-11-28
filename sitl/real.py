@@ -13,7 +13,8 @@ what the loop saw on the way.
 
 Turns: {say: words, want: {route, calls, no_calls, said_any, said_none}}, {wait: s}, {wait_task: s},
 {set: {entity_id, state, attributes}}. Goal (after the last turn and settle_s): {states, lists, events, said_any,
-said_none, calls, no_calls, task}.
+said_none, calls, no_calls, task, log}. log: {stream: {kind: N}} her own log holds at least N events of the kind (0:
+none), or {kind: {field: value}} one with those fields (the timers' every with its cron spec).
 """
 import argparse
 import concurrent.futures as cf
@@ -273,7 +274,8 @@ def score(run):
             ok += not re.search(x.lower(), said_kept)
         turn_checks += ok
         turn_n += n
-    ok, n = _checks(rec['goal'], rec['calls'], [x for t in rec['turns'] for x in t['she_said']], rec, tasks=tasks)
+    ok, n = _checks(rec['goal'], rec['calls'], [x for t in rec['turns'] for x in t['she_said']], rec, tasks=tasks,
+                    log=[(st, kd, d) for _, _, st, kd, d in rows])
     out.update({
         'goal_met': int(ok == n), 'checks_ok': ok + turn_checks, 'checks_n': n + turn_n,
         'route_ok': route_ok, 'route_n': route_n,
@@ -292,7 +294,7 @@ def score(run):
     return out
 
 
-def _checks(g, calls, said, rec, tasks=None):
+def _checks(g, calls, said, rec, tasks=None, log=None):
     ok = n = 0
     low = _low(said)
 
@@ -326,6 +328,15 @@ def _checks(g, calls, said, rec, tasks=None):
             check(any(x.lower() in s for s in sums))
         if want.get('none'):
             check(not sums or all(any(o.lower() in s for o in want.get('keep', [])) for s in sums))
+    for st, kinds in (g.get('log') or {}).items():
+        for kd, want in kinds.items():
+            evs = [d for s_, k_, d in (log or []) if s_ == st and k_ == kd]
+            if isinstance(want, dict):
+                check(any(all(str(d.get(f)) == str(v) for f, v in want.items()) for d in evs))
+            elif int(want) == 0:
+                check(not evs)
+            else:
+                check(len(evs) >= int(want))
     if 'task' in g and tasks is not None:
         if g['task'].get('created'):
             check(any(kd == 'created' for _, kd, _ in tasks))

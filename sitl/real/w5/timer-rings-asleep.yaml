@@ -1,0 +1,16 @@
+scenario: timer-rings-asleep
+about: A countdown set before she sleeps rings while she is asleep, and she says it (W5; an urgent note takes a free floor asleep too).
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Set a timer for thirty seconds for the tea.
+  want:
+    route: timers
+- do: sleep
+- wait: 45
+goal:
+  no_calls:
+  - light.
+  - media_player.turn
+  log:
+    timers: {set: 1, rang: 1}
+    dialog: {note_queued: {level: urgent}, reply_done: 2}

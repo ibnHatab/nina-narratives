@@ -1,0 +1,15 @@
+scenario: timer-rings-logged
+about: "A short countdown rings within the scenario, on the world's clock (W5), once; she says it (an urgent note: a ring is said whatever she is doing)."
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Set a timer for twenty seconds.
+  want:
+    route: timers
+- wait: 40
+goal:
+  no_calls:
+  - light.
+  - media_player.turn
+  log:
+    timers: {set: 1, rang: 1, every: 0}
+    dialog: {note_queued: {level: urgent}, reply_done: 2}

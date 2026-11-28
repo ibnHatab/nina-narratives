@@ -1,0 +1,13 @@
+scenario: repeat-weekdays
+about: An alarm on weekdays is one that comes back, at its clock time on Monday to Friday (W5).
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Wake me up every weekday at seven.
+  want:
+    route: timers
+goal:
+  no_calls:
+  - todo.add_item
+  - calendar.create_event
+  log:
+    timers: {every: {cron: "0 7 * * 1-5"}, set: 0}

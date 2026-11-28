@@ -1,0 +1,13 @@
+scenario: alarm-once
+about: One alarm tomorrow morning is an alarm, not one that comes back (W5).
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Set an alarm for seven thirty tomorrow morning.
+  want:
+    route: timers
+goal:
+  no_calls:
+  - todo.add_item
+  - calendar.create_event
+  log:
+    timers: {set: 1, every: 0}

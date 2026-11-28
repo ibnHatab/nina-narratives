@@ -1,0 +1,18 @@
+scenario: repeat-every-minute
+about: A reminder that comes back every minute rings again and again, then is cancelled (W5).
+world_map: ../../../workspaces/home/world/home.map.json
+turns:
+- say: Remind me to stretch every minute.
+  want:
+    route: timers
+- wait: 140
+- say: Cancel my timers.
+  want:
+    route: timers
+goal:
+  no_calls:
+  - light.
+  - todo.add_item
+  log:
+    timers: {every: 1, rang_every: 2, cancelled: 1, set: 0}
+    dialog: {note_queued: {level: urgent}, reply_done: 4}
