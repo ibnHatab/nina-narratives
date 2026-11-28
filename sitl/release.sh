@@ -4,6 +4,8 @@
 # nothing by CI (the catalog: sitl/certify.sh; the runtime: nina-live's Go tests).
 #
 #   sitl/release.sh TAG [ROUNDS]    e.g. sitl/release.sh v0.3.0 3
+#   SITL_MIND=google:gemini-3.8-flash,gemini-3.7-flash,gemini-3.5-flash,gemini-3.1-flash-lite sitl/release.sh TAG   (her minds on Gemini)
+#   sitl/release-overnight.sh TAG [ROUNDS]   the same, scheduled for the night (01:30), on Gemini
 #
 #   1. her stack built at the release's refs (STACK=.stack-release; REF_NINA_LIVE=… as sitl/stack.sh takes);
 #   2. what can be spent, checked first: the OpenRouter key's limit AND the account's credit (BUDGET, $);
@@ -31,6 +33,10 @@ mkdir -p "$CERTS"
 left() { ( set -a; . ~/.config/metis/openrouter.env; h="Authorization: Bearer $OPENROUTER_API_KEY"
   k=$(curl -s https://openrouter.ai/api/v1/key -H "$h"); c=$(curl -s https://openrouter.ai/api/v1/credits -H "$h")
   python3 -c "import json,sys; k=json.loads(sys.argv[1])['data']; c=json.loads(sys.argv[2])['data']; l=k.get('limit_remaining'); a=c['total_credits']-c['total_usage']; print(round(min(a, l if l is not None else a), 2))" "$k" "$c" ); }
+case "${SITL_MIND:-openrouter:}" in
+  google:*) left() { echo 999; }; BUDGET=0                 # Gemini: the AI Studio key's quota, not OpenRouter's money
+            echo "release: mind $SITL_MIND (Gemini; OpenRouter not spent)";;
+esac
 before=$(left)
 python3 -c "import sys; sys.exit(0 if float('$before') >= float('$BUDGET') else 1)" ||
   { echo "release: \$$before can be spent, under the budget \$$BUDGET: add OpenRouter credit (or BUDGET=…)" >&2; exit 2; }
@@ -60,13 +66,22 @@ for i in $(seq 1 "$ROUNDS"); do
 done
 after=$(left)
 
-prev=$(ls -t "$CERTS"/*.json 2>/dev/null | head -1 || true)
-"$P" - "$TAG" "$ROUNDS" "$CAT" "${prev:-}" "$before" "$after" "$STACK" "$CERTS/$TAG.json" <<'PY'
+MIND=$("$P" -c "import sys; sys.path.insert(0, 'sitl'); import nina_proc; print(nina_proc.MIND)")
+# the band to meet: the newest certificate made with the same mind (another model's band says nothing of this one's)
+prev=$("$P" - "$CERTS" "$MIND" <<'PY'
+import json, sys
+from pathlib import Path
+cs = sorted(Path(sys.argv[1]).glob('*.json'), key=lambda p: p.stat().st_mtime, reverse=True)
+ok = lambda c: c.get('certified') and c.get('mind', 'openrouter:deepseek/deepseek-v4.1-flash') == sys.argv[2]
+print(next((str(p) for p in cs if ok(json.load(open(p)))), ''))   # a certified one only: a failed run sets no band
+PY
+)
+"$P" - "$TAG" "$ROUNDS" "$CAT" "${prev:-}" "$before" "$after" "$STACK" "$CERTS/$TAG.json" "$MIND" <<'PY'
 import json, statistics, subprocess, sys
 from pathlib import Path
 sys.path.insert(0, 'sitl')
 import real
-tag, rounds, cat, prev, before, after, stack, out = sys.argv[1:]
+tag, rounds, cat, prev, before, after, stack, out, mind = sys.argv[1:]
 rounds = int(rounds)
 home = ['sitl/runs/real/rel-%s-%d' % (tag, i) for i in range(1, rounds + 1)]
 tot = real.totals(real.table(home))
@@ -102,7 +117,7 @@ for d in sorted(Path(stack).glob('*/.git')) + sorted(Path(stack).glob('perotheia
     repo = d.parent
     refs[str(repo.relative_to(stack))] = subprocess.run(['git', '-C', str(repo), 'rev-parse', 'HEAD'], capture_output=True, text=True).stdout.strip()
 catalog = json.load(open(cat))
-cert = {'tag': tag, 'certified': catalog['certified'] and verdict == 'pass', 'refs': refs, 'catalog': catalog,
+cert = {'tag': tag, 'certified': catalog['certified'] and verdict == 'pass', 'mind': mind, 'refs': refs, 'catalog': catalog,
         'acceptance': {'rounds': rounds, 'band': band, 'against': Path(prev).stem if prev else None,
                        'gate': rows, 'verdict': verdict, 'scenarios': {k: {'checks': '%d/%d' % (v[0], v[1]), 'runs_all_pass': '%d/%d' % (v[2], rounds)} for k, v in sorted(per.items())}},
         'spent_usd': round(float(before) - float(after), 2)}
@@ -110,6 +125,12 @@ json.dump(cert, open(out, 'w'), indent=1)
 print('\n'.join(rows) or '(the first release: its band is the next one\'s)')
 for k, v in sorted(per.items()):
     print('%-22s checks %d/%d  runs all-pass %d/%d' % (k, v[0], v[1], v[2], rounds))
+if not cert['certified']:                # kept apart: the tag may be run again once mended, and sets no band
+    import time
+    Path(out).parent.joinpath('failed').mkdir(exist_ok=True)
+    out = str(Path(out).parent / 'failed' / ('%s.%s.json' % (tag, time.strftime('%Y%m%dT%H%M'))))
+    json.dump(cert, open(out, 'w'), indent=1)
+    Path(sys.argv[8]).unlink()
 print('certificate:', out, 'CERTIFIED' if cert['certified'] else 'NOT certified', '(spent $%.2f)' % cert['spent_usd'])
 sys.exit(0 if cert['certified'] else 1)
 PY

@@ -28,7 +28,18 @@ STACK = Path(os.environ.get('STACK', ROOT / '.stack'))  # Nina's own install (si
 NINA = STACK / 'acasa/bin/nina' if (STACK / 'acasa/bin/nina').exists() else STACK / 'nina-live/bin/nina'  # acasa's since step 1
 ACASA = STACK / 'acasa/live'
 HA_SIM = ROOT / 'sitl/ha-sim/ha-sim'
-MIND = 'openrouter:deepseek/deepseek-v4.1-flash'  # her minds on OpenRouter: no Gemini call in the SITL (the user)
+# her minds: SITL_MIND, PROVIDER:MODEL[,FALLBACK…]. OpenRouter's DeepSeek Flash by default (Gemini's free tier
+# throttled runs of many scenarios, 2026-11-27); google:… for the acceptance overnight (the user, 2026-11-28:
+# Gemini Flash with fallbacks on other Gemini models). Her tasks run on the same chain.
+MIND = os.environ.get('SITL_MIND', 'openrouter:deepseek/deepseek-v4.1-flash')
+GEMINI_KEY = HOME / '.config/fsttm/gemini.key'
+
+
+def mind_chain(mind=None):
+    """(provider, [models], key file) of a mind spec: the text mind's and her tasks'."""
+    p, _, ms = (mind or MIND).partition(':')
+    key = GEMINI_KEY if p == 'google' else HOME / '.config/nina/openrouter.env'
+    return p, [m.strip() for m in ms.split(',') if m.strip()], key
 
 
 def into_stack(v):
@@ -105,8 +116,11 @@ class Nina:
             core['home']['root'] = str(catalog)
         core['hass'] = {'url': ha_url, 'token': str(self.dir / 'token')}
         core['dialogue'] = str(self.dir / 'dialogue.yaml')
-        core['tasks'].update({'provider': 'openrouter', 'model': model, 'key': str(HOME / '.config/nina/openrouter.env'),
-                              'fallback': []})
+        prov, chain, key = mind_chain()
+        if prov == 'openrouter':                 # the default: model (DeepSeek Flash), as before
+            chain = [model]
+        core['tasks'].update({'provider': prov, 'model': chain[0], 'key': str(key),
+                              'fallback': [{'provider': prov, 'model': m, 'key': str(key)} for m in chain[1:]]})
         core['search'] = {'enabled': False}
         core['whatsapp'] = {'enabled': False}
         core['radar'] = False
@@ -121,7 +135,7 @@ class Nina:
         (self.dir / 'nina.yaml').write_text(yaml.safe_dump(core, sort_keys=False))
         dia = into_stack(yaml.safe_load((ACASA / 'pascal.yaml').read_text()))
         dia['models']['mind'] = MIND
-        dia['models']['mind_key'] = str(HOME / '.config/nina/openrouter.env')
+        dia['models']['mind_key'] = str(mind_chain()[2])
         dia['audio'].update({'device': 'none', 'channels': 1, 'speech': 0, 'ref': -1, 'out': 'null'})
         dia['dialog']['wake'] = {'mode': 'cloud'}
         dia['dialog']['start_asleep'] = False

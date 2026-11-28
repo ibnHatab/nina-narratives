@@ -2,7 +2,7 @@ scenario: repeat-every-minute
 about: A reminder that comes back every minute rings again and again, then is cancelled (W5).
 world_map: ../../../workspaces/home/world/home.map.json
 turns:
-- say: Remind me to stretch every minute.
+- say: Remind me to stretch every minute. Yes, really every single minute, I keep forgetting.
   want:
     route: timers
 - wait: 140

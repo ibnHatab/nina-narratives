@@ -1,0 +1,171 @@
+{
+ "tag": "v0.3.0",
+ "certified": false,
+ "refs": {
+  "acasa": "28f847d25802fcb7354a6ffdd8b41c447d10d06f",
+  "fsttm-live": "74d14191a60d6c8cd89e3b50706a55a98bbb04c8",
+  "nina-live": "d0efb1a7efe46be931707fba9b9d96b1b9aff6f4",
+  "nina-narratives": "eae83ac6a81608c997371288721f6fe47a183c87",
+  "perotheia-packages/metis-agent": "a8825713c227de5f1a04d6f8a826bb07b127734e",
+  "perotheia-packages/metis-lang": "e6b115099fc25d498d597e88fa3a482aa9136a48",
+  "perotheia-packages/metis-loop": "7013647c3ef47c65dfd03b9d6942c0bae3d2ce58",
+  "perotheia-packages/metis-worlds": "f1091e48d589b397758a37bade8ef0f67245c212"
+ },
+ "catalog": {
+  "level": "catalog",
+  "certified": true,
+  "catalog": "eae83ac",
+  "images": [
+   {
+    "dir": "devices",
+    "golden": "44f3a0c79987",
+    "built": "44f3a0c79987",
+    "ok": true
+   },
+   {
+    "dir": "workspaces/live/domains",
+    "golden": "b59b0a22abba",
+    "built": "b59b0a22abba",
+    "ok": true
+   }
+  ],
+  "scenarios": {
+   "same": 37
+  },
+  "tests": [
+   "4 passed in 0.01s"
+  ],
+  "metisc": "e6b1150"
+ },
+ "acceptance": {
+  "rounds": 3,
+  "band": {
+   "goal_met": {
+    "median": 24,
+    "min": 24,
+    "max": 25
+   },
+   "checks_ok": {
+    "median": 68,
+    "min": 68,
+    "max": 69
+   },
+   "checks_n": {
+    "median": 70,
+    "min": 70,
+    "max": 70
+   },
+   "route_ok": {
+    "median": 15,
+    "min": 15,
+    "max": 15
+   },
+   "route_n": {
+    "median": 17,
+    "min": 17,
+    "max": 17
+   },
+   "tool_calls": {
+    "median": 27,
+    "min": 26,
+    "max": 33
+   },
+   "refusals": {
+    "median": 5,
+    "min": 4,
+    "max": 6
+   },
+   "prompt_tokens": {
+    "median": 412441,
+    "min": 412429,
+    "max": 444186
+   },
+   "completion_tokens": {
+    "median": 6103,
+    "min": 5803,
+    "max": 6886
+   },
+   "surprises": {
+    "median": 1,
+    "min": 1,
+    "max": 1
+   },
+   "tasks": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "tasks_done": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "task_tool_calls": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "mcp_uncovered": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "errors": {
+    "median": 0,
+    "min": 0,
+    "max": 0
+   },
+   "latency_s": {
+    "median": 2.85,
+    "min": 2.73,
+    "max": 3.25
+   }
+  },
+  "against": null,
+  "gate": [],
+  "verdict": "fail",
+  "scenarios": {
+   "alarm-once": {
+    "checks": "12/12",
+    "runs_all_pass": "3/3"
+   },
+   "chat-not-kept": {
+    "checks": "3/3",
+    "runs_all_pass": "3/3"
+   },
+   "keep-again": {
+    "checks": "15/15",
+    "runs_all_pass": "3/3"
+   },
+   "keep-bring-up": {
+    "checks": "9/9",
+    "runs_all_pass": "3/3"
+   },
+   "keep-done": {
+    "checks": "9/9",
+    "runs_all_pass": "3/3"
+   },
+   "repeat-every-minute": {
+    "checks": "19/24",
+    "runs_all_pass": "2/3"
+   },
+   "repeat-weekdays": {
+    "checks": "12/12",
+    "runs_all_pass": "3/3"
+   },
+   "timed-not-kept": {
+    "checks": "3/3",
+    "runs_all_pass": "3/3"
+   },
+   "timer-rings-asleep": {
+    "checks": "18/18",
+    "runs_all_pass": "3/3"
+   },
+   "timer-rings-logged": {
+    "checks": "21/21",
+    "runs_all_pass": "3/3"
+   }
+  }
+ },
+ "spent_usd": 0.1
+}
