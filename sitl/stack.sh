@@ -24,7 +24,7 @@ clone() { # url dir default-branch
 }
 clone git@github.com:ibnHatab/nina-live.git nina-live main
 clone git@github.com:ibnHatab/fsttm-live.git fsttm-live main
-clone git@github.com:ibnHatab/acasa.git acasa main
+clone git@github.com:ibnHatab/nina-ha-integration.git acasa main   # the repo nina-ha-integration (was acasa), still in acasa/
 clone git@github.com:ibnHatab/nina-narratives.git nina-narratives main   # her rules: nina-live catalog/domains links into it (the redesign's step 2)
 clone git@github.com:metis-lang-dev/metis-lang.git perotheia-packages/metis-lang master
 clone git@github.com:metis-lang-dev/metis-loop.git perotheia-packages/metis-loop master
