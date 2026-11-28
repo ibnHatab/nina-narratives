@@ -16,8 +16,8 @@ The literature is the source, not the output of the rules. We author plausible a
 
 ## Related projects
 
-- [nina-live](https://github.com/ibnHatab/nina-live): operational agent, event log, semantic world and persona.
-- [nina-ha-integration](https://github.com/ibnHatab/nina-ha-integration) (was acasa): home integration and deployment.
+- [nina-live](https://github.com/nina-ai-dev/nina-live): operational agent, event log, semantic world and persona.
+- [nina-ha-integration](https://github.com/nina-ai-dev/nina-ha-integration) (was acasa): home integration and deployment.
 - [metis-catalog](https://github.com/metis-lang-dev/metis-catalog): shared symbolic domain packages.
 - [Claudia](https://claudia.gallery): creative inspiration; Nina is an original fictional character.
 

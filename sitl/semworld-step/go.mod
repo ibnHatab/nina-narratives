@@ -1,4 +1,4 @@
-module github.com/ibnHatab/nina-narratives/sitl/semworld-step
+module github.com/nina-ai-dev/nina-narratives/sitl/semworld-step
 
 go 1.24.0
 

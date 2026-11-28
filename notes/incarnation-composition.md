@@ -16,9 +16,9 @@ Read the relevant language, composition, qualification, namespace, port and inte
 - https://github.com/metis-lang-dev/metis-catalog
 
 The existing implementation in nina-live is a concrete starting point:
-- https://github.com/ibnHatab/nina-live/blob/main/catalog/domains/composition.yaml
-- https://github.com/ibnHatab/nina-live/blob/main/catalog/domains/iface/home.llp
-- https://github.com/ibnHatab/nina-live/tree/main/catalog/domains/director
+- https://github.com/nina-ai-dev/nina-live/blob/main/catalog/domains/composition.yaml
+- https://github.com/nina-ai-dev/nina-live/blob/main/catalog/domains/iface/home.llp
+- https://github.com/nina-ai-dev/nina-live/tree/main/catalog/domains/director
 
 The inspected home composition names `home`, declares `interfaces: [iface/home.llp]`, uses `direct: director`, `planner: scenes`, and includes lights, air, media, comfort, scenes, timers, agenda, music, habits, glow and persona. The interface declares distinct scene wishes for lights, air, media, timers, music and mood wishes for music/glow. These are examples of existing routing, not a claim that every new port already exists.
 

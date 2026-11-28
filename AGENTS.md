@@ -25,8 +25,8 @@ Use the actual upstream repositories as the source of truth, not invented syntax
 - [metis-loop](https://github.com/metis-lang-dev/metis-loop): rule proposal, refinement and validation gates.
 - [metis-agent](https://github.com/metis-lang-dev/metis-agent): runtime embedding and domain-agent integration.
 - [metis-worlds](https://github.com/metis-lang-dev/metis-worlds): semantic-world implementation and evidence/replay conventions.
-- [nina-live](https://github.com/ibnHatab/nina-live): target architecture, existing operational catalog and persona implementation.
-- [nina-ha-integration](https://github.com/ibnHatab/nina-ha-integration) (was acasa): Home Assistant integration.
+- [nina-live](https://github.com/nina-ai-dev/nina-live): target architecture, existing operational catalog and persona implementation.
+- [nina-ha-integration](https://github.com/nina-ai-dev/nina-ha-integration) (was acasa): Home Assistant integration.
 
 At startup locate the maintainer's existing local checkouts (including possible ~/metis siblings); do not assume an installation path. Read their AGENTS.md/README and relevant specs, check git revisions, and inspect the actual CLI help before running tests. If unavailable, report the missing dependency or obtain a read-only checkout with the maintainer's authorization. Do not modify upstream projects or the deployed Nina runtime from this workspace.
 
