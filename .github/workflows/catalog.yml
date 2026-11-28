@@ -54,7 +54,7 @@ jobs:
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ocaml-nox
           make -s -C perotheia-packages/metis-lang/src metisc
-      - name: metis-agent's Python (the loop's: no model libraries)
+      - name: metis-agent's Python, the loop's (no model libraries)
         run: |
           python -m venv venv
           venv/bin/pip install -q PyYAML==6.0.3 pytest==9.1.1 numpy==2.5.4 aiohttp==3.14.5
