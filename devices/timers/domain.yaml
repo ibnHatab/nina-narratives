@@ -1,13 +1,13 @@
-# Timers and reminders: countdowns at a word, and reminders for when the home changes its mode. The host is nina-live's (timers/).
+# Timers and reminders: countdowns and alarms at a word, ones that come back, and reminders for when the home changes its mode. The host is nina-live's (timers/).
 display: the timers
-line: "timers: countdowns and alarms at a word (an alarm at a clock time), and reminders for when the home goes away, to night or back home"
+line: "timers: countdowns and alarms at a word (an alarm at a clock time), ones that come back (every day, on weekdays, every so many minutes), and reminders for when the home goes away, to night or back home"
 voice: line
 program: timers.llp
 host: nina_world.host:timers   # the runtime's world host (interfaces/README.md): SITL sitl/nina_world, nina-live its own
 intent: {spec: intent.yaml}
 clock: {beats: 1, period: 1}
 records: records/
-commands: [set, remind_set, ring, remind, cancel, cancel_reminder]
+commands: [set, every_set, remind_set, ring, ring_every, remind, cancel, cancel_every, cancel_reminder]
 shared: {ask_timers: in}   # the home composition: a scene's wish (iface/home.llp)
 beliefs: {mode_b: {port: mode, one: M}}
 levels: {home_mode: {from: {belief: mode}, at: [0.5], names: ["no", "yes"]}}   # the home's mode/mood from the world (the scenes conclude it)

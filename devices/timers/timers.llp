@@ -1,9 +1,11 @@
-% Timers: countdowns, and reminders for when the home changes its mode (nina-live, 2026-11-24;
-% docs/DOMAINS.md: time and reminders, release 0.1). The rules keep each timer's lifecycle; the
-% host (nina-live timers/) keeps what the program cannot: the minutes, the subject and the
-% deadline, which come with the call as its payload. A slot is taken by the rules (free → running
-% or waiting), so two timers never share one; the host asserts due(T) when T's time has come, and
-% full when no slot is free, and retracts what lasts one beat (clearing, a scene's wish). One
+% Timers: countdowns and alarms, periodic ones, and reminders for when the home changes its mode (nina-live,
+% 2026-11-24; docs/DOMAINS.md: time and reminders, release 0.1). The rules keep each timer's lifecycle; the
+% host (nina-live timers/) keeps what the program cannot: the minutes, the subject and the time, which come
+% with the call as its payload. A slot is taken by the rules (free → counting, repeating or waiting), so two
+% timers never share one. The time is the semantic world's: the host sets an entry in the world's schedule
+% (one-shot, or periodic: a cron spec, a period), the world fires it on its own clock (the redesign's W5) and
+% the host asserts due(T) once for each firing; it asserts full when no slot is free, and retracts what lasts
+% one beat (clearing, a scene's wish). One
 % stage: a cycle of stage links would spin. A reminder waits for a scene: the director routes scenes' wish
 % the home's mode as the world holds it (home_mode, a level: the scenes conclude it), so "remind me when I leave"
 % fires while the mode is away (set while away already, at once).
@@ -19,14 +21,17 @@ type timers_act {timers}.
 
 pred free(timer) : home.
 pred counting(timer) : home.
+pred repeating(timer) : home.         % an alarm or a reminder that comes back (daily, on weekdays, every n minutes)
 pred waiting(timer, scene) : home.   % a reminder for when the home goes to its S mode
 pred ready(timer, scene) : home.     % … the home is in another mode now: it rings when the mode turns S
-pred due(timer) : home.              % the host: its time has come
+pred due(timer) : home.              % the host: its time has come (the world's schedule fired it)
 pred full : home.                    % the host: no slot is free
 pred held(timer) : home.             % the host, after a restart: a countdown it remembers
 pred held_for(timer, scene) : home.  % … a reminder it remembers
+pred held_every(timer) : home.       % … one that comes back
 
 pred cmd_timer : home.               % a countdown (its minutes and subject: the payload)
+pred cmd_every : home.               % one that comes back (its clock time and days, or its period; its subject)
 pred cmd_remind(scene) : home.       % a reminder for the S mode (its subject: the payload)
 pred cmd_timers_off : home.          % cancel them all
 pred cmd_timers_query : home.        % what is set
@@ -46,6 +51,10 @@ stage serve {
   set [dyn] : cmd_timer * free(T) -o counting(T) * started(T) * done(timers).
   %% I can't set another timer: all six are in use.
   set_full [dyn] : cmd_timer * $full -o refused(timers).
+  %% I set {T}; it comes back.
+  every_set [dyn] : cmd_every * free(T) -o repeating(T) * started(T) * done(timers).
+  %% I can't set another one: all six are in use.
+  every_full [dyn] : cmd_every * $full -o refused(timers).
   %% I'll remind you of {T} when the home goes to its {S} mode.
   remind_set [dyn] : cmd_remind(S) * free(T) -o waiting(T, S) * armed(T, S) * done(timers).
   %% I can't keep another reminder: all six slots are in use.
@@ -53,6 +62,8 @@ stage serve {
 
   %% Time's up: {T}.
   ring [dyn] : due(T) * counting(T) -o free(T) * rang(T).
+  %% Time's up: {T}. It comes back.
+  ring_every [dyn] : due(T) * $repeating(T) -o rang(T).
   %% The home is in another mode: the reminder rings when it turns {S}.
   arm [dyn] : $home_mode(yes, X) * waiting(T, S) * other(X, S) -o ready(T, S).
   %% Reminder: {T}.
@@ -62,6 +73,8 @@ stage serve {
   cancel_all [dyn] : cmd_timers_off -o clearing * done(timers).
   %% I cancel {T}.
   cancel [dyn] : $clearing * counting(T) -o free(T) * cancelled(T).
+  %% I cancel {T}, which came back.
+  cancel_every [dyn] : $clearing * repeating(T) -o free(T) * cancelled(T).
   %% I cancel the reminder of {T}.
   cancel_reminder [dyn] : $clearing * waiting(T, S) -o free(T) * cancelled(T).
   %% I cancel the reminder of {T}.
@@ -75,6 +88,8 @@ stage serve {
   restore [dyn] : held(T) * free(T) -o counting(T) * kept(T).
   %% The reminder of {T} carries on after a restart.
   restore_reminder [dyn] : held_for(T, S) * free(T) -o waiting(T, S) * kept(T).
+  %% {T} carries on after a restart, and comes back.
+  restore_every [dyn] : held_every(T) * free(T) -o repeating(T) * kept(T).
 }
 
 #init free(k1) 1
