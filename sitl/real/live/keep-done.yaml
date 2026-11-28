@@ -1,0 +1,15 @@
+scenario: keep-done
+about: 'Something kept, then done before the next conversation: forgotten, not brought up (W4: DONE closes the commitment, attention withdraws it).'
+world_map: ../../../workspaces/home/world/home.map.json
+live: true
+settle_s: 20
+turns:
+- say: Keep in mind for next time, I need to water the plants.
+  want: {route: keep_in_mind, kept_said_none: [plant]}
+- say: Actually I just watered the plants, you can forget about that.
+  want: {route: keep_in_mind, kept_said_none: [plant]}
+- do: sleep
+- say: Hello again Nina.
+  after_s: 15
+  want: {kept_said_none: [plant]}
+goal: {}

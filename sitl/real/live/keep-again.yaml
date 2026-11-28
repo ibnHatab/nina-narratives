@@ -1,0 +1,19 @@
+scenario: keep-again
+about: 'Brought up, then asked again: brought up at the conversation after (W4: AGAIN renews it).'
+world_map: ../../../workspaces/home/world/home.map.json
+live: true
+settle_s: 20
+turns:
+- say: Next time we talk, remind me to book the car service.
+  want: {route: keep_in_mind}
+- do: sleep
+- say: Good evening Nina.
+  after_s: 15
+  want: {kept_said: [car service], spoke_any: [car service]}
+- say: Not now. Remind me about the car service again next time.
+  want: {route: keep_in_mind, kept_said_none: [car service]}
+- do: sleep
+- say: Hi, I'm back.
+  after_s: 15
+  want: {kept_said: [car service], spoke_any: [car service]}
+goal: {}

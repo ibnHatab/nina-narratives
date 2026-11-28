@@ -1,0 +1,8 @@
+scenario: timed-not-kept
+about: 'A reminder at a time is the timers, not something kept for the next talk (no false report).'
+world_map: ../../../workspaces/home/world/home.map.json
+live: true
+turns:
+- say: Remind me in ten minutes to check the oven.
+  want: {route: timers, tools_none: [keep_in_mind]}
+goal: {}

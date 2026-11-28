@@ -1,0 +1,13 @@
+scenario: keep-bring-up
+about: 'The person hands Nina something to keep; she brings it up herself the next time they talk (W4: KEEP, the floor at the wake, attention speaks).'
+world_map: ../../../workspaces/home/world/home.map.json
+live: true
+settle_s: 20
+turns:
+- say: Next time we talk, remind me to call the plumber.
+  want: {route: keep_in_mind, kept_said_none: [plumber]}
+- do: sleep
+- say: Hi Nina, good morning.
+  after_s: 15
+  want: {kept_said: [plumber], spoke_any: [plumber]}
+goal: {}

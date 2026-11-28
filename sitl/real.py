@@ -76,11 +76,21 @@ class Pump(threading.Thread):
             time.sleep(0.2)
 
 
-def catalog_for(ws_map, run):
+def catalog_for(ws_map, run, live=False):
     cat = run / 'catalog'
     # domains is a link into nina-narratives since the redesign's step 2: copied through it
     shutil.copytree(NP.STACK / 'nina-live/catalog', cat, symlinks=False, ignore=shutil.ignore_patterns('.metis'))
     shutil.copy(ws_map, cat / 'world/home.map.json')
+    if live:   # the one catalog (the redesign's W4): the devices and the cognition under one director, built here
+        ws = NP.STACK / 'nina-narratives/workspaces/live/domains'
+        if not (ws / 'composition.yaml').exists():
+            raise RuntimeError('no live workspace in the stack (REF_NINA_NARRATIVES with workspaces/live): %s' % ws)
+        shutil.rmtree(cat / 'domains')
+        shutil.copytree(ws, cat / 'domains', symlinks=False, ignore=shutil.ignore_patterns('.metis', 'build'))
+        mc = NP.STACK / 'perotheia-packages/metis-lang/src/metisc'
+        r = subprocess.run([str(mc), 'build', '.'], cwd=cat / 'domains', capture_output=True, text=True)
+        if r.returncode:
+            raise RuntimeError('the live workspace does not build:\n' + (r.stdout + r.stderr)[-2000:])
     if not (cat / 'domains/composition.yaml').exists():   # a dangling domains link (no nina-narratives beside it)
         raise RuntimeError('the catalog has no domains: is nina-narratives cloned in the stack? (%s)' % NP.STACK)
     return cat
@@ -97,7 +107,7 @@ def tasks_finished(db):
         return 0, 0
 
 
-def run_one(sc_path, tag, sets=None, mcp=False):
+def run_one(sc_path, tag, sets=None, mcp=False, live=False):
     sc = yaml.safe_load(Path(sc_path).read_text())
     m_path = (Path(sc_path).parent / sc['world_map']).resolve()
     m = json.loads(m_path.read_text())
@@ -127,7 +137,7 @@ def run_one(sc_path, tag, sets=None, mcp=False):
                                                         'calendars': {'calendar.sim_nina': "Nina's calendar", 'calendar.sim_person': 'My calendar'}},
                          'weather': {'lat': 45.75, 'lon': 21.23, 'url': gf.url + '/metno'}}})
     sets = {k: yaml.safe_load(v) for k, v in (sets or {}).items()}   # true, 2, director: as YAML reads them
-    nina = NP.Nina(ha.url, TOKEN, run, catalog=catalog_for(m_path, run), core_extra=extra, core_sets=sets)
+    nina = NP.Nina(ha.url, TOKEN, run, catalog=catalog_for(m_path, run, live or sc.get('live', False)), core_extra=extra, core_sets=sets)
     pump = Pump(ha, house)
     pump.start()
     turns = []
@@ -155,6 +165,9 @@ def run_one(sc_path, tag, sets=None, mcp=False):
             elif 'set' in t:
                 house.apply(t['set'])
                 ha.ctl({'set': t['set']})
+            elif 'do' in t:   # a panel action: sleep ends the conversation (the next words open another)
+                nina.do(t['do'], t.get('arg', ''))
+                time.sleep(float(t.get('after_s', 3)))
         time.sleep(float(sc.get('settle_s', 8)))
     finally:
         pump.stop = True
@@ -201,6 +214,7 @@ def score(run):
     tools = [(at, d) for at, kd, d in dialog if kd == 'tool']
     usage = [(at, d) for at, kd, d in dialog if kd == 'mind_usage']
     tasks = [(at, kd, d) for _, at, st, kd, d in rows if st == 'task']
+    kept_says = [(at, d.get('words', '')) for _, at, st, kd, d in rows if st == 'cognition' and kd == 'say']
     out = {'scenario': rec['scenario'], 'run': str(run)}
     # per turn: the span from her typed words to the next typed words
     spans = []
@@ -239,6 +253,24 @@ def score(run):
         ptoks.append(sum(x.get('prompt_tokens', 0) for x in u))
         ctoks.append(sum(x.get('completion_tokens', 0) for x in u))
         ok, n = _checks(w, turn['ha_calls'], turn['she_said'], rec)
+        # every reply in the turn's span, her own turns too (a NOTE she says on a free floor: the cognition's)
+        spoke = _low([d.get('said') for at, d in done if t0 <= at < t1])
+        if w.get('spoke_any'):
+            n += 1
+            ok += any(re.search(x.lower(), spoke) for x in w['spoke_any'])
+        for x in w.get('spoke_none') or []:
+            n += 1
+            ok += not re.search(x.lower(), spoke)
+        for x in w.get('tools_none') or []:     # a tool not called in this turn (a false report: keep_in_mind)
+            n += 1
+            ok += not any(d.get('name') == x for d in ts)
+        said_kept = _low([words for at, words in kept_says if t0 <= at < t1])   # the cognition's own say (W4)
+        for x in w.get('kept_said') or []:
+            n += 1
+            ok += bool(re.search(x.lower(), said_kept))
+        for x in w.get('kept_said_none') or []:
+            n += 1
+            ok += not re.search(x.lower(), said_kept)
         turn_checks += ok
         turn_n += n
     ok, n = _checks(rec['goal'], rec['calls'], [x for t in rec['turns'] for x in t['she_said']], rec, tasks=tasks)
@@ -397,6 +429,7 @@ def main():
     r.add_argument('--tag', default=time.strftime('%Y%m%d-%H%M%S'))
     r.add_argument('--set', action='append', default=[], help='a core config switch: home.route=director, cards=two')
     r.add_argument('--mcp', action='store_true', help='Home Assistant only through MCP, the agenda and weather direct (fakes)')
+    r.add_argument('--live', action='store_true', help="the live workspace's one catalog (devices and cognition, W4)")
     r.add_argument('scenarios', nargs='+')
     s = sub.add_parser('score')
     s.add_argument('runs', nargs='+')
@@ -410,7 +443,7 @@ def main():
     if a.cmd == 'run':
         with cf.ThreadPoolExecutor(a.j) as ex:
             sets = dict(x.split('=', 1) for x in a.set)
-            futs = {ex.submit(run_one, p, a.tag, sets, a.mcp): p for p in a.scenarios}
+            futs = {ex.submit(run_one, p, a.tag, sets, a.mcp, a.live): p for p in a.scenarios}
             for f in cf.as_completed(futs):
                 try:
                     print(json.dumps(score(f.result())), flush=True)

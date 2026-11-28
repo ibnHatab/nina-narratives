@@ -1,0 +1,8 @@
+scenario: chat-not-kept
+about: 'Small talk is no report: nothing is kept (no false report).'
+world_map: ../../../workspaces/home/world/home.map.json
+live: true
+turns:
+- say: I had a long day at work today.
+  want: {tools_none: [keep_in_mind]}
+goal: {}
