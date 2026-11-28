@@ -1,4 +1,4 @@
-module github.com/ibnHatab/nina-narratives/sitl/ha-sim
+module github.com/nina-ai-dev/nina-narratives/sitl/ha-sim
 
 go 1.22.2
 
